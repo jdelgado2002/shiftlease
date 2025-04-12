@@ -1,6 +1,6 @@
-# Shiftease Landing Page
+# EasyShiftHQ Landing Page
 
-A modern, responsive landing page built with Next.js, TypeScript, and Tailwind CSS. This project serves as the front-facing website for Shiftease, featuring a beautiful UI with various interactive components.
+A modern, responsive landing page built with Next.js, TypeScript, and Tailwind CSS. This project serves as the front-facing website for EasyShiftHQ, featuring a beautiful UI with various interactive components.
 
 ## 🚀 Features
 
@@ -38,8 +38,8 @@ A modern, responsive landing page built with Next.js, TypeScript, and Tailwind C
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/toyiyo/shiftease-landing.git
-   cd shiftease-landing
+   git clone https://github.com/toyiyo/easyshifthq-landing.git
+   cd easyshifthq-landing
    ```
 
 2. Install dependencies:
@@ -66,7 +66,7 @@ A modern, responsive landing page built with Next.js, TypeScript, and Tailwind C
 ## 🏗️ Project Structure
 
 ```
-shiftease-landing/
+easyshifthq-landing/
 ├── app/                # Next.js app directory
 ├── components/         # Reusable UI components
 │   └── ui/            # Radix UI based components
@@ -93,4 +93,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-For any questions or support, please reach out to the maintainers. 
+For any questions or support, please reach out to the maintainers.

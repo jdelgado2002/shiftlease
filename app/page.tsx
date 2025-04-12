@@ -1,3 +1,6 @@
+'use client'
+
+import * as React from "react"
 import { ArrowRight, Clock, CalendarCheck, TrendingUp, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -11,7 +14,7 @@ export default function Home() {
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-2 items-center text-xl font-bold">
             <CalendarCheck className="h-6 w-6 text-emerald-600" />
-            <span>ShiftEase</span>
+            <span>EasyShiftHQ</span>
           </div>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <Button variant="outline" size="sm">
@@ -58,7 +61,7 @@ export default function Home() {
                   <div className="relative z-10 h-full flex flex-col justify-center items-center">
                     <CalendarCheck className="h-16 w-16 text-emerald-600 mb-4" />
                     <div className="text-center">
-                      <h3 className="text-xl font-bold">ShiftEase</h3>
+                      <h3 className="text-xl font-bold">EasyShiftHQ</h3>
                       <p className="text-sm text-gray-500 dark:text-gray-400">AI-Driven Restaurant Scheduling</p>
                     </div>
                   </div>
@@ -149,7 +152,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Introducing ShiftEase</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Introducing EasyShiftHQ</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   AI-enhanced scheduling designed specifically for multi-unit restaurant operators
                 </p>
@@ -201,7 +204,7 @@ export default function Home() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Business Impact</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Transform your restaurant operations with ShiftEase
+                  Transform your restaurant operations with EasyShiftHQ
                 </p>
               </div>
             </div>
@@ -237,7 +240,7 @@ export default function Home() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Join the Waitlist</h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Be the first to know when ShiftEase launches and get exclusive early access.
+                  Be the first to know when EasyShiftHQ launches and get exclusive early access.
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2">
@@ -249,7 +252,7 @@ export default function Home() {
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          © {new Date().getFullYear()} ShiftEase. All rights reserved.
+          © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">

@@ -9,7 +9,7 @@ export const metadata = {
   title: "ShiftEase - AI-Powered Restaurant Scheduling",
   description:
     "Save time, reduce costs, and optimize staffing with intelligent scheduling that adapts to your business needs.",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -27,6 +27,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'

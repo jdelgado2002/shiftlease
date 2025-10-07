@@ -1,14 +1,13 @@
 import type React from "react"
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "ShiftEase - AI-Powered Restaurant Scheduling",
+  title: "EasyShiftHQ - See Your Restaurant's True Profits — Every Day",
   description:
-    "Save time, reduce costs, and optimize staffing with intelligent scheduling that adapts to your business needs.",
+    "Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights — all automatically.",
     generator: 'v0.app'
 }
 
@@ -19,11 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

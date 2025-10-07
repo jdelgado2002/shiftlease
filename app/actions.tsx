@@ -64,9 +64,9 @@ async function sendAdminNotification(data: WaitlistFormData) {
     await resend.emails.send({
       from: process.env.SENDER_EMAIL_NOTIFICATIONS as string,
       to: process.env.ADMIN_EMAIL as string,
-      subject: "New ShiftEase Waitlist Signup",
+      subject: "New EasyShiftHQ Waitlist Signup",
       html: `
-        <h2>New ShiftEase Waitlist Signup</h2>
+        <h2>New EasyShiftHQ Waitlist Signup</h2>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Company:</strong> ${data.companyName}</p>
         <p><strong>Number of Locations:</strong> ${data.locationCount}</p>
@@ -83,14 +83,14 @@ async function sendUserConfirmation(email: string, companyName: string) {
     await resend.emails.send({
       from: process.env.SENDER_EMAIL_WELCOME as string,
       to: email,
-      subject: "Welcome to the ShiftEase Waitlist",
+      subject: "Welcome to the EasyShiftHQ Waitlist",
       html: `
-        <h2>Welcome to the ShiftEase Waitlist!</h2>
+        <h2>Welcome to the EasyShiftHQ Waitlist!</h2>
         <p>Hi ${companyName},</p>
-        <p>Thank you for joining the ShiftEase waitlist! We're excited to have you on board.</p>
+        <p>Thank you for joining the EasyShiftHQ waitlist! We're excited to have you on board.</p>
         <p>We're working hard to build the best AI-powered scheduling solution for multi-unit restaurant operators like you. We'll keep you updated on our progress and let you know as soon as early access is available.</p>
         <p>If you have any questions in the meantime, feel free to reply to this email.</p>
-        <p>Best regards,<br>The ShiftEase Team</p>
+        <p>Best regards,<br>The EasyShiftHQ Team</p>
       `,
     })
   } catch (error) {

@@ -59,7 +59,7 @@ export function WaitlistForm() {
         required
       />
       <Button type="submit" className="bg-emerald-600 hover:bg-emerald-700" disabled={isSubmitting}>
-        {isSubmitting ? "Submitting..." : "Join Waitlist"}
+        {isSubmitting ? "Submitting..." : "Get In Touch"}
       </Button>
     </form>
   )

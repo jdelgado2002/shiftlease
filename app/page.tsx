@@ -62,7 +62,7 @@ export default function Home() {
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                   See Your Restaurant's True Profits — Every Day
                 </h1>
-                <p className="max-w-[600px] text-gray-500 text-lg md:text-xl dark:text-gray-400">
+                <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl">
                   Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food
                   cost, labor %, and shrinkage insights — all automatically.
                 </p>
@@ -82,7 +82,7 @@ export default function Home() {
                     <Link href="#how-it-works">See How It Works</Link>
                   </Button>
                 </div>
-                <div className="flex items-center gap-4 text-sm text-gray-500">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Check className="h-4 w-4 text-emerald-600" />
                     <span>No Credit Card Required</span>
@@ -109,13 +109,13 @@ export default function Home() {
         </section>
 
         {/* Problem Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Your Data Is Scattered. Your Margins Are Disappearing.
               </h2>
-              <p className="max-w-[900px] text-gray-500 text-lg md:text-xl dark:text-gray-400">
+              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
                 If your sales data lives in one system, your supplier invoices in another, and your staff hours in a
                 third — you're not alone. Most operators spend hours juggling spreadsheets, still unsure where profits
                 go.
@@ -149,7 +149,7 @@ export default function Home() {
                   description: "Making menu and staffing decisions based on outdated data",
                 },
               ].map((problem, index) => (
-                <Card key={index} className="border-l-4 border-l-red-500">
+                <Card key={index} className="border-l-4 border-l-destructive">
                   <CardHeader>
                     <CardTitle className="text-lg">{problem.title}</CardTitle>
                     <CardDescription>{problem.description}</CardDescription>
@@ -176,7 +176,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 All Your Systems, Talking to Each Other — Finally
               </h2>
-              <p className="max-w-[900px] text-gray-500 text-lg md:text-xl dark:text-gray-400">
+              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
                 We connect your POS, labor, and inventory tools to create a live, accurate daily P&L.
               </p>
             </div>
@@ -186,7 +186,7 @@ export default function Home() {
               <div className="space-y-4">
                 <Badge className="bg-emerald-100 text-emerald-800">Unified Intelligence</Badge>
                 <h3 className="text-3xl font-bold">Disconnected Data → Unified Dashboard</h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400">
+                <p className="text-lg text-muted-foreground">
                   Sync sales, payments, shifts, and inventory into one source of truth.
                 </p>
                 <div className="space-y-3">
@@ -204,7 +204,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-white dark:bg-gray-950">
+              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-card">
                 <Image
                   src="/images/dashboard-new.png"
                   alt="Unified Dashboard"
@@ -217,7 +217,7 @@ export default function Home() {
 
             {/* Feature 2: Inventory Accuracy */}
             <div className="grid gap-12 lg:grid-cols-2 items-center mb-24">
-              <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border shadow-xl bg-white dark:bg-gray-950">
+              <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border shadow-xl bg-card">
                 <Image
                   src="/images/scanner.png"
                   alt="Inventory Scanner"
@@ -229,9 +229,7 @@ export default function Home() {
               <div className="space-y-4 order-1 lg:order-2">
                 <Badge className="bg-emerald-100 text-emerald-800">Daily Accuracy</Badge>
                 <h3 className="text-3xl font-bold">Inventory Blind Spots → Daily Accuracy</h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400">
-                  Barcode or Bluetooth scanning + AI variance reports.
-                </p>
+                <p className="text-lg text-muted-foreground">Barcode or Bluetooth scanning + AI variance reports.</p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
@@ -254,9 +252,7 @@ export default function Home() {
               <div className="space-y-4">
                 <Badge className="bg-emerald-100 text-emerald-800">Recipe Intelligence</Badge>
                 <h3 className="text-3xl font-bold">Unclear Food Costs → Recipe-Level Profitability</h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400">
-                  POS-linked recipes that auto-update ingredient prices.
-                </p>
+                <p className="text-lg text-muted-foreground">POS-linked recipes that auto-update ingredient prices.</p>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
@@ -272,7 +268,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-white dark:bg-gray-950">
+              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-card">
                 <Image
                   src="/images/recipes.png"
                   alt="Recipe Management"
@@ -285,7 +281,7 @@ export default function Home() {
 
             {/* Feature 4: Variance Intelligence */}
             <div className="grid gap-12 lg:grid-cols-2 items-center mb-24">
-              <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border shadow-xl bg-white dark:bg-gray-950">
+              <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border shadow-xl bg-card">
                 <Image
                   src="/images/variance-report.png"
                   alt="Variance Intelligence"
@@ -297,7 +293,7 @@ export default function Home() {
               <div className="space-y-4 order-1 lg:order-2">
                 <Badge className="bg-emerald-100 text-emerald-800">Actionable Accountability</Badge>
                 <h3 className="text-3xl font-bold">Shrink & Waste → Actionable Accountability</h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400">
+                <p className="text-lg text-muted-foreground">
                   AI flags high-variance items and suggests corrective actions.
                 </p>
                 <div className="space-y-3">
@@ -322,7 +318,7 @@ export default function Home() {
               <div className="space-y-4">
                 <Badge className="bg-emerald-100 text-emerald-800">Seamless Connections</Badge>
                 <h3 className="text-3xl font-bold">Manual Workflows → Automated Accuracy</h3>
-                <p className="text-lg text-gray-500 dark:text-gray-400">
+                <p className="text-lg text-muted-foreground">
                   Connect with Square, Toast, 7shifts, and more. Data syncs automatically in real-time.
                 </p>
                 <div className="space-y-3">
@@ -340,7 +336,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-white dark:bg-gray-950">
+              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-card">
                 <Image
                   src="/images/integrations.png"
                   alt="Integrations"
@@ -354,14 +350,14 @@ export default function Home() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <Badge className="bg-emerald-100 text-emerald-800">Simple, Transparent Pricing</Badge>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Pricing That Scales With Your Business
               </h2>
-              <p className="max-w-[900px] text-gray-500 text-lg md:text-xl dark:text-gray-400">
+              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
                 Start with a free trial. Pay less per location as you grow. No setup fees, no hidden costs.
               </p>
             </div>
@@ -375,9 +371,9 @@ export default function Home() {
                   <div className="mt-4">
                     <div className="flex items-baseline gap-2">
                       <span className="text-4xl font-bold">$49.99</span>
-                      <span className="text-gray-500">/month</span>
+                      <span className="text-muted-foreground">/month</span>
                     </div>
-                    <div className="text-sm text-gray-500 mt-1">or $490/year (save $110)</div>
+                    <div className="text-sm text-muted-foreground mt-1">or $490/year (save $110)</div>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -434,9 +430,9 @@ export default function Home() {
                   <div className="mt-4">
                     <div className="flex items-baseline gap-2">
                       <span className="text-4xl font-bold">$39.99</span>
-                      <span className="text-gray-500">/location/month</span>
+                      <span className="text-muted-foreground">/location/month</span>
                     </div>
-                    <div className="text-sm text-gray-500 mt-1">or $390/location/year (save $90)</div>
+                    <div className="text-sm text-muted-foreground mt-1">or $390/location/year (save $90)</div>
                     <div className="text-sm font-semibold text-emerald-600 mt-2">2-3 locations</div>
                   </div>
                 </CardHeader>
@@ -487,9 +483,9 @@ export default function Home() {
                   <div className="mt-4">
                     <div className="flex items-baseline gap-2">
                       <span className="text-4xl font-bold">$29.99</span>
-                      <span className="text-gray-500">/location/month</span>
+                      <span className="text-muted-foreground">/location/month</span>
                     </div>
-                    <div className="text-sm text-gray-500 mt-1">or $290/location/year (save $70)</div>
+                    <div className="text-sm text-muted-foreground mt-1">or $290/location/year (save $70)</div>
                     <div className="text-sm font-semibold text-emerald-600 mt-2">4+ locations</div>
                   </div>
                 </CardHeader>
@@ -546,28 +542,28 @@ export default function Home() {
                 <CardContent className="space-y-6">
                   <div>
                     <h4 className="font-semibold mb-2">What's included in the free trial?</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-muted-foreground">
                       Full access to all features for 14 days. No credit card required to start. Connect your systems
                       and experience the platform risk-free.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Can I switch plans later?</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-muted-foreground">
                       Yes! Upgrade or downgrade anytime. Your pricing automatically adjusts based on your number of
                       active locations.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Are there any setup fees or long-term contracts?</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-muted-foreground">
                       No setup fees, no hidden costs, no long-term contracts. Pay monthly or save with annual billing.
                       Cancel anytime.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">What integrations are included?</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-muted-foreground">
                       All plans include integrations with major POS systems (Square, Toast, Clover), scheduling tools
                       (7shifts, When I Work), and accounting software. Enterprise plans can request custom integrations.
                     </p>
@@ -664,19 +660,19 @@ export default function Home() {
         </section>
 
         {/* Social Proof / Results */}
-        <section id="proof" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        <section id="proof" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 From Spreadsheet Chaos to Profit Clarity
               </h2>
-              <p className="max-w-[900px] text-gray-500 text-lg md:text-xl dark:text-gray-400">
+              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
                 Restaurants using our unified data platform have seen remarkable results
               </p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto mb-12">
-              <Card className="text-center border-emerald-200 dark:border-emerald-900">
+              <Card className="text-center border-emerald-200">
                 <CardHeader>
                   <div className="text-5xl font-bold text-emerald-600 mb-2">18%</div>
                   <CardTitle>Inventory Loss Reduction</CardTitle>
@@ -686,7 +682,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center border-emerald-200 dark:border-emerald-900">
+              <Card className="text-center border-emerald-200">
                 <CardHeader>
                   <div className="text-5xl font-bold text-emerald-600 mb-2">10+</div>
                   <CardTitle>Hours Saved Per Week</CardTitle>
@@ -696,7 +692,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center border-emerald-200 dark:border-emerald-900">
+              <Card className="text-center border-emerald-200">
                 <CardHeader>
                   <div className="text-5xl font-bold text-emerald-600 mb-2">3-5%</div>
                   <CardTitle>Margin Improvement</CardTitle>
@@ -711,18 +707,18 @@ export default function Home() {
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
                       <span className="text-xl font-bold text-emerald-600">SJ</span>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-lg italic text-gray-700 dark:text-gray-300">
+                    <p className="text-lg italic text-foreground">
                       "We used to wait weeks for our accountant's reports. Now we see daily profits before lunch. This
                       platform helped us identify a 12% food cost variance we never knew existed."
                     </p>
                     <div>
                       <p className="font-semibold">Sarah Johnson</p>
-                      <p className="text-sm text-gray-500">Multi-Unit Operator, Chicago</p>
+                      <p className="text-sm text-muted-foreground">Multi-Unit Operator, Chicago</p>
                     </div>
                   </div>
                 </div>
@@ -746,7 +742,7 @@ export default function Home() {
                   1
                 </div>
                 <h3 className="text-2xl font-bold">Connect Your Tools</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   Link your POS, labor scheduling, and accounting systems with one-click integrations
                 </p>
               </div>
@@ -756,7 +752,7 @@ export default function Home() {
                   2
                 </div>
                 <h3 className="text-2xl font-bold">Set Up Your Recipes</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   Import your menu items and recipes. Our AI helps match them to your POS data
                 </p>
               </div>
@@ -766,7 +762,7 @@ export default function Home() {
                   3
                 </div>
                 <h3 className="text-2xl font-bold">Start Saving Money</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   Watch your dashboard populate with real-time insights. Start making data-driven decisions today
                 </p>
               </div>
@@ -789,7 +785,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA / Contact Form */}
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="grid gap-12 lg:grid-cols-2 items-center">
               <div className="space-y-6">
@@ -797,25 +793,25 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Stop Losing Money to Guesswork
                 </h2>
-                <p className="text-gray-500 text-lg md:text-xl dark:text-gray-400">
+                <p className="text-muted-foreground text-lg md:text-xl">
                   Join hundreds of restaurant operators who've taken control of their margins with real-time data and
                   AI-powered insights.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
                       <Check className="h-5 w-5 text-emerald-600" />
                     </div>
                     <p className="text-lg">Free 14-day trial — no credit card required</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
                       <Check className="h-5 w-5 text-emerald-600" />
                     </div>
                     <p className="text-lg">Set up in 15 minutes with guided onboarding</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
                       <Check className="h-5 w-5 text-emerald-600" />
                     </div>
                     <p className="text-lg">Cancel anytime — no commitments, no hassle</p>
@@ -858,7 +854,7 @@ export default function Home() {
       <footer className="w-full border-t py-6">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
             </p>
             <nav className="flex gap-4 sm:gap-6">

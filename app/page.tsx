@@ -858,13 +858,10 @@ export default function Home() {
               © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
             </p>
             <nav className="flex gap-4 sm:gap-6">
-              <Link className="text-xs hover:underline underline-offset-4" href="#">
-                Terms of Service
-              </Link>
-              <Link className="text-xs hover:underline underline-offset-4" href="#">
+              <Link className="text-xs hover:underline underline-offset-4" href="/privacy">
                 Privacy Policy
               </Link>
-              <Link className="text-xs hover:underline underline-offset-4" href="#">
+              <Link className="text-xs hover:underline underline-offset-4" href="mailto:contact@easyshifthq.com">
                 Contact
               </Link>
             </nav>

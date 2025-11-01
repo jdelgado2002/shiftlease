@@ -8,6 +8,9 @@ export const metadata = {
   title: "EasyShiftHQ - See Your Restaurant's True Profits — Every Day",
   description:
     "Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights — all automatically.",
+  icons: {
+    icon: "/favicon.svg",
+  },
     generator: 'v0.app'
 }
 

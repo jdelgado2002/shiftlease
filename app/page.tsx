@@ -1,14 +1,4 @@
-import {
-  ArrowRight,
-  BarChart3,
-  CalendarCheck,
-  Check,
-  DollarSign,
-  Link2,
-  PackageSearch,
-  TrendingUp,
-  Users,
-} from "lucide-react"
+import { ArrowRight, BarChart3, CalendarCheck, Check, DollarSign, Link2, PackageSearch, TrendingUp, Users } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -355,180 +345,108 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <Badge className="bg-emerald-100 text-emerald-800">Simple, Transparent Pricing</Badge>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Pricing That Scales With Your Business
+                One Simple Price. One Powerful Platform.
               </h2>
               <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
-                Start with a free trial. Pay less per location as you grow. No setup fees, no hidden costs.
+                $199/month per location. Start with a free trial. No setup fees, no hidden costs, no long-term contracts.
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto mb-12">
-              {/* Single Location Plan */}
-              <Card className="relative">
+            {/* Main Pricing Card */}
+            <div className="max-w-2xl mx-auto mb-12">
+              <Card className="border-2 border-emerald-600 shadow-xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Single Location</CardTitle>
-                  <CardDescription>Perfect for independent restaurants</CardDescription>
-                  <div className="mt-4">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold">$49.99</span>
-                      <span className="text-muted-foreground">/month</span>
-                    </div>
-                    <div className="text-sm text-muted-foreground mt-1">or $490/year (save $110)</div>
+                  <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                    <Badge className="bg-emerald-600 text-white px-6 py-1">Pay Per Location</Badge>
                   </div>
+                  <CardTitle className="text-3xl text-center mt-2">$199/month</CardTitle>
+                  <CardDescription className="text-center text-base">
+                    or $1,990/year (save $398)
+                  </CardDescription>
+                  <p className="text-center text-sm text-muted-foreground mt-2">
+                    Per restaurant location, billed monthly or annually
+                  </p>
                 </CardHeader>
                 <CardContent>
-                  <Button className="w-full mb-6 bg-emerald-600 hover:bg-emerald-700" asChild>
+                  <Button className="w-full mb-8 bg-emerald-600 hover:bg-emerald-700 text-base h-12" asChild>
                     <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Start Free Trial
+                      Start Your Free Trial
                     </Link>
                   </Button>
                   <div className="space-y-3">
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">1 restaurant location</span>
+                      <span>Unlimited users per location</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Unlimited users</span>
+                      <span>Real-time daily P&L</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Real-time daily P&L</span>
+                      <span>Recipe costing & management</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Recipe costing & management</span>
+                      <span>Inventory tracking & variance reports</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Inventory tracking & variance reports</span>
+                      <span>POS & labor integrations</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">POS & labor integrations</span>
+                      <span>AI-powered insights & alerts</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">AI-powered insights</span>
+                      <span>Email support</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Email support</span>
+                      <span>Cross-location analytics (for multi-unit)</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                      <span>Dedicated onboarding assistance</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
+            </div>
 
-              {/* Multi-Unit Plan */}
-              <Card className="relative border-2 border-emerald-600 shadow-xl">
-                <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                  <Badge className="bg-emerald-600 text-white px-6 py-1">Most Popular</Badge>
-                </div>
+            {/* Pricing Scale Example */}
+            <div className="max-w-3xl mx-auto mb-12">
+              <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Multi-Unit</CardTitle>
-                  <CardDescription>For growing restaurant groups</CardDescription>
-                  <div className="mt-4">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold">$39.99</span>
-                      <span className="text-muted-foreground">/location/month</span>
-                    </div>
-                    <div className="text-sm text-muted-foreground mt-1">or $390/location/year (save $90)</div>
-                    <div className="text-sm font-semibold text-emerald-600 mt-2">2-3 locations</div>
-                  </div>
+                  <CardTitle>Multi-Location Pricing Example</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Button className="w-full mb-6 bg-emerald-600 hover:bg-emerald-700" asChild>
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Start Free Trial
-                    </Link>
-                  </Button>
                   <div className="space-y-3">
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">2-3 restaurant locations</span>
+                    <div className="flex justify-between items-center pb-2 border-b">
+                      <span>1 location</span>
+                      <span className="font-semibold">$199/month</span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Everything in Single Location</span>
+                    <div className="flex justify-between items-center pb-2 border-b">
+                      <span>2 locations</span>
+                      <span className="font-semibold">$398/month</span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Cross-location analytics</span>
+                    <div className="flex justify-between items-center pb-2 border-b">
+                      <span>3 locations</span>
+                      <span className="font-semibold">$597/month</span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Consolidated reporting</span>
+                    <div className="flex justify-between items-center pb-2 border-b">
+                      <span>5 locations</span>
+                      <span className="font-semibold">$995/month</span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Inter-location transfers</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Priority email support</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Onboarding assistance</span>
+                    <div className="flex justify-between items-center pt-2">
+                      <span>10 locations</span>
+                      <span className="font-semibold">$1,990/month</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Enterprise Plan */}
-              <Card className="relative">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Enterprise</CardTitle>
-                  <CardDescription>For established restaurant chains</CardDescription>
-                  <div className="mt-4">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-4xl font-bold">$29.99</span>
-                      <span className="text-muted-foreground">/location/month</span>
-                    </div>
-                    <div className="text-sm text-muted-foreground mt-1">or $290/location/year (save $70)</div>
-                    <div className="text-sm font-semibold text-emerald-600 mt-2">4+ locations</div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full mb-6 bg-emerald-600 hover:bg-emerald-700" asChild>
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Start Free Trial
-                    </Link>
-                  </Button>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">4+ restaurant locations</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Everything in Multi-Unit</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Advanced analytics & benchmarking</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Custom reporting</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">API access</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Dedicated account manager</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Phone & priority support</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">Custom integrations available</span>
-                    </div>
-                  </div>
+                  <p className="text-sm text-muted-foreground mt-4">
+                    *All locations get the same premium features. No per-seat or per-transaction fees.
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -548,24 +466,25 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Can I switch plans later?</h4>
+                    <h4 className="font-semibold mb-2">How does multi-location billing work?</h4>
                     <p className="text-sm text-muted-foreground">
-                      Yes! Upgrade or downgrade anytime. Your pricing automatically adjusts based on your number of
-                      active locations.
+                      Simple: $199 per location per month. Add a new location anytime and only pay for what you use.
+                      Share analytics across all your locations with no additional fees.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Are there any setup fees or long-term contracts?</h4>
                     <p className="text-sm text-muted-foreground">
-                      No setup fees, no hidden costs, no long-term contracts. Pay monthly or save with annual billing.
-                      Cancel anytime.
+                      No setup fees, no hidden costs, no long-term contracts. Pay monthly or save 2 months with annual
+                      billing. Cancel anytime.
                     </p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">What integrations are included?</h4>
                     <p className="text-sm text-muted-foreground">
-                      All plans include integrations with major POS systems (Square, Toast, Clover), scheduling tools
-                      (7shifts, When I Work), and accounting software. Enterprise plans can request custom integrations.
+                      All integrations are included with every plan: POS systems (Square, Toast, Clover), scheduling
+                      tools (7shifts, When I Work), inventory systems, and accounting software. Enterprise integrations
+                      available upon request.
                     </p>
                   </div>
                 </CardContent>

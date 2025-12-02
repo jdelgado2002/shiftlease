@@ -1,38 +1,45 @@
-import { ArrowRight, BarChart3, CalendarCheck, Check, DollarSign, Link2, PackageSearch, TrendingUp, Users } from 'lucide-react'
+import {
+  ArrowRight,
+  CalendarCheck,
+  Check,
+  DollarSign,
+  PackageSearch,
+  Users,
+  Zap,
+  Target,
+  LineChart,
+} from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { WaitlistForm } from "@/components/waitlist-form"
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex gap-2 items-center text-xl font-bold">
-            <CalendarCheck className="h-6 w-6 text-emerald-600" />
+          <div className="flex gap-2 items-center text-xl font-semibold tracking-tight">
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
+              <CalendarCheck className="h-4 w-4 text-primary-foreground" />
+            </div>
             <span>EasyShiftHQ</span>
           </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="#features" className="hover:text-emerald-600 transition-colors">
-              Features
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <Link href="#problems" className="text-muted-foreground hover:text-foreground transition-colors">
+              The Problem
             </Link>
-            <Link href="#pricing" className="hover:text-emerald-600 transition-colors">
+            <Link href="#solution" className="text-muted-foreground hover:text-foreground transition-colors">
+              Solution
+            </Link>
+            <Link href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
               Pricing
             </Link>
-            <Link href="#how-it-works" className="hover:text-emerald-600 transition-colors">
+            <Link href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
               How It Works
             </Link>
-            <Link href="#proof" className="hover:text-emerald-600 transition-colors">
-              Results
-            </Link>
-            <Link href="#contact" className="hover:text-emerald-600 transition-colors">
-              Contact
-            </Link>
           </nav>
-          <Button className="bg-emerald-600 hover:bg-emerald-700" asChild>
+          <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>
             <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
               Start Free Trial
             </Link>
@@ -41,660 +48,429 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 items-center">
-              <div className="flex flex-col justify-center space-y-6">
-                <Badge className="w-fit bg-emerald-100 text-emerald-800 hover:bg-emerald-100">
-                  Trusted by Growing Restaurant Groups
-                </Badge>
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                  See Your Restaurant's True Profits — Every Day
-                </h1>
-                <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl">
-                  Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food
-                  cost, labor %, and shrinkage insights — all automatically.
-                </p>
-                <div className="flex flex-col gap-3 min-[400px]:flex-row">
-                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700" asChild>
-                    <Link
-                      href="https://app.easyshifthq.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center"
-                    >
-                      Start Your Free Trial
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="#how-it-works">See How It Works</Link>
-                  </Button>
-                </div>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <Check className="h-4 w-4 text-emerald-600" />
-                    <span>No Credit Card Required</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Check className="h-4 w-4 text-emerald-600" />
-                    <span>15-Minute Setup</span>
-                  </div>
-                </div>
-              </div>
-              <div className="relative rounded-xl overflow-hidden border shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent" />
-                <Image
-                  src="/images/dashboard-new.png"
-                  alt="EasyShiftHQ Dashboard"
-                  width={1200}
-                  height={800}
-                  className="relative w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Problem Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Your Data Is Scattered. Your Margins Are Disappearing.
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
-                If your sales data lives in one system, your supplier invoices in another, and your staff hours in a
-                third — you're not alone. Most operators spend hours juggling spreadsheets, still unsure where profits
-                go.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-              {[
-                {
-                  title: "Disconnected Data Systems",
-                  description: "POS, labor, and inventory tools don't talk to each other",
-                },
-                {
-                  title: "Manual Inventory Counts",
-                  description: "Hours spent on spreadsheets with missing or inaccurate items",
-                },
-                {
-                  title: "Recipe Costs Out of Sync",
-                  description: "Ingredient prices change but your menu costs don't update",
-                },
-                {
-                  title: "Untracked Labor & Waste",
-                  description: "No visibility into your true prime cost until it's too late",
-                },
-                {
-                  title: "Delayed Reports",
-                  description: "Waiting weeks for accountants to tell you what happened last month",
-                },
-                {
-                  title: "Reactive Decisions",
-                  description: "Making menu and staffing decisions based on outdated data",
-                },
-              ].map((problem, index) => (
-                <Card key={index} className="border-l-4 border-l-destructive">
-                  <CardHeader>
-                    <CardTitle className="text-lg">{problem.title}</CardTitle>
-                    <CardDescription>{problem.description}</CardDescription>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-12">
-              <Button size="lg" variant="outline" asChild>
-                <Link href="#features">
-                  See How We Solve This
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Solution Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                All Your Systems, Talking to Each Other — Finally
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
-                We connect your POS, labor, and inventory tools to create a live, accurate daily P&L.
-              </p>
-            </div>
-
-            {/* Feature 1: Unified Dashboard */}
-            <div className="grid gap-12 lg:grid-cols-2 items-center mb-24">
-              <div className="space-y-4">
-                <Badge className="bg-emerald-100 text-emerald-800">Unified Intelligence</Badge>
-                <h3 className="text-3xl font-bold">Disconnected Data → Unified Dashboard</h3>
-                <p className="text-lg text-muted-foreground">
-                  Sync sales, payments, shifts, and inventory into one source of truth.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>See COGS, labor, and profit in real time — not weeks later</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>AI-powered insights highlight critical issues before they become problems</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Track performance trends across all your locations</p>
-                  </div>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-card">
-                <Image
-                  src="/images/dashboard-new.png"
-                  alt="Unified Dashboard"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Feature 2: Inventory Accuracy */}
-            <div className="grid gap-12 lg:grid-cols-2 items-center mb-24">
-              <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border shadow-xl bg-card">
-                <Image
-                  src="/images/scanner.png"
-                  alt="Inventory Scanner"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <div className="space-y-4 order-1 lg:order-2">
-                <Badge className="bg-emerald-100 text-emerald-800">Daily Accuracy</Badge>
-                <h3 className="text-3xl font-bold">Inventory Blind Spots → Daily Accuracy</h3>
-                <p className="text-lg text-muted-foreground">Barcode or Bluetooth scanning + AI variance reports.</p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Instantly detect shrinkage and waste trends</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Automated reorder alerts prevent stockouts</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>OCR invoice scanning eliminates manual data entry</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Feature 3: Recipe Profitability */}
-            <div className="grid gap-12 lg:grid-cols-2 items-center mb-24">
-              <div className="space-y-4">
-                <Badge className="bg-emerald-100 text-emerald-800">Recipe Intelligence</Badge>
-                <h3 className="text-3xl font-bold">Unclear Food Costs → Recipe-Level Profitability</h3>
-                <p className="text-lg text-muted-foreground">POS-linked recipes that auto-update ingredient prices.</p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Know your food cost % and profit margin daily</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Track recipe profitability by menu item</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Automatic cost updates when supplier prices change</p>
-                  </div>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-card">
-                <Image
-                  src="/images/recipes.png"
-                  alt="Recipe Management"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Feature 4: Variance Intelligence */}
-            <div className="grid gap-12 lg:grid-cols-2 items-center mb-24">
-              <div className="order-2 lg:order-1 relative rounded-lg overflow-hidden border shadow-xl bg-card">
-                <Image
-                  src="/images/variance-report.png"
-                  alt="Variance Intelligence"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <div className="space-y-4 order-1 lg:order-2">
-                <Badge className="bg-emerald-100 text-emerald-800">Actionable Accountability</Badge>
-                <h3 className="text-3xl font-bold">Shrink & Waste → Actionable Accountability</h3>
-                <p className="text-lg text-muted-foreground">
-                  AI flags high-variance items and suggests corrective actions.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Reduce waste and theft with measurable improvements</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Track variance trends over time</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Get specific recommendations to improve accuracy</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Feature 5: Integrations */}
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div className="space-y-4">
-                <Badge className="bg-emerald-100 text-emerald-800">Seamless Connections</Badge>
-                <h3 className="text-3xl font-bold">Manual Workflows → Automated Accuracy</h3>
-                <p className="text-lg text-muted-foreground">
-                  Connect with Square, Toast, 7shifts, and more. Data syncs automatically in real-time.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Less admin, fewer errors, faster updates</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>One-click setup for all major restaurant tools</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
-                    <p>Real-time sync keeps everything up to date</p>
-                  </div>
-                </div>
-              </div>
-              <div className="relative rounded-lg overflow-hidden border shadow-xl bg-card">
-                <Image
-                  src="/images/integrations.png"
-                  alt="Integrations"
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <Badge className="bg-emerald-100 text-emerald-800">Simple, Transparent Pricing</Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                One Simple Price. One Powerful Platform.
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
-                $199/month per location. Start with a free trial. No setup fees, no hidden costs, no long-term contracts.
-              </p>
-            </div>
-
-            {/* Main Pricing Card */}
-            <div className="max-w-2xl mx-auto mb-12">
-              <Card className="border-2 border-emerald-600 shadow-xl">
-                <CardHeader>
-                  <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                    <Badge className="bg-emerald-600 text-white px-6 py-1">Pay Per Location</Badge>
-                  </div>
-                  <CardTitle className="text-3xl text-center mt-2">$199/month</CardTitle>
-                  <CardDescription className="text-center text-base">
-                    or $1,990/year (save $398)
-                  </CardDescription>
-                  <p className="text-center text-sm text-muted-foreground mt-2">
-                    Per restaurant location, billed monthly or annually
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+                <div className="flex-1 space-y-8">
+                  <p className="text-sm font-medium text-primary tracking-wide uppercase">
+                    Profit Clarity for Restaurant Operators
                   </p>
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-balance">
+                    Stop Guessing.
+                    <br />
+                    <span className="text-muted-foreground">Start Knowing.</span>
+                  </h1>
+                  <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                    See your real profits — every day. Not weeks later when it's too late to fix anything.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <Button
+                      size="lg"
+                      className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
+                      asChild
+                    >
+                      <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                        Get started — it's free
+                      </Link>
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="rounded-full h-14 px-8 text-base border-border bg-transparent"
+                      asChild
+                    >
+                      <Link href="#how-it-works">See How It Works</Link>
+                    </Button>
+                  </div>
+                  <div className="flex items-center gap-6 text-sm text-muted-foreground pt-2">
+                    <div className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>No credit card required</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>15-minute setup</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full border-y border-border bg-card">
+          <div className="container px-4 md:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+              <div className="py-10 px-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">18%</div>
+                <p className="text-sm text-muted-foreground mt-1">Inventory loss reduction</p>
+              </div>
+              <div className="py-10 px-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">10+</div>
+                <p className="text-sm text-muted-foreground mt-1">Hours saved per week</p>
+              </div>
+              <div className="py-10 px-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">3-5%</div>
+                <p className="text-sm text-muted-foreground mt-1">Margin improvement</p>
+              </div>
+              <div className="py-10 px-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">15 min</div>
+                <p className="text-sm text-muted-foreground mt-1">Setup time</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="problems" className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-3xl mx-auto mb-16">
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">The Problem</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance">
+                Your Business Is Speaking. Your Systems Aren't Listening.
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                POS, inventory, and labor live in separate worlds. Meanwhile, your profit disappears silently.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-px bg-border max-w-5xl mx-auto rounded-2xl overflow-hidden">
+              <div className="bg-card p-8 md:p-10 space-y-4">
+                <div className="flex items-start gap-4">
+                  <span className="text-5xl font-bold text-muted-foreground/30">1</span>
+                  <div className="pt-2">
+                    <h3 className="text-lg font-semibold mb-2">"I don't know if I made money today."</h3>
+                    <p className="text-muted-foreground">
+                      Most operators run blind day-to-day. You only learn the truth when the accountant closes the books
+                      weeks later.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-card p-8 md:p-10 space-y-4">
+                <div className="flex items-start gap-4">
+                  <span className="text-5xl font-bold text-muted-foreground/30">2</span>
+                  <div className="pt-2">
+                    <h3 className="text-lg font-semibold mb-2">
+                      "Everyone has their own numbers… and none of them match."
+                    </h3>
+                    <p className="text-muted-foreground">
+                      POS says one thing. Payroll says another. Inventory never lines up. You're stuck reconciling
+                      realities manually.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-card p-8 md:p-10 space-y-4">
+                <div className="flex items-start gap-4">
+                  <span className="text-5xl font-bold text-muted-foreground/30">3</span>
+                  <div className="pt-2">
+                    <h3 className="text-lg font-semibold mb-2">"I'm working hard… but I don't feel in control."</h3>
+                    <p className="text-muted-foreground">
+                      You manage chaos instead of running a business. Always reacting. Never ahead.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-card p-8 md:p-10 space-y-4">
+                <div className="flex items-start gap-4">
+                  <span className="text-5xl font-bold text-muted-foreground/30">4</span>
+                  <div className="pt-2">
+                    <h3 className="text-lg font-semibold mb-2">"I know I'm losing money… I just don't know where."</h3>
+                    <p className="text-muted-foreground">
+                      Shrinkage, waste, poor ordering, broken recipes — but no visibility into which is hurting you
+                      most.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-16">
+              <p className="text-xl font-medium max-w-2xl mx-auto">
+                You don't have a data problem. You have a{" "}
+                <span className="text-primary font-semibold">visibility problem</span>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-24 md:py-32 bg-foreground text-background">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center space-y-8">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Running Blind Is Exhausting.</h2>
+              <p className="text-xl text-background/70 leading-relaxed">
+                You didn't open a restaurant to chase spreadsheets. You opened it to build something real.
+              </p>
+              <div className="w-16 h-px bg-background/20 mx-auto"></div>
+              <p className="text-2xl font-semibold text-primary">It's time to turn "hope" into certainty.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="solution" className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-3xl mx-auto mb-16 text-center">
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">The Solution</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Chaos Into Clarity</h2>
+              <p className="text-xl text-muted-foreground">
+                One place. All truth. What's working. What's leaking. What's costing you money.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <LineChart className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Daily Financial Clarity</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Button className="w-full mb-8 bg-emerald-600 hover:bg-emerald-700 text-base h-12" asChild>
+                  <p className="text-muted-foreground">
+                    Know today's outcome before tomorrow starts. Profit shouldn't be a surprise — it should be visible
+                    every day.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Target className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">One Truth. One Dashboard.</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Your data shouldn't fight itself. POS, labor, and inventory finally speak the same language.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <PackageSearch className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Catch Loss Early</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Money doesn't disappear. It leaks. We find every leak — and show you how to fix it.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <DollarSign className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Menu Intelligence</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Cost updates the moment prices change. Know what sells — and what steals margin.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Zap className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">AI-Powered Insights</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Variance reports highlight what's costing you. Profit loss is not a mystery anymore.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Team Accountability</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Let the system be the referee. Run on facts, not gut feelings. Build trust with transparency.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-24 md:py-32 bg-muted/30">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16">
+                Control Feels Like This
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-lg">
+                    <span className="font-semibold">Awareness</span> instead of anxiety
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-lg">
+                    <span className="font-semibold">Data</span> instead of hope
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-lg">
+                    <span className="font-semibold">Action</span> instead of reaction
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="h-5 w-5 text-primary" />
+                  </div>
+                  <p className="text-lg">
+                    <span className="font-semibold">Profit</span> instead of mystery
+                  </p>
+                </div>
+              </div>
+              <p className="text-center text-xl text-muted-foreground mt-12">
+                From firefighter to operator. Regain control of your business.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">One Price. Everything Included.</h2>
+              <p className="text-xl text-muted-foreground">No setup fees. No hidden costs. No long-term contracts.</p>
+            </div>
+
+            <div className="max-w-lg mx-auto">
+              <Card className="border-2 border-foreground overflow-hidden">
+                <CardHeader className="text-center pb-8 pt-10">
+                  <CardTitle className="text-lg font-medium text-muted-foreground mb-4">Per Location</CardTitle>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-6xl font-bold">$199</span>
+                    <span className="text-xl text-muted-foreground">/month</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">or $1,990/year (save $398)</p>
+                </CardHeader>
+                <CardContent className="pb-10">
+                  <Button
+                    size="lg"
+                    className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 text-base mb-8"
+                    asChild
+                  >
                     <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
                       Start Your Free Trial
                     </Link>
                   </Button>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Unlimited users per location</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Real-time daily P&L</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Recipe costing & management</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Inventory tracking & variance reports</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>POS & labor integrations</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>AI-powered insights & alerts</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Email support</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Cross-location analytics (for multi-unit)</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
-                      <span>Dedicated onboarding assistance</span>
-                    </div>
+                  <div className="space-y-4">
+                    {[
+                      "Unlimited users per location",
+                      "Real-time daily P&L",
+                      "Recipe costing & management",
+                      "Inventory tracking & variance reports",
+                      "POS & labor integrations",
+                      "AI-powered insights & alerts",
+                      "Cross-location analytics",
+                      "Dedicated onboarding assistance",
+                    ].map((feature) => (
+                      <div key={feature} className="flex items-center gap-3">
+                        <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Pricing Scale Example */}
-            <div className="max-w-3xl mx-auto mb-12">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Multi-Location Pricing Example</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center pb-2 border-b">
-                      <span>1 location</span>
-                      <span className="font-semibold">$199/month</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-2 border-b">
-                      <span>2 locations</span>
-                      <span className="font-semibold">$398/month</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-2 border-b">
-                      <span>3 locations</span>
-                      <span className="font-semibold">$597/month</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-2 border-b">
-                      <span>5 locations</span>
-                      <span className="font-semibold">$995/month</span>
-                    </div>
-                    <div className="flex justify-between items-center pt-2">
-                      <span>10 locations</span>
-                      <span className="font-semibold">$1,990/month</span>
-                    </div>
+            <div className="max-w-2xl mx-auto mt-12">
+              <div className="grid grid-cols-4 gap-4 text-center">
+                {[
+                  { locations: "1", price: "$199" },
+                  { locations: "3", price: "$597" },
+                  { locations: "5", price: "$995" },
+                  { locations: "10", price: "$1,990" },
+                ].map((tier) => (
+                  <div key={tier.locations} className="p-4 rounded-xl bg-muted/50">
+                    <p className="text-2xl font-bold">{tier.locations}</p>
+                    <p className="text-xs text-muted-foreground mb-2">location{tier.locations !== "1" ? "s" : ""}</p>
+                    <p className="text-sm font-medium">{tier.price}/mo</p>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    *All locations get the same premium features. No per-seat or per-transaction fees.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Pricing FAQ */}
-            <div className="max-w-3xl mx-auto">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Frequently Asked Questions</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold mb-2">What's included in the free trial?</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Full access to all features for 14 days. No credit card required to start. Connect your systems
-                      and experience the platform risk-free.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">How does multi-location billing work?</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Simple: $199 per location per month. Add a new location anytime and only pay for what you use.
-                      Share analytics across all your locations with no additional fees.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Are there any setup fees or long-term contracts?</h4>
-                    <p className="text-sm text-muted-foreground">
-                      No setup fees, no hidden costs, no long-term contracts. Pay monthly or save 2 months with annual
-                      billing. Cancel anytime.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">What integrations are included?</h4>
-                    <p className="text-sm text-muted-foreground">
-                      All integrations are included with every plan: POS systems (Square, Toast, Clover), scheduling
-                      tools (7shifts, When I Work), inventory systems, and accounting software. Enterprise integrations
-                      available upon request.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Key Benefits Grid */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section id="how-it-works" className="w-full py-24 md:py-32 bg-muted/30">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Everything You Need to Run Profitably
-              </h2>
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">How It Works</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Get Started in 3 Steps</h2>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-              <Card>
-                <CardHeader>
-                  <Link2 className="h-8 w-8 text-emerald-600 mb-2" />
-                  <CardTitle>Unified Data Platform</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    All your systems connected — POS, inventory, labor, and accounting in one dashboard
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <PackageSearch className="h-8 w-8 text-emerald-600 mb-2" />
-                  <CardTitle>Smart Inventory</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Barcode scanning, OCR invoices, and AI variance detection for accurate stock management
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <DollarSign className="h-8 w-8 text-emerald-600 mb-2" />
-                  <CardTitle>Recipe Costing</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Auto-updating recipe costs tied to your POS for real-time profitability tracking
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <BarChart3 className="h-8 w-8 text-emerald-600 mb-2" />
-                  <CardTitle>Daily P&L</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    See your true financial performance daily — food cost, labor %, and prime cost in real time
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <TrendingUp className="h-8 w-8 text-emerald-600 mb-2" />
-                  <CardTitle>AI-Powered Insights</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Smart alerts and recommendations help you prevent problems before they impact profits
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <Users className="h-8 w-8 text-emerald-600 mb-2" />
-                  <CardTitle>Team Accountability</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Role-based permissions and audit trails ensure everyone stays accountable
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Social Proof / Results */}
-        <section id="proof" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                From Spreadsheet Chaos to Profit Clarity
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground text-lg md:text-xl">
-                Restaurants using our unified data platform have seen remarkable results
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto mb-12">
-              <Card className="text-center border-emerald-200">
-                <CardHeader>
-                  <div className="text-5xl font-bold text-emerald-600 mb-2">18%</div>
-                  <CardTitle>Inventory Loss Reduction</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>Cut waste and shrinkage with daily accuracy tracking</CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-emerald-200">
-                <CardHeader>
-                  <div className="text-5xl font-bold text-emerald-600 mb-2">10+</div>
-                  <CardTitle>Hours Saved Per Week</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>Eliminate manual data entry and spreadsheet work</CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-emerald-200">
-                <CardHeader>
-                  <div className="text-5xl font-bold text-emerald-600 mb-2">3-5%</div>
-                  <CardTitle>Margin Improvement</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>Better decisions with real-time financial visibility</CardDescription>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card className="max-w-3xl mx-auto">
-              <CardContent className="pt-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
-                      <span className="text-xl font-bold text-emerald-600">SJ</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-lg italic text-foreground">
-                      "We used to wait weeks for our accountant's reports. Now we see daily profits before lunch. This
-                      platform helped us identify a 12% food cost variance we never knew existed."
-                    </p>
-                    <div>
-                      <p className="font-semibold">Sarah Johnson</p>
-                      <p className="text-sm text-muted-foreground">Multi-Unit Operator, Chicago</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Get Started in 3 Simple Steps
-              </h2>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
                   1
                 </div>
-                <h3 className="text-2xl font-bold">Connect Your Tools</h3>
+                <h3 className="text-xl font-semibold">Connect Your Tools</h3>
                 <p className="text-muted-foreground">
-                  Link your POS, labor scheduling, and accounting systems with one-click integrations
+                  Link your POS, labor, and accounting systems with one-click integrations.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold">
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
                   2
                 </div>
-                <h3 className="text-2xl font-bold">Set Up Your Recipes</h3>
+                <h3 className="text-xl font-semibold">Set Up Recipes</h3>
                 <p className="text-muted-foreground">
-                  Import your menu items and recipes. Our AI helps match them to your POS data
+                  Import your menu items. Our AI helps match them to your POS data automatically.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold">
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
                   3
                 </div>
-                <h3 className="text-2xl font-bold">Start Saving Money</h3>
+                <h3 className="text-xl font-semibold">See Your Truth</h3>
                 <p className="text-muted-foreground">
-                  Watch your dashboard populate with real-time insights. Start making data-driven decisions today
+                  Watch your dashboard populate with real-time insights. Your financial analyst — every day.
                 </p>
               </div>
             </div>
 
-            <div className="flex justify-center mt-12">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700" asChild>
-                <Link
-                  href="https://app.easyshifthq.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center"
-                >
+            <div className="flex justify-center mt-16">
+              <Button
+                size="lg"
+                className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
+                asChild
+              >
+                <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
                   Get Started Free — No Credit Card
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -703,65 +479,70 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Final CTA / Contact Form */}
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+        <section className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div className="space-y-6">
-                <Badge className="bg-emerald-100 text-emerald-800">Ready to Transform Your Operations?</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Stop Losing Money to Guesswork
+            <div className="max-w-3xl mx-auto text-center">
+              <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
+                "We used to wait weeks for our accountant's reports. Now we see daily profits before lunch. This
+                platform helped us identify a 12% food cost variance we never knew existed."
+              </blockquote>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-lg font-semibold text-primary">SJ</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold">Sarah Johnson</p>
+                  <p className="text-sm text-muted-foreground">Multi-Unit Operator, Chicago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="w-full py-24 md:py-32 bg-foreground text-background">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-16 lg:grid-cols-2 items-center max-w-6xl mx-auto">
+              <div className="space-y-8">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+                  Run Your Restaurant — Don't Let It Run You.
                 </h2>
-                <p className="text-muted-foreground text-lg md:text-xl">
-                  Join hundreds of restaurant operators who've taken control of their margins with real-time data and
-                  AI-powered insights.
+                <p className="text-xl text-background/70 leading-relaxed">
+                  Profit clarity for operators who hate accounting. Financial truth, daily.
                 </p>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
-                      <Check className="h-5 w-5 text-emerald-600" />
+                  {[
+                    "Free 14-day trial — no credit card required",
+                    "Set up in 15 minutes with guided onboarding",
+                    "Cancel anytime — no commitments",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                        <Check className="h-4 w-4 text-primary-foreground" />
+                      </div>
+                      <p className="text-lg">{item}</p>
                     </div>
-                    <p className="text-lg">Free 14-day trial — no credit card required</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
-                      <Check className="h-5 w-5 text-emerald-600" />
-                    </div>
-                    <p className="text-lg">Set up in 15 minutes with guided onboarding</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
-                      <Check className="h-5 w-5 text-emerald-600" />
-                    </div>
-                    <p className="text-lg">Cancel anytime — no commitments, no hassle</p>
-                  </div>
+                  ))}
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700" asChild>
-                    <Link
-                      href="https://app.easyshifthq.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center"
-                    >
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-background text-foreground hover:bg-background/90 h-14 px-8 text-base"
+                    asChild
+                  >
+                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
                       Start Your Free Trial
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      View Live Demo
                     </Link>
                   </Button>
                 </div>
               </div>
 
-              <Card className="p-6">
-                <CardHeader className="px-0 pt-0">
+              <Card className="bg-card text-card-foreground">
+                <CardHeader>
                   <CardTitle>Questions? We're Here to Help</CardTitle>
                   <CardDescription>Send us a message and our team will get back to you within 24 hours</CardDescription>
                 </CardHeader>
-                <CardContent className="px-0 pb-0">
+                <CardContent>
                   <WaitlistForm />
                 </CardContent>
               </Card>
@@ -770,23 +551,30 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="w-full border-t py-6">
+      <footer className="w-full border-t border-border py-8">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
-            </p>
-            <nav className="flex gap-4 sm:gap-6">
-              <Link className="text-xs hover:underline underline-offset-4" href="/terms">
-                Terms of Service
+            <div className="flex items-center gap-2 text-sm font-medium">
+              <div className="flex items-center justify-center w-6 h-6 rounded bg-primary">
+                <CalendarCheck className="h-3 w-3 text-primary-foreground" />
+              </div>
+              <span>EasyShiftHQ</span>
+            </div>
+            <nav className="flex gap-6">
+              <Link className="text-sm text-muted-foreground hover:text-foreground transition-colors" href="/terms">
+                Terms
               </Link>
-              <Link className="text-xs hover:underline underline-offset-4" href="/privacy">
-                Privacy Policy
+              <Link className="text-sm text-muted-foreground hover:text-foreground transition-colors" href="/privacy">
+                Privacy
               </Link>
-              <Link className="text-xs hover:underline underline-offset-4" href="mailto:contact@easyshifthq.com">
+              <Link
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                href="mailto:contact@easyshifthq.com"
+              >
                 Contact
               </Link>
             </nav>
+            <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} EasyShiftHQ</p>
           </div>
         </div>
       </footer>

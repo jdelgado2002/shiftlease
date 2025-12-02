@@ -1,43 +1,50 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* New warm, sophisticated color scheme inspired by design brief */
 :root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(240 10% 3.9%);
+  --background: hsl(40 20% 96%);
+  --foreground: hsl(20 10% 12%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(240 10% 3.9%);
+  --card-foreground: hsl(20 10% 12%);
   --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(240 10% 3.9%);
-  --primary: hsl(142.1 76.2% 36.3%);
-  --primary-foreground: hsl(355.7 100% 97.3%);
-  --secondary: hsl(240 4.8% 95.9%);
-  --secondary-foreground: hsl(240 5.9% 10%);
-  --muted: hsl(240 4.8% 95.9%);
-  --muted-foreground: hsl(240 3.8% 46.1%);
-  --accent: hsl(240 4.8% 95.9%);
-  --accent-foreground: hsl(240 5.9% 10%);
-  --destructive: hsl(0 84.2% 60.2%);
+  --popover-foreground: hsl(20 10% 12%);
+  --primary: hsl(160 84% 28%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(40 15% 92%);
+  --secondary-foreground: hsl(20 10% 12%);
+  --muted: hsl(40 10% 90%);
+  --muted-foreground: hsl(20 5% 45%);
+  --accent: hsl(40 20% 88%);
+  --accent-foreground: hsl(20 10% 12%);
+  --destructive: hsl(0 72% 51%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 5.9% 90%);
-  --input: hsl(240 5.9% 90%);
-  --ring: hsl(142.1 76.2% 36.3%);
-  --radius: 0.5rem;
+  --border: hsl(40 10% 85%);
+  --input: hsl(40 10% 85%);
+  --ring: hsl(160 84% 28%);
+  --radius: 0.75rem;
+
+  /* Brand emerald scale */
   --emerald-50: hsl(152 81% 96%);
   --emerald-100: hsl(149 80% 90%);
   --emerald-200: hsl(152 76% 80%);
   --emerald-300: hsl(156 72% 67%);
   --emerald-400: hsl(158 64% 52%);
   --emerald-500: hsl(160 84% 39%);
-  --emerald-600: hsl(161 94% 30%);
+  --emerald-600: hsl(160 84% 28%);
   --emerald-700: hsl(163 94% 24%);
   --emerald-800: hsl(163 88% 20%);
   --emerald-900: hsl(164 86% 16%);
   --emerald-950: hsl(166 91% 9%);
+
+  /* Chart colors */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Sidebar */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -49,30 +56,34 @@
 }
 
 .dark {
-  --background: hsl(20 14.3% 4.1%);
-  --foreground: hsl(0 0% 95%);
-  --card: hsl(24 9.8% 10%);
-  --card-foreground: hsl(0 0% 95%);
-  --popover: hsl(0 0% 9%);
-  --popover-foreground: hsl(0 0% 95%);
-  --primary: hsl(142.1 70.6% 45.3%);
-  --primary-foreground: hsl(144.9 80.4% 10%);
-  --secondary: hsl(240 3.7% 15.9%);
-  --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(0 0% 15%);
-  --muted-foreground: hsl(240 5% 64.9%);
-  --accent: hsl(12 6.5% 15.1%);
-  --accent-foreground: hsl(0 0% 98%);
-  --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(0 85.7% 97.3%);
-  --border: hsl(240 3.7% 15.9%);
-  --input: hsl(240 3.7% 15.9%);
-  --ring: hsl(142.4 71.8% 29.2%);
+  --background: hsl(20 14% 8%);
+  --foreground: hsl(40 10% 95%);
+  --card: hsl(20 12% 12%);
+  --card-foreground: hsl(40 10% 95%);
+  --popover: hsl(20 12% 10%);
+  --popover-foreground: hsl(40 10% 95%);
+  --primary: hsl(160 70% 45%);
+  --primary-foreground: hsl(160 80% 10%);
+  --secondary: hsl(20 8% 18%);
+  --secondary-foreground: hsl(40 10% 95%);
+  --muted: hsl(20 8% 15%);
+  --muted-foreground: hsl(40 5% 60%);
+  --accent: hsl(20 8% 20%);
+  --accent-foreground: hsl(40 10% 95%);
+  --destructive: hsl(0 62% 35%);
+  --destructive-foreground: hsl(0 85% 97%);
+  --border: hsl(20 8% 20%);
+  --input: hsl(20 8% 20%);
+  --ring: hsl(160 70% 40%);
+
+  /* Chart colors dark */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+
+  /* Sidebar dark */
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -84,6 +95,9 @@
 }
 
 @theme inline {
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-heading: "Inter", "Inter Fallback", system-ui, sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -120,6 +134,19 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Emerald colors for Tailwind */
+  --color-emerald-50: var(--emerald-50);
+  --color-emerald-100: var(--emerald-100);
+  --color-emerald-200: var(--emerald-200);
+  --color-emerald-300: var(--emerald-300);
+  --color-emerald-400: var(--emerald-400);
+  --color-emerald-500: var(--emerald-500);
+  --color-emerald-600: var(--emerald-600);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-800: var(--emerald-800);
+  --color-emerald-900: var(--emerald-900);
+  --color-emerald-950: var(--emerald-950);
 }
 
 @layer base {
@@ -127,7 +154,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
 }
 

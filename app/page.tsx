@@ -2,12 +2,14 @@ import {
   ArrowRight,
   CalendarCheck,
   Check,
-  DollarSign,
   PackageSearch,
   Users,
-  Zap,
   Target,
   LineChart,
+  Calculator,
+  BookOpen,
+  BrainCircuit,
+  Shield,
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -50,51 +52,41 @@ export default function Home() {
       <main className="flex-1">
         <section className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-                <div className="flex-1 space-y-8">
-                  <p className="text-sm font-medium text-primary tracking-wide uppercase">
-                    Profit Clarity for Restaurant Operators
-                  </p>
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-balance">
-                    Stop Guessing.
-                    <br />
-                    <span className="text-muted-foreground">Start Knowing.</span>
-                  </h1>
-                  <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
-                    See your real profits — every day. Not weeks later when it's too late to fix anything.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Button
-                      size="lg"
-                      className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
-                      asChild
-                    >
-                      <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                        Get started — it's free
-                      </Link>
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="rounded-full h-14 px-8 text-base border-border bg-transparent"
-                      asChild
-                    >
-                      <Link href="#how-it-works">See How It Works</Link>
-                    </Button>
-                  </div>
-                  <div className="flex items-center gap-6 text-sm text-muted-foreground pt-2">
-                    <div className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>No credit card required</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>15-minute setup</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-6">
+                Profit Clarity for Restaurant Operators
+              </p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+                Stop Guessing.
+                <br />
+                <span className="text-muted-foreground">Start Knowing.</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
+                See your real profits — <span className="font-semibold text-foreground">every single day.</span>
+                <br />
+                Not weeks later when it's too late to fix anything.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Button
+                  size="lg"
+                  className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
+                  asChild
+                >
+                  <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                    Start Free Trial
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full h-14 px-8 text-base border-border bg-transparent"
+                  asChild
+                >
+                  <Link href="#how-it-works">See How It Works</Link>
+                </Button>
               </div>
+              <p className="text-sm text-muted-foreground">No credit card required · 15-minute setup</p>
             </div>
           </div>
         </section>
@@ -124,13 +116,17 @@ export default function Home() {
 
         <section id="problems" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto mb-16">
+            <div className="max-w-3xl mx-auto mb-16 text-center">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">The Problem</p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance">
-                Your Business Is Speaking. Your Systems Aren't Listening.
+                Your Business Is Talking.
+                <br />
+                <span className="text-muted-foreground">Your Systems Aren't Listening.</span>
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                POS, inventory, and labor live in separate worlds. Meanwhile, your profit disappears silently.
+                POS, inventory, labor, and banking all live in separate worlds.
+                <br />
+                Meanwhile, your profit is leaking quietly in the background.
               </p>
             </div>
 
@@ -139,10 +135,9 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <span className="text-5xl font-bold text-muted-foreground/30">1</span>
                   <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">"I don't know if I made money today."</h3>
+                    <h3 className="text-lg font-semibold mb-2">"I don't actually know if I made money today."</h3>
                     <p className="text-muted-foreground">
-                      Most operators run blind day-to-day. You only learn the truth when the accountant closes the books
-                      weeks later.
+                      Most operators run blind. You only discover the truth weeks later — when nothing can be changed.
                     </p>
                   </div>
                 </div>
@@ -152,12 +147,10 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <span className="text-5xl font-bold text-muted-foreground/30">2</span>
                   <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">
-                      "Everyone has their own numbers… and none of them match."
-                    </h3>
+                    <h3 className="text-lg font-semibold mb-2">"Everyone has numbers… and none of them match."</h3>
                     <p className="text-muted-foreground">
-                      POS says one thing. Payroll says another. Inventory never lines up. You're stuck reconciling
-                      realities manually.
+                      POS says one thing. Payroll says another. Inventory tells a third story. You're left reconciling
+                      reality manually.
                     </p>
                   </div>
                 </div>
@@ -167,9 +160,9 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <span className="text-5xl font-bold text-muted-foreground/30">3</span>
                   <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">"I'm working hard… but I don't feel in control."</h3>
+                    <h3 className="text-lg font-semibold mb-2">"I'm working nonstop… but nothing feels in control."</h3>
                     <p className="text-muted-foreground">
-                      You manage chaos instead of running a business. Always reacting. Never ahead.
+                      You're reacting instead of running. Managing chaos instead of a business.
                     </p>
                   </div>
                 </div>
@@ -179,20 +172,21 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <span className="text-5xl font-bold text-muted-foreground/30">4</span>
                   <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">"I know I'm losing money… I just don't know where."</h3>
+                    <h3 className="text-lg font-semibold mb-2">
+                      "I know I'm bleeding money — I just don't know where."
+                    </h3>
                     <p className="text-muted-foreground">
-                      Shrinkage, waste, poor ordering, broken recipes — but no visibility into which is hurting you
-                      most.
+                      Waste, theft, ordering mistakes, broken pricing. All hidden. All costly.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="text-center mt-16">
-              <p className="text-xl font-medium max-w-2xl mx-auto">
-                You don't have a data problem. You have a{" "}
-                <span className="text-primary font-semibold">visibility problem</span>.
+            <div className="text-center mt-16 space-y-4">
+              <p className="text-2xl font-medium">You don't have a data problem.</p>
+              <p className="text-2xl font-bold">
+                You have a <span className="text-primary">visibility</span> problem.
               </p>
             </div>
           </div>
@@ -201,12 +195,16 @@ export default function Home() {
         <section className="w-full py-24 md:py-32 bg-foreground text-background">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Running Blind Is Exhausting.</h2>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Running blind is exhausting.</h2>
               <p className="text-xl text-background/70 leading-relaxed">
-                You didn't open a restaurant to chase spreadsheets. You opened it to build something real.
+                You didn't open a restaurant to chase spreadsheets.
+                <br />
+                You opened it to build something meaningful.
               </p>
               <div className="w-16 h-px bg-background/20 mx-auto"></div>
-              <p className="text-2xl font-semibold text-primary">It's time to turn "hope" into certainty.</p>
+              <p className="text-2xl font-semibold text-primary">
+                It's time to turn <span className="italic">hope</span> into <span className="italic">certainty</span>.
+              </p>
             </div>
           </div>
         </section>
@@ -217,11 +215,13 @@ export default function Home() {
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">The Solution</p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Chaos Into Clarity</h2>
               <p className="text-xl text-muted-foreground">
-                One place. All truth. What's working. What's leaking. What's costing you money.
+                One place. One truth.
+                <br />
+                What happened today. What's leaking. What's actually making you money.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
                 <CardHeader className="pb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
@@ -231,8 +231,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Know today's outcome before tomorrow starts. Profit shouldn't be a surprise — it should be visible
-                    every day.
+                    Know today's outcome before tomorrow starts. Profit should never be a surprise.
                   </p>
                 </CardContent>
               </Card>
@@ -242,12 +241,10 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <Target className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">One Truth. One Dashboard.</CardTitle>
+                  <CardTitle className="text-xl">One Dashboard. One Reality.</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Your data shouldn't fight itself. POS, labor, and inventory finally speak the same language.
-                  </p>
+                  <p className="text-muted-foreground">POS, labor, inventory — finally speaking the same language.</p>
                 </CardContent>
               </Card>
 
@@ -256,39 +253,11 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <PackageSearch className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">Catch Loss Early</CardTitle>
+                  <CardTitle className="text-xl">Inventory That Tells The Truth</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Money doesn't disappear. It leaks. We find every leak — and show you how to fix it.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <DollarSign className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Menu Intelligence</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Cost updates the moment prices change. Know what sells — and what steals margin.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Zap className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">AI-Powered Insights</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Variance reports highlight what's costing you. Profit loss is not a mystery anymore.
+                    Every sale updates stock automatically. No theoretical numbers. No silent shrinkage.
                   </p>
                 </CardContent>
               </Card>
@@ -298,11 +267,67 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <Users className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">Team Accountability</CardTitle>
+                  <CardTitle className="text-xl">Labor Without Payroll Panic</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Let the system be the referee. Run on facts, not gut feelings. Build trust with transparency.
+                    Know your labor cost before payroll hits. Control the biggest expense in your business.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Calculator className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Clean Books, All Year</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Bank transactions sync automatically. Reports stay tax-ready. Always.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <BookOpen className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Menu Profitability, Daily</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Recipe costs adjust the moment supplier prices change. Know what sells — and what erodes margin.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <BrainCircuit className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">AI That Thinks In Margins</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Variance detection. Loss alerts. Clear recommendations, not noise.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Shield className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Trust Without Tension</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Facts replace assumptions. Accountability without confrontation.
                   </p>
                 </CardContent>
               </Card>
@@ -350,8 +375,10 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <p className="text-center text-xl text-muted-foreground mt-12">
-                From firefighter to operator. Regain control of your business.
+              <p className="text-center text-xl mt-12">
+                <span className="font-semibold">From firefighter to operator.</span>
+                <br />
+                <span className="text-muted-foreground">Regain control.</span>
               </p>
             </div>
           </div>
@@ -361,8 +388,12 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">One Price. Everything Included.</h2>
-              <p className="text-xl text-muted-foreground">No setup fees. No hidden costs. No long-term contracts.</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Simple. Transparent. Powerful.</h2>
+              <p className="text-xl text-muted-foreground">
+                One price. Everything included.
+                <br />
+                No contracts. No setup fees. No surprise invoices.
+              </p>
             </div>
 
             <div className="max-w-lg mx-auto">
@@ -382,19 +413,20 @@ export default function Home() {
                     asChild
                   >
                     <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Start Your Free Trial
+                      Start Free Trial
                     </Link>
                   </Button>
                   <div className="space-y-4">
                     {[
-                      "Unlimited users per location",
+                      "Unlimited users",
                       "Real-time daily P&L",
-                      "Recipe costing & management",
-                      "Inventory tracking & variance reports",
-                      "POS & labor integrations",
-                      "AI-powered insights & alerts",
-                      "Cross-location analytics",
-                      "Dedicated onboarding assistance",
+                      "Inventory automation",
+                      "Recipe costing",
+                      "Labor tracking",
+                      "Bank sync & reporting",
+                      "AI insights & alerts",
+                      "Multi-location analytics",
+                      "Onboarding support",
                     ].map((feature) => (
                       <div key={feature} className="flex items-center gap-3">
                         <Check className="h-5 w-5 text-primary flex-shrink-0" />
@@ -407,6 +439,7 @@ export default function Home() {
             </div>
 
             <div className="max-w-2xl mx-auto mt-12">
+              <p className="text-center text-sm text-muted-foreground mb-4">All locations receive full features</p>
               <div className="grid grid-cols-4 gap-4 text-center">
                 {[
                   { locations: "1", price: "$199" },
@@ -429,7 +462,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">How It Works</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Get Started in 3 Steps</h2>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Up and Running in 3 Steps</h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -437,10 +470,8 @@ export default function Home() {
                 <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
                   1
                 </div>
-                <h3 className="text-xl font-semibold">Connect Your Tools</h3>
-                <p className="text-muted-foreground">
-                  Link your POS, labor, and accounting systems with one-click integrations.
-                </p>
+                <h3 className="text-xl font-semibold">Connect Your Systems</h3>
+                <p className="text-muted-foreground">POS, labor, banking — one-click integrations.</p>
               </div>
 
               <div className="text-center space-y-4">
@@ -448,19 +479,15 @@ export default function Home() {
                   2
                 </div>
                 <h3 className="text-xl font-semibold">Set Up Recipes</h3>
-                <p className="text-muted-foreground">
-                  Import your menu items. Our AI helps match them to your POS data automatically.
-                </p>
+                <p className="text-muted-foreground">AI maps food items to real inventory and pricing.</p>
               </div>
 
               <div className="text-center space-y-4">
                 <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
                   3
                 </div>
-                <h3 className="text-xl font-semibold">See Your Truth</h3>
-                <p className="text-muted-foreground">
-                  Watch your dashboard populate with real-time insights. Your financial analyst — every day.
-                </p>
+                <h3 className="text-xl font-semibold">Start Seeing Truth</h3>
+                <p className="text-muted-foreground">Live margins. Real costs. Every day.</p>
               </div>
             </div>
 
@@ -471,7 +498,7 @@ export default function Home() {
                 asChild
               >
                 <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                  Get Started Free — No Credit Card
+                  Get Started Free
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -482,9 +509,8 @@ export default function Home() {
         <section className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
-                "We used to wait weeks for our accountant's reports. Now we see daily profits before lunch. This
-                platform helped us identify a 12% food cost variance we never knew existed."
+              <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed italic mb-8">
+                "We used to wait weeks for financial reports. Now we know by lunch if yesterday made money."
               </blockquote>
               <div className="flex items-center justify-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -492,7 +518,7 @@ export default function Home() {
                 </div>
                 <div className="text-left">
                   <p className="font-semibold">Sarah Johnson</p>
-                  <p className="text-sm text-muted-foreground">Multi-Unit Operator, Chicago</p>
+                  <p className="text-sm text-muted-foreground">Multi-Unit Operator — Chicago</p>
                 </div>
               </div>
             </div>
@@ -504,33 +530,33 @@ export default function Home() {
             <div className="grid gap-16 lg:grid-cols-2 items-center max-w-6xl mx-auto">
               <div className="space-y-8">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  Run Your Restaurant — Don't Let It Run You.
+                  Run Your Restaurant.
+                  <br />
+                  <span className="text-background/70">Don't Let It Run You.</span>
                 </h2>
                 <p className="text-xl text-background/70 leading-relaxed">
-                  Profit clarity for operators who hate accounting. Financial truth, daily.
+                  Profit clarity for operators who hate accounting.
+                  <br />
+                  Financial truth — daily.
                 </p>
-                <div className="space-y-4">
-                  {[
-                    "Free 14-day trial — no credit card required",
-                    "Set up in 15 minutes with guided onboarding",
-                    "Cancel anytime — no commitments",
-                  ].map((item) => (
+                <div className="grid grid-cols-2 gap-4">
+                  {["Free 14 days", "No credit card", "Cancel anytime", "Guided setup"].map((item) => (
                     <div key={item} className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                         <Check className="h-4 w-4 text-primary-foreground" />
                       </div>
-                      <p className="text-lg">{item}</p>
+                      <p className="text-base">{item}</p>
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="pt-4">
                   <Button
                     size="lg"
                     className="rounded-full bg-background text-foreground hover:bg-background/90 h-14 px-8 text-base"
                     asChild
                   >
                     <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Start Your Free Trial
+                      Start Free Trial
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -539,8 +565,8 @@ export default function Home() {
 
               <Card className="bg-card text-card-foreground">
                 <CardHeader>
-                  <CardTitle>Questions? We're Here to Help</CardTitle>
-                  <CardDescription>Send us a message and our team will get back to you within 24 hours</CardDescription>
+                  <CardTitle>Questions? We're here.</CardTitle>
+                  <CardDescription>We reply within 24 hours.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <WaitlistForm />

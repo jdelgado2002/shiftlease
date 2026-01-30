@@ -1,10 +1,18 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export const metadata = {
-  title: "Privacy Policy - EasyShiftHQ",
-  description: "Privacy Policy for EasyShiftHQ - Learn how we collect, use, and protect your personal data.",
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Privacy Policy for EasyShiftHQ - Learn how we collect, use, and protect your personal data in accordance with GDPR.",
+  alternates: {
+    canonical: "https://easyshifthq.com/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function PrivacyPolicy() {

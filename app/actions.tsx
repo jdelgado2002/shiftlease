@@ -13,11 +13,19 @@ type WaitlistFormData = {
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function joinWaitlist(formData: FormData): Promise<{ success: boolean; message: string }> {
+  console.log("[v0] joinWaitlist called")
+  console.log("[v0] RESEND_API_KEY exists:", !!process.env.RESEND_API_KEY)
+  console.log("[v0] SENDER_EMAIL_NOTIFICATIONS:", process.env.SENDER_EMAIL_NOTIFICATIONS)
+  console.log("[v0] SENDER_EMAIL_WELCOME:", process.env.SENDER_EMAIL_WELCOME)
+  console.log("[v0] ADMIN_EMAIL:", process.env.ADMIN_EMAIL)
+
   try {
     // Extract and validate form data
     const email = formData.get("email") as string
     const companyName = formData.get("companyName") as string
     const locationCount = Number.parseInt(formData.get("locationCount") as string, 10)
+
+    console.log("[v0] Form data:", { email, companyName, locationCount })
 
     // Basic validation
     if (!email || !email.includes("@")) {
@@ -40,18 +48,22 @@ export async function joinWaitlist(formData: FormData): Promise<{ success: boole
     }
 
     // Send notification email to admin
+    console.log("[v0] Sending admin notification...")
     await sendAdminNotification(waitlistData)
+    console.log("[v0] Admin notification sent")
 
     // Send confirmation email to user
+    console.log("[v0] Sending user confirmation...")
     await sendUserConfirmation(email, companyName)
+    console.log("[v0] User confirmation sent")
 
     // Return success message
     return {
       success: true,
-      message: "Thank you for joining our waitlist! We'll be in touch soon.",
+      message: "Thank you for your interest! We'll be in touch soon.",
     }
   } catch (error) {
-    console.error("Error joining waitlist:", error)
+    console.error("[v0] Error joining waitlist:", error)
     return {
       success: false,
       message: "Something went wrong. Please try again later.",
@@ -60,41 +72,54 @@ export async function joinWaitlist(formData: FormData): Promise<{ success: boole
 }
 
 async function sendAdminNotification(data: WaitlistFormData) {
-  try {
-    await resend.emails.send({
-      from: process.env.SENDER_EMAIL_NOTIFICATIONS as string,
-      to: process.env.ADMIN_EMAIL as string,
-      subject: "New EasyShiftHQ Waitlist Signup",
-      html: `
-        <h2>New EasyShiftHQ Waitlist Signup</h2>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Company:</strong> ${data.companyName}</p>
-        <p><strong>Number of Locations:</strong> ${data.locationCount}</p>
-      `,
-    })
-  } catch (error) {
-    console.error("Error sending admin notification:", error)
-    throw error
+  const from = process.env.SENDER_EMAIL_NOTIFICATIONS as string
+  const to = process.env.ADMIN_EMAIL as string
+
+  console.log("[v0] sendAdminNotification - from:", from, "to:", to)
+
+  if (!from || !to) {
+    throw new Error("Missing email configuration for admin notification")
   }
+
+  const result = await resend.emails.send({
+    from,
+    to,
+    subject: "New EasyShiftHQ Contact Form Submission",
+    html: `
+      <h2>New EasyShiftHQ Contact Form Submission</h2>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <p><strong>Company:</strong> ${data.companyName}</p>
+      <p><strong>Number of Locations:</strong> ${data.locationCount}</p>
+    `,
+  })
+
+  console.log("[v0] Admin email result:", result)
+  return result
 }
 
 async function sendUserConfirmation(email: string, companyName: string) {
-  try {
-    await resend.emails.send({
-      from: process.env.SENDER_EMAIL_WELCOME as string,
-      to: email,
-      subject: "Welcome to the EasyShiftHQ Waitlist",
-      html: `
-        <h2>Welcome to the EasyShiftHQ Waitlist!</h2>
-        <p>Hi ${companyName},</p>
-        <p>Thank you for joining the EasyShiftHQ waitlist! We're excited to have you on board.</p>
-        <p>We're working hard to build the best AI-powered scheduling solution for multi-unit restaurant operators like you. We'll keep you updated on our progress and let you know as soon as early access is available.</p>
-        <p>If you have any questions in the meantime, feel free to reply to this email.</p>
-        <p>Best regards,<br>The EasyShiftHQ Team</p>
-      `,
-    })
-  } catch (error) {
-    console.error("Error sending user confirmation:", error)
-    throw error
+  const from = process.env.SENDER_EMAIL_WELCOME as string
+
+  console.log("[v0] sendUserConfirmation - from:", from, "to:", email)
+
+  if (!from) {
+    throw new Error("Missing email configuration for user confirmation")
   }
+
+  const result = await resend.emails.send({
+    from,
+    to: email,
+    subject: "Thanks for Reaching Out to EasyShiftHQ",
+    html: `
+      <h2>Thanks for Reaching Out!</h2>
+      <p>Hi ${companyName},</p>
+      <p>Thank you for your interest in EasyShiftHQ! We received your message and will be in touch shortly.</p>
+      <p>We're helping multi-unit restaurant operators like you gain real-time visibility into food costs, labor %, and shrinkage — so you can finally stop guessing and start knowing.</p>
+      <p>In the meantime, if you have any questions, feel free to reply to this email.</p>
+      <p>Best regards,<br>The EasyShiftHQ Team</p>
+    `,
+  })
+
+  console.log("[v0] User email result:", result)
+  return result
 }

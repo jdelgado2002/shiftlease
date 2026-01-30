@@ -11,10 +11,12 @@ export function WaitlistForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   async function handleSubmit(formData: FormData) {
+    console.log("[v0] Form submitted, calling joinWaitlist...")
     setIsSubmitting(true)
 
     try {
       const result = await joinWaitlist(formData)
+      console.log("[v0] joinWaitlist result:", result)
 
       if (result.success) {
         toast({
@@ -25,7 +27,7 @@ export function WaitlistForm() {
 
         // Reset the form
         const form = document.getElementById("waitlist-form") as HTMLFormElement
-        form.reset()
+        form?.reset()
       } else {
         toast({
           title: "Error",
@@ -35,6 +37,7 @@ export function WaitlistForm() {
         })
       }
     } catch (error) {
+      console.error("[v0] handleSubmit error:", error)
       toast({
         title: "Error",
         description: "Something went wrong. Please try again later.",

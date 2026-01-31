@@ -390,47 +390,135 @@ export default function Home() {
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Simple. Transparent. Powerful.</h2>
               <p className="text-xl text-muted-foreground">
-                One price. Everything included.
+                Choose the plan that fits your restaurant.
                 <br />
                 No contracts. No setup fees. No surprise invoices.
               </p>
             </div>
 
-            <div className="max-w-lg mx-auto">
-              <Card className="border-2 border-foreground overflow-hidden">
-                <CardHeader className="text-center pb-8 pt-10">
-                  <CardTitle className="text-lg font-medium text-muted-foreground mb-4">Per Location</CardTitle>
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {/* Starter Plan */}
+              <Card className="border overflow-hidden">
+                <CardHeader className="text-center pb-6 pt-8">
+                  <CardTitle className="text-lg font-semibold mb-2">Starter</CardTitle>
+                  <p className="text-sm text-muted-foreground mb-4">Daily P&L and basic inventory tools for single-location restaurants</p>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-6xl font-bold">$199</span>
-                    <span className="text-xl text-muted-foreground">/month</span>
+                    <span className="text-5xl font-bold">$99</span>
+                    <span className="text-lg text-muted-foreground">/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">or $1,990/year (save $398)</p>
+                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
                 </CardHeader>
-                <CardContent className="pb-10">
+                <CardContent className="pb-8">
                   <Button
                     size="lg"
-                    className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 text-base mb-8"
+                    variant="outline"
+                    className="w-full rounded-full h-12 text-base mb-6"
                     asChild
                   >
                     <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Start Free Trial
+                      Select Starter
                     </Link>
                   </Button>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {[
-                      "Unlimited users",
-                      "Real-time daily P&L",
-                      "Inventory automation",
-                      "Recipe costing",
-                      "Labor tracking",
-                      "Bank sync & reporting",
-                      "AI insights & alerts",
-                      "Multi-location analytics",
-                      "Onboarding support",
+                      "Daily P&L Dashboard",
+                      "Basic Inventory Tracking",
+                      "Labor Cost Tracking",
+                      "POS Integration (Square, Toast, Clover)",
+                      "Recipe Management",
+                      "Multi-User Access",
+                      "Email Support",
                     ].map((feature) => (
                       <div key={feature} className="flex items-center gap-3">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span>{feature}</span>
+                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Growth Plan - Recommended */}
+              <Card className="border-2 border-primary overflow-hidden relative">
+                <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-center py-1 text-sm font-medium">
+                  Recommended
+                </div>
+                <CardHeader className="text-center pb-6 pt-12">
+                  <CardTitle className="text-lg font-semibold mb-2">Growth</CardTitle>
+                  <p className="text-sm text-muted-foreground mb-4">AI-powered automation and intelligence for growing restaurants</p>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-5xl font-bold">$199</span>
+                    <span className="text-lg text-muted-foreground">/mo</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
+                </CardHeader>
+                <CardContent className="pb-8">
+                  <Button
+                    size="lg"
+                    className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base mb-6"
+                    asChild
+                  >
+                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                      Select Growth
+                    </Link>
+                  </Button>
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium text-muted-foreground">Everything in Starter, plus:</p>
+                    {[
+                      "Financial Intelligence Dashboard",
+                      "Inventory Automation (OCR)",
+                      "Recipe & Menu Profitability Analytics",
+                      "Employee Scheduling",
+                      "AI Alerts & Anomaly Detection",
+                      "AI Transaction Categorization",
+                      "Priority Support",
+                    ].map((feature) => (
+                      <div key={feature} className="flex items-center gap-3">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Pro Plan */}
+              <Card className="border overflow-hidden">
+                <CardHeader className="text-center pb-6 pt-8">
+                  <CardTitle className="text-lg font-semibold mb-2">Pro</CardTitle>
+                  <p className="text-sm text-muted-foreground mb-4">Complete financial operations with Stripe-powered integrations</p>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-5xl font-bold">$299</span>
+                    <span className="text-lg text-muted-foreground">/mo</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
+                </CardHeader>
+                <CardContent className="pb-8">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full rounded-full h-12 text-base mb-6"
+                    asChild
+                  >
+                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                      Select Pro
+                    </Link>
+                  </Button>
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium text-muted-foreground">Everything in Growth, plus:</p>
+                    {[
+                      "AI Assistant",
+                      "Bank Account Connections",
+                      "Automated Transaction Sync",
+                      "Customer Invoicing",
+                      "Expense Management",
+                      "Asset & Equipment Tracking",
+                      "Payroll Reports & Export",
+                      "VIP Support",
+                    ].map((feature) => (
+                      <div key={feature} className="flex items-center gap-3">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -438,19 +526,19 @@ export default function Home() {
               </Card>
             </div>
 
-            <div className="max-w-2xl mx-auto mt-12">
-              <p className="text-center text-sm text-muted-foreground mb-4">All locations receive full features</p>
-              <div className="grid grid-cols-4 gap-4 text-center">
+            {/* Volume Discounts */}
+            <div className="max-w-2xl mx-auto mt-16">
+              <h3 className="text-center text-lg font-semibold mb-2">Volume Discounts</h3>
+              <p className="text-center text-sm text-muted-foreground mb-6">Save more when you manage multiple locations</p>
+              <div className="grid grid-cols-3 gap-4 text-center">
                 {[
-                  { locations: "1", price: "$199" },
-                  { locations: "3", price: "$597" },
-                  { locations: "5", price: "$995" },
-                  { locations: "10", price: "$1,990" },
+                  { locations: "3-5", discount: "5%" },
+                  { locations: "6-10", discount: "10%" },
+                  { locations: "11+", discount: "15%" },
                 ].map((tier) => (
                   <div key={tier.locations} className="p-4 rounded-xl bg-muted/50">
-                    <p className="text-2xl font-bold">{tier.locations}</p>
-                    <p className="text-xs text-muted-foreground mb-2">location{tier.locations !== "1" ? "s" : ""}</p>
-                    <p className="text-sm font-medium">{tier.price}/mo</p>
+                    <p className="text-2xl font-bold text-primary">{tier.discount}</p>
+                    <p className="text-sm text-muted-foreground">{tier.locations} locations</p>
                   </div>
                 ))}
               </div>

@@ -1,10 +1,18 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { CalendarCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export const metadata = {
-  title: "End User License Agreement - EasyShiftHQ",
-  description: "End User License Agreement (EULA) for EasyShiftHQ - Terms and conditions for using our platform.",
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "End User License Agreement (EULA) for EasyShiftHQ - Terms and conditions for using our restaurant profit tracking platform.",
+  alternates: {
+    canonical: "https://easyshifthq.com/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TermsOfService() {

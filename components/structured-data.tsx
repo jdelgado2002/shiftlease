@@ -60,6 +60,70 @@ export function WebsiteSchema() {
   )
 }
 
+interface FeaturePageSchemaProps {
+  name: string
+  description: string
+  url: string
+  features: string[]
+}
+
+export function FeaturePageSchema({ name, description, url, features }: FeaturePageSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: `EasyShiftHQ - ${name}`,
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Restaurant Management Software",
+    operatingSystem: "Web",
+    url: url,
+    description: description,
+    featureList: features,
+    isPartOf: {
+      "@type": "SoftwareApplication",
+      name: "EasyShiftHQ",
+      url: "https://easyshifthq.com",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "249",
+      priceCurrency: "USD",
+      description: "All features included per location",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "EasyShiftHQ",
+      url: "https://easyshifthq.com",
+    },
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
+export function BreadcrumbSchema({ items }: { items: { name: string; url: string }[] }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export function FAQSchema() {
   const schema = {
     "@context": "https://schema.org",

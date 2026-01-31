@@ -3,11 +3,41 @@ import { Wallet } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
-  title: "Financial Management",
-  description: "Real-time P&L dashboard, bank connections, automated transaction categorization, and complete financial statements for restaurants.",
+  title: "Financial Management - Real-Time P&L Dashboard for Restaurants",
+  description: "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, AI-powered transaction categorization, and tax-ready financial statements. Stop waiting weeks for reports.",
+  keywords: [
+    "restaurant financial management",
+    "real-time P&L dashboard",
+    "restaurant profit tracking",
+    "automated bookkeeping",
+    "restaurant accounting software",
+    "food cost tracking",
+    "restaurant bank integration",
+    "financial statements for restaurants",
+  ],
+  alternates: {
+    canonical: "https://easyshifthq.com/features/financial-management",
+  },
   openGraph: {
-    title: "Financial Management | EasyShiftHQ",
-    description: "Real-time P&L dashboard, bank connections, automated transaction categorization, and complete financial statements for restaurants.",
+    type: "website",
+    url: "https://easyshifthq.com/features/financial-management",
+    title: "Financial Management - Real-Time P&L Dashboard | EasyShiftHQ",
+    description: "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, and tax-ready financial statements.",
+    siteName: "EasyShiftHQ",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EasyShiftHQ Financial Management Dashboard",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Financial Management - Real-Time P&L Dashboard | EasyShiftHQ",
+    description: "Know your restaurant profits daily with real-time P&L tracking and automated bookkeeping.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -103,6 +133,7 @@ export default function FinancialManagementPage() {
       benefits={benefits}
       ctaTitle="Get Financial Clarity Today"
       ctaDescription="Connect your bank accounts and start seeing your real profits in minutes, not weeks."
+      schemaUrl="https://easyshifthq.com/features/financial-management"
     />
   )
 }

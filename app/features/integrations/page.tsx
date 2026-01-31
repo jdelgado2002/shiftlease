@@ -3,11 +3,41 @@ import { Zap } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
-  title: "Integrations",
-  description: "Connect Square, Toast, Clover, Shift4, and your bank accounts for automatic data sync and unified restaurant management.",
+  title: "Integrations - Connect Square, Toast, Clover & More",
+  description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up in 15 minutes.",
+  keywords: [
+    "Square POS integration",
+    "Toast POS integration",
+    "Clover integration",
+    "restaurant POS sync",
+    "bank integration software",
+    "multi-location restaurant management",
+    "restaurant data integration",
+    "POS data sync",
+  ],
+  alternates: {
+    canonical: "https://easyshifthq.com/features/integrations",
+  },
   openGraph: {
-    title: "Integrations | EasyShiftHQ",
-    description: "Connect Square, Toast, Clover, Shift4, and your bank accounts for automatic data sync and unified restaurant management.",
+    type: "website",
+    url: "https://easyshifthq.com/features/integrations",
+    title: "Integrations - Connect Square, Toast, Clover & More | EasyShiftHQ",
+    description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up in 15 minutes.",
+    siteName: "EasyShiftHQ",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EasyShiftHQ POS and Bank Integrations",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Integrations - Connect Square, Toast, Clover | EasyShiftHQ",
+    description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up in 15 minutes.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -131,6 +161,7 @@ export default function IntegrationsPage() {
       benefits={benefits}
       ctaTitle="Connect Your Systems Today"
       ctaDescription="Set up in 15 minutes. POS, banking, and team — all connected and syncing automatically."
+      schemaUrl="https://easyshifthq.com/features/integrations"
     />
   )
 }

@@ -3,11 +3,41 @@ import { Clock } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
-  title: "Scheduling & Payroll",
-  description: "Employee scheduling with drag-and-drop, time tracking, tip management, and payroll export for restaurants.",
+  title: "Scheduling & Payroll - Employee Scheduling & Time Tracking",
+  description: "Save 10+ hours weekly with drag-and-drop scheduling, digital time tracking, tip management, and one-click payroll export to ADP, Gusto, or Paychex. Know labor costs before you publish.",
+  keywords: [
+    "restaurant employee scheduling",
+    "restaurant time tracking",
+    "tip management software",
+    "payroll export",
+    "labor cost management",
+    "shift scheduling software",
+    "restaurant workforce management",
+    "employee time clock",
+  ],
+  alternates: {
+    canonical: "https://easyshifthq.com/features/scheduling-payroll",
+  },
   openGraph: {
-    title: "Scheduling & Payroll | EasyShiftHQ",
-    description: "Employee scheduling with drag-and-drop, time tracking, tip management, and payroll export for restaurants.",
+    type: "website",
+    url: "https://easyshifthq.com/features/scheduling-payroll",
+    title: "Scheduling & Payroll - Employee Scheduling & Time Tracking | EasyShiftHQ",
+    description: "Save 10+ hours weekly with drag-and-drop scheduling, time tracking, and one-click payroll export.",
+    siteName: "EasyShiftHQ",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EasyShiftHQ Scheduling and Payroll System",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scheduling & Payroll - Employee Scheduling | EasyShiftHQ",
+    description: "Save 10+ hours weekly with drag-and-drop scheduling and digital time tracking.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -121,6 +151,7 @@ export default function SchedulingPayrollPage() {
       benefits={benefits}
       ctaTitle="Take Control of Labor Costs"
       ctaDescription="Stop being surprised by payroll. See labor costs in real-time and schedule with confidence."
+      schemaUrl="https://easyshifthq.com/features/scheduling-payroll"
     />
   )
 }

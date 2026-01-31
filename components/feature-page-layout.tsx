@@ -4,6 +4,7 @@ import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { FeaturePageSchema, BreadcrumbSchema } from "@/components/structured-data"
 
 interface FeatureItem {
   title: string
@@ -21,6 +22,7 @@ interface FeaturePageLayoutProps {
   benefits: string[]
   ctaTitle: string
   ctaDescription: string
+  schemaUrl: string
 }
 
 export function FeaturePageLayout({
@@ -33,9 +35,26 @@ export function FeaturePageLayout({
   benefits,
   ctaTitle,
   ctaDescription,
+  schemaUrl,
 }: FeaturePageLayoutProps) {
+  // Flatten all feature bullet points for schema
+  const allFeatures = features.flatMap(f => f.features)
+  
   return (
     <div className="flex min-h-screen flex-col">
+      <FeaturePageSchema
+        name={badge}
+        description={description}
+        url={schemaUrl}
+        features={allFeatures}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://easyshifthq.com" },
+          { name: "Features", url: "https://easyshifthq.com/#features" },
+          { name: badge, url: schemaUrl },
+        ]}
+      />
       <Header />
 
       <main className="flex-1">

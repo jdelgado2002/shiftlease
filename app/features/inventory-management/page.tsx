@@ -3,11 +3,41 @@ import { PackageSearch } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
-  title: "Inventory Management",
-  description: "Real-time stock tracking, AI-powered receipt scanning, waste management, and automated inventory updates for restaurants.",
+  title: "Inventory Management - Real-Time Stock Tracking for Restaurants",
+  description: "Reduce inventory loss by 18% with real-time stock tracking, AI-powered receipt scanning (OCR), waste management, and automatic POS deductions. Know exactly what you have, always.",
+  keywords: [
+    "restaurant inventory management",
+    "real-time stock tracking",
+    "AI receipt scanning",
+    "restaurant waste management",
+    "inventory control software",
+    "food inventory tracking",
+    "restaurant shrinkage prevention",
+    "automated inventory deductions",
+  ],
+  alternates: {
+    canonical: "https://easyshifthq.com/features/inventory-management",
+  },
   openGraph: {
-    title: "Inventory Management | EasyShiftHQ",
-    description: "Real-time stock tracking, AI-powered receipt scanning, waste management, and automated inventory updates for restaurants.",
+    type: "website",
+    url: "https://easyshifthq.com/features/inventory-management",
+    title: "Inventory Management - Real-Time Stock Tracking | EasyShiftHQ",
+    description: "Reduce inventory loss by 18% with real-time stock tracking, AI receipt scanning, and automatic POS deductions.",
+    siteName: "EasyShiftHQ",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EasyShiftHQ Inventory Management System",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inventory Management - Real-Time Stock Tracking | EasyShiftHQ",
+    description: "Reduce inventory loss by 18% with real-time tracking and AI-powered receipt scanning.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -98,6 +128,7 @@ export default function InventoryManagementPage() {
       benefits={benefits}
       ctaTitle="Take Control of Your Inventory"
       ctaDescription="Stop losing money to waste and shrinkage. Get real-time visibility into every item in your restaurant."
+      schemaUrl="https://easyshifthq.com/features/inventory-management"
     />
   )
 }

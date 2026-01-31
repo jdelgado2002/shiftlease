@@ -3,11 +3,41 @@ import { ChefHat } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
-  title: "Recipe & Menu Management",
-  description: "Recipe costing, profitability analysis, menu engineering, and automatic inventory deductions for restaurants.",
+  title: "Recipe & Menu Management - Recipe Costing & Menu Engineering",
+  description: "Know exactly what each dish costs with real-time recipe costing, menu engineering matrix (Stars, Plowhorses, Puzzles, Dogs), profitability analysis, and automatic inventory deductions when items sell.",
+  keywords: [
+    "recipe costing software",
+    "menu engineering",
+    "restaurant menu optimization",
+    "food cost calculator",
+    "menu profitability analysis",
+    "recipe management software",
+    "menu pricing strategy",
+    "restaurant profit margin",
+  ],
+  alternates: {
+    canonical: "https://easyshifthq.com/features/recipe-menu",
+  },
   openGraph: {
-    title: "Recipe & Menu Management | EasyShiftHQ",
-    description: "Recipe costing, profitability analysis, menu engineering, and automatic inventory deductions for restaurants.",
+    type: "website",
+    url: "https://easyshifthq.com/features/recipe-menu",
+    title: "Recipe & Menu Management - Recipe Costing & Menu Engineering | EasyShiftHQ",
+    description: "Know exactly what each dish costs with real-time recipe costing and menu engineering tools.",
+    siteName: "EasyShiftHQ",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "EasyShiftHQ Recipe and Menu Management",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Recipe & Menu Management - Recipe Costing | EasyShiftHQ",
+    description: "Know exactly what each dish costs with real-time recipe costing and menu engineering.",
+    images: ["/og-image.jpg"],
   },
 }
 
@@ -99,6 +129,7 @@ export default function RecipeMenuPage() {
       benefits={benefits}
       ctaTitle="Optimize Your Menu Today"
       ctaDescription="Stop guessing which dishes make money. Get real-time recipe costing and menu engineering tools."
+      schemaUrl="https://easyshifthq.com/features/recipe-menu"
     />
   )
 }

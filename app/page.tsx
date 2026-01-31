@@ -10,46 +10,72 @@ import {
   BookOpen,
   BrainCircuit,
   Shield,
+  Wallet,
+  Clock,
+  Receipt,
+  ChefHat,
+  Zap,
+  Building2,
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { WaitlistForm } from "@/components/waitlist-form"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+
+const featureCategories = [
+  {
+    icon: <Wallet className="h-5 w-5" />,
+    title: "Financial Management",
+    description: "Real-time P&L, bank connections, and automated transaction categorization",
+    href: "/features/financial-management",
+    highlights: ["Live P&L Dashboard", "Bank Account Sync", "AI Categorization"],
+  },
+  {
+    icon: <PackageSearch className="h-5 w-5" />,
+    title: "Inventory Management",
+    description: "Live stock tracking, OCR receipt scanning, and waste documentation",
+    href: "/features/inventory-management",
+    highlights: ["Real-Time Tracking", "Receipt OCR Scanning", "Low Stock Alerts"],
+  },
+  {
+    icon: <ChefHat className="h-5 w-5" />,
+    title: "Recipe & Menu",
+    description: "Recipe costing, profitability analysis, and menu engineering tools",
+    href: "/features/recipe-menu",
+    highlights: ["Recipe Costing", "Profit Analysis", "POS Integration"],
+  },
+  {
+    icon: <Clock className="h-5 w-5" />,
+    title: "Scheduling & Payroll",
+    description: "Employee scheduling, time tracking, and payroll management",
+    href: "/features/scheduling-payroll",
+    highlights: ["Drag-Drop Scheduling", "Time Clock", "Payroll Export"],
+  },
+  {
+    icon: <Zap className="h-5 w-5" />,
+    title: "POS Integrations",
+    description: "Connect Square, Toast, Clover, and Shift4 for automatic sales sync",
+    href: "/features/integrations",
+    highlights: ["Square & Toast", "Clover & Shift4", "Auto Daily Sync"],
+  },
+  {
+    icon: <Building2 className="h-5 w-5" />,
+    title: "Multi-Location",
+    description: "Manage unlimited restaurants with consolidated reporting",
+    href: "/features/integrations",
+    highlights: ["Unlimited Locations", "Quick Switching", "Roll-up Reports"],
+  },
+]
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex gap-2 items-center text-xl font-semibold tracking-tight">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
-              <CalendarCheck className="h-4 w-4 text-primary-foreground" />
-            </div>
-            <span>EasyShiftHQ</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <Link href="#problems" className="text-muted-foreground hover:text-foreground transition-colors">
-              The Problem
-            </Link>
-            <Link href="#solution" className="text-muted-foreground hover:text-foreground transition-colors">
-              Solution
-            </Link>
-            <Link href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-              Pricing
-            </Link>
-            <Link href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
-              How It Works
-            </Link>
-          </nav>
-          <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>
-            <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-              Start Free Trial
-            </Link>
-          </Button>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-1">
+        {/* Hero Section */}
         <section className="w-full py-24 md:py-32 lg:py-40">
           <div className="container px-4 md:px-6">
             <div className="max-w-4xl mx-auto text-center">
@@ -91,6 +117,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Stats Section */}
         <section className="w-full border-y border-border bg-card">
           <div className="container px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
@@ -114,6 +141,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Problems Section */}
         <section id="problems" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto mb-16 text-center">
@@ -192,6 +220,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Transition Section */}
         <section className="w-full py-24 md:py-32 bg-foreground text-background">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center space-y-8">
@@ -209,6 +238,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Solution Section */}
         <section id="solution" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto mb-16 text-center">
@@ -335,7 +365,54 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-24 md:py-32 bg-muted/30">
+        {/* Features Overview Section */}
+        <section id="features" className="w-full py-24 md:py-32 bg-muted/30">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-3xl mx-auto mb-16 text-center">
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Everything You Need</p>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Complete Restaurant Operations
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                From financial tracking to employee scheduling — all in one platform designed for restaurant operators.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {featureCategories.map((category) => (
+                <Link
+                  key={category.title}
+                  href={category.href}
+                  className="group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 hover:shadow-lg transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <span className="text-primary">{category.icon}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">{category.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {category.highlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Control Section */}
+        <section className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16">
@@ -384,7 +461,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pricing" className="w-full py-24 md:py-32">
+        {/* Pricing Section */}
+        <section id="pricing" className="w-full py-24 md:py-32 bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
@@ -536,7 +614,7 @@ export default function Home() {
                   { locations: "6-10", discount: "10%" },
                   { locations: "11+", discount: "15%" },
                 ].map((tier) => (
-                  <div key={tier.locations} className="p-4 rounded-xl bg-muted/50">
+                  <div key={tier.locations} className="p-4 rounded-xl bg-card border border-border">
                     <p className="text-2xl font-bold text-primary">{tier.discount}</p>
                     <p className="text-sm text-muted-foreground">{tier.locations} locations</p>
                   </div>
@@ -546,7 +624,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="w-full py-24 md:py-32 bg-muted/30">
+        {/* How It Works Section */}
+        <section id="how-it-works" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">How It Works</p>
@@ -594,7 +673,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-24 md:py-32">
+        {/* Testimonial Section */}
+        <section className="w-full py-24 md:py-32 bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
               <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed italic mb-8">
@@ -613,6 +693,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* CTA Section */}
         <section id="contact" className="w-full py-24 md:py-32 bg-foreground text-background">
           <div className="container px-4 md:px-6">
             <div className="grid gap-16 lg:grid-cols-2 items-center max-w-6xl mx-auto">
@@ -665,33 +746,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="w-full border-t border-border py-8">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <div className="flex items-center justify-center w-6 h-6 rounded bg-primary">
-                <CalendarCheck className="h-3 w-3 text-primary-foreground" />
-              </div>
-              <span>EasyShiftHQ</span>
-            </div>
-            <nav className="flex gap-6">
-              <Link className="text-sm text-muted-foreground hover:text-foreground transition-colors" href="/terms">
-                Terms
-              </Link>
-              <Link className="text-sm text-muted-foreground hover:text-foreground transition-colors" href="/privacy">
-                Privacy
-              </Link>
-              <Link
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                href="mailto:contact@easyshifthq.com"
-              >
-                Contact
-              </Link>
-            </nav>
-            <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} EasyShiftHQ</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

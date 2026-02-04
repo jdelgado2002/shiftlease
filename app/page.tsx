@@ -16,6 +16,8 @@ import {
   ChefHat,
   Zap,
   Building2,
+  TrendingDown,
+  AlertTriangle,
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -23,6 +25,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { WaitlistForm } from "@/components/waitlist-form"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { InventoryImpactHero, InventoryQuickFacts } from "@/components/inventory-impact"
 
 const featureCategories = [
   {
@@ -35,9 +38,9 @@ const featureCategories = [
   {
     icon: <PackageSearch className="h-5 w-5" />,
     title: "Inventory Management",
-    description: "Live stock tracking, OCR receipt scanning, and waste documentation",
+    description: "Stop losing 2-10% of revenue to shrinkage. Real-time tracking catches waste and theft instantly.",
     href: "/features/inventory-management",
-    highlights: ["Real-Time Tracking", "Receipt OCR Scanning", "Low Stock Alerts"],
+    highlights: ["18% Loss Reduction", "Real-Time Tracking", "Theft Detection"],
   },
   {
     icon: <ChefHat className="h-5 w-5" />,
@@ -204,17 +207,27 @@ export default function Home() {
                       "I know I'm bleeding money — I just don't know where."
                     </h3>
                     <p className="text-muted-foreground">
-                      Waste, theft, ordering mistakes, broken pricing. All hidden. All costly.
+                      Industry data shows restaurants lose 2-10% of revenue to shrinkage — waste, theft, over-portioning, spoilage. 
+                      That's $30,000+ per million in sales, vanishing silently.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Inventory Loss Stats */}
+            <div className="mt-16 max-w-5xl mx-auto">
+              <InventoryQuickFacts />
+            </div>
+
             <div className="text-center mt-16 space-y-4">
               <p className="text-2xl font-medium">You don't have a data problem.</p>
               <p className="text-2xl font-bold">
                 You have a <span className="text-primary">visibility</span> problem.
+              </p>
+              <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+                75% of inventory shrinkage comes from employee theft. 10% of food is wasted before it ever reaches a plate. 
+                Manual tracking takes 5-7 hours weekly — and still misses problems for weeks.
               </p>
             </div>
           </div>
@@ -287,7 +300,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Every sale updates stock automatically. No theoretical numbers. No silent shrinkage.
+                    Stop the 2-10% revenue leak. Real-time tracking catches theft, waste, and variance instantly — 
+                    not weeks later when the money is already gone.
                   </p>
                 </CardContent>
               </Card>
@@ -364,6 +378,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Inventory Impact Section */}
+        <InventoryImpactHero />
 
         {/* Features Overview Section */}
         <section id="features" className="w-full py-24 md:py-32 bg-muted/30">

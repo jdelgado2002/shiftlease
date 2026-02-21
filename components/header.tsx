@@ -56,6 +56,9 @@ export function Header() {
               </div>
             )}
           </div>
+          <Link href="/why-inventory-matters" className="text-muted-foreground hover:text-foreground transition-colors">
+            Why Inventory Matters
+          </Link>
           <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
@@ -100,6 +103,13 @@ export function Header() {
               ))}
             </div>
             <div className="border-t border-border pt-4 space-y-2">
+              <Link
+                href="/why-inventory-matters"
+                className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Why Inventory Matters
+              </Link>
               <Link
                 href="/#pricing"
                 className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"

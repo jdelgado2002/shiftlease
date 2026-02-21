@@ -173,11 +173,11 @@ export function FeaturePageLayout({
                   className="rounded-full h-12 px-8 text-base border-background/20 text-background hover:bg-background/10"
                   asChild
                 >
-                  <Link href="mailto:contact@easyshifthq.com">Contact Sales</Link>
+                  <Link href="/#pricing">See Pricing</Link>
                 </Button>
               </div>
               <p className="text-sm text-background/50 mt-6">
-                14-day free trial · No credit card required · Cancel anytime
+                Set up in minutes · No credit card required · Cancel anytime
               </p>
             </div>
           </div>

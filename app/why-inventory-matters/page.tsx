@@ -376,8 +376,8 @@ export default function WhyInventoryMattersPage() {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="rounded-full h-14 px-8 text-base border-background/60 bg-transparent text-background hover:bg-background/10"
+                  variant="ghost"
+                  className="rounded-full h-14 px-8 text-base border border-background/60 text-background hover:bg-background/10 hover:text-background"
                   asChild
                 >
                   <Link href="/features/inventory-management">Explore Inventory Features</Link>

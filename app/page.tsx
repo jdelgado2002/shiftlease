@@ -51,10 +51,10 @@ const featureCategories = [
   },
   {
     icon: <Clock className="h-5 w-5" />,
-    title: "Scheduling & Payroll",
-    description: "Employee scheduling, time tracking, and payroll management",
+    title: "Operations",
+    description: "Scheduling, time clock, tip pooling, and payroll — four pillars that feed each other automatically",
     href: "/features/scheduling-payroll",
-    highlights: ["Drag-Drop Scheduling", "Time Clock", "Payroll Export"],
+    highlights: ["Conflict-Aware Scheduling", "Verified Time Clock", "Tip Pooling & Payroll"],
   },
   {
     icon: <Zap className="h-5 w-5" />,
@@ -315,7 +315,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Know your labor cost before payroll hits. Control the biggest expense in your business.
+                    Schedule with conflict detection, clock with verification, pool tips fairly, and run payroll — all connected. No re-keying between systems.
                   </p>
                 </CardContent>
               </Card>

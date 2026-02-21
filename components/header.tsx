@@ -9,7 +9,7 @@ const features = [
   { name: "Financial Management", href: "/features/financial-management", description: "Real-time P&L, banking, and transaction management" },
   { name: "Inventory Management", href: "/features/inventory-management", description: "Live stock tracking, OCR scanning, and waste management" },
   { name: "Recipe & Menu", href: "/features/recipe-menu", description: "Recipe costing, profitability analysis, and menu engineering" },
-  { name: "Scheduling & Payroll", href: "/features/scheduling-payroll", description: "Employee scheduling, time tracking, and payroll management" },
+  { name: "Operations", href: "/features/scheduling-payroll", description: "Scheduling, time clock, tip pooling, and payroll" },
   { name: "Integrations", href: "/features/integrations", description: "POS systems, banking, and third-party connections" },
 ]
 

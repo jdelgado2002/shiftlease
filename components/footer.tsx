@@ -5,7 +5,7 @@ const features = [
   { name: "Financial Management", href: "/features/financial-management" },
   { name: "Inventory Management", href: "/features/inventory-management" },
   { name: "Recipe & Menu", href: "/features/recipe-menu" },
-  { name: "Scheduling & Payroll", href: "/features/scheduling-payroll" },
+  { name: "Operations", href: "/features/scheduling-payroll" },
   { name: "Integrations", href: "/features/integrations" },
 ]
 

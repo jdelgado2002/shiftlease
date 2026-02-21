@@ -9,7 +9,7 @@ const features = [
   { name: "Financial Management", href: "/features/financial-management", description: "Real-time P&L, banking, and transaction management" },
   { name: "Inventory Management", href: "/features/inventory-management", description: "Live stock tracking, OCR scanning, and waste management" },
   { name: "Recipe & Menu", href: "/features/recipe-menu", description: "Recipe costing, profitability analysis, and menu engineering" },
-  { name: "Scheduling & Payroll", href: "/features/scheduling-payroll", description: "Employee scheduling, time tracking, and payroll management" },
+  { name: "Operations", href: "/features/scheduling-payroll", description: "Scheduling, time clock, tip pooling, and payroll" },
   { name: "Integrations", href: "/features/integrations", description: "POS systems, banking, and third-party connections" },
 ]
 
@@ -56,6 +56,12 @@ export function Header() {
               </div>
             )}
           </div>
+          <Link href="/why-inventory-matters" className="text-muted-foreground hover:text-foreground transition-colors">
+            Why Inventory Matters
+          </Link>
+          <Link href="/why-operations-matter" className="text-muted-foreground hover:text-foreground transition-colors">
+            Why Operations Matter
+          </Link>
           <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
@@ -100,6 +106,20 @@ export function Header() {
               ))}
             </div>
             <div className="border-t border-border pt-4 space-y-2">
+              <Link
+                href="/why-inventory-matters"
+                className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Why Inventory Matters
+              </Link>
+              <Link
+                href="/why-operations-matter"
+                className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Why Operations Matter
+              </Link>
               <Link
                 href="/#pricing"
                 className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"

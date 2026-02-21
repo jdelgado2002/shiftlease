@@ -59,6 +59,9 @@ export function Header() {
           <Link href="/why-inventory-matters" className="text-muted-foreground hover:text-foreground transition-colors">
             Why Inventory Matters
           </Link>
+          <Link href="/why-operations-matter" className="text-muted-foreground hover:text-foreground transition-colors">
+            Why Operations Matter
+          </Link>
           <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
@@ -109,6 +112,13 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Why Inventory Matters
+              </Link>
+              <Link
+                href="/why-operations-matter"
+                className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Why Operations Matter
               </Link>
               <Link
                 href="/#pricing"

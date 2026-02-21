@@ -11,6 +11,7 @@ const features = [
 
 const company = [
   { name: "Why Inventory Matters", href: "/why-inventory-matters" },
+  { name: "Why Operations Matter", href: "/why-operations-matter" },
   { name: "Pricing", href: "/#pricing" },
   { name: "How It Works", href: "/#how-it-works" },
   { name: "Contact", href: "mailto:contact@easyshifthq.com" },

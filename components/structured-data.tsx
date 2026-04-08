@@ -24,7 +24,7 @@ export function OrganizationSchema() {
       url: "https://easyshifthq.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://easyshifthq.com/favicon.svg",
+        url: "https://easyshifthq.com/icon-512.png",
       },
     },
   }

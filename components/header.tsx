@@ -1,7 +1,8 @@
 "use client"
 
-import { CalendarCheck, Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 
@@ -21,9 +22,13 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex gap-2 items-center text-xl font-semibold tracking-tight">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
-            <CalendarCheck className="h-4 w-4 text-primary-foreground" />
-          </div>
+          <Image
+            src="/icon-192.png"
+            alt="EasyShiftHQ"
+            width={32}
+            height={32}
+            className="rounded-lg"
+          />
           <span>EasyShiftHQ</span>
         </Link>
 

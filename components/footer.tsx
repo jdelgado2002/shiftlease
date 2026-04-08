@@ -1,5 +1,5 @@
-import { CalendarCheck } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const features = [
   { name: "Financial Management", href: "/features/financial-management" },
@@ -30,9 +30,13 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex gap-2 items-center text-lg font-semibold tracking-tight mb-4">
-              <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-primary">
-                <CalendarCheck className="h-3.5 w-3.5 text-primary-foreground" />
-              </div>
+              <Image
+                src="/icon-192.png"
+                alt="EasyShiftHQ"
+                width={28}
+                height={28}
+                className="rounded-lg"
+              />
               <span>EasyShiftHQ</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">

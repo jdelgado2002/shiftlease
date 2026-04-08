@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  CalendarCheck,
   Check,
   PackageSearch,
   Users,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { CalendarCheck } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
@@ -21,7 +21,13 @@ export default function PrivacyPolicy() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex gap-2 items-center text-xl font-bold">
-            <CalendarCheck className="h-6 w-6 text-emerald-600" />
+            <Image
+              src="/icon-192.png"
+              alt="EasyShiftHQ"
+              width={24}
+              height={24}
+              className="rounded-lg"
+            />
             <span>EasyShiftHQ</span>
           </Link>
           <Button className="bg-emerald-600 hover:bg-emerald-700" asChild>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -18,25 +18,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicy() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex gap-2 items-center text-xl font-bold">
-            <Image
-              src="/icon-192.png"
-              alt="EasyShiftHQ"
-              width={24}
-              height={24}
-              className="rounded-lg"
-            />
-            <span>EasyShiftHQ</span>
-          </Link>
-          <Button className="bg-emerald-600 hover:bg-emerald-700" asChild>
-            <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-              Start Free Trial
-            </Link>
-          </Button>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-1">
         <div className="container max-w-4xl py-12 md:py-16 lg:py-20">
@@ -287,26 +269,7 @@ export default function PrivacyPolicy() {
         </div>
       </main>
 
-      <footer className="w-full border-t py-6">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
-            </p>
-            <nav className="flex gap-4 sm:gap-6">
-              <Link className="text-xs hover:underline underline-offset-4" href="/terms">
-                Terms of Service
-              </Link>
-              <Link className="text-xs hover:underline underline-offset-4" href="/privacy">
-                Privacy Policy
-              </Link>
-              <Link className="text-xs hover:underline underline-offset-4" href="mailto:contact@easyshifthq.com">
-                Contact
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -130,7 +130,7 @@ Use subagent-driven-development to parallelize independent tasks.
 
 Review loop (max 3 iterations):
 
-```
+```text
 Iteration 1: Run coderabbit review --plain --type committed
   |-- No actionable findings --> Proceed to Phase 8
   +-- Has findings --> Fix them, commit fixes
@@ -153,7 +153,7 @@ Iteration 1: Run coderabbit review --plain --type committed
 **Invoke:** `superpowers:verification-before-completion`
 
 - Set a symlink to .env.local so you can run tests in the worktree with access to env vars
-- Run all relevant tests: `npm run test && npm run test:db && npm run test:e2e`, `npm run typecheck`, `npm run lint`, `npm run build`
+- Run all relevant tests: `pnpm test && pnpm test:db && pnpm test:e2e`, `pnpm typecheck`, `pnpm lint`, `pnpm build`
 - Confirm ALL pass with actual output evidence
 - Never claim "tests pass" without running them
 - **If any check fails:** Fix the issue, commit the fix, re-run. Loop locally until green before proceeding. Max 5 local fix iterations — if still failing after 5, report to user.
@@ -189,31 +189,19 @@ Use `Bash` with `run_in_background: true`. You will be notified when it complete
 **Step 2: When CI completes, ingest all feedback**
 
 ```bash
-# Ingest GitHub comments, SonarCloud issues, and lint problems into the review queue
-dev-tools/refresh-queue.sh --pr <PR_NUMBER> --skip-tests
+# Check SonarCloud issues for this PR:
+curl -s "https://sonarcloud.io/api/issues/search?componentKeys=jdelgado2002_shiftlease&pullRequest=<PR_NUMBER>&resolved=false" -o /tmp/sonar.json
 
-# If refresh-queue.sh can't reach SonarCloud (missing env vars), fetch manually:
-curl -s "https://sonarcloud.io/api/issues/search?componentKeys=toyiyo_nimble-pnl&pullRequest=<PR_NUMBER>&resolved=false" -o /tmp/sonar.json
-node dev-tools/ingest-feedback.js --sonar /tmp/sonar.json --pr <PR_NUMBER>
+# Check quality gate status:
+curl -s "https://sonarcloud.io/api/qualitygates/project_status?projectKey=jdelgado2002_shiftlease&pullRequest=<PR_NUMBER>"
 
-# Also check quality gate (coverage ≥80% on new code is required):
-curl -s "https://sonarcloud.io/api/qualitygates/project_status?projectKey=toyiyo_nimble-pnl&pullRequest=<PR_NUMBER>"
+# Review PR comments from CodeRabbit and other reviewers:
+gh pr view <PR_NUMBER> --json reviews,comments --jq '.reviews[].body, .comments[].body'
 ```
 
-**Step 3: Read the queue and act on every open item**
+**Step 3: Classify and act on each finding**
 
-```bash
-# Show all open items from the queue
-cat dev-tools/review_queue.json | python3 -c "
-import sys,json
-d=json.load(sys.stdin)
-for i in d['items']:
-  if i['status']=='open':
-    print(f\"{i['severity']:8s} {i['source']:16s} {i.get('origin_ref',{}).get('file',''):40s} {i['title'][:80]}\")
-"
-```
-
-Classify each open item:
+Classify each item:
 - **Actionable** (CI failure, SonarCloud critical/major, code review bug) → Fix it
 - **Clarification needed** → Ask user
 - **Informational** (nits, style) → Skip
@@ -222,7 +210,7 @@ Classify each open item:
 
 For each actionable item:
 1. Fix the code
-2. Run the relevant local check to confirm (`npm run test`, `npm run build`, `npm run lint`)
+2. Run the relevant local check to confirm (`pnpm test`, `pnpm build`, `pnpm lint`)
 3. Commit: `"fix(ci): [what was fixed] (iteration N/5)"`
 4. Push to branch
 5. Go back to Step 1 (start CI watch again)
@@ -238,16 +226,10 @@ For each actionable item:
 When ALL of these are true:
 - `gh pr checks` shows all checks passing
 - SonarCloud quality gate passes
-- No open critical/major items in `dev-tools/review_queue.json`
+- No unaddressed critical/major review comments
 
 Then:
 - Update `progress.md` with `## Status: Ready for merge`
-- Notify the user: "PR #NNN is green and ready for review/merge" with a summary
-
-### 9e: Done
-
-When all CI checks pass and review comments are addressed:
-- Update `progress.md` with final status: `## Status: Ready for merge`
 - Notify the user: "PR #NNN is green and ready for review/merge" with a summary of what was built
 
 **Skip condition:** None.

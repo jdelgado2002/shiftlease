@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { TrialCTA } from "@/components/trial-cta"
 import { ArrowRight, Check, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"

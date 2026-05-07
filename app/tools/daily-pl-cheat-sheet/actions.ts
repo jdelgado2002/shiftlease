@@ -28,7 +28,8 @@ const PDF_PATH = "/downloads/EasyShiftHQ-Restaurant-Daily-PnL-Guide.pdf"
 export async function sendDailyPLCheatSheet(
   raw: unknown,
 ): Promise<LeadMagnetResult> {
-  const parsed = schema.safeParse(raw)
+  const sanitized = sanitizeMarketingFields(raw)
+  const parsed = schema.safeParse(sanitized)
   if (!parsed.success) {
     return { ok: false, error: "Please enter a valid email address." }
   }
@@ -45,7 +46,8 @@ export async function sendDailyPLCheatSheet(
     process.env.RESEND_FROM_EMAIL || "EasyShiftHQ <hello@easyshifthq.com>"
 
   const { email, firstName, restaurantName } = parsed.data
-  const greeting = firstName ? `Hi ${firstName},` : "Hi there,"
+  const safeFirstName = firstName ? escapeHtml(firstName) : ""
+  const greeting = safeFirstName ? `Hi ${safeFirstName},` : "Hi there,"
   const restaurantLine = restaurantName
     ? `<p>We hope this helps the team at <strong>${escapeHtml(restaurantName)}</strong> spot money issues before they snowball.</p>`
     : ""
@@ -104,4 +106,28 @@ function escapeHtml(s: string): string {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;")
+}
+
+const MARKETING_FIELDS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+] as const
+
+function sanitizeMarketingFields(raw: unknown): unknown {
+  if (!raw || typeof raw !== "object") return raw
+  const obj = { ...(raw as Record<string, unknown>) }
+  for (const key of MARKETING_FIELDS) {
+    const v = obj[key]
+    if (typeof v === "string" && v.length > 120) {
+      obj[key] = v.slice(0, 120)
+    }
+  }
+  const landing = obj.mkt_landing_page
+  if (typeof landing === "string" && landing.length > 500) {
+    obj.mkt_landing_page = landing.slice(0, 500)
+  }
+  return obj
 }

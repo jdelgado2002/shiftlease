@@ -12,7 +12,7 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { TrialCTA } from "@/components/trial-cta"
-import { EmailCaptureForm } from "./email-capture-form"
+import { EmailCaptureForm } from "@/app/tools/daily-pl-cheat-sheet/email-capture-form"
 
 export const metadata: Metadata = {
   title: "Daily P&L Cheat Sheet — Free Excel + PDF for Restaurant Operators",

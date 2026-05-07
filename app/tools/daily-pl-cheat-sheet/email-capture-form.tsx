@@ -5,7 +5,7 @@ import posthog from "posthog-js"
 import { CheckCircle2, Download, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { sendDailyPLCheatSheet } from "./actions"
+import { sendDailyPLCheatSheet } from "@/app/tools/daily-pl-cheat-sheet/actions"
 
 const TRACKED_PARAMS = [
   "utm_source",
@@ -58,11 +58,11 @@ export function EmailCaptureForm() {
       }
 
       try {
+        // Intentionally no PII (email/name/restaurant) — operational consent
+        // was for delivery, not for analytics tracking. UTMs + tool slug are
+        // sufficient for conversion attribution.
         posthog.capture("lead_magnet_downloaded", {
           tool: "daily-pl-cheat-sheet",
-          email: payload.email,
-          first_name: payload.firstName || undefined,
-          restaurant_name: payload.restaurantName || undefined,
           ...utms,
         })
       } catch {

@@ -18,6 +18,7 @@ const company = [
   { name: "How It Works", href: "/#how-it-works" },
   { name: "Compare", href: "/vs" },
   { name: "Free Tools", href: "/tools/daily-pl-cheat-sheet" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "mailto:contact@easyshifthq.com" },
 ]
 

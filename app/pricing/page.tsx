@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { TrialCTA } from "@/components/trial-cta"
 import { ArrowRight, Check, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -84,9 +85,9 @@ export default function PricingPage() {
                     className="w-full rounded-full h-12 text-base mb-6"
                     asChild
                   >
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                    <TrialCTA>
                       Select Starter
-                    </Link>
+                    </TrialCTA>
                   </Button>
                   <div className="space-y-3">
                     {[
@@ -127,9 +128,9 @@ export default function PricingPage() {
                     className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base mb-6"
                     asChild
                   >
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                    <TrialCTA>
                       Select Growth
-                    </Link>
+                    </TrialCTA>
                   </Button>
                   <div className="space-y-3">
                     <p className="text-sm font-medium text-muted-foreground">Everything in Starter, plus:</p>
@@ -169,9 +170,9 @@ export default function PricingPage() {
                     className="w-full rounded-full h-12 text-base mb-6"
                     asChild
                   >
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                    <TrialCTA>
                       Select Pro
-                    </Link>
+                    </TrialCTA>
                   </Button>
                   <div className="space-y-3">
                     <p className="text-sm font-medium text-muted-foreground">Everything in Growth, plus:</p>
@@ -263,10 +264,10 @@ export default function PricingPage() {
                   className="rounded-full bg-background text-foreground hover:bg-background/90 h-14 px-8 text-base"
                   asChild
                 >
-                  <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+                  <TrialCTA>
                     Start Free Trial
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </TrialCTA>
                 </Button>
               </div>
             </div>

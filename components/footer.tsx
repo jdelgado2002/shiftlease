@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { TrialCTA } from "@/components/trial-cta"
 import Image from "next/image"
 
 const features = [
@@ -102,14 +103,9 @@ export function Footer() {
             © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link
-              href="https://app.easyshifthq.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-            >
+            <TrialCTA className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
               Sign In
-            </Link>
+            </TrialCTA>
           </div>
         </div>
       </div>

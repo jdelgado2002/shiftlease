@@ -2,6 +2,7 @@
 
 import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
+import { TrialCTA } from "@/components/trial-cta"
 import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -80,9 +81,9 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <Button className="hidden md:flex rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>
-            <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+            <TrialCTA>
               Start Free Trial
-            </Link>
+            </TrialCTA>
           </Button>
 
           {/* Mobile menu button */}
@@ -151,9 +152,9 @@ export function Header() {
               </Link>
             </div>
             <Button className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>
-              <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
+              <TrialCTA>
                 Start Free Trial
-              </Link>
+              </TrialCTA>
             </Button>
           </nav>
         </div>

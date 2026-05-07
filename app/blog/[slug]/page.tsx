@@ -8,9 +8,9 @@ import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 
-type PageProps = {
+type PageProps = Readonly<{
   params: Promise<{ slug: string }>
-}
+}>
 
 export function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({
@@ -89,7 +89,9 @@ export default async function BlogPost({ params }: PageProps) {
         <article className="container px-4 md:px-6 max-w-3xl mx-auto">
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c"),
+            }}
           />
           <header className="mb-12">
             {meta.publishedAt && (

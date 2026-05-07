@@ -16,6 +16,12 @@ export interface BlogPostMeta {
 const BLOG_DIR = path.join(process.cwd(), "content", "blog")
 const DATE_PREFIX_RE = /^\d{4}-\d{2}-\d{2}-/
 
+function normalizePublishedAt(value: unknown): string {
+  if (typeof value === "string") return value
+  if (value instanceof Date) return value.toISOString().slice(0, 10)
+  return ""
+}
+
 export function getAllBlogSlugs(): string[] {
   if (!fs.existsSync(BLOG_DIR)) return []
   return fs
@@ -45,12 +51,7 @@ export function getBlogPostBySlug(slug: string): {
   const meta = {
     ...data,
     slug: data.slug || filename.replace(/\.mdx$/, "").replace(DATE_PREFIX_RE, ""),
-    publishedAt:
-      typeof data.publishedAt === "string"
-        ? data.publishedAt
-        : data.publishedAt instanceof Date
-          ? data.publishedAt.toISOString().slice(0, 10)
-          : "",
+    publishedAt: normalizePublishedAt(data.publishedAt),
   } as BlogPostMeta
   return { meta, content, filename }
 }

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { SocialProofRow } from "@/components/social-proof"
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -241,6 +242,13 @@ export default function PricingPage() {
                     <p className="mt-4 text-muted-foreground leading-relaxed">{item.a}</p>
                   </details>
                 ))}
+              </div>
+
+              <div className="max-w-3xl mx-auto mt-16 pt-8 border-t border-border/50">
+                <p className="text-center text-xs text-muted-foreground mb-3 tracking-wide uppercase">
+                  Independently listed
+                </p>
+                <SocialProofRow variant="compact" />
               </div>
             </div>
           </div>

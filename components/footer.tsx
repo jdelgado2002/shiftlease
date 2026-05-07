@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { TrialCTA } from "@/components/trial-cta"
+import { SocialProofRow } from "@/components/social-proof"
 import Image from "next/image"
 
 const features = [
@@ -97,6 +98,10 @@ export function Footer() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="border-t border-border/50 mt-8 pt-8">
+          <SocialProofRow variant="compact" />
         </div>
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">

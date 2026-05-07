@@ -9,9 +9,9 @@ const PLATFORMS = [
   // Add G2 / Software Advice / GetApp as those listings come online
 ] as const
 
-type SocialProofRowProps = {
+type SocialProofRowProps = Readonly<{
   variant?: "compact" | "full"
-}
+}>
 
 export function SocialProofRow({ variant = "compact" }: SocialProofRowProps) {
   const containerClass =

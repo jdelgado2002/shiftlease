@@ -322,6 +322,22 @@ export default function Home() {
               <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
                 <CardHeader className="pb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Receipt className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Print Checks That Reconcile Themselves</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Print a check on real check paper for payroll, vendors, draws — anything.
+                    The expense logs the moment it&apos;s printed and ties to the bank transaction
+                    the moment money moves. No more &quot;wait, what was that $342 check for?&quot;
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
+                <CardHeader className="pb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <Calculator className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle className="text-xl">Clean Books, All Year</CardTitle>
@@ -602,10 +618,10 @@ export default function Home() {
                     <p className="text-sm font-medium text-muted-foreground">Everything in Growth, plus:</p>
                     {[
                       "AI Assistant",
-                      "Bank Account Connections",
-                      "Automated Transaction Sync",
-                      "Customer Invoicing",
-                      "Expense Management",
+                      "Print checks for payroll, vendors, draws on real check paper",
+                      "Bank account connections + automated transaction sync",
+                      "Auto-reconciliation: every check printed → expense logged → bank match",
+                      "Customer invoicing & expense management",
                       "Asset & Equipment Tracking",
                       "Payroll Reports & Export",
                       "VIP Support",

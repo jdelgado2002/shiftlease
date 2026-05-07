@@ -14,6 +14,7 @@ const company = [
   { name: "Why Operations Matter", href: "/why-operations-matter" },
   { name: "Pricing", href: "/pricing" },
   { name: "How It Works", href: "/#how-it-works" },
+  { name: "Compare", href: "/vs" },
   { name: "Contact", href: "mailto:contact@easyshifthq.com" },
 ]
 

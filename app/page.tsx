@@ -522,6 +522,34 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Lead Magnet Strip */}
+        <section className="w-full border-y border-border bg-card">
+          <div className="container px-4 md:px-6 py-12 md:py-16">
+            <div className="mx-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 max-w-5xl">
+              <div className="shrink-0">
+                <p className="text-sm font-medium text-primary uppercase tracking-wide">Free for operators</p>
+                <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight">
+                  Read your P&amp;L every day. In 5 minutes.
+                </h2>
+              </div>
+              <p className="text-base md:text-lg text-muted-foreground md:flex-1">
+                Grab the printable Daily P&amp;L Cheat Sheet plus the matching Excel — built for operators who don&apos;t want to wait on their accountant.
+              </p>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full md:shrink-0"
+                asChild
+              >
+                <Link href="/tools/daily-pl-cheat-sheet">
+                  Get the cheat sheet
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* How It Works Section */}
         <section id="how-it-works" className="w-full py-24 md:py-32">
           <div className="container px-4 md:px-6">

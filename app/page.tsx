@@ -689,22 +689,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonial Section */}
+        {/* Founder Note Section */}
         <section className="w-full py-24 md:py-32 bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed italic mb-8">
-                "We used to wait weeks for financial reports. Now we know by lunch if yesterday made money."
-              </blockquote>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-lg font-semibold text-primary">SJ</span>
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold">Sarah Johnson</p>
-                  <p className="text-sm text-muted-foreground">Multi-Unit Operator — Chicago</p>
-                </div>
-              </div>
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-6">
+                From the Founder
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                Built by an operator running the same kind of shop you are.
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                Our founder runs a Cold Stone Creamery / Wetzel&apos;s Pretzels co-brand
+                in San Antonio. Every feature in EasyShiftHQ has to survive a weekend at
+                his store before it ships to you. If it can&apos;t, it doesn&apos;t.
+              </p>
             </div>
           </div>
         </section>

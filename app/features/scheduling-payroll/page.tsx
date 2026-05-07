@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
+import { TrialCTA } from "@/components/trial-cta"
 import {
   ArrowRight,
   Check,
@@ -162,14 +163,10 @@ export default function SchedulingPayrollPage() {
                   className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-12 px-8 text-base"
                   asChild
                 >
-                  <Link
-                    href="https://app.easyshifthq.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <TrialCTA>
                     Start Free Trial
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </TrialCTA>
                 </Button>
                 <Button
                   size="lg"
@@ -886,14 +883,10 @@ export default function SchedulingPayrollPage() {
                   className="rounded-full bg-background text-foreground hover:bg-background/90 h-12 px-8 text-base"
                   asChild
                 >
-                  <Link
-                    href="https://app.easyshifthq.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <TrialCTA>
                     Start Free Trial
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  </TrialCTA>
                 </Button>
                 <Button
                   size="lg"

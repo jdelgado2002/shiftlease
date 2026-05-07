@@ -493,165 +493,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+        {/* Pricing Summary Section */}
         <section id="pricing" className="w-full py-24 md:py-32 bg-muted/30">
           <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-12">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Simple. Transparent. Powerful.</h2>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Three plans. No contracts.</h2>
               <p className="text-xl text-muted-foreground">
-                Choose the plan that fits your restaurant.
+                Starter $99, Growth $199, Pro $299 — per location, per month.
                 <br />
-                No contracts. No setup fees. No surprise invoices.
+                Free 14-day trial. No credit card.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {/* Starter Plan */}
-              <Card className="border overflow-hidden">
-                <CardHeader className="text-center pb-6 pt-8">
-                  <CardTitle className="text-lg font-semibold mb-2">Starter</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">Daily P&L and basic inventory tools for single-location restaurants</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold">$99</span>
-                    <span className="text-lg text-muted-foreground">/mo</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
-                </CardHeader>
-                <CardContent className="pb-8">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full rounded-full h-12 text-base mb-6"
-                    asChild
-                  >
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Select Starter
-                    </Link>
-                  </Button>
-                  <div className="space-y-3">
-                    {[
-                      "Daily P&L Dashboard",
-                      "Basic Inventory Tracking",
-                      "Labor Cost Tracking",
-                      "POS Integration (Square, Toast, Clover)",
-                      "Recipe Management",
-                      "Multi-User Access",
-                      "Email Support",
-                    ].map((feature) => (
-                      <div key={feature} className="flex items-center gap-3">
-                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Growth Plan - Recommended */}
-              <Card className="border-2 border-primary overflow-hidden relative">
-                <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-center py-1 text-sm font-medium">
-                  Recommended
-                </div>
-                <CardHeader className="text-center pb-6 pt-12">
-                  <CardTitle className="text-lg font-semibold mb-2">Growth</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">AI-powered automation and intelligence for growing restaurants</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold">$199</span>
-                    <span className="text-lg text-muted-foreground">/mo</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
-                </CardHeader>
-                <CardContent className="pb-8">
-                  <Button
-                    size="lg"
-                    className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base mb-6"
-                    asChild
-                  >
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Select Growth
-                    </Link>
-                  </Button>
-                  <div className="space-y-3">
-                    <p className="text-sm font-medium text-muted-foreground">Everything in Starter, plus:</p>
-                    {[
-                      "Financial Intelligence Dashboard",
-                      "Inventory Automation (OCR)",
-                      "Recipe & Menu Profitability Analytics",
-                      "Employee Scheduling",
-                      "AI Alerts & Anomaly Detection",
-                      "AI Transaction Categorization",
-                      "Priority Support",
-                    ].map((feature) => (
-                      <div key={feature} className="flex items-center gap-3">
-                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Pro Plan */}
-              <Card className="border overflow-hidden">
-                <CardHeader className="text-center pb-6 pt-8">
-                  <CardTitle className="text-lg font-semibold mb-2">Pro</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">Complete financial operations with Stripe-powered integrations</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold">$299</span>
-                    <span className="text-lg text-muted-foreground">/mo</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
-                </CardHeader>
-                <CardContent className="pb-8">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full rounded-full h-12 text-base mb-6"
-                    asChild
-                  >
-                    <Link href="https://app.easyshifthq.com" target="_blank" rel="noopener noreferrer">
-                      Select Pro
-                    </Link>
-                  </Button>
-                  <div className="space-y-3">
-                    <p className="text-sm font-medium text-muted-foreground">Everything in Growth, plus:</p>
-                    {[
-                      "AI Assistant",
-                      "Print checks for payroll, vendors, draws on real check paper",
-                      "Bank account connections + automated transaction sync",
-                      "Auto-reconciliation: every check printed → expense logged → bank match",
-                      "Customer invoicing & expense management",
-                      "Asset & Equipment Tracking",
-                      "Payroll Reports & Export",
-                      "VIP Support",
-                    ].map((feature) => (
-                      <div key={feature} className="flex items-center gap-3">
-                        <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Volume Discounts */}
-            <div className="max-w-2xl mx-auto mt-16">
-              <h3 className="text-center text-lg font-semibold mb-2">Volume Discounts</h3>
-              <p className="text-center text-sm text-muted-foreground mb-6">Save more when you manage multiple locations</p>
-              <div className="grid grid-cols-3 gap-4 text-center">
-                {[
-                  { locations: "3-5", discount: "5%" },
-                  { locations: "6-10", discount: "10%" },
-                  { locations: "11+", discount: "15%" },
-                ].map((tier) => (
-                  <div key={tier.locations} className="p-4 rounded-xl bg-card border border-border">
-                    <p className="text-2xl font-bold text-primary">{tier.discount}</p>
-                    <p className="text-sm text-muted-foreground">{tier.locations} locations</p>
-                  </div>
-                ))}
-              </div>
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full h-14 px-8 text-base"
+                asChild
+              >
+                <Link href="/pricing">
+                  See full pricing
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

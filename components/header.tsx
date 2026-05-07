@@ -67,7 +67,7 @@ export function Header() {
           <Link href="/why-operations-matter" className="text-muted-foreground hover:text-foreground transition-colors">
             Why Operations Matter
           </Link>
-          <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
             Pricing
           </Link>
           <Link href="/#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -126,7 +126,7 @@ export function Header() {
                 Why Operations Matter
               </Link>
               <Link
-                href="/#pricing"
+                href="/pricing"
                 className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

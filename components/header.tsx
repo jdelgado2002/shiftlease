@@ -35,32 +35,42 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <div 
-            className="relative"
-            onMouseEnter={() => setFeaturesOpen(true)}
-            onMouseLeave={() => setFeaturesOpen(false)}
-          >
-            <button className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors">
+          <div className="relative group">
+            <button
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={featuresOpen}
+              onClick={() => setFeaturesOpen((open) => !open)}
+              className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
+            >
               Features
-              <ChevronDown className={`h-4 w-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown
+                className={`h-4 w-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180 ${
+                  featuresOpen ? 'rotate-180' : ''
+                }`}
+              />
             </button>
-            
-            {featuresOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                <div className="w-80 bg-card border border-border rounded-xl shadow-lg p-2">
-                  {features.map((feature) => (
-                    <Link
-                      key={feature.name}
-                      href={feature.href}
-                      className="block p-3 rounded-lg hover:bg-muted transition-colors"
-                    >
-                      <p className="font-medium text-foreground">{feature.name}</p>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
-                    </Link>
-                  ))}
-                </div>
+
+            <div
+              className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 group-hover:block group-focus-within:block ${
+                featuresOpen ? 'block' : 'hidden'
+              }`}
+              role="menu"
+            >
+              <div className="w-80 bg-card border border-border rounded-xl shadow-lg p-2">
+                {features.map((feature) => (
+                  <Link
+                    key={feature.name}
+                    href={feature.href}
+                    role="menuitem"
+                    className="block p-3 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    <p className="font-medium text-foreground">{feature.name}</p>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  </Link>
+                ))}
               </div>
-            )}
+            </div>
           </div>
           <Link href="/why-inventory-matters" className="text-muted-foreground hover:text-foreground transition-colors">
             Why Inventory Matters
@@ -79,6 +89,9 @@ export function Header() {
           </Link>
           <Link href="/tools/daily-pl-cheat-sheet" className="text-muted-foreground hover:text-foreground transition-colors">
             Free Tools
+          </Link>
+          <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+            Blog
           </Link>
         </nav>
 
@@ -159,6 +172,13 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Free Tools
+              </Link>
+              <Link
+                href="/blog"
+                className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
               </Link>
             </div>
             <Button className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>

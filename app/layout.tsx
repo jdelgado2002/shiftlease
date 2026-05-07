@@ -4,6 +4,7 @@ import "@/app/globals.css"
 import { Inter } from "next/font/google"
 import Script from "next/script"
 import { OrganizationSchema, WebsiteSchema, FAQSchema } from "@/components/structured-data"
+import { PostHogProvider } from "@/components/posthog-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -102,10 +103,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={inter.className}>
-        <OrganizationSchema />
-        <WebsiteSchema />
-        <FAQSchema />
-        {children}
+        <PostHogProvider>
+          <OrganizationSchema />
+          <WebsiteSchema />
+          <FAQSchema />
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   )

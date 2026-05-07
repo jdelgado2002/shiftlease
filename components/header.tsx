@@ -77,6 +77,9 @@ export function Header() {
           <Link href="/vs" className="text-muted-foreground hover:text-foreground transition-colors">
             Compare
           </Link>
+          <Link href="/tools/daily-pl-cheat-sheet" className="text-muted-foreground hover:text-foreground transition-colors">
+            Free Tools
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -149,6 +152,13 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Compare
+              </Link>
+              <Link
+                href="/tools/daily-pl-cheat-sheet"
+                className="block px-2 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Free Tools
               </Link>
             </div>
             <Button className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>

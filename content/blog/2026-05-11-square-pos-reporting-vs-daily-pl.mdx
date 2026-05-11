@@ -1,0 +1,108 @@
+---
+title: "Square POS reporting vs. true daily P&L: what your POS doesn't tell you"
+description: "Square's dashboard tells you what you sold. It doesn't tell you what you made. Here's the gap, and how to close it without leaving Square."
+slug: square-pos-reporting-vs-daily-pl
+publishedAt: 2026-05-11
+author: "Jose Delgado"
+authorTitle: "Founder, EasyShiftHQ — operator at a Cold Stone / Wetzel's co-brand in San Antonio"
+tags: ["restaurant-pnl", "square-pos", "pos-reporting", "daily-pl"]
+ogImage: "/og/blog-square-pos-reporting-vs-daily-pl.jpg"
+---
+
+You close out Tuesday. Square Dashboard says $4,800 in net sales, 213 tickets, average ticket $22.54. Green numbers, up 7% from last Tuesday. Good day.
+
+Or was it?
+
+Square told you what you sold. Square did not tell you what you made. Those are different numbers, and the gap between them is where most independent operators lose track of their business. Six weeks later the bookkeeper sends the month-end P&L and Tuesday turns out to be a 4-point prime-cost loser that ate into the rest of the week. You had no way of knowing that on Tuesday night, because the system you were looking at wasn't built to tell you.
+
+This is not a Square problem in particular. The same gap exists in Toast, in Clover, in Square for Restaurants, in Lightspeed. Every POS is a *sales* system first. They count what came in the door. They are not P&L systems. The gap is structural.
+
+Here's what's in the gap, and how to close it without ripping out your POS.
+
+## What Square actually shows you
+
+Square's reports are excellent at what they're designed for. By the end of any business day you can pull:
+
+- Net sales, gross sales, refunds, discounts
+- Tickets and average ticket
+- Item-level sales (with category breakdown)
+- Payment method mix
+- Hourly sales curves
+- Tips, tax collected, gift cards sold
+- Labor hours and labor cost from Square Team / Square Payroll, if you use it
+
+That last one is the most important and the most easily missed. Square's labor reporting is reasonable for hourly wages, but it usually does not include the fully loaded cost of labor (payroll taxes, workers' comp, benefits, manager salary allocation). The number Square shows you for "labor cost" can be 20–25% lower than the number that actually hits your bank account.
+
+## What Square does not show you
+
+Four big things, in rough order of how much they distort the picture:
+
+**1. COGS for the day.** Square has no idea what the burger cost you. It knows you sold the burger for $12.50. It does not know the ground beef was $1.85, the bun was $0.40, the cheese was $0.55, the paper boat was $0.18, and the gas to cook it was a few cents. COGS lives in your invoices (PFG, Sysco, US Foods, the local guy), not in your POS. Until those invoices are entered, matched to a theoretical recipe usage, and reconciled to a count, your COGS for the day is a guess.
+
+**2. Fully loaded labor.** As above. Square's labor number is hourly wages. The actual cost of an hour of labor is hourly wage × roughly 1.18 to 1.25 once you stack on FICA, FUTA, SUTA, workers' comp, and (if you offer them) benefits. A $14/hr employee actually costs $16.50–$17.50/hr to run. A "$1,000 labor day" in Square is really a $1,200 labor day on your P&L.
+
+**3. The non-prime-cost line items.** Rent, royalties, marketing fees, insurance, utilities, repairs, banking fees, processing fees. Together these are 12–22% of revenue depending on your concept and lease. Square does not see them. The processing fees Square *does* see, but it nets them inside its own reporting in ways that make it hard to back out the true gross.
+
+**4. Inventory variance.** Even if you knew exactly what you bought (from invoices) and what you should have used (from recipes and Square's item-level sales), you still wouldn't know what you actually used. The difference between theoretical usage and actual usage is shrinkage: waste, over-portioning, comps that weren't rung, breakage, the occasional theft. Industry data puts shrinkage at 2–10% of revenue. That's a number Square cannot see, ever.
+
+So when Square says you did $4,800, what Square is really saying is: "$4,800 came in. We have no opinion on whether you made or lost money."
+
+## A worked example with real numbers
+
+Take Tuesday's $4,800 day from the top of this article. Let's run it through both lenses.
+
+**Square's view (what you see on the dashboard at 11pm):**
+- Net sales: $4,800
+- Labor cost (Square Team, hourly wages only): $1,000
+- Labor as % of sales: 20.8%
+- Conclusion: looks healthy.
+
+**A real P&L view (what the day actually was):**
+- Net sales: $4,800
+- COGS: $1,500 (from invoices + recipe-driven theoretical, calibrated against weekly count). 31.3% food cost.
+- Fully loaded labor: $1,235 (hourly × 1.20 payroll burden, plus salary allocation for the day). 25.7% labor.
+- **Prime cost: $2,735, or 57%.** This is "watch the trend," not healthy.
+
+Same day. Same revenue. Very different reading.
+
+If the only signal you have is Square's labor at 20.8%, you go home thinking Tuesday was a good day. If you have the real prime cost at 57%, you know to look at why labor was burdened so heavily (was a manager stuck on the line for half the shift?) and adjust Wednesday's schedule. By Friday you've recovered two points. Over a month, that's $1,200 you would have left on the floor.
+
+## How to close the gap (without leaving Square)
+
+Two levers do almost all the work. A third is optional but compounds.
+
+### 1. Add the fully loaded labor multiplier
+
+This one is free, takes ten minutes, and recovers the biggest single distortion in Square's reporting. Pull your last full month of payroll. Total dollars paid out (gross wages + employer taxes + workers' comp + benefits) divided by total dollars paid in gross hourly wages. That ratio is your burden multiplier. For most QSRs and fast-casual operators it lands between 1.18 and 1.25.
+
+From then on, when you look at Square's labor number, mentally multiply it by your burden ratio. $1,000 of Square labor at a 1.23 burden = $1,230 of real labor cost. It is not perfect, but it is in the ballpark, and the ballpark is where you live.
+
+### 2. Reconcile COGS once a week, not once a month
+
+You do not need to count every SKU every week. Count your top ten items by dollar volume. For a typical QSR, that is proteins, alcohol (if you have it), specialty paper or packaging, dairy, and a couple of high-cost ingredients. That count, against your invoices and against Square's item-level sales, gives you the actual food cost for the week within a point or two.
+
+The weekly cadence catches drift. A monthly cadence catches problems after they've already happened. You can run a weekly count in under an hour once you have a sheet, and the sheet pays for itself the first time it catches a 2-point food-cost slip the same week instead of three weeks later.
+
+### 3. Tie it together with one daily number
+
+Once you have a labor burden ratio and a weekly food cost, the only number you actually need to look at every morning is yesterday's prime cost. If it's under 55%, the day was healthy. If it's between 55% and 60%, the trend matters. If it's over 60%, today's schedule needs to change.
+
+This is the five-minute morning ritual the operators running 8–12% net income do, and the ones running 2–4% do not. It is not a software problem. It is a habits problem. The software just makes the habit cheaper to run.
+
+## What good operators do with Square
+
+The operators who run profitable shops on Square POS are not running a different POS. They are running Square plus a P&L view that lives outside Square. Some build that in a spreadsheet (a workable answer, but a heavy one once you're past a single location). Some pay a bookkeeper for a weekly close (slow, and expensive at $300–$600/month per location). Some pipe Square's data into a tool that handles the rest of the stack.
+
+The point is not which tool. The point is: do not confuse the dashboard you see at 11pm with the truth about the day. Square is showing you part of the picture. The rest of the picture is in your invoices, your payroll, your fixed costs, and your weekly count. Stitch them together and a $4,800 day becomes either "we made $480" or "we made $80," and you can adjust accordingly.
+
+## Want the worksheet?
+
+We built a free Restaurant Daily P&L Cheat Sheet for exactly this. You enter the Square net-sales number plus a few easy inputs, and it computes prime cost, food cost %, fully loaded labor %, and net income for the day, with status flags so you know whether yesterday was a healthy day. Plus an 8-page guide with the burden-multiplier math and the weekly count routine.
+
+[Get the cheat sheet (free, no credit card)](/tools/daily-pl-cheat-sheet) →
+
+If you'd rather not run the spreadsheet every morning, [EasyShiftHQ](/) connects your Square account, your payroll, and your bank, and shows you yesterday's true prime cost every morning by 8am. 14-day free trial, no credit card.
+
+---
+
+*Jose Delgado runs a Cold Stone Creamery / Wetzel's Pretzels co-brand at Alamo Ranch in San Antonio. He built EasyShiftHQ because he was tired of finding out two weeks late which Tuesday lost money.*

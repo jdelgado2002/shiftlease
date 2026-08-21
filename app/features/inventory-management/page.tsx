@@ -91,7 +91,7 @@ const features = [
       "Replace 5-7 hours of weekly clipboard counting with fast mobile-based cycle counts that take minutes, not hours.",
     points: [
       "Count from phone, tablet, or desktop",
-      "Barcode scanning with camera or scanner",
+      "Barcode scanning with camera or Bluetooth scanner",
       "Photo documentation for verification",
       "Complete adjustment history and audit trail",
     ],
@@ -130,6 +130,18 @@ const features = [
       "Recipe-based ingredient usage tracking",
       "Real-time theoretical vs actual comparison",
       "Shrinkage detection alerts",
+    ],
+  },
+  {
+    icon: <DollarSign className="h-6 w-6" />,
+    title: "Purchase Orders & Receiving",
+    description:
+      "Create purchase orders, track what you ordered against what arrived, and keep vendor costs honest — all in the same system that tracks your stock.",
+    points: [
+      "Build and send purchase orders per vendor",
+      "Receive against orders to catch shortages",
+      "Cost history per item and vendor",
+      "Orders flow straight into inventory levels",
     ],
   },
   {
@@ -421,9 +433,9 @@ export default function InventoryManagementPage() {
                 Stop the Silent Bleed. Start Seeing the Truth.
               </h2>
               <p className="text-lg text-background/70 mb-4 leading-relaxed">
-                At $249/month per location, EasyShiftHQ typically saves operators 10-40x that
-                amount in recovered inventory losses alone. That is not counting the manager time
-                you get back.
+                At $199/month per location on the Growth plan — which includes full inventory
+                automation — EasyShiftHQ typically saves operators 10-40x that amount in recovered
+                inventory losses alone. That is not counting the manager time you get back.
               </p>
               <p className="text-base text-background/50 mb-8">
                 Want the full data? Read our{" "}

@@ -360,9 +360,9 @@ export default function WhyInventoryMattersPage() {
                 did not have to lose.
               </p>
               <p className="text-lg text-background/70 leading-relaxed mb-8">
-                EasyShiftHQ costs $249 per month. The inventory controls alone typically save operators
-                10-40x that amount in recovered losses. That is not a cost — it is the best investment
-                your restaurant will make this year.
+                EasyShiftHQ&apos;s Growth plan — with full inventory automation — costs $199 per month.
+                The inventory controls alone typically save operators 10-40x that amount in recovered
+                losses. That is not a cost — it is the best investment your restaurant will make this year.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button

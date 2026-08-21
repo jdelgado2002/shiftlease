@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/features/inventory-management`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/features/recipe-menu`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/features/scheduling-payroll`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/features/reviews`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/features/integrations`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/vs`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/vs/restaurant365`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

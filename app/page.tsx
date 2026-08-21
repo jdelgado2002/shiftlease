@@ -14,9 +14,9 @@ import {
   Receipt,
   ChefHat,
   Zap,
-  Building2,
   TrendingDown,
   AlertTriangle,
+  Star,
 } from "lucide-react"
 import Link from "next/link"
 import { TrialCTA } from "@/components/trial-cta"
@@ -52,23 +52,23 @@ const featureCategories = [
   {
     icon: <Clock className="h-5 w-5" />,
     title: "Operations",
-    description: "Scheduling, time clock, tip pooling, and payroll — four pillars that feed each other automatically",
+    description: "AI-assisted scheduling with shift trades, time clock, tip pooling, and payroll — four pillars that feed each other automatically",
     href: "/features/scheduling-payroll",
-    highlights: ["Conflict-Aware Scheduling", "Verified Time Clock", "Tip Pooling & Payroll"],
+    highlights: ["AI-Assisted Scheduling", "Shift Marketplace", "Tips & Payroll"],
+  },
+  {
+    icon: <Star className="h-5 w-5" />,
+    title: "Guest Reviews",
+    description: "QR-code review funnel: happy guests go to Google, unhappy guests come to you first",
+    href: "/features/reviews",
+    highlights: ["More Google Reviews", "Private Complaint Capture", "Printable QR Cards"],
   },
   {
     icon: <Zap className="h-5 w-5" />,
-    title: "POS Integrations",
-    description: "Connect Square, Toast, Clover, and Shift4 for automatic sales sync",
+    title: "Integrations & Multi-Location",
+    description: "Connect Square, Toast, Clover, Shift4, Focus, and Revel — with unlimited locations and roll-up reporting",
     href: "/features/integrations",
-    highlights: ["Square & Toast", "Clover & Shift4", "Auto Daily Sync"],
-  },
-  {
-    icon: <Building2 className="h-5 w-5" />,
-    title: "Multi-Location",
-    description: "Manage unlimited restaurants with consolidated reporting",
-    href: "/features/integrations",
-    highlights: ["Unlimited Locations", "Quick Switching", "Roll-up Reports"],
+    highlights: ["6 POS Systems", "Auto Daily Sync", "Roll-up Reports"],
   },
 ]
 

@@ -73,6 +73,7 @@ const features = [
       "AI-powered category suggestions based on patterns",
       "Bulk categorization with one click",
       "Smart rules for recurring transactions",
+      "AI scanning of bank statements and expense invoices",
       "Search and filter by payee, amount, date, or category",
       "CSV and PDF export for accountants",
     ],
@@ -106,6 +107,37 @@ const features = [
       "Top vendor analysis",
       "Revenue breakdown by category",
       "Unmapped item tracking and alerts",
+    ],
+  },
+  {
+    title: "Ops Inbox",
+    description: "One feed for everything that needs your attention — nothing slips through.",
+    features: [
+      "Anomaly alerts for revenue drops and cost spikes",
+      "Bank-to-POS reconciliation gap detection",
+      "Uncategorized transaction backlog tracking",
+      "Unmapped POS items surfaced automatically",
+      "Work the list, clear the inbox, done",
+    ],
+  },
+  {
+    title: "Weekly Brief",
+    description: "An AI-written summary of your week, delivered to your inbox.",
+    features: [
+      "Weekly P&L variance analysis vs prior periods",
+      "Plain-English narrative of what changed and why",
+      "Actionable recommendations for the week ahead",
+      "Emailed automatically — no dashboard required",
+    ],
+  },
+  {
+    title: "Budget & Run Rate",
+    description: "Set targets and see whether the month is on track — before it's over.",
+    features: [
+      "Monthly budgets by category",
+      "Live run-rate projections against targets",
+      "Variance tracking as the month unfolds",
+      "Catch overspend mid-month, not at month-end",
     ],
   },
 ]

@@ -43,7 +43,7 @@ const pricingFaqs = [
   },
   {
     q: "Which POS systems do you integrate with?",
-    a: "Square, Toast, Clover, and Shift4 today, with daily automatic sync. More providers are added regularly — if you use a different POS, get in touch and we'll tell you our timeline.",
+    a: "Square, Toast, Clover, Shift4, Focus POS, and Revel today, with daily automatic sync. More providers are added regularly — if you use a different POS, get in touch and we'll tell you our timeline.",
   },
 ]
 
@@ -93,9 +93,11 @@ export default function PricingPage() {
                     {[
                       "Daily P&L Dashboard",
                       "Basic Inventory Tracking",
+                      "Purchase Orders & Receiving",
                       "Labor Cost Tracking",
-                      "POS Integration (Square, Toast, Clover)",
+                      "POS Integration (Square, Toast, Clover & more)",
                       "Recipe Management",
+                      "Guest Review Funnel (QR codes)",
                       "Multi-User Access",
                       "Email Support",
                     ].map((feature) => (
@@ -138,7 +140,7 @@ export default function PricingPage() {
                       "Financial Intelligence Dashboard",
                       "Inventory Automation (OCR)",
                       "Recipe & Menu Profitability Analytics",
-                      "Employee Scheduling",
+                      "Employee Scheduling with AI-assisted generation & shift trades",
                       "AI Alerts & Anomaly Detection",
                       "AI Transaction Categorization",
                       "Priority Support",
@@ -178,6 +180,8 @@ export default function PricingPage() {
                     <p className="text-sm font-medium text-muted-foreground">Everything in Growth, plus:</p>
                     {[
                       "AI Assistant",
+                      "Ops Inbox: anomalies, reconciliation gaps & to-dos in one feed",
+                      "Weekly Brief: AI-written weekly performance summary",
                       "Print checks for payroll, vendors, draws on real check paper",
                       "Bank account connections + automated transaction sync",
                       "Auto-reconciliation: every check printed → expense logged → bank match",

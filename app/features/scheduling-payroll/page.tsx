@@ -29,9 +29,12 @@ import { FeaturePageSchema, BreadcrumbSchema } from "@/components/structured-dat
 export const metadata: Metadata = {
   title: "Operations - Scheduling, Time Clock, Tips & Payroll | EasyShiftHQ",
   description:
-    "Complete restaurant workforce management: conflict-aware scheduling, verified time clock with kiosk mode, configurable tip pooling with dispute handling, and payroll calculations with overtime and tip integration.",
+    "Complete restaurant workforce management: drag-and-drop scheduling with AI-assisted generation, shift trades and an open-shift marketplace, conflict and labor-law warnings, verified time clock with kiosk mode, configurable tip pooling, and payroll with overtime and tip integration.",
   keywords: [
     "restaurant employee scheduling",
+    "AI schedule generation",
+    "shift marketplace",
+    "restaurant scheduling software",
     "restaurant time clock",
     "tip pooling software",
     "restaurant payroll",
@@ -52,7 +55,7 @@ export const metadata: Metadata = {
     url: "https://easyshifthq.com/features/scheduling-payroll",
     title: "Operations - Scheduling, Time Clock, Tips & Payroll | EasyShiftHQ",
     description:
-      "Complete restaurant workforce management with conflict-aware scheduling, verified time clock, configurable tip pooling, and integrated payroll.",
+      "Restaurant scheduling with AI-assisted generation, shift trades, and conflict warnings — plus verified time clock, configurable tip pooling, and integrated payroll.",
     siteName: "EasyShiftHQ",
     images: [
       {
@@ -72,13 +75,115 @@ export const metadata: Metadata = {
   },
 }
 
+const schedulingFeatures = [
+  {
+    title: "Three Ways to Build",
+    description: "One week, three views — use whichever fits how you think.",
+    points: [
+      "Classic weekly grid by employee and day",
+      "Template-based Planner view with a coverage heatmap",
+      "Gantt-style Timeline view with a live now-indicator",
+      "Filter and group by position and floor area",
+      "Live metrics: active employees, total hours, estimated labor cost",
+    ],
+  },
+  {
+    title: "Fast Editing Tools",
+    description: "The mechanics of building a week, compressed to minutes.",
+    points: [
+      "Drag-and-drop shifts between employees and days",
+      "One-click Copy Week onto any future week",
+      "Bulk multi-select editing by shift, day column, or employee row",
+      "Reusable shift templates: position, area, time window, headcount",
+      "Overnight shifts and daylight saving time handled correctly",
+    ],
+  },
+  {
+    title: "AI-Assisted Schedule Generation",
+    description:
+      "One click fills every open slot with a draft schedule — which you review before anyone sees it.",
+    points: [
+      "Fills template slots from availability, positions, and hour caps",
+      "Headcount targets from minimum crew, recent history, and peak sales hours",
+      "Plain-English preferences — every change re-checked against the rules",
+      "Pre-flight warnings for missing availability and position mismatches",
+      "Fairness summary per employee, plus a reason for every unfilled slot",
+    ],
+  },
+  {
+    title: "Conflict Warnings & Guardrails",
+    description: "Catch scheduling problems while building — not on payday.",
+    points: [
+      "Real-time time-off and availability conflict warnings",
+      "Double-booking, short-rest, and unusual shift length warnings",
+      "Minor labor-law hour caps applied automatically during generation",
+      "Timezone- and DST-correct conflict math for overnight shifts",
+      "You stay in control: override any warning deliberately",
+    ],
+  },
+  {
+    title: "Shift Management",
+    description: "Create, edit, and manage shifts with full status tracking and recurrence.",
+    points: [
+      "Statuses: Scheduled, Confirmed, Completed, Cancelled",
+      "Break duration and notes on every shift",
+      "Recurring shifts with repeat presets and custom rules",
+      "Edit series like a calendar: this only, this and following, or all",
+      "Loaned-out tracking when staff cover another section",
+    ],
+  },
+  {
+    title: "Availability Management",
+    description: "One system for who's available — and who still needs to tell you.",
+    points: [
+      "Recurring weekly availability plus one-time date exceptions",
+      "Bulk-set default availability for many employees at once",
+      "Automatic detection of employees with no availability on file",
+      "One-click reminder emails to employees missing availability",
+      "Employee self-service for availability and time-off requests",
+    ],
+  },
+  {
+    title: "Time-Off Management",
+    description: "Full request lifecycle with approval workflow.",
+    points: [
+      "Submit, edit, approve, or reject requests with optional reason",
+      "Pending-approval queue for managers",
+      "Timestamped, reviewer-attributed audit trail",
+      "Approved time off feeds conflict warnings automatically",
+    ],
+  },
+  {
+    title: "Shift Trades & Open-Shift Marketplace",
+    description: "Let the team cover its own gaps — with a manager always in the loop.",
+    points: [
+      "Offer a shift to the whole team or directly to one coworker",
+      "Managers can post a sick or no-show employee's shift for trade",
+      "One-click broadcast of all open shifts to the active roster",
+      "Race-safe claiming — the last open spot can't be double-claimed",
+      "Choose instant claiming or manager approval per restaurant",
+    ],
+  },
+  {
+    title: "Publishing, Notifications & Export",
+    description: "Every change reaches the right person — and you can prove it.",
+    points: [
+      "Publish with delivery verification: sent, partial, or failed",
+      "Choose email and push per event type across 16 notification types",
+      "Full change history of every schedule edit",
+      "PDF export in grid or kitchen-friendly roster layout",
+      "CSV schedule import with automatic Sling format detection",
+    ],
+  },
+]
+
 const operationsPillars = [
   {
     icon: <CalendarDays className="h-6 w-6" />,
     title: "Scheduling",
     tagline: "Build conflict-free schedules in minutes, not hours",
     description:
-      "Weekly schedule builder with real-time conflict detection, recurring shifts, time-off management, availability tracking, and shift trading — all with one-click publishing.",
+      "Three schedule views, drag-and-drop editing, reusable shift templates, one-click AI-assisted generation, real-time conflict warnings, shift trading with an open-shift marketplace, and verified publishing.",
   },
   {
     icon: <Timer className="h-6 w-6" />,
@@ -105,11 +210,19 @@ const operationsPillars = [
 
 export default function SchedulingPayrollPage() {
   const allFeatures = [
-    "Weekly schedule with conflict detection",
+    "Weekly schedule with conflict warnings",
+    "Planner view with shift templates and coverage heatmap",
+    "Gantt-style timeline view",
+    "Drag-and-drop editing with one-click Copy Week",
+    "AI-assisted schedule generation with fairness summary",
+    "Minor labor-law hour caps during generation",
     "Recurring shifts with custom recurrence",
     "Time-off and availability management",
-    "Shift trade approvals",
-    "Schedule publishing and history",
+    "Missing-availability detection with reminder emails",
+    "Shift trades and open-shift marketplace",
+    "Schedule publishing with delivery verification",
+    "PDF export in grid or kitchen roster layout",
+    "CSV schedule import with Sling auto-detection",
     "Kiosk mode with PIN access",
     "Photo and GPS verification",
     "Manual time entry and punch import",
@@ -123,7 +236,7 @@ export default function SchedulingPayrollPage() {
     <div className="flex min-h-screen flex-col">
       <FeaturePageSchema
         name="Operations - Scheduling, Time Clock, Tips & Payroll"
-        description="Complete restaurant workforce management with conflict-aware scheduling, verified time clock, configurable tip pooling, and integrated payroll."
+        description="Restaurant scheduling with AI-assisted generation, shift trades, and conflict warnings — plus verified time clock, configurable tip pooling, and integrated payroll."
         url="https://easyshifthq.com/features/scheduling-payroll"
         features={allFeatures}
       />
@@ -231,148 +344,27 @@ export default function SchedulingPayrollPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
-                Build, publish, and manage weekly schedules with real-time conflict detection.
-                Your staff sees the schedule instantly — and you see labor costs before you commit.
+                Scheduling is the most-used part of EasyShiftHQ — and the deepest. Build the week
+                in three different views, let AI-assisted generation fill the gaps, catch conflicts
+                and labor-law issues as you go, and let your team trade and claim shifts without
+                blowing up your group chat. You see labor cost before you commit.
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Schedule Builder */}
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Schedule Builder</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Weekly view by employee and day with position filtering and scheduling metrics.
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "View weekly schedule by employee and day",
-                      "Navigate with Previous / Today / Next controls",
-                      "Filter by position",
-                      "See active employees, total hours, and estimated labor cost",
-                      "Labor cost breakdown: hourly, salary, contractor, daily rate",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Shift Management */}
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Shift Management</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Create, edit, and manage shifts with full status tracking and recurrence.
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "Create, edit, and delete shifts",
-                      "Set status: Scheduled, Confirmed, Completed, Cancelled",
-                      "Add break duration and notes",
-                      "Create recurring shifts with repeat presets and custom rules",
-                      "Edit recurring shifts: this only, this and following, or all in series",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Conflict Detection */}
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">
-                    Conflict Detection
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Real-time conflict alerts as you build the schedule.
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "Time-off conflict detection in real time",
-                      "Availability conflict detection in real time",
-                      "Publish weekly schedule with optional notes",
-                      "Unpublish for corrections",
-                      "View schedule change history: created, updated, deleted, unpublished",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Time-Off */}
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Time-Off Management</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Full request lifecycle with approval workflow.
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "Create time-off requests",
-                      "Edit pending requests",
-                      "Approve or reject with optional reason",
-                      "Delete requests",
-                      "Requests feed into conflict detection automatically",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Availability */}
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">
-                    Availability Management
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Recurring weekly availability with one-time exceptions.
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "Set recurring weekly availability per employee per weekday",
-                      "Define available/unavailable with start and end times",
-                      "Add one-time date exceptions (available or unavailable)",
-                      "Optional notes or reason for each entry",
-                      "Feeds into scheduling conflict detection",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Shift Trades & PDF */}
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">
-                    Shift Trades & Export
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Manager-controlled trade approvals and PDF export.
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "View and approve or reject shift trade requests",
-                      "Add optional manager notes",
-                      "Monitor open marketplace trade postings",
-                      "Print or export weekly schedule as PDF",
-                      "Optional position labels and hours summary in export",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {schedulingFeatures.map((feature) => (
+                  <div key={feature.title} className="bg-card border border-border rounded-2xl p-6">
+                    <h3 className="text-lg font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">{feature.description}</p>
+                    <ul className="space-y-2">
+                      {feature.points.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

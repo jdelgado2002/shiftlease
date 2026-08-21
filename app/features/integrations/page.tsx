@@ -4,7 +4,7 @@ import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
   title: "Integrations - Connect Square, Toast, Clover & More",
-  description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up in 15 minutes.",
+  description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up in 15 minutes.",
   keywords: [
     "Square POS integration",
     "Toast POS integration",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://easyshifthq.com/features/integrations",
     title: "Integrations - Connect Square, Toast, Clover & More | EasyShiftHQ",
-    description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up in 15 minutes.",
+    description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Set up in 15 minutes.",
     siteName: "EasyShiftHQ",
     images: [
       {
@@ -85,6 +85,36 @@ const features = [
     ],
   },
   {
+    title: "Focus POS",
+    description: "Direct integration with Focus POS for daily sales sync.",
+    features: [
+      "Daily sales data sync",
+      "Historical backfill import",
+      "Multi-restaurant support",
+      "Connection health testing",
+    ],
+  },
+  {
+    title: "Revel POS",
+    description: "Sales and transaction sync from Revel Systems.",
+    features: [
+      "Daily transaction sync",
+      "Bulk historical import",
+      "Real-time webhook updates",
+      "Connection health testing",
+    ],
+  },
+  {
+    title: "Sling Import",
+    description: "Already scheduling in Sling? Bring your data with you.",
+    features: [
+      "Import employee schedules from Sling",
+      "Import time punches and hours",
+      "Bulk historical sync",
+      "Switch without losing your history",
+    ],
+  },
+  {
     title: "Bank Connections",
     description: "Secure bank connections powered by Stripe Financial Connections.",
     features: [
@@ -112,7 +142,8 @@ const features = [
     features: [
       "Centralized employee directory",
       "Role-based permissions (owner, manager, staff)",
-      "Collaborator access (accountant, chef)",
+      "Collaborator access (accountant, chef, inventory, operations)",
+      "Custom collaborator roles with per-area permissions",
       "Email invitations and bulk onboarding",
     ],
   },

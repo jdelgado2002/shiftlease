@@ -12,6 +12,7 @@ const features = [
   { name: "Inventory Management", href: "/features/inventory-management", description: "Live stock tracking, OCR scanning, and waste management" },
   { name: "Recipe & Menu", href: "/features/recipe-menu", description: "Recipe costing, profitability analysis, and menu engineering" },
   { name: "Operations", href: "/features/scheduling-payroll", description: "Scheduling, time clock, tip pooling, and payroll" },
+  { name: "Guest Reviews", href: "/features/reviews", description: "QR review funnel: happy guests to Google, complaints to you" },
   { name: "Integrations", href: "/features/integrations", description: "POS systems, banking, and third-party connections" },
 ]
 

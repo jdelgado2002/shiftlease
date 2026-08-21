@@ -8,6 +8,7 @@ const features = [
   { name: "Inventory Management", href: "/features/inventory-management" },
   { name: "Recipe & Menu", href: "/features/recipe-menu" },
   { name: "Operations", href: "/features/scheduling-payroll" },
+  { name: "Guest Reviews", href: "/features/reviews" },
   { name: "Integrations", href: "/features/integrations" },
 ]
 

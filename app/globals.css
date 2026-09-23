@@ -299,6 +299,27 @@
     opacity: 0.18;
   }
 
+  /* Hairline time rail for the employee-portal timeline. Drawn as a
+     background so the beats can sit on top without a wrapper element. */
+  .rail-line {
+    background-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      var(--rule) 3rem,
+      var(--rule) calc(100% - 3rem),
+      transparent 100%
+    );
+  }
+
+  /* Glass edge-light on the device in the dark hero — keeps the phone from
+     reading as a flat rectangle sitting on the ink. */
+  .device-glow {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--ink-foreground) 12%, transparent),
+      0 40px 90px -30px rgb(0 0 0 / 0.85),
+      0 0 120px -40px color-mix(in srgb, var(--primary) 70%, transparent);
+  }
+
   /* Perforated edge, like a torn check stub. */
   .edge-perforated {
     /* Layer one punches the holes down the left edge; layer two keeps the rest
@@ -353,6 +374,27 @@
   }
 }
 
+@keyframes claim-ping {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@keyframes rail-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
 @keyframes pulse-dot {
   0%,
   100% {
@@ -388,6 +430,15 @@
   .anim-dot {
     animation: pulse-dot 2.4s ease-in-out infinite;
   }
+
+  .anim-ping {
+    animation: claim-ping 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+
+  .anim-rail {
+    transform-origin: top;
+    animation: rail-draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -395,10 +446,17 @@
   .anim-wipe,
   .anim-bar,
   .anim-dash,
-  .anim-dot {
+  .anim-dot,
+  .anim-rail {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
+  }
+
+  /* The claim ping is pure decoration — there is nothing to reveal, so it is
+     removed outright rather than frozen mid-expansion. */
+  .anim-ping {
+    display: none !important;
   }
 }

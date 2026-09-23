@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 const features = [
   // Ordered by what operators actually open, not by module hierarchy.
   { name: "Scheduling & Payroll", href: "/features/scheduling-payroll", description: "Scheduling, time clock, tip pooling, and payroll" },
+  { name: "Employee Portal", href: "/features/employee-portal", description: "The app your staff opens: shifts, open-shift board, clock, tips, pay" },
   { name: "Financial Management", href: "/features/financial-management", description: "Real-time P&L, banking, and transaction management" },
   { name: "Integrations", href: "/features/integrations", description: "POS systems, banking, and third-party connections" },
   { name: "Inventory Management", href: "/features/inventory-management", description: "Live stock tracking, OCR scanning, and waste management" },

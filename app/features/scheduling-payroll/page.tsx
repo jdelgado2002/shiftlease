@@ -27,7 +27,7 @@ import { Footer } from "@/components/footer"
 import { FeaturePageSchema, BreadcrumbSchema } from "@/components/structured-data"
 
 export const metadata: Metadata = {
-  title: "Operations - Scheduling, Time Clock, Tips & Payroll | EasyShiftHQ",
+  title: "Scheduling & Payroll - Schedule, Time Clock, Tips & Payroll",
   description:
     "Complete restaurant workforce management: drag-and-drop scheduling with AI-assisted generation, shift trades and an open-shift marketplace, conflict and labor-law warnings, verified time clock with kiosk mode, configurable tip pooling, and payroll with overtime and tip integration.",
   keywords: [
@@ -254,42 +254,93 @@ export default function SchedulingPayrollPage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="w-full py-20 md:py-28 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6">
-                <Clock className="h-4 w-4" />
-                <span>Operations</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-balance">
-                Schedule. Clock. Tip. Pay.
-                <br />
-                <span className="text-muted-foreground">All Connected.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-                Four pillars of restaurant labor management that actually talk to each other.
-                Scheduling feeds the time clock. Punches feed tip pools. Tips feed payroll. No re-keying. No gaps.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-12 px-8 text-base"
-                  asChild
+        <section className="relative w-full overflow-hidden border-b border-border">
+          <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
+          <div className="container relative px-4 py-20 md:px-6 md:py-28">
+            <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-7">
+                <div className="anim-rise inline-flex items-center gap-2.5 border-b-2 border-primary pb-2">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span className="label-mark text-foreground">
+                    Scheduling &amp; Payroll
+                  </span>
+                  <span className="label-mark text-muted-foreground/60">/ 01</span>
+                </div>
+                <h1
+                  className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
+                  style={{ animationDelay: "90ms" }}
                 >
-                  <TrialCTA>
-                    Start Free Trial
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </TrialCTA>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full h-12 px-8 text-base border-border"
-                  asChild
+                  Schedule. Clock. Tip. Pay.
+                  <br />
+                  <span className="italic text-primary">
+                    Nothing re-typed in between.
+                  </span>
+                </h1>
+                <p
+                  className="anim-rise mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+                  style={{ animationDelay: "180ms" }}
                 >
-                  <Link href="/#pricing">View Pricing</Link>
-                </Button>
+                  Four parts of restaurant labor that actually talk to each other.
+                  The schedule feeds the time clock. Punches feed the tip pool. Tips
+                  feed payroll. And everyone on the schedule sees their own shifts
+                  the moment you publish.
+                </p>
+                <div
+                  className="anim-rise mt-9 flex flex-col gap-4 sm:flex-row"
+                  style={{ animationDelay: "270ms" }}
+                >
+                  <Button
+                    size="lg"
+                    className="h-14 rounded-full bg-foreground px-8 text-base text-background hover:bg-foreground/90"
+                    asChild
+                  >
+                    <TrialCTA>
+                      Start Free Trial
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </TrialCTA>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-14 rounded-full border-border bg-transparent px-8 text-base"
+                    asChild
+                  >
+                    <Link href="/pricing">View Pricing</Link>
+                  </Button>
+                </div>
               </div>
+
+              {/* The handoff chain, stated as a ledger rather than drawn. */}
+              <aside
+                className="anim-rise lg:col-span-4 lg:col-start-9"
+                style={{ animationDelay: "360ms" }}
+              >
+                <div className="rounded-2xl border border-border bg-card/80 p-6 backdrop-blur-sm">
+                  <p className="label-mark text-muted-foreground">The handoff</p>
+                  <ol className="mt-4 divide-y divide-border">
+                    {[
+                      ["01", "Scheduling", "sets who works when"],
+                      ["02", "Time clock", "records who actually did"],
+                      ["03", "Tip pooling", "splits the night by those hours"],
+                      ["04", "Payroll", "pays from the same numbers"],
+                    ].map(([n, name, what]) => (
+                      <li key={n} className="flex items-baseline gap-3 py-2.5">
+                        <span className="font-ledger text-[11px] text-muted-foreground">
+                          {n}
+                        </span>
+                        <span className="text-[14px] leading-snug">
+                          <span className="font-medium">{name}</span>{" "}
+                          <span className="text-muted-foreground">{what}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                  <p className="mt-4 border-t border-dashed border-rule pt-4 text-[13px] text-muted-foreground">
+                    <span className="font-ledger text-foreground">0</span> numbers
+                    re-keyed between them
+                  </p>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
@@ -301,8 +352,8 @@ export default function SchedulingPayrollPage() {
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
                 The Four Pillars
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-balance">
-                One Workflow From Schedule to Paycheck
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-4 text-balance">
+                One chain, from the schedule to the paycheck
               </h2>
               <p className="text-lg text-muted-foreground">
                 Each pillar is powerful alone. Together they eliminate the manual handoffs
@@ -339,7 +390,7 @@ export default function SchedulingPayrollPage() {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <CalendarDays className="h-5 w-5 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
                   Scheduling
                 </h2>
               </div>
@@ -378,7 +429,7 @@ export default function SchedulingPayrollPage() {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Timer className="h-5 w-5 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
                   Time Clock
                 </h2>
               </div>
@@ -538,7 +589,7 @@ export default function SchedulingPayrollPage() {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Banknote className="h-5 w-5 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
                   Tip Pooling
                 </h2>
               </div>
@@ -693,7 +744,7 @@ export default function SchedulingPayrollPage() {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Receipt className="h-5 w-5 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
                   Payroll
                 </h2>
               </div>
@@ -828,8 +879,8 @@ export default function SchedulingPayrollPage() {
         <section className="w-full py-16 md:py-24 bg-foreground text-background">
           <div className="container px-4 md:px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-balance">
-                The Whole Workflow, Connected
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-6 text-balance">
+                Four screens. One set of numbers.
               </h2>
               <p className="text-lg text-background/70 mb-12 max-w-2xl mx-auto leading-relaxed">
                 Each pillar feeds the next. No re-keying data between systems. No

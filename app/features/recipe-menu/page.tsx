@@ -121,14 +121,28 @@ export default function RecipeMenuPage() {
   return (
     <FeaturePageLayout
       badge="Recipe & Menu Management"
-      title="Menu Profitability."
-      subtitle="Visible Daily."
-      description="Recipe costs adjust the moment supplier prices change. Know exactly what sells, what makes money, and what's eroding your margins."
+      mark="05"
+      title="The supplier raises a price."
+      subtitle="Your plate cost already knows."
+      description="Build the recipe once and the cost follows your invoices from then on. You find out a dish stopped making money while you can still do something about it."
       icon={<ChefHat className="h-4 w-4" />}
       features={features}
       benefits={benefits}
-      ctaTitle="Optimize Your Menu Today"
-      ctaDescription="Stop guessing which dishes make money. Get real-time recipe costing and menu engineering tools."
+      indexTitle={
+        <>
+          From the recipe card{" "}
+          <span className="italic text-primary">to the margin report.</span>
+        </>
+      }
+      indexLede="Everything between what goes on the plate and what the plate is worth — costing, the engineering matrix, and the POS tie-in that keeps it honest."
+      benefitsTitle={
+        <>
+          What it&apos;s worth{" "}
+          <span className="italic text-primary">the next time you re-price.</span>
+        </>
+      }
+      ctaTitle="Cost one dish. You'll see the rest."
+      ctaDescription="Enter a single recipe and the plate cost, margin, and menu position come back immediately."
       schemaUrl="https://easyshifthq.com/features/recipe-menu"
     />
   )

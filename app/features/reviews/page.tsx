@@ -127,14 +127,28 @@ export default function ReviewsPage() {
   return (
     <FeaturePageLayout
       badge="Guest Reviews"
-      title="Happy Guests Go to Google."
-      subtitle="Unhappy Guests Come to You."
-      description="A QR-code review funnel that grows your Google rating while routing complaints to a private inbox — so you fix problems instead of reading about them online."
+      mark="06"
+      title="Happy guests go to Google."
+      subtitle="Unhappy guests come to you."
+      description="One QR code, two paths. A good night turns into public proof; a bad one reaches your inbox instead of your rating — while the table is still yours to fix."
       icon={<Star className="h-4 w-4" />}
       features={features}
       benefits={benefits}
-      ctaTitle="Put a QR Code on Every Table"
-      ctaDescription="Print your table tents today. Start turning good service into public proof — and bad nights into second chances."
+      indexTitle={
+        <>
+          One code on the table,{" "}
+          <span className="italic text-primary">two very different nights.</span>
+        </>
+      }
+      indexLede="The funnel, the printed materials that carry it, and the inbox where the private half lands."
+      benefitsTitle={
+        <>
+          What it&apos;s worth{" "}
+          <span className="italic text-primary">by next month&apos;s rating.</span>
+        </>
+      }
+      ctaTitle="Put a code on every table tonight."
+      ctaDescription="Print the table tents today. Good service becomes public proof; a bad night becomes a second chance."
       schemaUrl="https://easyshifthq.com/features/reviews"
     />
   )

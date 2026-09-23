@@ -84,8 +84,12 @@ function PhoneMock() {
                 <p className="truncate text-[12px] font-semibold">
                   Sun 16 · Mid shift
                 </p>
-                <p className="font-ledger truncate text-[11px] text-muted-foreground">
-                  11:00a – 7:00p · posted by Marco
+                {/* Truncated, this read "11:00a – 7:00p · poste…" — the
+                    byline cut mid-word. It wraps instead, and the byline
+                    travels to the second line whole. */}
+                <p className="font-ledger text-[11px] leading-snug text-muted-foreground">
+                  11:00a – 7:00p
+                  <span className="whitespace-nowrap"> · posted by Marco</span>
                 </p>
               </div>
               <span className="shrink-0 rounded-full bg-primary px-3 py-1 text-[11px] font-semibold text-primary-foreground">
@@ -115,7 +119,7 @@ export function TeamSide() {
     <section className="relative w-full overflow-hidden border-b border-border py-20 md:py-28">
       {/* gridpaper keeps this band distinct from the four operator stations */}
       <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-60" />
-      <div className="container relative px-4 md:px-6">
+      <div className="container relative">
         <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <p className="label-mark text-muted-foreground/70">
@@ -165,7 +169,7 @@ export function TeamSide() {
 
             <Link
               href="/features/employee-portal"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+              className="group mt-5 inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary sm:mt-8 sm:py-0"
             >
               Walk through a week in the employee portal
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

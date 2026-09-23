@@ -35,7 +35,7 @@ function Station({
         tinted ? "bg-muted/40" : "bg-background"
       }`}
     >
-      <div className="container px-4 md:px-6">
+      <div className="container">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Copy */}
           <div className={`lg:col-span-5 ${flip ? "lg:order-2 lg:col-start-8" : ""}`}>
@@ -65,7 +65,7 @@ function Station({
 
             <Link
               href={href}
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+              className="group mt-5 inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary sm:mt-8 sm:py-0"
             >
               {hrefLabel}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -140,28 +140,40 @@ function ScheduleMock() {
         </span>
       </div>
 
-      {/* Week grid */}
-      <div className="grid grid-cols-7 divide-x divide-border border-b border-border">
+      {/* Week grid.
+          Seven columns need about 560px to hold a name and a time. A phone has
+          335, which gave each chip 17px of text and turned every name in the
+          week into a single letter and an ellipsis. Below sm the same seven
+          days stack as rows — day on the left, shifts reading across — which
+          is both legible and what the real product shows on a phone. */}
+      <div className="divide-y divide-border border-b border-border sm:grid sm:grid-cols-7 sm:divide-x sm:divide-y-0">
         {week.map((d, i) => (
-          <div key={d.day} className="min-h-[104px] p-1.5">
-            <p className="label-mark mb-1.5 px-1 text-muted-foreground/70">{d.day}</p>
-            <div className="space-y-1">
+          <div
+            key={d.day}
+            className="flex items-start gap-3 px-3 py-2.5 sm:block sm:min-h-[104px] sm:p-1.5"
+          >
+            <p className="label-mark w-8 shrink-0 pt-1 text-muted-foreground/70 sm:mb-1.5 sm:w-auto sm:px-1 sm:pt-0">
+              {d.day}
+            </p>
+            <div className="flex flex-wrap gap-1.5 sm:block sm:space-y-1">
               {d.shifts.map((s) => (
                 <div
                   key={s.who + s.time}
-                  className={`anim-rise rounded-md border px-1.5 py-1 ${
+                  className={`anim-rise rounded-md border px-2 py-1 sm:px-1.5 ${
                     d.hot
                       ? "border-primary/40 bg-primary/10"
                       : "border-border bg-muted/50"
                   }`}
                   style={{ animationDelay: `${140 + i * 60}ms` }}
                 >
-                  <p className="truncate text-[11px] font-semibold leading-tight">
-                    {s.who}
-                  </p>
-                  <p className="font-ledger truncate text-[10px] leading-tight text-muted-foreground">
-                    {s.time}
-                  </p>
+                  <span className="flex items-baseline gap-1.5 sm:block">
+                    <span className="block text-[12px] font-semibold leading-tight sm:truncate sm:text-[11px]">
+                      {s.who}
+                    </span>
+                    <span className="font-ledger block text-[11px] leading-tight text-muted-foreground sm:truncate sm:text-[10px]">
+                      {s.time}
+                    </span>
+                  </span>
                 </div>
               ))}
             </div>
@@ -219,11 +231,16 @@ function LaborMock() {
           { label: "Rev / labor hour", value: "$47.20", tone: "text-foreground" },
           { label: "Net sales", value: "$14,720", tone: "text-foreground" },
         ].map((stat) => (
-          <div key={stat.label} className="px-4 py-4">
+          <div key={stat.label} className="px-3 py-3.5 sm:px-4 sm:py-4">
             <p className="text-[11px] leading-tight text-muted-foreground">
               {stat.label}
             </p>
-            <p className={`font-ledger mt-1.5 text-[22px] font-medium ${stat.tone}`}>
+            {/* A third of a phone is 111px. $14,720 set at 22px wants 92 of
+                them and the padding wants 32, so the figure was clipped to
+                $14,72… — the one number on the panel that has to be whole. */}
+            <p
+              className={`font-ledger mt-1.5 text-[18px] font-medium sm:text-[22px] ${stat.tone}`}
+            >
               {stat.value}
             </p>
           </div>
@@ -400,31 +417,53 @@ function MoneyMock() {
           {ledgerRows.map((r, i) => (
             <div
               key={r.payee}
-              className="anim-rise flex items-center gap-3 px-4 py-2.5"
+              className="anim-rise px-4 py-2.5"
               style={{ animationDelay: `${i * 80}ms` }}
             >
-              <span className="font-ledger w-11 shrink-0 text-[11px] text-muted-foreground">
-                {r.date}
-              </span>
-              <span className="flex-1 truncate text-[13px]">{r.payee}</span>
-              <span
-                className={`font-ledger shrink-0 text-[13px] ${
-                  r.amount.startsWith("+")
-                    ? "text-[var(--under)]"
-                    : "text-foreground"
-                }`}
-              >
-                {r.amount}
-              </span>
-              <span
-                className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${
-                  r.fresh
-                    ? "bg-[var(--under)]/12 text-[var(--under)] ring-1 ring-[var(--under)]/25"
-                    : "bg-muted text-muted-foreground"
-                }`}
-              >
-                {r.cat}
-              </span>
+              {/* A phone gets the two lines a banking app gives it: who and
+                  how much on top, when and what it was coded to underneath.
+                  Four columns only once there is room for four columns. */}
+              <div className="flex items-baseline gap-3 sm:gap-3">
+                <span className="font-ledger hidden w-11 shrink-0 text-[11px] text-muted-foreground sm:block">
+                  {r.date}
+                </span>
+                <span className="min-w-0 flex-1 truncate text-[13px]">
+                  {r.payee}
+                </span>
+                <span
+                  className={`font-ledger shrink-0 text-[13px] ${
+                    r.amount.startsWith("+")
+                      ? "text-[var(--under)]"
+                      : "text-foreground"
+                  }`}
+                >
+                  {r.amount}
+                </span>
+                <span
+                  className={`hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium sm:inline ${
+                    r.fresh
+                      ? "bg-[var(--under)]/12 text-[var(--under)] ring-1 ring-[var(--under)]/25"
+                      : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {r.cat}
+                </span>
+              </div>
+
+              <div className="mt-1 flex items-center gap-2 sm:hidden">
+                <span className="font-ledger text-[11px] text-muted-foreground">
+                  {r.date}
+                </span>
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                    r.fresh
+                      ? "bg-[var(--under)]/12 text-[var(--under)] ring-1 ring-[var(--under)]/25"
+                      : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {r.cat}
+                </span>
+              </div>
             </div>
           ))}
         </div>

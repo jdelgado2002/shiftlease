@@ -65,9 +65,7 @@ export default async function BlogPost({ params }: PageProps) {
     headline: meta.title,
     description: meta.description,
     datePublished: meta.publishedAt,
-    author: meta.author
-      ? { "@type": "Person", name: meta.author }
-      : undefined,
+    author: meta.author ? { "@type": "Person", name: meta.author } : undefined,
     publisher: {
       "@type": "Organization",
       name: "EasyShiftHQ",
@@ -77,16 +75,14 @@ export default async function BlogPost({ params }: PageProps) {
       "@type": "WebPage",
       "@id": `https://easyshifthq.com/blog/${publicSlug(meta.slug)}`,
     },
-    image: meta.ogImage
-      ? `https://easyshifthq.com${meta.ogImage}`
-      : undefined,
+    image: meta.ogImage ? `https://easyshifthq.com${meta.ogImage}` : undefined,
   }
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1 py-16 md:py-24">
-        <article className="container px-4 md:px-6 max-w-3xl mx-auto">
+        <article className="container max-w-3xl mx-auto">
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -117,7 +113,7 @@ export default async function BlogPost({ params }: PageProps) {
             )}
           </header>
 
-          <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:tracking-tight prose-headings:scroll-mt-24 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
+          <div className="prose sm:prose-lg max-w-none dark:prose-invert prose-headings:tracking-tight prose-headings:scroll-mt-24 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
             <MDXRemote
               source={content}
               options={{

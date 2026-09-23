@@ -68,7 +68,7 @@ export function OperatingLoop() {
       <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-60" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
-      <div className="container relative px-4 md:px-6">
+      <div className="container relative">
         <div className="mx-auto mb-16 max-w-3xl md:mb-20">
           <p className="label-mark text-primary">The operating loop</p>
           <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-6xl">

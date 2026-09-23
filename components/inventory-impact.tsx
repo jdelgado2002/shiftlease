@@ -22,7 +22,7 @@ export const inventoryStats = {
 export function InventoryStatsBanner() {
   return (
     <section className="w-full border-y border-border bg-card">
-      <div className="container px-4 md:px-6">
+      <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           <div className="py-10 px-6 text-center">
             <div className="text-3xl md:text-4xl font-bold text-destructive">{inventoryStats.shrinkageRange}%</div>
@@ -244,7 +244,7 @@ export function ROICaseStudies() {
 export function InventoryImpactHero() {
   return (
     <section className="w-full py-20 md:py-28 bg-foreground text-background">
-      <div className="container px-4 md:px-6">
+      <div className="container">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <p className="text-sm font-medium text-primary tracking-wide uppercase">The Hidden Cost of Poor Inventory</p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">

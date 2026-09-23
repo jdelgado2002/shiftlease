@@ -28,14 +28,54 @@ const legal = [
   { name: "Privacy", href: "/privacy" },
 ]
 
+/**
+ * One footer column.
+ *
+ * The links used to be 17px tall with 12px of dead space between them — a
+ * 17px target against a 44px guideline, and the gap was doing the work the
+ * link should have been doing. On a phone the list gap becomes link padding
+ * instead: same rhythm on the page, a row you can actually hit. From sm the
+ * old spacing returns, where a cursor makes the distinction moot.
+ */
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string
+  items: { name: string; href: string }[]
+}) {
+  return (
+    <div>
+      <h3 className="label-mark border-b border-rule/60 pb-2 text-muted-foreground">
+        {title}
+      </h3>
+      <ul className="mt-1 divide-y divide-border/40 sm:mt-4 sm:space-y-3 sm:divide-y-0">
+        {items.map((item) => (
+          <li key={item.name}>
+            <Link
+              href={item.href}
+              className="block py-3 text-sm text-muted-foreground transition-colors hover:text-foreground sm:py-0"
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 export function Footer() {
   return (
     <footer className="w-full border-t border-border bg-card">
       <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex gap-2 items-center text-lg font-semibold tracking-tight mb-4">
+            <Link
+              href="/"
+              className="mb-4 flex w-fit items-center gap-2 py-2 text-lg font-semibold tracking-tight"
+            >
               <Image
                 src="/icon-192.png"
                 alt="EasyShiftHQ"
@@ -45,73 +85,27 @@ export function Footer() {
               />
               <span>EasyShiftHQ</span>
             </Link>
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Profit clarity for restaurant operators. See your real profits every day.
+            <p className="max-w-xs text-sm text-muted-foreground">
+              Profit clarity for restaurant operators. See your real profits
+              every day.
             </p>
           </div>
 
-          {/* Features */}
-          <div>
-            <h3 className="font-semibold mb-4">Features</h3>
-            <ul className="space-y-3">
-              {features.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
-              {company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-3">
-              {legal.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterColumn title="Features" items={features} />
+          <FooterColumn title="Company" items={company} />
+          <FooterColumn title="Legal" items={legal} />
         </div>
 
-        <div className="border-t border-border/50 mt-8 pt-8">
+        <div className="mt-8 border-t border-border/50 pt-8">
           <SocialProofRow variant="compact" />
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <TrialCTA className="text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+            <TrialCTA className="py-3 text-sm font-medium text-primary transition-colors hover:text-primary/80 sm:py-0">
               Sign In
             </TrialCTA>
           </div>

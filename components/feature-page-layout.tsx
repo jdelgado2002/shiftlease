@@ -5,7 +5,10 @@ import { ArrowRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { FeaturePageSchema, BreadcrumbSchema } from "@/components/structured-data"
+import {
+  FeaturePageSchema,
+  BreadcrumbSchema,
+} from "@/components/structured-data"
 
 /**
  * The child-page counterpart to the homepage's operating loop.
@@ -89,7 +92,7 @@ export function FeaturePageLayout({
         {/* ── Hero: file tab, headline, and a mono contents rail ────── */}
         <section className="relative w-full overflow-hidden border-b border-border">
           <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
-          <div className="container relative px-4 py-20 md:px-6 md:py-28">
+          <div className="container relative py-20 md:py-28">
             <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
               <div className="lg:col-span-7">
                 {/* The file tab replaces the pill badge — same information,
@@ -106,8 +109,7 @@ export function FeaturePageLayout({
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
                   style={{ animationDelay: "90ms" }}
                 >
-                  {title}{" "}
-                  <br />
+                  {title} <br />
                   <span className="italic text-primary">{subtitle}</span>
                 </h1>
 
@@ -157,7 +159,7 @@ export function FeaturePageLayout({
                       <li key={f.title}>
                         <Link
                           href={`#${slug(f.title)}`}
-                          className="group flex items-baseline gap-3 py-2.5 transition-colors hover:text-primary"
+                          className="group flex items-baseline gap-3 py-3.5 transition-colors hover:text-primary sm:py-2.5"
                         >
                           <span className="font-ledger text-[11px] text-muted-foreground">
                             {String(i + 1).padStart(2, "0")}
@@ -183,17 +185,17 @@ export function FeaturePageLayout({
 
         {/* ── The index ─────────────────────────────────────────────── */}
         <section className="w-full border-b border-border py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
-                <p className="label-mark text-muted-foreground/70">
-                  The index
-                </p>
+                <p className="label-mark text-muted-foreground/70">The index</p>
                 <h2 className="font-display mt-3 text-4xl leading-[1.06] md:text-5xl">
                   {indexTitle ?? (
                     <>
                       Everything {badge.toLowerCase()}{" "}
-                      <span className="italic text-primary">actually does.</span>
+                      <span className="italic text-primary">
+                        actually does.
+                      </span>
                     </>
                   )}
                 </h2>
@@ -246,7 +248,7 @@ export function FeaturePageLayout({
         {/* ── Benefits, on ruled paper ──────────────────────────────── */}
         <section className="relative w-full overflow-hidden border-b border-border bg-muted/40 py-20 md:py-24">
           <div className="pointer-events-none absolute inset-0 bg-ruled opacity-40" />
-          <div className="container relative px-4 md:px-6">
+          <div className="container relative">
             <div className="mx-auto max-w-6xl">
               <h2 className="font-display max-w-2xl text-3xl leading-[1.08] md:text-4xl">
                 {benefitsTitle ?? (
@@ -279,7 +281,7 @@ export function FeaturePageLayout({
         {/* ── CTA on the ink band ───────────────────────────────────── */}
         <section className="grain relative w-full overflow-hidden bg-ink py-20 text-ink-foreground md:py-28">
           <div className="pointer-events-none absolute inset-0 bg-ruled opacity-[0.14]" />
-          <div className="container relative px-4 md:px-6">
+          <div className="container relative">
             <div className="mx-auto max-w-3xl">
               <h2 className="font-display text-4xl leading-[1.06] md:text-5xl">
                 {ctaTitle}

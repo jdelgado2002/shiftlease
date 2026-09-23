@@ -1,8 +1,8 @@
-import { renderOgCard, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og"
+import { renderOgCard } from "@/lib/og"
 import { getAllBlogSlugs, getBlogPostBySlug, publicSlug } from "@/lib/blog"
 
-export const size = OG_SIZE
-export const contentType = OG_CONTENT_TYPE
+export { OG_SIZE as size, OG_CONTENT_TYPE as contentType } from "@/lib/og"
+
 export const alt = "EasyShiftHQ"
 
 export function generateStaticParams() {

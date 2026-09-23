@@ -1,12 +1,6 @@
-import { renderOgCard, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og"
+import { ogAlt, ogImage } from "@/lib/og"
 
-export const alt = "EasyShiftHQ — Yesterday’s P&L, before today’s lunch rush"
-export const size = OG_SIZE
-export const contentType = OG_CONTENT_TYPE
+export { OG_SIZE as size, OG_CONTENT_TYPE as contentType } from "@/lib/og"
 
-export default function OpengraphImage() {
-  return renderOgCard({
-    eyebrow: "Financials",
-    title: "Yesterday’s P&L, before today’s lunch rush.",
-  })
-}
+export const alt = ogAlt("/features/financial-management")
+export default ogImage("/features/financial-management")

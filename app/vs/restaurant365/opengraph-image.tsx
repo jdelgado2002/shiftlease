@@ -1,12 +1,6 @@
-import { renderOgCard, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og"
+import { ogAlt, ogImage } from "@/lib/og"
 
-export const alt = "EasyShiftHQ — EasyShiftHQ vs Restaurant365"
-export const size = OG_SIZE
-export const contentType = OG_CONTENT_TYPE
+export { OG_SIZE as size, OG_CONTENT_TYPE as contentType } from "@/lib/og"
 
-export default function OpengraphImage() {
-  return renderOgCard({
-    eyebrow: "Comparison",
-    title: "EasyShiftHQ vs Restaurant365.",
-  })
-}
+export const alt = ogAlt("/vs/restaurant365")
+export default ogImage("/vs/restaurant365")

@@ -116,7 +116,7 @@ export function FeaturePageSchema({
   description,
   url,
   features,
-}: FeaturePageSchemaProps) {
+}: Readonly<FeaturePageSchemaProps>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -146,9 +146,9 @@ export function FeaturePageSchema({
 
 export function BreadcrumbSchema({
   items,
-}: {
+}: Readonly<{
   items: { name: string; url: string }[]
-}) {
+}>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -178,9 +178,9 @@ export function BreadcrumbSchema({
  */
 export function FAQPageSchema({
   items,
-}: {
+}: Readonly<{
   items: { q: string; a: string }[]
-}) {
+}>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

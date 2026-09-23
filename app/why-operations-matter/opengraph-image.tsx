@@ -1,12 +1,6 @@
-import { renderOgCard, OG_SIZE, OG_CONTENT_TYPE } from "@/lib/og"
+import { ogAlt, ogImage } from "@/lib/og"
 
-export const alt = "EasyShiftHQ — Why restaurant operations decide the margin"
-export const size = OG_SIZE
-export const contentType = OG_CONTENT_TYPE
+export { OG_SIZE as size, OG_CONTENT_TYPE as contentType } from "@/lib/og"
 
-export default function OpengraphImage() {
-  return renderOgCard({
-    eyebrow: "Reference",
-    title: "Why restaurant operations decide the margin.",
-  })
-}
+export const alt = ogAlt("/why-operations-matter")
+export default ogImage("/why-operations-matter")

@@ -297,8 +297,7 @@ export default function InventoryManagementPage() {
                   On $2.5 million in sales, that 5% gap represents{" "}
                   <strong className="text-foreground">
                     $125,000 in vanishing profit
-                  </strong>
-                  . And because manual systems only catch problems weeks later,
+                  </strong>. And because manual systems only catch problems weeks later,
                   the window to investigate and act has long closed.
                 </p>
                 <p>

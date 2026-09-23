@@ -164,10 +164,10 @@ export function TeamSide() {
             </dl>
 
             <Link
-              href="/features/scheduling-payroll"
+              href="/features/employee-portal"
               className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary"
             >
-              Shift trades, time clock & the open-shift marketplace
+              Walk through a week in the employee portal
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

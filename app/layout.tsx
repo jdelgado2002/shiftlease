@@ -1,32 +1,54 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "@/app/globals.css"
-import { Inter } from "next/font/google"
+import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
 import Script from "next/script"
 import { OrganizationSchema, WebsiteSchema, FAQSchema } from "@/components/structured-data"
 import { PostHogProvider } from "@/components/posthog-provider"
 
-const inter = Inter({ subsets: ["latin"] })
+// Type system — "The Operator's Ledger":
+// Instrument Serif sets the editorial voice, Instrument Sans carries the UI,
+// IBM Plex Mono carries every figure (tabular by default, like a statement).
+const instrumentSans = Instrument_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument-sans",
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument-serif",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-plex-mono",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://easyshifthq.com'),
   title: {
-    default: "EasyShiftHQ - See Your Restaurant's True Profits Every Day",
+    default: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
     template: "%s | EasyShiftHQ",
   },
   description:
-    "Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights — all automatically.",
+    "Restaurant scheduling that shows the labor dollar while you build the week, then closes the loop: labor % of sales, live budget and run rate, and bank accounts with categorized expenses and printed checks. Your whole staff gets their shifts, clock-in, and tips in the same app.",
   keywords: [
-    "restaurant management software",
-    "restaurant profit tracking",
-    "food cost calculator",
+    "restaurant scheduling software",
     "labor cost management",
-    "restaurant inventory management",
+    "restaurant labor percentage",
+    "employee scheduling app",
+    "shift trade marketplace",
+    "restaurant budget and run rate",
+    "restaurant expense tracking",
+    "print checks for restaurants",
+    "restaurant management software",
     "POS integration",
-    "restaurant analytics",
-    "profit margin software",
-    "restaurant operations",
-    "food service management",
   ],
   authors: [{ name: "EasyShiftHQ" }],
   creator: "EasyShiftHQ",
@@ -45,23 +67,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://easyshifthq.com",
     siteName: "EasyShiftHQ",
-    title: "EasyShiftHQ - See Your Restaurant's True Profits Every Day",
+    title: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
     description:
-      "Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights — all automatically.",
+      "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out — with your whole staff in the same app.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "EasyShiftHQ - Restaurant Profit Tracking Software",
+        alt: "EasyShiftHQ - Restaurant Scheduling, Labor & Money in One Loop",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EasyShiftHQ - See Your Restaurant's True Profits Every Day",
+    title: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
     description:
-      "Stop guessing your margins. Connect your POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights.",
+      "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out — with your whole staff in the same app.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -102,7 +124,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={inter.className}>
+      <body
+        className={`${instrumentSans.variable} ${instrumentSerif.variable} ${plexMono.variable} font-sans`}
+      >
         <PostHogProvider>
           <OrganizationSchema />
           <WebsiteSchema />

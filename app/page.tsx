@@ -2,21 +2,11 @@ import {
   ArrowRight,
   Check,
   PackageSearch,
-  Users,
-  Target,
-  LineChart,
-  Calculator,
-  BookOpen,
-  BrainCircuit,
-  Shield,
-  Wallet,
-  Clock,
-  Receipt,
   ChefHat,
-  Zap,
-  TrendingDown,
-  AlertTriangle,
   Star,
+  Zap,
+  Inbox,
+  Newspaper,
 } from "lucide-react"
 import Link from "next/link"
 import { TrialCTA } from "@/components/trial-cta"
@@ -25,52 +15,95 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { WaitlistForm } from "@/components/waitlist-form"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { InventoryImpactHero, InventoryQuickFacts } from "@/components/inventory-impact"
+import { OperatingLoop } from "@/components/home/operating-loop"
+import { StationPanels } from "@/components/home/station-panels"
 
-const featureCategories = [
+/**
+ * The rest of the platform. These are real, shipped, and linked — they are
+ * simply not the daily loop, so they sit below it instead of in front of it.
+ */
+const alsoInTheBox = [
   {
-    icon: <Wallet className="h-5 w-5" />,
-    title: "Financial Management",
-    description: "Real-time P&L, bank connections, and automated transaction categorization",
-    href: "/features/financial-management",
-    highlights: ["Live P&L Dashboard", "Bank Account Sync", "AI Categorization"],
-  },
-  {
-    icon: <PackageSearch className="h-5 w-5" />,
-    title: "Inventory Management",
-    description: "Stop losing 2-10% of revenue to shrinkage. Real-time tracking catches waste and theft instantly.",
+    icon: PackageSearch,
+    title: "Inventory & Audits",
+    description:
+      "Live stock levels, counts, purchase orders, and variance that catches waste and shrink.",
     href: "/features/inventory-management",
-    highlights: ["18% Loss Reduction", "Real-Time Tracking", "Theft Detection"],
   },
   {
-    icon: <ChefHat className="h-5 w-5" />,
-    title: "Recipe & Menu",
-    description: "Recipe costing, profitability analysis, and menu engineering tools",
+    icon: ChefHat,
+    title: "Recipes & Menu Costing",
+    description:
+      "Plate costs that move with supplier prices, prep recipes, and menu profitability.",
     href: "/features/recipe-menu",
-    highlights: ["Recipe Costing", "Profit Analysis", "POS Integration"],
   },
   {
-    icon: <Clock className="h-5 w-5" />,
-    title: "Operations",
-    description: "AI-assisted scheduling with shift trades, time clock, tip pooling, and payroll — four pillars that feed each other automatically",
-    href: "/features/scheduling-payroll",
-    highlights: ["AI-Assisted Scheduling", "Shift Marketplace", "Tips & Payroll"],
-  },
-  {
-    icon: <Star className="h-5 w-5" />,
+    icon: Star,
     title: "Guest Reviews",
-    description: "QR-code review funnel: happy guests go to Google, unhappy guests come to you first",
+    description:
+      "A QR funnel that sends happy guests to Google and unhappy guests straight to you.",
     href: "/features/reviews",
-    highlights: ["More Google Reviews", "Private Complaint Capture", "Printable QR Cards"],
   },
   {
-    icon: <Zap className="h-5 w-5" />,
-    title: "Integrations & Multi-Location",
-    description: "Connect Square, Toast, Clover, Shift4, Focus, and Revel — with unlimited locations and roll-up reporting",
+    icon: Zap,
+    title: "POS & Multi-Location",
+    description:
+      "Square, Toast, Clover, Shift4, Focus, and Revel — with roll-up reporting across locations.",
     href: "/features/integrations",
-    highlights: ["6 POS Systems", "Auto Daily Sync", "Roll-up Reports"],
+  },
+  {
+    icon: Inbox,
+    title: "Ops Inbox",
+    description:
+      "One feed for anomalies, reconciliation gaps, and anything left uncoded. Work it to zero.",
+    href: "/features/financial-management",
+  },
+  {
+    icon: Newspaper,
+    title: "Weekly Brief",
+    description:
+      "An AI-written recap of what moved and why, emailed to you. No dashboard required.",
+    href: "/features/financial-management",
   },
 ]
+
+/** A receipt-tape line: label on the left, figure on the right. */
+function TapeLine({
+  label,
+  value,
+  tone = "default",
+  delay = 0,
+}: {
+  label: string
+  value: string
+  tone?: "default" | "under" | "watch" | "muted"
+  delay?: number
+}) {
+  const toneClass = {
+    default: "text-foreground",
+    under: "text-[var(--under)]",
+    watch: "text-[var(--watch)]",
+    muted: "text-muted-foreground",
+  }[tone]
+
+  return (
+    <div
+      className="anim-rise flex items-baseline justify-between gap-4"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <span className="font-ledger text-[11px] uppercase tracking-wider text-muted-foreground">
+        {label}
+      </span>
+      <span className={`font-ledger text-[15px] font-medium ${toneClass}`}>
+        {value}
+      </span>
+    </div>
+  )
+}
+
+function TapeRule() {
+  return <div className="my-3 border-t border-dashed border-rule" />
+}
 
 export default function Home() {
   return (
@@ -78,27 +111,344 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-24 md:py-32 lg:py-40">
+        {/* ── Hero ─────────────────────────────────────────── */}
+        <section className="relative w-full overflow-hidden border-b border-border">
+          <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+
+          <div className="container relative px-4 py-20 md:px-6 md:py-28 lg:py-36">
+            <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-12 lg:gap-12">
+              {/* Copy */}
+              <div className="lg:col-span-7">
+                <p className="anim-rise label-mark text-primary">
+                  Restaurant operations · closed loop
+                </p>
+
+                <h1 className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-[4.5rem]" style={{ animationDelay: "80ms" }}>
+                  From the shift
+                  <br />
+                  you schedule
+                  <br />
+                  <span className="italic text-primary">to the check that clears.</span>
+                </h1>
+
+                <p
+                  className="anim-rise mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+                  style={{ animationDelay: "180ms" }}
+                >
+                  You commit your biggest controllable cost on Tuesday when you
+                  build the schedule. You find out what it cost three weeks later
+                  in a bank statement. EasyShiftHQ closes that gap — labor
+                  dollars while you schedule, a budget that knows your
+                  break-even, and every transaction named on the way out.
+                </p>
+
+                <div
+                  className="anim-rise mt-10 flex flex-col gap-4 sm:flex-row"
+                  style={{ animationDelay: "260ms" }}
+                >
+                  <Button
+                    size="lg"
+                    className="h-14 rounded-full bg-foreground px-8 text-base text-background hover:bg-foreground/90"
+                    asChild
+                  >
+                    <TrialCTA>
+                      Start Free Trial
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </TrialCTA>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-14 rounded-full border-border bg-transparent px-8 text-base"
+                    asChild
+                  >
+                    <Link href="#the-loop">See the loop</Link>
+                  </Button>
+                </div>
+
+                <p
+                  className="anim-rise font-ledger mt-6 text-[12px] text-muted-foreground"
+                  style={{ animationDelay: "320ms" }}
+                >
+                  No credit card · 14 days free · 15-minute setup
+                </p>
+              </div>
+
+              {/* Receipt tape — all four stations, one object. */}
+              <div className="lg:col-span-5">
+                <div
+                  className="anim-rise relative mx-auto max-w-[360px] rotate-[-1.2deg] lg:ml-auto lg:mr-0"
+                  style={{ animationDelay: "220ms" }}
+                >
+                  {/* torn top edge */}
+                  <div
+                    aria-hidden
+                    className="h-2 bg-card"
+                    style={{
+                      clipPath:
+                        "polygon(0 100%, 0 40%, 4% 75%, 8% 30%, 12% 70%, 16% 25%, 20% 72%, 24% 35%, 28% 68%, 32% 28%, 36% 74%, 40% 32%, 44% 70%, 48% 26%, 52% 73%, 56% 34%, 60% 66%, 64% 29%, 68% 71%, 72% 33%, 76% 69%, 80% 27%, 84% 74%, 88% 31%, 92% 67%, 96% 36%, 100% 45%, 100% 100%)",
+                    }}
+                  />
+
+                  <div className="grain relative overflow-hidden bg-card px-7 pb-8 pt-6 shadow-[0_26px_60px_-30px_rgba(0,0,0,0.5)]">
+                    <div className="relative z-10">
+                      <div className="text-center">
+                        <p className="font-ledger text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                          EasyShiftHQ
+                        </p>
+                        <p className="font-ledger mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground/70">
+                          Week of Mar 10 · San Antonio
+                        </p>
+                      </div>
+
+                      <TapeRule />
+
+                      <p className="label-mark mb-2.5 text-muted-foreground/70">
+                        01 · Schedule
+                      </p>
+                      <div className="space-y-1.5">
+                        <TapeLine label="Scheduled labor" value="$4,182" delay={340} />
+                        <TapeLine label="Labor budget" value="$5,100" tone="muted" delay={370} />
+                        <TapeLine label="Remaining" value="$918" tone="under" delay={400} />
+                      </div>
+
+                      <TapeRule />
+
+                      <p className="label-mark mb-2.5 text-muted-foreground/70">
+                        02 · Labor
+                      </p>
+                      <div className="space-y-1.5">
+                        <TapeLine label="Labor % of sales" value="28.4%" delay={440} />
+                        <TapeLine label="Your target" value="27.0%" tone="muted" delay={470} />
+                        <TapeLine label="Rev / labor hour" value="$47.20" delay={500} />
+                      </div>
+
+                      <TapeRule />
+
+                      <p className="label-mark mb-2.5 text-muted-foreground/70">
+                        03 · Budget
+                      </p>
+                      <div className="space-y-1.5">
+                        <TapeLine label="Break-even" value="Day 19 / 31" tone="under" delay={540} />
+                        <TapeLine label="Projected net" value="+$9,140" tone="under" delay={570} />
+                        <TapeLine label="vs. target" value="−$860" tone="watch" delay={600} />
+                      </div>
+
+                      <TapeRule />
+
+                      <p className="label-mark mb-2.5 text-muted-foreground/70">
+                        04 · Money
+                      </p>
+                      <div className="space-y-1.5">
+                        <TapeLine label="Checks printed" value="4" delay={640} />
+                        <TapeLine label="Uncategorized" value="0" tone="under" delay={670} />
+                      </div>
+
+                      <TapeRule />
+
+                      <p
+                        className="anim-rise font-ledger text-center text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
+                        style={{ animationDelay: "720ms" }}
+                      >
+                        Nothing here waited on an accountant
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* torn bottom edge */}
+                  <div
+                    aria-hidden
+                    className="h-2 bg-card"
+                    style={{
+                      clipPath:
+                        "polygon(0 0, 100% 0, 100% 55%, 96% 64%, 92% 33%, 88% 69%, 84% 26%, 80% 73%, 76% 31%, 72% 67%, 68% 29%, 64% 71%, 60% 34%, 56% 66%, 52% 27%, 48% 74%, 44% 30%, 40% 68%, 36% 26%, 32% 72%, 28% 32%, 24% 65%, 20% 28%, 16% 75%, 12% 30%, 8% 70%, 4% 25%, 0 60%)",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Ledger strip ─────────────────────────────────── */}
+        <section className="w-full border-b border-border bg-card">
           <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-6">
-                Profit Clarity for Restaurant Operators
-              </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
-                Stop Guessing.
+            <div className="grid grid-cols-2 divide-x divide-border md:grid-cols-4">
+              {[
+                { figure: "1", label: "app for the office and the floor" },
+                { figure: "4", label: "screens in the weekly loop" },
+                { figure: "0", label: "numbers re-keyed between them" },
+                { figure: "15 min", label: "to connect POS and bank" },
+              ].map((item) => (
+                <div key={item.label} className="px-5 py-9 text-center">
+                  <p className="font-ledger text-3xl font-medium text-primary md:text-4xl">
+                    {item.figure}
+                  </p>
+                  <p className="mx-auto mt-2 max-w-[16ch] text-sm leading-snug text-muted-foreground">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── The gap ──────────────────────────────────────── */}
+        <section className="w-full py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="mx-auto max-w-6xl">
+              <div className="max-w-3xl">
+                <p className="label-mark text-primary">The gap</p>
+                <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
+                  Your money decisions and your
+                  <br />
+                  money data live{" "}
+                  <span className="italic text-muted-foreground">
+                    three weeks apart.
+                  </span>
+                </h2>
+              </div>
+
+              <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-border md:grid-cols-3">
+                {[
+                  {
+                    n: "01",
+                    head: "The schedule is written blind.",
+                    body: "You place shifts in one app and hope the labor percentage lands. The tool that knows your sales isn't the tool that knows your roster, so the two never meet until payroll runs.",
+                  },
+                  {
+                    n: "02",
+                    head: "The budget is a document, not a signal.",
+                    body: "A spreadsheet built in January can't tell you on March 12 that you're trending $860 short. By the time the month closes, the only thing left to do is explain it.",
+                  },
+                  {
+                    n: "03",
+                    head: "The bank feed is a backlog.",
+                    body: "Hundreds of uncoded transactions, checks written with no memo anyone remembers, and a quarterly scramble to hand your accountant something honest.",
+                  },
+                ].map((item) => (
+                  <div key={item.n} className="bg-card p-8 md:p-9">
+                    <span className="font-ledger text-4xl text-muted-foreground/25">
+                      {item.n}
+                    </span>
+                    <h3 className="mt-5 text-lg font-semibold leading-snug">
+                      {item.head}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-14 max-w-2xl border-l-2 border-primary pl-6">
+                <p className="font-display text-2xl leading-snug md:text-3xl">
+                  You don&apos;t need another dashboard. You need the number to
+                  show up{" "}
+                  <span className="italic text-primary">
+                    at the moment you&apos;re deciding.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── The loop ─────────────────────────────────────── */}
+        <OperatingLoop />
+
+        {/* ── Station deep-dives ───────────────────────────── */}
+        <StationPanels />
+
+        {/* ── Ink band ─────────────────────────────────────── */}
+        <section className="grain relative w-full overflow-hidden bg-ink py-24 text-ink-foreground md:py-32">
+          <div className="pointer-events-none absolute inset-0 bg-ruled opacity-[0.14]" />
+          <div className="container relative px-4 md:px-6">
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="label-mark text-primary">Why it compounds</p>
+              <h2 className="font-display mt-5 text-4xl leading-[1.07] md:text-6xl">
+                One target. Four screens.
                 <br />
-                <span className="text-muted-foreground">Start Knowing.</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
-                See your real profits — <span className="font-semibold text-foreground">every single day.</span>
-                <br />
-                Not weeks later when it's too late to fix anything.
+                <span className="italic text-ink-foreground/60">
+                  Nothing typed twice.
+                </span>
+              </h2>
+              <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ink-foreground/70 md:text-xl">
+                Set a labor budget once and the scheduler checks against it. The
+                clock-ins that feed labor percentage are the same ones that feed
+                payroll. The check you print is the expense in your P&amp;L and
+                the line on your bank feed. Each screen makes the next one
+                truer — which is why the loop gets more valuable the longer you
+                run it.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+
+              <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-ink-foreground/10 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  ["Budget", "sets the bar the schedule checks"],
+                  ["Schedule", "commits the hours payroll pays"],
+                  ["Clock-ins", "prove the labor % against sales"],
+                  ["Bank", "confirms what actually left"],
+                ].map(([term, detail]) => (
+                  <div key={term} className="bg-ink px-6 py-7 text-left">
+                    <p className="font-ledger text-[13px] font-medium text-primary">
+                      {term}
+                    </p>
+                    <p className="mt-2 text-sm leading-snug text-ink-foreground/65">
+                      {detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── How it works ─────────────────────────────────── */}
+        <section id="how-it-works" className="w-full border-b border-border py-24 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="mx-auto max-w-6xl">
+              <div className="max-w-2xl">
+                <p className="label-mark text-primary">How it works</p>
+                <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-5xl">
+                  In the loop by Friday.
+                </h2>
+              </div>
+
+              <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-border md:grid-cols-3">
+                {[
+                  {
+                    n: "1",
+                    head: "Connect POS and bank",
+                    body: "Square, Toast, Clover, Shift4, Focus, or Revel on one side; your accounts through Stripe Financial Connections on the other. Roughly 15 minutes.",
+                  },
+                  {
+                    n: "2",
+                    head: "Set two numbers",
+                    body: "Your labor target and your fixed costs. That's enough for the scheduler to check against a budget and for break-even to calculate.",
+                  },
+                  {
+                    n: "3",
+                    head: "Build next week's schedule",
+                    body: "The loop starts on the first shift you drag. Everything downstream — labor %, run rate, categorized spend — fills in from there.",
+                  },
+                ].map((step) => (
+                  <div key={step.n} className="bg-card p-8 md:p-9">
+                    <div className="font-ledger flex h-11 w-11 items-center justify-center rounded-full bg-foreground text-lg text-background">
+                      {step.n}
+                    </div>
+                    <h3 className="mt-5 text-lg font-semibold">{step.head}</h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                      {step.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12">
                 <Button
                   size="lg"
-                  className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
+                  className="h-14 rounded-full bg-foreground px-8 text-base text-background hover:bg-foreground/90"
                   asChild
                 >
                   <TrialCTA>
@@ -106,441 +456,136 @@ export default function Home() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </TrialCTA>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full h-14 px-8 text-base border-border bg-transparent"
-                  asChild
-                >
-                  <Link href="#how-it-works">See How It Works</Link>
-                </Button>
-              </div>
-              <p className="text-sm text-muted-foreground">No credit card required · 15-minute setup</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="w-full border-y border-border bg-card">
-          <div className="container px-4 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
-              <div className="py-10 px-6 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary">18%</div>
-                <p className="text-sm text-muted-foreground mt-1">Inventory loss reduction</p>
-              </div>
-              <div className="py-10 px-6 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary">10+</div>
-                <p className="text-sm text-muted-foreground mt-1">Hours saved per week</p>
-              </div>
-              <div className="py-10 px-6 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary">3-5%</div>
-                <p className="text-sm text-muted-foreground mt-1">Margin improvement</p>
-              </div>
-              <div className="py-10 px-6 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary">15 min</div>
-                <p className="text-sm text-muted-foreground mt-1">Setup time</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Problems Section */}
-        <section id="problems" className="w-full py-24 md:py-32">
+        {/* ── Also in the box ──────────────────────────────── */}
+        <section id="features" className="w-full border-b border-border bg-muted/40 py-24 md:py-32">
           <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto mb-16 text-center">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">The Problem</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-balance">
-                Your Business Is Talking.
-                <br />
-                <span className="text-muted-foreground">Your Systems Aren't Listening.</span>
-              </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                POS, inventory, labor, and banking all live in separate worlds.
-                <br />
-                Meanwhile, your profit is leaking quietly in the background.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-px bg-border max-w-5xl mx-auto rounded-2xl overflow-hidden">
-              <div className="bg-card p-8 md:p-10 space-y-4">
-                <div className="flex items-start gap-4">
-                  <span className="text-5xl font-bold text-muted-foreground/30">1</span>
-                  <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">"I don't actually know if I made money today."</h3>
-                    <p className="text-muted-foreground">
-                      Most operators run blind. You only discover the truth weeks later — when nothing can be changed.
-                    </p>
-                  </div>
-                </div>
+            <div className="mx-auto max-w-6xl">
+              <div className="max-w-2xl">
+                <p className="label-mark text-primary">Also in the box</p>
+                <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-5xl">
+                  The loop is the habit.
+                  <br />
+                  <span className="italic text-muted-foreground">
+                    The rest is still yours.
+                  </span>
+                </h2>
+                <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                  Inventory, recipe costing, reviews, and POS integrations ship in
+                  the same platform and feed the same P&amp;L. Turn them on when
+                  you&apos;re ready — the loop works without them.
+                </p>
               </div>
 
-              <div className="bg-card p-8 md:p-10 space-y-4">
-                <div className="flex items-start gap-4">
-                  <span className="text-5xl font-bold text-muted-foreground/30">2</span>
-                  <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">"Everyone has numbers… and none of them match."</h3>
-                    <p className="text-muted-foreground">
-                      POS says one thing. Payroll says another. Inventory tells a third story. You're left reconciling
-                      reality manually.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-card p-8 md:p-10 space-y-4">
-                <div className="flex items-start gap-4">
-                  <span className="text-5xl font-bold text-muted-foreground/30">3</span>
-                  <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">"I'm working nonstop… but nothing feels in control."</h3>
-                    <p className="text-muted-foreground">
-                      You're reacting instead of running. Managing chaos instead of a business.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-card p-8 md:p-10 space-y-4">
-                <div className="flex items-start gap-4">
-                  <span className="text-5xl font-bold text-muted-foreground/30">4</span>
-                  <div className="pt-2">
-                    <h3 className="text-lg font-semibold mb-2">
-                      "I know I'm bleeding money — I just don't know where."
+              <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-2 lg:grid-cols-3">
+                {alsoInTheBox.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className="group bg-card p-7 transition-colors hover:bg-card/60"
+                  >
+                    <item.icon
+                      className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary"
+                      aria-hidden
+                    />
+                    <h3 className="mt-4 text-base font-semibold transition-colors group-hover:text-primary">
+                      {item.title}
                     </h3>
-                    <p className="text-muted-foreground">
-                      Industry data shows restaurants lose 2-10% of revenue to shrinkage — waste, theft, over-portioning, spoilage. 
-                      That's $30,000+ per million in sales, vanishing silently.
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
                     </p>
-                  </div>
-                </div>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+                <Link
+                  href="/why-operations-matter"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                >
+                  Why operations matter
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href="/why-inventory-matters"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                >
+                  Why inventory matters
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
-
-            {/* Inventory Loss Stats */}
-            <div className="mt-16 max-w-5xl mx-auto">
-              <InventoryQuickFacts />
-            </div>
-
-            <div className="text-center mt-16 space-y-4">
-              <p className="text-2xl font-medium">You don't have a data problem.</p>
-              <p className="text-2xl font-bold">
-                You have a <span className="text-primary">visibility</span> problem.
-              </p>
-              <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-                75% of inventory shrinkage comes from employee theft. 10% of food is wasted before it ever reaches a plate. 
-                Manual tracking takes 5-7 hours weekly — and still misses problems for weeks.
-              </p>
-            </div>
           </div>
         </section>
 
-        {/* Transition Section */}
-        <section className="w-full py-24 md:py-32 bg-foreground text-background">
+        {/* ── Pricing ──────────────────────────────────────── */}
+        <section id="pricing" className="w-full border-b border-border py-24 md:py-32">
           <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Running blind is exhausting.</h2>
-              <p className="text-xl text-background/70 leading-relaxed">
-                You didn't open a restaurant to chase spreadsheets.
-                <br />
-                You opened it to build something meaningful.
-              </p>
-              <div className="w-16 h-px bg-background/20 mx-auto"></div>
-              <p className="text-2xl font-semibold text-primary">
-                It's time to turn <span className="italic">hope</span> into <span className="italic">certainty</span>.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Solution Section */}
-        <section id="solution" className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto mb-16 text-center">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">The Solution</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Chaos Into Clarity</h2>
-              <p className="text-xl text-muted-foreground">
-                One place. One truth.
-                <br />
-                What happened today. What's leaking. What's actually making you money.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <LineChart className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Daily Financial Clarity</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Know today's outcome before tomorrow starts. Profit should never be a surprise.
+            <div className="mx-auto max-w-6xl">
+              <div className="grid gap-10 md:grid-cols-12 md:items-end">
+                <div className="md:col-span-7">
+                  <p className="label-mark text-primary">Simple pricing</p>
+                  <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-5xl">
+                    Three plans. No contracts.
+                  </h2>
+                  <p className="mt-6 text-lg text-muted-foreground">
+                    Per location, per month. Free 14-day trial, no credit card.
                   </p>
-                </CardContent>
-              </Card>
+                </div>
 
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Target className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">One Dashboard. One Reality.</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">POS, labor, inventory — finally speaking the same language.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <PackageSearch className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Inventory That Tells The Truth</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Stop the 2-10% revenue leak. Real-time tracking catches theft, waste, and variance instantly — 
-                    not weeks later when the money is already gone.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Labor Without Payroll Panic</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Schedule with conflict detection, clock with verification, pool tips fairly, and run payroll — all connected. No re-keying between systems.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Receipt className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Print Checks That Reconcile Themselves</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Print a check on real check paper for payroll, vendors, draws — anything.
-                    The expense logs the moment it&apos;s printed and ties to the bank transaction
-                    the moment money moves. No more &quot;wait, what was that $342 check for?&quot;
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Calculator className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Clean Books, All Year</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Bank transactions sync automatically. Reports stay tax-ready. Always.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <BookOpen className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Menu Profitability, Daily</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Recipe costs adjust the moment supplier prices change. Know what sells — and what erodes margin.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <BrainCircuit className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">AI That Thinks In Margins</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Variance detection. Loss alerts. Clear recommendations, not noise.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-muted/50 hover:bg-muted transition-colors">
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Shield className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Trust Without Tension</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Facts replace assumptions. Accountability without confrontation.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Inventory Impact Section */}
-        <InventoryImpactHero />
-
-        {/* Features Overview Section */}
-        <section id="features" className="w-full py-24 md:py-32 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto mb-16 text-center">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Everything You Need</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Complete Restaurant Operations
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                From financial tracking to employee scheduling — all in one platform designed for restaurant operators.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {featureCategories.map((category) => (
-                <Link
-                  key={category.title}
-                  href={category.href}
-                  className="group bg-card border border-border rounded-2xl p-6 hover:border-primary/50 hover:shadow-lg transition-all"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <span className="text-primary">{category.icon}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {category.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">{category.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {category.highlights.map((highlight) => (
-                      <span
-                        key={highlight}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground"
+                <div className="md:col-span-5">
+                  <div className="divide-y divide-dashed divide-rule rounded-2xl border border-border bg-card px-6">
+                    {[
+                      ["Starter", "$99"],
+                      ["Growth", "$199"],
+                      ["Pro", "$299"],
+                    ].map(([plan, price]) => (
+                      <div
+                        key={plan}
+                        className="flex items-baseline justify-between py-4"
                       >
-                        {highlight}
-                      </span>
+                        <span className="text-[15px] font-medium">{plan}</span>
+                        <span className="font-ledger text-lg">{price}</span>
+                      </div>
                     ))}
                   </div>
-                  <div className="mt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Control Section */}
-        <section className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16">
-                Control Feels Like This
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Check className="h-5 w-5 text-primary" />
-                  </div>
-                  <p className="text-lg">
-                    <span className="font-semibold">Awareness</span> instead of anxiety
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Check className="h-5 w-5 text-primary" />
-                  </div>
-                  <p className="text-lg">
-                    <span className="font-semibold">Data</span> instead of hope
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Check className="h-5 w-5 text-primary" />
-                  </div>
-                  <p className="text-lg">
-                    <span className="font-semibold">Action</span> instead of reaction
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 p-6 rounded-2xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Check className="h-5 w-5 text-primary" />
-                  </div>
-                  <p className="text-lg">
-                    <span className="font-semibold">Profit</span> instead of mystery
-                  </p>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="mt-6 h-14 w-full rounded-full text-base"
+                    asChild
+                  >
+                    <Link href="/pricing">
+                      See full pricing
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
-              <p className="text-center text-xl mt-12">
-                <span className="font-semibold">From firefighter to operator.</span>
-                <br />
-                <span className="text-muted-foreground">Regain control.</span>
-              </p>
             </div>
           </div>
         </section>
 
-        {/* Pricing Summary Section */}
-        <section id="pricing" className="w-full py-24 md:py-32 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Three plans. No contracts.</h2>
-              <p className="text-xl text-muted-foreground">
-                Starter $99, Growth $199, Pro $299 — per location, per month.
-                <br />
-                Free 14-day trial. No credit card.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full h-14 px-8 text-base"
-                asChild
-              >
-                <Link href="/pricing">
-                  See full pricing
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Lead Magnet Strip */}
-        <section className="w-full border-y border-border bg-card">
-          <div className="container px-4 md:px-6 py-12 md:py-16">
-            <div className="mx-auto flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 max-w-5xl">
+        {/* ── Lead magnet ──────────────────────────────────── */}
+        <section className="w-full border-b border-border bg-card">
+          <div className="container px-4 py-14 md:px-6">
+            <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
               <div className="shrink-0">
-                <p className="text-sm font-medium text-primary uppercase tracking-wide">Free for operators</p>
-                <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight">
+                <p className="label-mark text-primary">Free for operators</p>
+                <h2 className="font-display mt-2 text-2xl md:text-3xl">
                   Read your P&amp;L every day. In 5 minutes.
                 </h2>
               </div>
-              <p className="text-base md:text-lg text-muted-foreground md:flex-1">
-                Grab the printable Daily P&amp;L Cheat Sheet plus the matching Excel — built for operators who don&apos;t want to wait on their accountant.
+              <p className="text-base leading-relaxed text-muted-foreground md:flex-1">
+                The printable Daily P&amp;L Cheat Sheet plus the matching Excel —
+                built for operators who don&apos;t want to wait on their
+                accountant.
               </p>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full md:shrink-0"
-                asChild
-              >
+              <Button size="lg" variant="outline" className="rounded-full md:shrink-0" asChild>
                 <Link href="/tools/daily-pl-cheat-sheet">
                   Get the cheat sheet
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -550,103 +595,67 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section id="how-it-works" className="w-full py-24 md:py-32">
+        {/* ── Founder ──────────────────────────────────────── */}
+        <section className="w-full border-b border-border py-24 md:py-32">
           <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">How It Works</p>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Up and Running in 3 Steps</h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
-                  1
-                </div>
-                <h3 className="text-xl font-semibold">Connect Your Systems</h3>
-                <p className="text-muted-foreground">POS, labor, banking — one-click integrations.</p>
-              </div>
-
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
-                  2
-                </div>
-                <h3 className="text-xl font-semibold">Set Up Recipes</h3>
-                <p className="text-muted-foreground">AI maps food items to real inventory and pricing.</p>
-              </div>
-
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-foreground text-background flex items-center justify-center text-2xl font-bold mx-auto">
-                  3
-                </div>
-                <h3 className="text-xl font-semibold">Start Seeing Truth</h3>
-                <p className="text-muted-foreground">Live margins. Real costs. Every day.</p>
-              </div>
-            </div>
-
-            <div className="flex justify-center mt-16">
-              <Button
-                size="lg"
-                className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
-                asChild
-              >
-                <TrialCTA>
-                  Get Started Free
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </TrialCTA>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Founder Note Section */}
-        <section className="w-full py-24 md:py-32 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-6">
-                From the Founder
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Built by an operator running the same kind of shop you are.
-              </h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Our founder runs a Cold Stone Creamery / Wetzel&apos;s Pretzels co-brand
-                in San Antonio. Every feature in EasyShiftHQ has to survive a weekend at
-                his store before it ships to you. If it can&apos;t, it doesn&apos;t.
+            <div className="mx-auto max-w-3xl">
+              <p className="label-mark text-primary">From the founder</p>
+              <blockquote className="font-display mt-6 text-3xl leading-[1.18] md:text-4xl">
+                &ldquo;I built the loop because I was living the gap. I run a Cold
+                Stone Creamery and Wetzel&apos;s Pretzels co-brand in San
+                Antonio — every feature here has to survive a weekend at my store
+                before it ships to you.{" "}
+                <span className="italic text-primary">
+                  If it can&apos;t, it doesn&apos;t.
+                </span>
+                &rdquo;
+              </blockquote>
+              <p className="font-ledger mt-8 text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
+                Founder · EasyShiftHQ
               </p>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section id="contact" className="w-full py-24 md:py-32 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-16 lg:grid-cols-2 items-center max-w-6xl mx-auto">
-              <div className="space-y-8">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  Run Your Restaurant.
+        {/* ── CTA ──────────────────────────────────────────── */}
+        <section
+          id="contact"
+          className="grain relative w-full overflow-hidden bg-ink py-24 text-ink-foreground md:py-32"
+        >
+          <div className="pointer-events-none absolute inset-0 bg-ruled opacity-[0.14]" />
+          <div className="container relative px-4 md:px-6">
+            <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
+              <div>
+                <h2 className="font-display text-4xl leading-[1.06] md:text-6xl">
+                  Close the loop.
                   <br />
-                  <span className="text-background/70">Don't Let It Run You.</span>
+                  <span className="italic text-ink-foreground/60">
+                    Starting with next week.
+                  </span>
                 </h2>
-                <p className="text-xl text-background/70 leading-relaxed">
-                  Profit clarity for operators who hate accounting.
-                  <br />
-                  Financial truth — daily.
+                <p className="mt-7 max-w-lg text-lg leading-relaxed text-ink-foreground/70">
+                  Schedule with the dollar on screen. Know your labor percentage
+                  before payday. Watch break-even arrive. Hand your accountant
+                  books that are already clean.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {["Free 14 days", "No credit card", "Cancel anytime", "Guided setup"].map((item) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                        <Check className="h-4 w-4 text-primary-foreground" />
+
+                <div className="mt-10 grid grid-cols-2 gap-4">
+                  {["Free 14 days", "No credit card", "Cancel anytime", "Guided setup"].map(
+                    (item) => (
+                      <div key={item} className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
+                          <Check className="h-3.5 w-3.5 text-primary-foreground" />
+                        </span>
+                        <p className="text-[15px]">{item}</p>
                       </div>
-                      <p className="text-base">{item}</p>
-                    </div>
-                  ))}
+                    ),
+                  )}
                 </div>
-                <div className="pt-4">
+
+                <div className="pt-9">
                   <Button
                     size="lg"
-                    className="rounded-full bg-background text-foreground hover:bg-background/90 h-14 px-8 text-base"
+                    className="h-14 rounded-full bg-background px-8 text-base text-foreground hover:bg-background/90"
                     asChild
                   >
                     <TrialCTA>
@@ -659,7 +668,7 @@ export default function Home() {
 
               <Card className="bg-card text-card-foreground">
                 <CardHeader>
-                  <CardTitle>Questions? We're here.</CardTitle>
+                  <CardTitle>Questions? We&apos;re here.</CardTitle>
                   <CardDescription>We reply within 24 hours.</CardDescription>
                 </CardHeader>
                 <CardContent>

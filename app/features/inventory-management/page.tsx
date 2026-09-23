@@ -28,7 +28,7 @@ import {
 } from "@/components/inventory-impact"
 
 export const metadata: Metadata = {
-  title: "Inventory Management - Real-Time Stock Tracking for Restaurants | EasyShiftHQ",
+  title: "Inventory Management - Real-Time Stock Tracking for Restaurants",
   description:
     "Reduce inventory loss by 18% with real-time stock tracking, AI-powered receipt scanning (OCR), waste management, and automatic POS deductions. Restaurants lose 2-10% of revenue to shrinkage — stop the bleeding.",
   keywords: [
@@ -183,43 +183,91 @@ export default function InventoryManagementPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-20 md:py-28 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6">
-                <PackageSearch className="h-4 w-4" />
-                <span>Inventory Management</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-balance">
-                Stop Losing 2-10% of Revenue
-                <br />
-                <span className="text-muted-foreground">To Invisible Shrinkage</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-                Restaurants lose $20,000 to $100,000 per million in sales from theft, waste,
-                spoilage, and errors. EasyShiftHQ gives you real-time visibility to catch losses
-                the day they happen — not weeks later.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base"
-                  asChild
+        <section className="relative w-full overflow-hidden border-b border-border">
+          <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
+          <div className="container relative px-4 py-20 md:px-6 md:py-28">
+            <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-7">
+                <div className="anim-rise inline-flex items-center gap-2.5 border-b-2 border-primary pb-2">
+                  <PackageSearch className="h-4 w-4 text-primary" />
+                  <span className="label-mark text-foreground">
+                    Inventory Management
+                  </span>
+                  <span className="label-mark text-muted-foreground/60">/ 07</span>
+                </div>
+                <h1
+                  className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
+                  style={{ animationDelay: "90ms" }}
                 >
-                  <TrialCTA>
-                    Start Free Trial
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </TrialCTA>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full h-14 px-8 text-base border-border"
-                  asChild
+                  The shrinkage is already
+                  <br />
+                  <span className="italic text-primary">
+                    on this month&apos;s P&amp;L.
+                  </span>
+                </h1>
+                <p
+                  className="anim-rise mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+                  style={{ animationDelay: "180ms" }}
                 >
-                  <Link href="/why-inventory-matters">See the Evidence</Link>
-                </Button>
+                  Restaurants lose $20,000 to $100,000 per million in sales to theft,
+                  waste, spoilage, and plain miscounting. You can find it the day it
+                  happens, or you can find it in a variance report three weeks later.
+                </p>
+                <div
+                  className="anim-rise mt-9 flex flex-col gap-4 sm:flex-row"
+                  style={{ animationDelay: "270ms" }}
+                >
+                  <Button
+                    size="lg"
+                    className="h-14 rounded-full bg-foreground px-8 text-base text-background hover:bg-foreground/90"
+                    asChild
+                  >
+                    <TrialCTA>
+                      Start Free Trial
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </TrialCTA>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-14 rounded-full border-border bg-transparent px-8 text-base"
+                    asChild
+                  >
+                    <Link href="/why-inventory-matters">See the Evidence</Link>
+                  </Button>
+                </div>
               </div>
+
+              {/* The loss, itemized — the page's whole argument in four lines. */}
+              <aside
+                className="anim-rise lg:col-span-4 lg:col-start-9"
+                style={{ animationDelay: "360ms" }}
+              >
+                <div className="rounded-2xl border border-border bg-card/80 p-6 backdrop-blur-sm">
+                  <p className="label-mark text-muted-foreground">
+                    Where it goes
+                  </p>
+                  <ol className="mt-4 divide-y divide-border">
+                    {[
+                      ["01", "Theft"],
+                      ["02", "Waste"],
+                      ["03", "Spoilage"],
+                      ["04", "Counting errors"],
+                    ].map(([n, name]) => (
+                      <li key={n} className="flex items-baseline gap-3 py-2.5">
+                        <span className="font-ledger text-[11px] text-muted-foreground">
+                          {n}
+                        </span>
+                        <span className="text-[14px] leading-snug">{name}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <p className="mt-4 border-t border-dashed border-rule pt-4 text-[13px] text-muted-foreground">
+                    <span className="font-ledger text-[var(--over)]">2–10%</span> of
+                    revenue, invisible until you count
+                  </p>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
@@ -234,8 +282,8 @@ export default function InventoryManagementPage() {
               <p className="text-sm font-medium text-destructive tracking-wide uppercase">
                 The Problem
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Your Inventory Is Lying to You
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
+                Your inventory is lying to you
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
@@ -273,8 +321,8 @@ export default function InventoryManagementPage() {
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
                 The Solution
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Real-Time Visibility That Pays for Itself
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-4">
+                Visibility that pays for itself
               </h2>
               <p className="text-lg text-muted-foreground">
                 Operators using inventory control software consistently report 2-10% profit
@@ -314,8 +362,8 @@ export default function InventoryManagementPage() {
               <p className="text-sm font-medium text-primary tracking-wide uppercase">
                 The Comparison
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Manual Counting vs. Real-Time Tracking
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
+                Counting by hand vs. counting as it sells
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Managers spend 5-7 hours per week on manual inventory counts — and those counts are
@@ -339,8 +387,8 @@ export default function InventoryManagementPage() {
                   <p className="text-sm font-medium text-primary tracking-wide uppercase">
                     Time Savings
                   </p>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                    Give Your Managers Back 25+ Hours a Month
+                  <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
+                    Give your managers back 25+ hours a month
                   </h2>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
@@ -393,8 +441,8 @@ export default function InventoryManagementPage() {
         <section className="w-full py-20 md:py-28">
           <div className="container px-4 md:px-6">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                The Bottom-Line Impact
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-4">
+                What it does to the bottom line
               </h2>
               <p className="text-lg text-muted-foreground">
                 Proven results from operators who switched to real-time inventory management
@@ -429,8 +477,8 @@ export default function InventoryManagementPage() {
         <section className="w-full py-20 md:py-28 bg-foreground text-background">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-balance">
-                Stop the Silent Bleed. Start Seeing the Truth.
+              <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-4 text-balance">
+                Stop the silent bleed.
               </h2>
               <p className="text-lg text-background/70 mb-4 leading-relaxed">
                 At $199/month per location on the Growth plan — which includes full inventory

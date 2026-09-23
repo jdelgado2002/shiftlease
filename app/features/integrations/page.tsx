@@ -184,14 +184,28 @@ export default function IntegrationsPage() {
   return (
     <FeaturePageLayout
       badge="Integrations"
-      title="Connect Everything."
-      subtitle="See Everything."
-      description="POS, banking, and your whole team — connected in minutes. One-click integrations bring all your data together automatically."
+      mark="00"
+      title="The loop needs two wires:"
+      subtitle="your sales and your bank."
+      description="Sales come in from the POS you already run. Money moves through the accounts you already have. Connect both once and every number on every other screen fills itself in."
       icon={<Zap className="h-4 w-4" />}
       features={features}
       benefits={benefits}
-      ctaTitle="Connect Your Systems Today"
-      ctaDescription="Set up in 15 minutes. POS, banking, and team — all connected and syncing automatically."
+      indexTitle={
+        <>
+          What we plug into{" "}
+          <span className="italic text-primary">and what comes back.</span>
+        </>
+      }
+      indexLede="Six point-of-sale systems, your bank, your locations, and your team — listed with exactly what each one syncs."
+      benefitsTitle={
+        <>
+          Connected once,{" "}
+          <span className="italic text-primary">then it stays connected.</span>
+        </>
+      }
+      ctaTitle="Hook up the POS. The rest follows."
+      ctaDescription="Pick your system, authorize it once, and the sales history backfills while you keep working."
       schemaUrl="https://easyshifthq.com/features/integrations"
     />
   )

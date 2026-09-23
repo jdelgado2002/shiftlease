@@ -157,14 +157,28 @@ export default function FinancialManagementPage() {
   return (
     <FeaturePageLayout
       badge="Financial Management"
-      title="Know Your Numbers."
-      subtitle="Every Single Day."
-      description="Stop waiting weeks for financial reports. See your real P&L, track every transaction, and keep your books tax-ready automatically."
+      mark="04"
+      title="Every dollar leaves"
+      subtitle="with a category on it."
+      description="Connect the bank and the P&L stops being a monthly surprise. Transactions land categorized, checks print from the same screen, and the books stay tax-ready without a catch-up weekend."
       icon={<Wallet className="h-4 w-4" />}
       features={features}
       benefits={benefits}
-      ctaTitle="Get Financial Clarity Today"
-      ctaDescription="Connect your bank accounts and start seeing your real profits in minutes, not weeks."
+      indexTitle={
+        <>
+          Everything on the{" "}
+          <span className="italic text-primary">money side.</span>
+        </>
+      }
+      indexLede="From the live P&L down to the check you cut for the plumber — this is the whole outbound half of the loop, in the order you touch it."
+      benefitsTitle={
+        <>
+          What changes{" "}
+          <span className="italic text-primary">by the end of the month.</span>
+        </>
+      }
+      ctaTitle="Connect the bank. Watch it sort itself."
+      ctaDescription="Two minutes to link an account, and the categorizing starts on the first transaction that clears."
       schemaUrl="https://easyshifthq.com/features/financial-management"
     />
   )

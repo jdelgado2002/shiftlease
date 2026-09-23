@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/pricing`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/why-inventory-matters`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/why-operations-matter`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/features/employee-portal`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/features/financial-management`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/features/inventory-management`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/features/recipe-menu`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

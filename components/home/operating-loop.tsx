@@ -28,8 +28,8 @@ const stations = [
     returns:
       "Their clock-ins meet your sales. You see what the hours earned.",
     figure: "28.4%",
-    figureNote: "labor % of sales · $47.20 per labor hour",
-    tone: "under" as const,
+    figureNote: "labor % of sales · 1.4 over your 27% target",
+    tone: "watch" as const,
   },
   {
     mark: "03",
@@ -157,11 +157,7 @@ export function OperatingLoop() {
                 vectorEffect="non-scaling-stroke"
                 className="anim-dash"
               />
-              <path
-                d="M 150 12 l -5 -9 l 10 0 z"
-                fill="var(--primary)"
-                transform="translate(0,-4)"
-              />
+              <path d="M 150 1 l -5 9 l 10 0 z" fill="var(--primary)" />
             </svg>
             <p className="label-mark absolute inset-x-0 bottom-[10px] text-center text-muted-foreground">
               <span className="bg-background px-4">

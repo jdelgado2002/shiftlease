@@ -109,7 +109,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${instrumentSans.variable} ${instrumentSerif.variable} ${plexMono.variable}`}
+    >
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-59L6CWW9YN"
@@ -124,9 +127,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body
-        className={`${instrumentSans.variable} ${instrumentSerif.variable} ${plexMono.variable} font-sans`}
-      >
+      <body className="font-sans">
         <PostHogProvider>
           <OrganizationSchema />
           <WebsiteSchema />

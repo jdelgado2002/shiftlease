@@ -215,7 +215,7 @@ function LaborMock() {
     <Frame title="Labor · last 7 days">
       <div className="grid grid-cols-3 divide-x divide-border border-b border-border">
         {[
-          { label: "Labor % of sales", value: "28.4%", tone: "text-[var(--under)]" },
+          { label: "Labor % of sales", value: "28.4%", tone: "text-[var(--watch)]" },
           { label: "Rev / labor hour", value: "$47.20", tone: "text-foreground" },
           { label: "Net sales", value: "$14,720", tone: "text-foreground" },
         ].map((stat) => (
@@ -247,9 +247,11 @@ function LaborMock() {
                 {col.map((v, ri) => (
                   <div
                     key={ri}
-                    className="anim-rise h-3.5 rounded-[3px] bg-primary"
+                    className="anim-rise h-3.5 rounded-[3px]"
                     style={{
-                      opacity: 0.1 + v * 0.095,
+                      backgroundColor: `color-mix(in srgb, var(--primary) ${
+                        10 + v * 9.5
+                      }%, transparent)`,
                       animationDelay: `${(ci * 6 + ri) * 14}ms`,
                     }}
                   />

@@ -234,21 +234,24 @@
 @layer utilities {
   /* Display serif: editorial voice for headlines. */
   .font-display {
-    font-family: var(--font-display);
+    font-family: var(--font-instrument-serif), ui-serif, Georgia,
+      "Times New Roman", serif;
     font-weight: 400;
     letter-spacing: -0.015em;
   }
 
   /* Every figure on the page is monospaced and tabular, like a statement. */
   .font-ledger {
-    font-family: var(--font-mono);
+    font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo,
+      monospace;
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum" 1;
   }
 
   /* Small-caps section marks: "01 / SCHEDULE" */
   .label-mark {
-    font-family: var(--font-mono);
+    font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo,
+      monospace;
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -298,16 +301,18 @@
 
   /* Perforated edge, like a torn check stub. */
   .edge-perforated {
-    -webkit-mask-image: radial-gradient(
-      circle at 6px 50%,
-      transparent 0 5px,
-      #000 5.5px
-    );
-    mask-image: radial-gradient(circle at 6px 50%, transparent 0 5px, #000 5.5px);
-    -webkit-mask-size: 12px 12px;
-    mask-size: 12px 12px;
-    -webkit-mask-repeat: repeat-y;
-    mask-repeat: repeat-y;
+    /* Layer one punches the holes down the left edge; layer two keeps the rest
+       of the stub opaque. Multiple mask layers composite additively by default. */
+    --perf-edge: radial-gradient(circle at 6px 50%, transparent 0 5px, #000 5.5px);
+    --perf-body: linear-gradient(#000, #000);
+    -webkit-mask-image: var(--perf-edge), var(--perf-body);
+    mask-image: var(--perf-edge), var(--perf-body);
+    -webkit-mask-size: 12px 12px, calc(100% - 12px) 100%;
+    mask-size: 12px 12px, calc(100% - 12px) 100%;
+    -webkit-mask-position: left top, 12px top;
+    mask-position: left top, 12px top;
+    -webkit-mask-repeat: repeat-y, no-repeat;
+    mask-repeat: repeat-y, no-repeat;
   }
 }
 

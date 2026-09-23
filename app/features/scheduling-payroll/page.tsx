@@ -24,7 +24,10 @@ import {
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { FeaturePageSchema, BreadcrumbSchema } from "@/components/structured-data"
+import {
+  FeaturePageSchema,
+  BreadcrumbSchema,
+} from "@/components/structured-data"
 
 export const metadata: Metadata = {
   title: "Scheduling & Payroll - Schedule, Time Clock, Tips & Payroll",
@@ -57,21 +60,12 @@ export const metadata: Metadata = {
     description:
       "Restaurant scheduling with AI-assisted generation, shift trades, and conflict warnings — plus verified time clock, configurable tip pooling, and integrated payroll.",
     siteName: "EasyShiftHQ",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ Operations Management",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Operations - Scheduling, Time Clock, Tips & Payroll | EasyShiftHQ",
     description:
       "Complete restaurant workforce management with scheduling, time clock, tip pooling, and payroll.",
-    images: ["/og-image.jpg"],
   },
 }
 
@@ -123,7 +117,8 @@ const schedulingFeatures = [
   },
   {
     title: "Shift Management",
-    description: "Create, edit, and manage shifts with full status tracking and recurrence.",
+    description:
+      "Create, edit, and manage shifts with full status tracking and recurrence.",
     points: [
       "Statuses: Scheduled, Confirmed, Completed, Cancelled",
       "Break duration and notes on every shift",
@@ -134,7 +129,8 @@ const schedulingFeatures = [
   },
   {
     title: "Availability Management",
-    description: "One system for who's available — and who still needs to tell you.",
+    description:
+      "One system for who's available — and who still needs to tell you.",
     points: [
       "Recurring weekly availability plus one-time date exceptions",
       "Bulk-set default availability for many employees at once",
@@ -155,7 +151,8 @@ const schedulingFeatures = [
   },
   {
     title: "Shift Trades & Open-Shift Marketplace",
-    description: "Let the team cover its own gaps — with a manager always in the loop.",
+    description:
+      "Let the team cover its own gaps — with a manager always in the loop.",
     points: [
       "Offer a shift to the whole team or directly to one coworker",
       "Managers can post a sick or no-show employee's shift for trade",
@@ -166,7 +163,8 @@ const schedulingFeatures = [
   },
   {
     title: "Publishing, Notifications & Export",
-    description: "Every change reaches the right person — and you can prove it.",
+    description:
+      "Every change reaches the right person — and you can prove it.",
     points: [
       "Publish with delivery verification: sent, partial, or failed",
       "Choose email and push per event type across 16 notification types",
@@ -264,7 +262,9 @@ export default function SchedulingPayrollPage() {
                   <span className="label-mark text-foreground">
                     Scheduling &amp; Payroll
                   </span>
-                  <span className="label-mark text-muted-foreground/60">/ 01</span>
+                  <span className="label-mark text-muted-foreground/60">
+                    / 01
+                  </span>
                 </div>
                 <h1
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
@@ -280,10 +280,10 @@ export default function SchedulingPayrollPage() {
                   className="anim-rise mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
                   style={{ animationDelay: "180ms" }}
                 >
-                  Four parts of restaurant labor that actually talk to each other.
-                  The schedule feeds the time clock. Punches feed the tip pool. Tips
-                  feed payroll. And everyone on the schedule sees their own shifts
-                  the moment you publish.
+                  Four parts of restaurant labor that actually talk to each
+                  other. The schedule feeds the time clock. Punches feed the tip
+                  pool. Tips feed payroll. And everyone on the schedule sees
+                  their own shifts the moment you publish.
                 </p>
                 <div
                   className="anim-rise mt-9 flex flex-col gap-4 sm:flex-row"
@@ -316,7 +316,9 @@ export default function SchedulingPayrollPage() {
                 style={{ animationDelay: "360ms" }}
               >
                 <div className="rounded-2xl border border-border bg-card/80 p-6 backdrop-blur-sm">
-                  <p className="label-mark text-muted-foreground">The handoff</p>
+                  <p className="label-mark text-muted-foreground">
+                    The handoff
+                  </p>
                   <ol className="mt-4 divide-y divide-border">
                     {[
                       ["01", "Scheduling", "sets who works when"],
@@ -336,8 +338,8 @@ export default function SchedulingPayrollPage() {
                     ))}
                   </ol>
                   <p className="mt-4 border-t border-dashed border-rule pt-4 text-[13px] text-muted-foreground">
-                    <span className="font-ledger text-foreground">0</span> numbers
-                    re-keyed between them
+                    <span className="font-ledger text-foreground">0</span>{" "}
+                    numbers re-keyed between them
                   </p>
                 </div>
               </aside>
@@ -356,8 +358,8 @@ export default function SchedulingPayrollPage() {
                 One chain, from the schedule to the paycheck
               </h2>
               <p className="text-lg text-muted-foreground">
-                Each pillar is powerful alone. Together they eliminate the manual handoffs
-                that eat your week.
+                Each pillar is powerful alone. Together they eliminate the
+                manual handoffs that eat your week.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -395,17 +397,26 @@ export default function SchedulingPayrollPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
-                Scheduling is the most-used part of EasyShiftHQ — and the deepest. Build the week
-                in three different views, let AI-assisted generation fill the gaps, catch conflicts
-                and labor-law issues as you go, and let your team trade and claim shifts without
-                blowing up your group chat. You see labor cost before you commit.
+                Scheduling is the most-used part of EasyShiftHQ — and the
+                deepest. Build the week in three different views, let
+                AI-assisted generation fill the gaps, catch conflicts and
+                labor-law issues as you go, and let your team trade and claim
+                shifts without blowing up your group chat. You see labor cost
+                before you commit.
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {schedulingFeatures.map((feature) => (
-                  <div key={feature.title} className="bg-card border border-border rounded-2xl p-6">
-                    <h3 className="text-lg font-semibold mb-3">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{feature.description}</p>
+                  <div
+                    key={feature.title}
+                    className="bg-card border border-border rounded-2xl p-6"
+                  >
+                    <h3 className="text-lg font-semibold mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {feature.description}
+                    </p>
                     <ul className="space-y-2">
                       {feature.points.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm">
@@ -434,8 +445,9 @@ export default function SchedulingPayrollPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
-                A manager-facing time clock dashboard with punch management, verification,
-                manual entry tools, kiosk mode, and import capabilities.
+                A manager-facing time clock dashboard with punch management,
+                verification, manual entry tools, kiosk mode, and import
+                capabilities.
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -489,7 +501,9 @@ export default function SchedulingPayrollPage() {
 
                 {/* Manual Entry */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Manual Time Entry</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Manual Time Entry
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Visual timeline editor for corrections and historical entry.
                   </p>
@@ -557,7 +571,9 @@ export default function SchedulingPayrollPage() {
 
                 {/* Kiosk & PIN */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Kiosk & PIN Controls</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Kiosk & PIN Controls
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Dedicated device mode with full PIN management.
                   </p>
@@ -594,9 +610,9 @@ export default function SchedulingPayrollPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
-                Configure how tips are split, enter daily amounts, approve allocations,
-                record payouts, lock periods for payroll, and resolve disputes — all with a
-                complete audit trail.
+                Configure how tips are split, enter daily amounts, approve
+                allocations, record payouts, lock periods for payroll, and
+                resolve disputes — all with a complete audit trail.
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -624,7 +640,9 @@ export default function SchedulingPayrollPage() {
 
                 {/* Daily Entry */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Daily Entry & Review</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Daily Entry & Review
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Enter tips, preview allocations, and approve.
                   </p>
@@ -646,7 +664,9 @@ export default function SchedulingPayrollPage() {
 
                 {/* Lifecycle */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Split Lifecycle</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Split Lifecycle
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Draft, approve, reopen, and archive with full history.
                   </p>
@@ -668,7 +688,9 @@ export default function SchedulingPayrollPage() {
 
                 {/* Period & Payroll */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Period & Payroll Lock</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Period & Payroll Lock
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Weekly period timeline with validation and lock.
                   </p>
@@ -712,7 +734,9 @@ export default function SchedulingPayrollPage() {
 
                 {/* Disputes */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Disputes & Review</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Disputes & Review
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Handle employee tip disputes with documentation.
                   </p>
@@ -749,15 +773,17 @@ export default function SchedulingPayrollPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
-                Accurate period calculations for every compensation type — hourly with
-                overtime, salaried, contractor, daily rate, and per-job — with tip and
-                payout integration built in.
+                Accurate period calculations for every compensation type —
+                hourly with overtime, salaried, contractor, daily rate, and
+                per-job — with tip and payout integration built in.
               </p>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Period Controls */}
                 <div className="bg-card border border-border rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold mb-3">Period Controls</h3>
+                  <h3 className="text-lg font-semibold mb-3">
+                    Period Controls
+                  </h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Flexible period selection with on-demand refresh.
                   </p>
@@ -883,8 +909,8 @@ export default function SchedulingPayrollPage() {
                 Four screens. One set of numbers.
               </h2>
               <p className="text-lg text-background/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Each pillar feeds the next. No re-keying data between systems. No
-                spreadsheets bridging the gap.
+                Each pillar feeds the next. No re-keying data between systems.
+                No spreadsheets bridging the gap.
               </p>
 
               <div className="grid md:grid-cols-4 gap-px bg-background/10 rounded-2xl overflow-hidden mb-12">
@@ -910,7 +936,10 @@ export default function SchedulingPayrollPage() {
                     desc: "Hours + tips + pay in one view",
                   },
                 ].map((item) => (
-                  <div key={item.step} className="bg-foreground p-6 text-center">
+                  <div
+                    key={item.step}
+                    className="bg-foreground p-6 text-center"
+                  >
                     <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold mx-auto mb-3">
                       {item.step}
                     </div>
@@ -941,8 +970,8 @@ export default function SchedulingPayrollPage() {
                 </Button>
               </div>
               <p className="text-sm text-background/50 mt-6">
-                Set up in minutes &middot; No credit card required &middot; Cancel
-                anytime
+                Set up in minutes &middot; No credit card required &middot;
+                Cancel anytime
               </p>
             </div>
           </div>

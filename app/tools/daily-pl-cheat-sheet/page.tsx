@@ -9,6 +9,7 @@ import {
 } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BreadcrumbSchema } from "@/components/structured-data"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { TrialCTA } from "@/components/trial-cta"
@@ -65,17 +66,33 @@ const previewBullets = [
 
 const whoItsForBullets = [
   "Owner-operators running 1–5 locations who can't wait until the 15th to see last month's P&L",
-  "GMs and chefs who own the floor but get a flat \"how'd we do\" question every morning",
+  'GMs and chefs who own the floor but get a flat "how\'d we do" question every morning',
   "Multi-unit operators training new managers on how to actually read the numbers",
 ]
 
 export default function DailyPLCheatSheetPage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://easyshifthq.com" },
+          {
+            name: "Tools",
+            url: "https://easyshifthq.com/tools/daily-pl-cheat-sheet",
+          },
+          {
+            name: "Daily P&L cheat sheet",
+            url: "https://easyshifthq.com/tools/daily-pl-cheat-sheet",
+          },
+        ]}
+      />
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section id="top" className="border-b border-border bg-gradient-to-b from-card/40 to-transparent">
+        <section
+          id="top"
+          className="border-b border-border bg-gradient-to-b from-card/40 to-transparent"
+        >
           <div className="container py-16 md:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
               <div>
@@ -87,20 +104,29 @@ export default function DailyPLCheatSheetPage() {
                 </h1>
                 <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-xl">
                   A printable one-pager plus a ready-to-fill Excel template that
-                  turns last night&apos;s POS, labor, and invoices into a
-                  clean profit number — without an accountant.
+                  turns last night&apos;s POS, labor, and invoices into a clean
+                  profit number — without an accountant.
                 </p>
                 <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 text-emerald-500 shrink-0" aria-hidden="true" />
+                    <Check
+                      className="h-4 w-4 mt-0.5 text-emerald-500 shrink-0"
+                      aria-hidden="true"
+                    />
                     <span>Excel cheat sheet + 1-page printable PDF</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 text-emerald-500 shrink-0" aria-hidden="true" />
+                    <Check
+                      className="h-4 w-4 mt-0.5 text-emerald-500 shrink-0"
+                      aria-hidden="true"
+                    />
                     <span>Targets, formulas, and the daily-read framework</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 text-emerald-500 shrink-0" aria-hidden="true" />
+                    <Check
+                      className="h-4 w-4 mt-0.5 text-emerald-500 shrink-0"
+                      aria-hidden="true"
+                    />
                     <span>Use it tonight at close. No login required.</span>
                   </li>
                 </ul>
@@ -133,7 +159,10 @@ export default function DailyPLCheatSheetPage() {
                   <Card key={card.title} className="border-border bg-card">
                     <CardContent className="p-6">
                       <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                        <Icon
+                          className="h-5 w-5 text-primary"
+                          aria-hidden="true"
+                        />
                       </div>
                       <h3 className="text-lg font-semibold mb-2">
                         {card.title}
@@ -166,7 +195,10 @@ export default function DailyPLCheatSheetPage() {
                 <ul className="mt-6 space-y-3">
                   {previewBullets.map((b) => (
                     <li key={b} className="flex items-start gap-3">
-                      <Check className="h-4 w-4 mt-1 text-emerald-500 shrink-0" aria-hidden="true" />
+                      <Check
+                        className="h-4 w-4 mt-1 text-emerald-500 shrink-0"
+                        aria-hidden="true"
+                      />
                       <span className="text-sm md:text-base text-foreground/90">
                         {b}
                       </span>
@@ -183,10 +215,26 @@ export default function DailyPLCheatSheetPage() {
 
                 <div className="space-y-3 text-sm">
                   <SampleRow label="Net Sales" value="$8,420" />
-                  <SampleRow label="COGS" value="$2,690" sub="32.0% • target 30%" tone="warn" />
-                  <SampleRow label="Labor" value="$2,240" sub="26.6% • target 28%" tone="ok" />
+                  <SampleRow
+                    label="COGS"
+                    value="$2,690"
+                    sub="32.0% • target 30%"
+                    tone="warn"
+                  />
+                  <SampleRow
+                    label="Labor"
+                    value="$2,240"
+                    sub="26.6% • target 28%"
+                    tone="ok"
+                  />
                   <div className="border-t border-border pt-3">
-                    <SampleRow label="Prime Cost" value="$4,930" sub="58.5% • target 60%" tone="ok" emphasis />
+                    <SampleRow
+                      label="Prime Cost"
+                      value="$4,930"
+                      sub="58.5% • target 60%"
+                      tone="ok"
+                      emphasis
+                    />
                   </div>
                   <div className="border-t border-border pt-3">
                     <SampleRow label="Daily Profit" value="$1,310" emphasis />
@@ -219,7 +267,10 @@ export default function DailyPLCheatSheetPage() {
               <ul className="mt-6 space-y-3">
                 {whoItsForBullets.map((b) => (
                   <li key={b} className="flex items-start gap-3">
-                    <Check className="h-4 w-4 mt-1 text-emerald-500 shrink-0" aria-hidden="true" />
+                    <Check
+                      className="h-4 w-4 mt-1 text-emerald-500 shrink-0"
+                      aria-hidden="true"
+                    />
                     <span className="text-sm md:text-base text-foreground/90">
                       {b}
                     </span>
@@ -244,15 +295,16 @@ export default function DailyPLCheatSheetPage() {
                     and the printable PDF straight to your inbox.
                   </p>
                   <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                    <Button asChild className="rounded-full bg-foreground text-background hover:bg-foreground/90">
+                    <Button
+                      asChild
+                      className="rounded-full bg-foreground text-background hover:bg-foreground/90"
+                    >
                       <Link href="#top" aria-label="Scroll to email form">
                         Send me the cheat sheet
                       </Link>
                     </Button>
                     <Button asChild variant="outline" className="rounded-full">
-                      <TrialCTA>
-                        Or try EasyShiftHQ free
-                      </TrialCTA>
+                      <TrialCTA>Or try EasyShiftHQ free</TrialCTA>
                     </Button>
                   </div>
                 </div>
@@ -301,7 +353,9 @@ function SampleRow({
         <p className={emphasis ? "font-semibold" : "font-medium"}>{label}</p>
         {sub && <p className={`text-xs ${toneClass}`}>{sub}</p>}
       </div>
-      <p className={emphasis ? "text-lg font-semibold" : "text-base"}>{value}</p>
+      <p className={emphasis ? "text-lg font-semibold" : "text-base"}>
+        {value}
+      </p>
     </div>
   )
 }

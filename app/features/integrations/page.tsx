@@ -4,7 +4,8 @@ import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
   title: "Integrations - Connect Square, Toast, Clover & More",
-  description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up yourself in one sitting — no implementation project.",
+  description:
+    "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up yourself in one sitting — no implementation project.",
   keywords: [
     "Square POS integration",
     "Toast POS integration",
@@ -22,29 +23,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://easyshifthq.com/features/integrations",
     title: "Integrations - Connect Square, Toast, Clover & More | EasyShiftHQ",
-    description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Set up yourself in one sitting.",
+    description:
+      "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Set up yourself in one sitting.",
     siteName: "EasyShiftHQ",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ POS and Bank Integrations",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Integrations - Connect Square, Toast, Clover | EasyShiftHQ",
-    description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up yourself in one sitting.",
-    images: ["/og-image.jpg"],
+    description:
+      "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up yourself in one sitting.",
   },
 }
 
 const features = [
   {
     title: "Square POS",
-    description: "Full integration with Square for automatic sales and payment sync.",
+    description:
+      "Full integration with Square for automatic sales and payment sync.",
     features: [
       "Automatic daily sales sync",
       "Item-level sales detail",
@@ -76,7 +71,8 @@ const features = [
   },
   {
     title: "Shift4 Payments",
-    description: "Payment processor integration for complete transaction visibility.",
+    description:
+      "Payment processor integration for complete transaction visibility.",
     features: [
       "Payment data integration",
       "Transaction reconciliation",
@@ -116,7 +112,8 @@ const features = [
   },
   {
     title: "Bank Connections",
-    description: "Secure bank connections powered by Stripe Financial Connections.",
+    description:
+      "Secure bank connections powered by Stripe Financial Connections.",
     features: [
       "Bank-level encryption",
       "Real-time balance sync",
@@ -159,7 +156,8 @@ const features = [
   },
   {
     title: "AI Assistant",
-    description: "Natural language queries about your business, available 24/7.",
+    description:
+      "Natural language queries about your business, available 24/7.",
     features: [
       "Ask questions in plain English",
       "Instant insights about sales and costs",

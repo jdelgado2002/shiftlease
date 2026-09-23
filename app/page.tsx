@@ -11,12 +11,26 @@ import {
 import Link from "next/link"
 import { TrialCTA } from "@/components/trial-cta"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { WaitlistForm } from "@/components/waitlist-form"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { OperatingLoop } from "@/components/home/operating-loop"
 import { StationPanels } from "@/components/home/station-panels"
+
+import type { Metadata } from "next"
+
+// The root layout no longer declares a canonical, so the homepage declares
+// its own like every other page does.
+export const metadata: Metadata = {
+  alternates: { canonical: "https://easyshifthq.com" },
+}
 
 /**
  * The rest of the platform. These are real, shipped, and linked — they are
@@ -124,12 +138,17 @@ export default function Home() {
                   Restaurant operations · closed loop
                 </p>
 
-                <h1 className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-[4.5rem]" style={{ animationDelay: "80ms" }}>
+                <h1
+                  className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-[4.5rem]"
+                  style={{ animationDelay: "80ms" }}
+                >
                   From the shift
                   <br />
                   you schedule
                   <br />
-                  <span className="italic text-primary">to the check that clears.</span>
+                  <span className="italic text-primary">
+                    to the check that clears.
+                  </span>
                 </h1>
 
                 <p
@@ -137,8 +156,8 @@ export default function Home() {
                   style={{ animationDelay: "180ms" }}
                 >
                   You commit your biggest controllable cost on Tuesday when you
-                  build the schedule. You find out what it cost three weeks later
-                  in a bank statement. EasyShiftHQ closes that gap — labor
+                  build the schedule. You find out what it cost three weeks
+                  later in a bank statement. EasyShiftHQ closes that gap — labor
                   dollars while you schedule, a budget that knows your
                   break-even, and every transaction named on the way out.
                 </p>
@@ -208,9 +227,23 @@ export default function Home() {
                         01 · Schedule
                       </p>
                       <div className="space-y-1.5">
-                        <TapeLine label="Scheduled labor" value="$4,182" delay={340} />
-                        <TapeLine label="Labor budget" value="$5,100" tone="muted" delay={370} />
-                        <TapeLine label="Remaining" value="$918" tone="under" delay={400} />
+                        <TapeLine
+                          label="Scheduled labor"
+                          value="$4,182"
+                          delay={340}
+                        />
+                        <TapeLine
+                          label="Labor budget"
+                          value="$5,100"
+                          tone="muted"
+                          delay={370}
+                        />
+                        <TapeLine
+                          label="Remaining"
+                          value="$918"
+                          tone="under"
+                          delay={400}
+                        />
                       </div>
 
                       <TapeRule />
@@ -219,9 +252,22 @@ export default function Home() {
                         02 · Labor
                       </p>
                       <div className="space-y-1.5">
-                        <TapeLine label="Labor % of sales" value="28.4%" delay={440} />
-                        <TapeLine label="Your target" value="27.0%" tone="muted" delay={470} />
-                        <TapeLine label="Rev / labor hour" value="$47.20" delay={500} />
+                        <TapeLine
+                          label="Labor % of sales"
+                          value="28.4%"
+                          delay={440}
+                        />
+                        <TapeLine
+                          label="Your target"
+                          value="27.0%"
+                          tone="muted"
+                          delay={470}
+                        />
+                        <TapeLine
+                          label="Rev / labor hour"
+                          value="$47.20"
+                          delay={500}
+                        />
                       </div>
 
                       <TapeRule />
@@ -230,9 +276,24 @@ export default function Home() {
                         03 · Budget
                       </p>
                       <div className="space-y-1.5">
-                        <TapeLine label="Break-even" value="Day 19 / 31" tone="under" delay={540} />
-                        <TapeLine label="Projected net" value="+$9,140" tone="under" delay={570} />
-                        <TapeLine label="vs. target" value="−$860" tone="watch" delay={600} />
+                        <TapeLine
+                          label="Break-even"
+                          value="Day 19 / 31"
+                          tone="under"
+                          delay={540}
+                        />
+                        <TapeLine
+                          label="Projected net"
+                          value="+$9,140"
+                          tone="under"
+                          delay={570}
+                        />
+                        <TapeLine
+                          label="vs. target"
+                          value="−$860"
+                          tone="watch"
+                          delay={600}
+                        />
                       </div>
 
                       <TapeRule />
@@ -241,8 +302,17 @@ export default function Home() {
                         04 · Money
                       </p>
                       <div className="space-y-1.5">
-                        <TapeLine label="Checks printed" value="4" delay={640} />
-                        <TapeLine label="Uncategorized" value="0" tone="under" delay={670} />
+                        <TapeLine
+                          label="Checks printed"
+                          value="4"
+                          delay={640}
+                        />
+                        <TapeLine
+                          label="Uncategorized"
+                          value="0"
+                          tone="under"
+                          delay={670}
+                        />
                       </div>
 
                       <TapeRule />
@@ -378,9 +448,9 @@ export default function Home() {
                 Set a labor budget once and the scheduler checks against it. The
                 clock-ins that feed labor percentage are the same ones that feed
                 payroll. The check you print is the expense in your P&amp;L and
-                the line on your bank feed. Each screen makes the next one
-                truer — which is why the loop gets more valuable the longer you
-                run it.
+                the line on your bank feed. Each screen makes the next one truer
+                — which is why the loop gets more valuable the longer you run
+                it.
               </p>
 
               <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-ink-foreground/10 sm:grid-cols-2 lg:grid-cols-4">
@@ -405,7 +475,10 @@ export default function Home() {
         </section>
 
         {/* ── How it works ─────────────────────────────────── */}
-        <section id="how-it-works" className="w-full border-b border-border py-24 md:py-32">
+        <section
+          id="how-it-works"
+          className="w-full border-b border-border py-24 md:py-32"
+        >
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
@@ -462,7 +535,10 @@ export default function Home() {
         </section>
 
         {/* ── Also in the box ──────────────────────────────── */}
-        <section id="features" className="w-full border-b border-border bg-muted/40 py-24 md:py-32">
+        <section
+          id="features"
+          className="w-full border-b border-border bg-muted/40 py-24 md:py-32"
+        >
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
@@ -475,9 +551,9 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                  Inventory, recipe costing, reviews, and POS integrations ship in
-                  the same platform and feed the same P&amp;L. Turn them on when
-                  you&apos;re ready — the loop works without them.
+                  Inventory, recipe costing, reviews, and POS integrations ship
+                  in the same platform and feed the same P&amp;L. Turn them on
+                  when you&apos;re ready — the loop works without them.
                 </p>
               </div>
 
@@ -523,7 +599,10 @@ export default function Home() {
         </section>
 
         {/* ── Pricing ──────────────────────────────────────── */}
-        <section id="pricing" className="w-full border-b border-border py-24 md:py-32">
+        <section
+          id="pricing"
+          className="w-full border-b border-border py-24 md:py-32"
+        >
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 md:grid-cols-12 md:items-end">
@@ -581,11 +660,16 @@ export default function Home() {
                 </h2>
               </div>
               <p className="text-base leading-relaxed text-muted-foreground md:flex-1">
-                The printable Daily P&amp;L Cheat Sheet plus the matching Excel —
-                built for operators who don&apos;t want to wait on their
+                The printable Daily P&amp;L Cheat Sheet plus the matching Excel
+                — built for operators who don&apos;t want to wait on their
                 accountant.
               </p>
-              <Button size="lg" variant="outline" className="rounded-full md:shrink-0" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full md:shrink-0"
+                asChild
+              >
                 <Link href="/tools/daily-pl-cheat-sheet">
                   Get the cheat sheet
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -601,10 +685,10 @@ export default function Home() {
             <div className="mx-auto max-w-3xl">
               <p className="label-mark text-primary">From the founder</p>
               <blockquote className="font-display mt-6 text-3xl leading-[1.18] md:text-4xl">
-                &ldquo;I built the loop because I was living the gap. I run a Cold
-                Stone Creamery and Wetzel&apos;s Pretzels co-brand in San
-                Antonio — every feature here has to survive a weekend at my store
-                before it ships to you.{" "}
+                &ldquo;I built the loop because I was living the gap. I run a
+                Cold Stone Creamery and Wetzel&apos;s Pretzels co-brand in San
+                Antonio — every feature here has to survive a weekend at my
+                store before it ships to you.{" "}
                 <span className="italic text-primary">
                   If it can&apos;t, it doesn&apos;t.
                 </span>
@@ -640,16 +724,19 @@ export default function Home() {
                 </p>
 
                 <div className="mt-10 grid grid-cols-2 gap-4">
-                  {["Free 14 days", "No credit card", "Cancel anytime", "Guided setup"].map(
-                    (item) => (
-                      <div key={item} className="flex items-center gap-3">
-                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
-                          <Check className="h-3.5 w-3.5 text-primary-foreground" />
-                        </span>
-                        <p className="text-[15px]">{item}</p>
-                      </div>
-                    ),
-                  )}
+                  {[
+                    "Free 14 days",
+                    "No credit card",
+                    "Cancel anytime",
+                    "Guided setup",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
+                        <Check className="h-3.5 w-3.5 text-primary-foreground" />
+                      </span>
+                      <p className="text-[15px]">{item}</p>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="pt-9">

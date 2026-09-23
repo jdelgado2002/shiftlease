@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { BreadcrumbSchema } from "@/components/structured-data"
 
 export const metadata: Metadata = {
   title: "Comparisons",
@@ -29,6 +30,12 @@ const comparisons = [
 export default function VsIndexPage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://easyshifthq.com" },
+          { name: "Comparisons", url: "https://easyshifthq.com/vs" },
+        ]}
+      />
       <Header />
 
       <main className="flex-1">
@@ -36,13 +43,15 @@ export default function VsIndexPage() {
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-16">
-                <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Comparisons</p>
+                <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
+                  Comparisons
+                </p>
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
                   Choosing between tools? Read the honest version.
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  We&apos;ll tell you where the other tool is genuinely better. Credibility is more
-                  useful than scoring points.
+                  We&apos;ll tell you where the other tool is genuinely better.
+                  Credibility is more useful than scoring points.
                 </p>
               </div>
 
@@ -59,7 +68,10 @@ export default function VsIndexPage() {
                       </h2>
                       <p className="text-muted-foreground">{c.blurb}</p>
                     </div>
-                    <ArrowRight className="h-5 w-5 flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors" aria-hidden="true" />
+                    <ArrowRight
+                      className="h-5 w-5 flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors"
+                      aria-hidden="true"
+                    />
                   </Link>
                 ))}
               </div>

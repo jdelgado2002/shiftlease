@@ -1,9 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "@/app/globals.css"
-import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono } from "next/font/google"
+import {
+  Instrument_Sans,
+  Instrument_Serif,
+  IBM_Plex_Mono,
+} from "next/font/google"
 import Script from "next/script"
-import { OrganizationSchema, WebsiteSchema, FAQSchema } from "@/components/structured-data"
+import { OrganizationSchema, WebsiteSchema } from "@/components/structured-data"
 import { PostHogProvider } from "@/components/posthog-provider"
 
 // Type system — "The Operator's Ledger":
@@ -31,9 +35,10 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://easyshifthq.com'),
+  metadataBase: new URL("https://easyshifthq.com"),
   title: {
-    default: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
+    default:
+      "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
     template: "%s | EasyShiftHQ",
   },
   description:
@@ -70,21 +75,12 @@ export const metadata: Metadata = {
     title: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
     description:
       "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out — with your whole staff in the same app.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ - Restaurant Scheduling, Labor & Money in One Loop",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
     description:
       "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out — with your whole staff in the same app.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -96,9 +92,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  alternates: {
-    canonical: "https://easyshifthq.com",
   },
   generator: "v0.app",
 }
@@ -131,7 +124,6 @@ export default function RootLayout({
         <PostHogProvider>
           <OrganizationSchema />
           <WebsiteSchema />
-          <FAQSchema />
           {children}
         </PostHogProvider>
       </body>

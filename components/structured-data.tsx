@@ -1,27 +1,75 @@
+/**
+ * Schema.org markup.
+ *
+ * Two rules hold everywhere in this file, because breaking either one costs
+ * more than the markup is worth:
+ *
+ * 1. Every claim here must be true and must match what a person can see on
+ *    the page. Structured data is the version of the site that Google turns
+ *    into a rich result and that ChatGPT, Gemini and Perplexity quote back
+ *    when someone asks about us — a wrong number here is a wrong number in
+ *    someone else's answer, and we never see it happen.
+ * 2. No aggregateRating until we have reviews we can point at. Self-serving
+ *    review markup with nothing visible behind it is against Google's review
+ *    snippet policy, and the penalty is a manual action against every rich
+ *    result on the domain, not just the stars.
+ */
+
+const ORG = {
+  "@type": "Organization",
+  name: "EasyShiftHQ",
+  url: "https://easyshifthq.com",
+} as const
+
+/** The six POS systems we actually read from, in one place. */
+export const POS_SYSTEMS = [
+  "Square",
+  "Toast",
+  "Clover",
+  "Shift4",
+  "Focus POS",
+  "Revel",
+] as const
+
+/**
+ * Pricing, mirrored from app/pricing/page.tsx. Stated as an AggregateOffer
+ * because there are three tiers — a single Offer forces us to pick one price
+ * to publish, which is how this markup previously came to advertise $249 for
+ * a product whose tiers are $99, $199 and $299.
+ */
+const PRICING_OFFER = {
+  "@type": "AggregateOffer",
+  priceCurrency: "USD",
+  lowPrice: "99",
+  highPrice: "299",
+  offerCount: 3,
+  unitText: "per location per month",
+} as const
+
 export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "EasyShiftHQ",
     applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Restaurant Management Software",
     operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "249",
-      priceCurrency: "USD",
-      priceValidUntil: "2026-12-31",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "50",
-    },
+    url: "https://easyshifthq.com",
+    offers: PRICING_OFFER,
     description:
-      "Restaurant profit tracking software that connects POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights.",
+      "Restaurant operations software that schedules against a live labor budget, reads sales from the POS to produce a daily P&L, and gives every employee their shifts, clock-in, tips and pay in the same app.",
+    featureList: [
+      "Employee scheduling against a live labor budget",
+      "Open-shift marketplace and shift trades with manager approval",
+      "Time clock with photo verification and geofencing",
+      "Daily profit and loss from POS sales and actual labor",
+      "Labor cost as a percentage of sales",
+      "Inventory counts, purchase orders and variance",
+      "Recipe and menu costing",
+      "Bank accounts, categorized expenses and printed checks",
+    ],
     publisher: {
-      "@type": "Organization",
-      name: "EasyShiftHQ",
-      url: "https://easyshifthq.com",
+      ...ORG,
       logo: {
         "@type": "ImageObject",
         url: "https://easyshifthq.com/icon-512.png",
@@ -44,12 +92,8 @@ export function WebsiteSchema() {
     name: "EasyShiftHQ",
     url: "https://easyshifthq.com",
     description:
-      "See your restaurant's true profits every day. Real-time food cost, labor %, and shrinkage insights.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://easyshifthq.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
+      "Restaurant scheduling, labor cost and daily P&L in one loop — with the whole staff in the same app.",
+    publisher: ORG,
   }
 
   return (
@@ -67,7 +111,12 @@ interface FeaturePageSchemaProps {
   features: string[]
 }
 
-export function FeaturePageSchema({ name, description, url, features }: FeaturePageSchemaProps) {
+export function FeaturePageSchema({
+  name,
+  description,
+  url,
+  features,
+}: Readonly<FeaturePageSchemaProps>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -75,25 +124,16 @@ export function FeaturePageSchema({ name, description, url, features }: FeatureP
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Restaurant Management Software",
     operatingSystem: "Web",
-    url: url,
-    description: description,
+    url,
+    description,
     featureList: features,
     isPartOf: {
       "@type": "SoftwareApplication",
       name: "EasyShiftHQ",
       url: "https://easyshifthq.com",
     },
-    offers: {
-      "@type": "Offer",
-      price: "249",
-      priceCurrency: "USD",
-      description: "All features included per location",
-    },
-    provider: {
-      "@type": "Organization",
-      name: "EasyShiftHQ",
-      url: "https://easyshifthq.com",
-    },
+    offers: PRICING_OFFER,
+    provider: ORG,
   }
 
   return (
@@ -104,7 +144,11 @@ export function FeaturePageSchema({ name, description, url, features }: FeatureP
   )
 }
 
-export function BreadcrumbSchema({ items }: { items: { name: string; url: string }[] }) {
+export function BreadcrumbSchema({
+  items,
+}: Readonly<{
+  items: { name: string; url: string }[]
+}>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -124,44 +168,27 @@ export function BreadcrumbSchema({ items }: { items: { name: string; url: string
   )
 }
 
-export function FAQSchema() {
+/**
+ * FAQ markup, driven by the questions a page actually renders.
+ *
+ * It takes the items rather than hard-coding them so it can only ever be used
+ * on a page where the same questions and answers are visible — which is both
+ * the policy requirement and the reason the markup is worth having: an answer
+ * engine quoting us should be quoting something a reader can also see.
+ */
+export function FAQPageSchema({
+  items,
+}: Readonly<{
+  items: { q: string; a: string }[]
+}>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is EasyShiftHQ?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "EasyShiftHQ is restaurant profit tracking software that connects your POS, inventory, and labor systems to reveal real-time food cost, labor %, and shrinkage insights — all automatically.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does EasyShiftHQ cost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "EasyShiftHQ costs $249/month per location with all features included. There are no contracts, setup fees, or surprise invoices. You can start with a free 14-day trial.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does setup take?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Setup is self-serve and typically done in one sitting, with no implementation team or kickoff call. You connect your existing POS, inventory, and labor systems, and EasyShiftHQ automatically syncs your data.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What POS systems does EasyShiftHQ integrate with?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "EasyShiftHQ integrates with all major POS systems, inventory platforms, and labor management tools to provide a unified view of your restaurant's financial performance.",
-        },
-      },
-    ],
+    mainEntity: items.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
   }
 
   return (

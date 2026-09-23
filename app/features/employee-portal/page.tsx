@@ -50,7 +50,7 @@ const beats = [
     title: "One button, and the punch carries proof.",
     body: "Clock in or out from the phone, or from the kiosk with a PIN they set themselves. A selfie and a location check ride along with the punch — the app explains why, in plain language, on the screen where it asks.",
     yours:
-      "Geofencing is yours to set: off, warn, or block, with your own radius. Out-of-range punches get flagged instead of quietly counted, and the hours that reach payroll are the ones you can stand behind.",
+      "Geofencing is yours to set: off, warn, or block, with your own radius. Out-of-range clock-ins get flagged instead of quietly counted, and the hours that reach payroll are the ones you can stand behind.",
     screen: <ClockScreen />,
     side: "left" as const,
   },

@@ -4,7 +4,8 @@ import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
   title: "Recipe & Menu Management - Recipe Costing & Menu Engineering",
-  description: "Know exactly what each dish costs with real-time recipe costing, menu engineering matrix (Stars, Plowhorses, Puzzles, Dogs), profitability analysis, and automatic inventory deductions when items sell.",
+  description:
+    "Know exactly what each dish costs with real-time recipe costing, menu engineering matrix (Stars, Plowhorses, Puzzles, Dogs), profitability analysis, and automatic inventory deductions when items sell.",
   keywords: [
     "recipe costing software",
     "menu engineering",
@@ -21,30 +22,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://easyshifthq.com/features/recipe-menu",
-    title: "Recipe & Menu Management - Recipe Costing & Menu Engineering | EasyShiftHQ",
-    description: "Know exactly what each dish costs with real-time recipe costing and menu engineering tools.",
+    title:
+      "Recipe & Menu Management - Recipe Costing & Menu Engineering | EasyShiftHQ",
+    description:
+      "Know exactly what each dish costs with real-time recipe costing and menu engineering tools.",
     siteName: "EasyShiftHQ",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ Recipe and Menu Management",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Recipe & Menu Management - Recipe Costing | EasyShiftHQ",
-    description: "Know exactly what each dish costs with real-time recipe costing and menu engineering.",
-    images: ["/og-image.jpg"],
+    description:
+      "Know exactly what each dish costs with real-time recipe costing and menu engineering.",
   },
 }
 
 const features = [
   {
     title: "Recipe Creation",
-    description: "Build detailed recipes with exact quantities and automatic unit conversion.",
+    description:
+      "Build detailed recipes with exact quantities and automatic unit conversion.",
     features: [
       "Ingredient-based recipes with exact quantities",
       "Smart unit conversion between measurements",
@@ -55,7 +51,8 @@ const features = [
   },
   {
     title: "Real-Time Cost Analysis",
-    description: "Know exactly how much each dish costs to make — updated when prices change.",
+    description:
+      "Know exactly how much each dish costs to make — updated when prices change.",
     features: [
       "Automatic food cost calculation from ingredient prices",
       "Profit margin analysis for every dish",
@@ -65,7 +62,8 @@ const features = [
   },
   {
     title: "Menu Engineering Matrix",
-    description: "Classify items by profitability and popularity to optimize your menu.",
+    description:
+      "Classify items by profitability and popularity to optimize your menu.",
     features: [
       "Stars: High profit, high popularity",
       "Plowhorses: Low profit, high popularity",
@@ -86,7 +84,8 @@ const features = [
   },
   {
     title: "Profitability Reports",
-    description: "Rank your menu items by profit contribution and make smarter decisions.",
+    description:
+      "Rank your menu items by profit contribution and make smarter decisions.",
     features: [
       "Best and worst performers ranking",
       "Contribution margin analysis",
@@ -96,7 +95,8 @@ const features = [
   },
   {
     title: "AI Recipe Assistance",
-    description: "Get intelligent suggestions for ingredients and preparation methods.",
+    description:
+      "Get intelligent suggestions for ingredients and preparation methods.",
     features: [
       "Ingredient recommendations",
       "Preparation method suggestions",
@@ -138,7 +138,9 @@ export default function RecipeMenuPage() {
       benefitsTitle={
         <>
           What it&apos;s worth{" "}
-          <span className="italic text-primary">the next time you re-price.</span>
+          <span className="italic text-primary">
+            the next time you re-price.
+          </span>
         </>
       }
       ctaTitle="Cost one dish. You'll see the rest."

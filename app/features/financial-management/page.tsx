@@ -4,7 +4,8 @@ import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
   title: "Financial Management - Real-Time P&L Dashboard for Restaurants",
-  description: "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, AI-powered transaction categorization, and tax-ready financial statements. Stop waiting weeks for reports.",
+  description:
+    "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, AI-powered transaction categorization, and tax-ready financial statements. Stop waiting weeks for reports.",
   keywords: [
     "restaurant financial management",
     "real-time P&L dashboard",
@@ -22,29 +23,23 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://easyshifthq.com/features/financial-management",
     title: "Financial Management - Real-Time P&L Dashboard | EasyShiftHQ",
-    description: "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, and tax-ready financial statements.",
+    description:
+      "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, and tax-ready financial statements.",
     siteName: "EasyShiftHQ",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ Financial Management Dashboard",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Financial Management - Real-Time P&L Dashboard | EasyShiftHQ",
-    description: "Know your restaurant profits daily with real-time P&L tracking and automated bookkeeping.",
-    images: ["/og-image.jpg"],
+    description:
+      "Know your restaurant profits daily with real-time P&L tracking and automated bookkeeping.",
   },
 }
 
 const features = [
   {
     title: "Real-Time Dashboard",
-    description: "See your financial health at a glance with live updates throughout the day.",
+    description:
+      "See your financial health at a glance with live updates throughout the day.",
     features: [
       "Live P&L overview with net revenue, COGS, and labor costs",
       "Critical alerts for cash runway and prime cost thresholds",
@@ -56,7 +51,8 @@ const features = [
   },
   {
     title: "Bank Account Management",
-    description: "Connect all your accounts securely and see your complete financial picture.",
+    description:
+      "Connect all your accounts securely and see your complete financial picture.",
     features: [
       "Secure connections via Stripe Financial Connections",
       "Real-time balance sync across all accounts",
@@ -67,7 +63,8 @@ const features = [
   },
   {
     title: "Transaction Management",
-    description: "AI-powered categorization and bulk management tools save hours every week.",
+    description:
+      "AI-powered categorization and bulk management tools save hours every week.",
     features: [
       "Automatic daily transaction import",
       "AI-powered category suggestions based on patterns",
@@ -80,7 +77,8 @@ const features = [
   },
   {
     title: "Chart of Accounts",
-    description: "Pre-configured for restaurant operations with full customization options.",
+    description:
+      "Pre-configured for restaurant operations with full customization options.",
     features: [
       "Restaurant-specific category structure",
       "Organized hierarchy for revenue, COGS, and expenses",
@@ -90,7 +88,8 @@ const features = [
   },
   {
     title: "Financial Statements",
-    description: "Generate professional reports for any date range, always tax-ready.",
+    description:
+      "Generate professional reports for any date range, always tax-ready.",
     features: [
       "Automated Income Statement (P&L) generation",
       "Balance Sheet with assets, liabilities, and equity",
@@ -101,7 +100,8 @@ const features = [
   },
   {
     title: "Outflow Analysis",
-    description: "Understand exactly where your money is going with detailed breakdowns.",
+    description:
+      "Understand exactly where your money is going with detailed breakdowns.",
     features: [
       "Spending breakdown by category",
       "Top vendor analysis",
@@ -111,7 +111,8 @@ const features = [
   },
   {
     title: "Ops Inbox",
-    description: "One feed for everything that needs your attention — nothing slips through.",
+    description:
+      "One feed for everything that needs your attention — nothing slips through.",
     features: [
       "Anomaly alerts for revenue drops and cost spikes",
       "Bank-to-POS reconciliation gap detection",
@@ -132,7 +133,8 @@ const features = [
   },
   {
     title: "Budget & Run Rate",
-    description: "Set targets and see whether the month is on track — before it's over.",
+    description:
+      "Set targets and see whether the month is on track — before it's over.",
     features: [
       "Monthly budgets by category",
       "Live run-rate projections against targets",

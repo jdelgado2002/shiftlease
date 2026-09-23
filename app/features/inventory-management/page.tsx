@@ -19,7 +19,10 @@ import {
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { FeaturePageSchema, BreadcrumbSchema } from "@/components/structured-data"
+import {
+  FeaturePageSchema,
+  BreadcrumbSchema,
+} from "@/components/structured-data"
 import {
   InventoryStatsBanner,
   InventoryCostCalculator,
@@ -53,21 +56,12 @@ export const metadata: Metadata = {
     description:
       "Real-time inventory tracking that catches theft, waste, and errors instantly. Save $30,000+ annually per location.",
     siteName: "EasyShiftHQ",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ Inventory Management System",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Inventory Management - Stop Losing 2-10% of Revenue | EasyShiftHQ",
     description:
       "Real-time inventory tracking that catches theft, waste, and errors instantly.",
-    images: ["/og-image.jpg"],
   },
 }
 
@@ -193,7 +187,9 @@ export default function InventoryManagementPage() {
                   <span className="label-mark text-foreground">
                     Inventory Management
                   </span>
-                  <span className="label-mark text-muted-foreground/60">/ 07</span>
+                  <span className="label-mark text-muted-foreground/60">
+                    / 07
+                  </span>
                 </div>
                 <h1
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
@@ -209,9 +205,10 @@ export default function InventoryManagementPage() {
                   className="anim-rise mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
                   style={{ animationDelay: "180ms" }}
                 >
-                  Restaurants lose $20,000 to $100,000 per million in sales to theft,
-                  waste, spoilage, and plain miscounting. You can find it the day it
-                  happens, or you can find it in a variance report three weeks later.
+                  Restaurants lose $20,000 to $100,000 per million in sales to
+                  theft, waste, spoilage, and plain miscounting. You can find it
+                  the day it happens, or you can find it in a variance report
+                  three weeks later.
                 </p>
                 <div
                   className="anim-rise mt-9 flex flex-col gap-4 sm:flex-row"
@@ -263,8 +260,10 @@ export default function InventoryManagementPage() {
                     ))}
                   </ol>
                   <p className="mt-4 border-t border-dashed border-rule pt-4 text-[13px] text-muted-foreground">
-                    <span className="font-ledger text-[var(--over)]">2–10%</span> of
-                    revenue, invisible until you count
+                    <span className="font-ledger text-[var(--over)]">
+                      2–10%
+                    </span>{" "}
+                    of revenue, invisible until you count
                   </p>
                 </div>
               </aside>
@@ -287,22 +286,28 @@ export default function InventoryManagementPage() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  If you are relying on periodic manual counts and spreadsheets, the numbers you see
-                  are already outdated. Between counts, theft goes unnoticed, waste goes unlogged,
-                  and delivery shortages slip through. The average restaurant has a{" "}
-                  <strong className="text-foreground">5% gap</strong> between what their food cost
-                  should be and what it actually is.
+                  If you are relying on periodic manual counts and spreadsheets,
+                  the numbers you see are already outdated. Between counts,
+                  theft goes unnoticed, waste goes unlogged, and delivery
+                  shortages slip through. The average restaurant has a{" "}
+                  <strong className="text-foreground">5% gap</strong> between
+                  what their food cost should be and what it actually is.
                 </p>
                 <p>
                   On $2.5 million in sales, that 5% gap represents{" "}
-                  <strong className="text-foreground">$125,000 in vanishing profit</strong>. And
-                  because manual systems only catch problems weeks later, the window to investigate
-                  and act has long closed.
+                  <strong className="text-foreground">
+                    $125,000 in vanishing profit
+                  </strong>
+                  . And because manual systems only catch problems weeks later,
+                  the window to investigate and act has long closed.
                 </p>
                 <p>
-                  <strong className="text-foreground">75% of inventory shrinkage</strong> comes from
-                  employee theft — but most operators never have the real-time data to prove it. The
-                  remaining losses come from spoilage, over-portioning, and simple human error in
+                  <strong className="text-foreground">
+                    75% of inventory shrinkage
+                  </strong>{" "}
+                  comes from employee theft — but most operators never have the
+                  real-time data to prove it. The remaining losses come from
+                  spoilage, over-portioning, and simple human error in
                   record-keeping.
                 </p>
               </div>
@@ -325,8 +330,9 @@ export default function InventoryManagementPage() {
                 Visibility that pays for itself
               </h2>
               <p className="text-lg text-muted-foreground">
-                Operators using inventory control software consistently report 2-10% profit
-                increases. Here is exactly how EasyShiftHQ makes it happen.
+                Operators using inventory control software consistently report
+                2-10% profit increases. Here is exactly how EasyShiftHQ makes it
+                happen.
               </p>
             </div>
 
@@ -339,8 +345,12 @@ export default function InventoryManagementPage() {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 text-primary">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{feature.description}</p>
+                  <h3 className="text-lg font-semibold mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {feature.description}
+                  </p>
                   <ul className="space-y-2">
                     {feature.points.map((point, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
@@ -366,9 +376,10 @@ export default function InventoryManagementPage() {
                 Counting by hand vs. counting as it sells
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Managers spend 5-7 hours per week on manual inventory counts — and those counts are
-                still riddled with errors and blind spots. Here is what changes when you switch to
-                automated, real-time inventory management.
+                Managers spend 5-7 hours per week on manual inventory counts —
+                and those counts are still riddled with errors and blind spots.
+                Here is what changes when you switch to automated, real-time
+                inventory management.
               </p>
             </div>
 
@@ -393,15 +404,17 @@ export default function InventoryManagementPage() {
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
                       At 5-7 hours per week, manual inventory counts consume{" "}
-                      <strong className="text-foreground">over 300 hours per year</strong> of
-                      manager time per location. That is time spent in the walk-in cooler with a
-                      clipboard instead of on the floor training staff, engaging customers, and
-                      driving sales.
+                      <strong className="text-foreground">
+                        over 300 hours per year
+                      </strong>{" "}
+                      of manager time per location. That is time spent in the
+                      walk-in cooler with a clipboard instead of on the floor
+                      training staff, engaging customers, and driving sales.
                     </p>
                     <p>
-                      With mobile cycle counts and automatic POS deductions, the same visibility
-                      takes minutes per day. Your best people spend time on what actually grows
-                      your business.
+                      With mobile cycle counts and automatic POS deductions, the
+                      same visibility takes minutes per day. Your best people
+                      spend time on what actually grows your business.
                     </p>
                   </div>
                 </div>
@@ -445,7 +458,8 @@ export default function InventoryManagementPage() {
                 What it does to the bottom line
               </h2>
               <p className="text-lg text-muted-foreground">
-                Proven results from operators who switched to real-time inventory management
+                Proven results from operators who switched to real-time
+                inventory management
               </p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -481,9 +495,10 @@ export default function InventoryManagementPage() {
                 Stop the silent bleed.
               </h2>
               <p className="text-lg text-background/70 mb-4 leading-relaxed">
-                At $199/month per location on the Growth plan — which includes full inventory
-                automation — EasyShiftHQ typically saves operators 10-40x that amount in recovered
-                inventory losses alone. That is not counting the manager time you get back.
+                At $199/month per location on the Growth plan — which includes
+                full inventory automation — EasyShiftHQ typically saves
+                operators 10-40x that amount in recovered inventory losses
+                alone. That is not counting the manager time you get back.
               </p>
               <p className="text-base text-background/50 mb-8">
                 Want the full data? Read our{" "}
@@ -516,7 +531,8 @@ export default function InventoryManagementPage() {
                 </Button>
               </div>
               <p className="text-sm text-background/50 mt-6">
-                Set up in minutes &middot; No credit card required &middot; Cancel anytime
+                Set up in minutes &middot; No credit card required &middot;
+                Cancel anytime
               </p>
             </div>
           </div>

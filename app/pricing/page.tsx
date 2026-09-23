@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SocialProofRow } from "@/components/social-proof"
+import { BreadcrumbSchema, FAQPageSchema } from "@/components/structured-data"
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -50,6 +51,14 @@ const pricingFaqs = [
 export default function PricingPage() {
   return (
     <div className="flex min-h-screen flex-col">
+      {/* The questions below are rendered on this page, so they can be marked up. */}
+      <FAQPageSchema items={pricingFaqs} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://easyshifthq.com" },
+          { name: "Pricing", url: "https://easyshifthq.com/pricing" },
+        ]}
+      />
       <Header />
 
       <main className="flex-1">
@@ -57,8 +66,12 @@ export default function PricingPage() {
         <section className="w-full py-24 md:py-32 bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Simple Pricing</p>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Simple. Transparent. Powerful.</h1>
+              <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
+                Simple Pricing
+              </p>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Simple. Transparent. Powerful.
+              </h1>
               <p className="text-xl text-muted-foreground">
                 Choose the plan that fits your restaurant.
                 <br />
@@ -70,13 +83,20 @@ export default function PricingPage() {
               {/* Starter Plan */}
               <Card className="border overflow-hidden">
                 <CardHeader className="text-center pb-6 pt-8">
-                  <CardTitle className="text-lg font-semibold mb-2">Starter</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">Daily P&amp;L and basic inventory tools for single-location restaurants</p>
+                  <CardTitle className="text-lg font-semibold mb-2">
+                    Starter
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Daily P&amp;L and basic inventory tools for single-location
+                    restaurants
+                  </p>
                   <div className="flex items-baseline justify-center gap-1">
                     <span className="text-5xl font-bold">$99</span>
                     <span className="text-lg text-muted-foreground">/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Save 17% with annual billing
+                  </p>
                 </CardHeader>
                 <CardContent className="pb-8">
                   <Button
@@ -85,9 +105,7 @@ export default function PricingPage() {
                     className="w-full rounded-full h-12 text-base mb-6"
                     asChild
                   >
-                    <TrialCTA>
-                      Select Starter
-                    </TrialCTA>
+                    <TrialCTA>Select Starter</TrialCTA>
                   </Button>
                   <div className="space-y-3">
                     {[
@@ -116,13 +134,20 @@ export default function PricingPage() {
                   Recommended
                 </div>
                 <CardHeader className="text-center pb-6 pt-12">
-                  <CardTitle className="text-lg font-semibold mb-2">Growth</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">AI-powered automation and intelligence for growing restaurants</p>
+                  <CardTitle className="text-lg font-semibold mb-2">
+                    Growth
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    AI-powered automation and intelligence for growing
+                    restaurants
+                  </p>
                   <div className="flex items-baseline justify-center gap-1">
                     <span className="text-5xl font-bold">$199</span>
                     <span className="text-lg text-muted-foreground">/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Save 17% with annual billing
+                  </p>
                 </CardHeader>
                 <CardContent className="pb-8">
                   <Button
@@ -130,12 +155,12 @@ export default function PricingPage() {
                     className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base mb-6"
                     asChild
                   >
-                    <TrialCTA>
-                      Select Growth
-                    </TrialCTA>
+                    <TrialCTA>Select Growth</TrialCTA>
                   </Button>
                   <div className="space-y-3">
-                    <p className="text-sm font-medium text-muted-foreground">Everything in Starter, plus:</p>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      Everything in Starter, plus:
+                    </p>
                     {[
                       "Financial Intelligence Dashboard",
                       "Inventory Automation (OCR)",
@@ -157,13 +182,20 @@ export default function PricingPage() {
               {/* Pro Plan */}
               <Card className="border overflow-hidden">
                 <CardHeader className="text-center pb-6 pt-8">
-                  <CardTitle className="text-lg font-semibold mb-2">Pro</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">Complete financial operations with Stripe-powered integrations</p>
+                  <CardTitle className="text-lg font-semibold mb-2">
+                    Pro
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Complete financial operations with Stripe-powered
+                    integrations
+                  </p>
                   <div className="flex items-baseline justify-center gap-1">
                     <span className="text-5xl font-bold">$299</span>
                     <span className="text-lg text-muted-foreground">/mo</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">Save 17% with annual billing</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Save 17% with annual billing
+                  </p>
                 </CardHeader>
                 <CardContent className="pb-8">
                   <Button
@@ -172,12 +204,12 @@ export default function PricingPage() {
                     className="w-full rounded-full h-12 text-base mb-6"
                     asChild
                   >
-                    <TrialCTA>
-                      Select Pro
-                    </TrialCTA>
+                    <TrialCTA>Select Pro</TrialCTA>
                   </Button>
                   <div className="space-y-3">
-                    <p className="text-sm font-medium text-muted-foreground">Everything in Growth, plus:</p>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      Everything in Growth, plus:
+                    </p>
                     {[
                       "AI Assistant",
                       "Ops Inbox: anomalies, reconciliation gaps & to-dos in one feed",
@@ -202,17 +234,28 @@ export default function PricingPage() {
 
             {/* Volume Discounts */}
             <div className="max-w-2xl mx-auto mt-16">
-              <h2 className="text-center text-lg font-semibold mb-2">Volume Discounts</h2>
-              <p className="text-center text-sm text-muted-foreground mb-6">Save more when you manage multiple locations</p>
+              <h2 className="text-center text-lg font-semibold mb-2">
+                Volume Discounts
+              </h2>
+              <p className="text-center text-sm text-muted-foreground mb-6">
+                Save more when you manage multiple locations
+              </p>
               <div className="grid grid-cols-3 gap-4 text-center">
                 {[
                   { locations: "3-5", discount: "5%" },
                   { locations: "6-10", discount: "10%" },
                   { locations: "11+", discount: "15%" },
                 ].map((tier) => (
-                  <div key={tier.locations} className="p-4 rounded-xl bg-card border border-border">
-                    <p className="text-2xl font-bold text-primary">{tier.discount}</p>
-                    <p className="text-sm text-muted-foreground">{tier.locations} locations</p>
+                  <div
+                    key={tier.locations}
+                    className="p-4 rounded-xl bg-card border border-border"
+                  >
+                    <p className="text-2xl font-bold text-primary">
+                      {tier.discount}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {tier.locations} locations
+                    </p>
                   </div>
                 ))}
               </div>
@@ -225,8 +268,12 @@ export default function PricingPage() {
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">Frequently Asked</p>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Pricing Questions</h2>
+                <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
+                  Frequently Asked
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                  Pricing Questions
+                </h2>
                 <p className="text-xl text-muted-foreground">
                   The questions operators ask before they sign up.
                 </p>
@@ -242,7 +289,9 @@ export default function PricingPage() {
                       <span>{item.q}</span>
                       <ChevronDown className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
                     </summary>
-                    <p className="mt-4 text-muted-foreground leading-relaxed">{item.a}</p>
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
+                      {item.a}
+                    </p>
                   </details>
                 ))}
               </div>

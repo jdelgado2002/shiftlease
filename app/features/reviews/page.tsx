@@ -21,25 +21,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://easyshifthq.com/features/reviews",
-    title: "Guest Reviews - Turn Happy Guests Into Google Reviews | EasyShiftHQ",
+    title:
+      "Guest Reviews - Turn Happy Guests Into Google Reviews | EasyShiftHQ",
     description:
       "QR-code review funnel: happy guests get routed to Google, unhappy guests reach you privately first.",
     siteName: "EasyShiftHQ",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EasyShiftHQ Guest Review Funnel",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Guest Reviews - Turn Happy Guests Into Google Reviews | EasyShiftHQ",
+    title:
+      "Guest Reviews - Turn Happy Guests Into Google Reviews | EasyShiftHQ",
     description:
       "QR-code review funnel: happy guests get routed to Google, unhappy guests reach you privately first.",
-    images: ["/og-image.jpg"],
   },
 }
 
@@ -137,14 +130,18 @@ export default function ReviewsPage() {
       indexTitle={
         <>
           One code on the table,{" "}
-          <span className="italic text-primary">two very different nights.</span>
+          <span className="italic text-primary">
+            two very different nights.
+          </span>
         </>
       }
       indexLede="The funnel, the printed materials that carry it, and the inbox where the private half lands."
       benefitsTitle={
         <>
           What it&apos;s worth{" "}
-          <span className="italic text-primary">by next month&apos;s rating.</span>
+          <span className="italic text-primary">
+            by next month&apos;s rating.
+          </span>
         </>
       }
       ctaTitle="Put a code on every table tonight."

@@ -13,6 +13,11 @@ const withMDX = createMDX({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  // The OG card renderer reads these at build time. They live outside public/
+  // and are never imported, so tracing cannot infer them on its own.
+  outputFileTracingIncludes: {
+    "**/opengraph-image": ["./assets/fonts/**"],
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

@@ -4,7 +4,7 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { TrialCTA } from "@/components/trial-cta"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 const features = [
@@ -116,22 +116,70 @@ function SheetSection({
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [featuresOpen, setFeaturesOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const sheetRef = useRef<HTMLDivElement>(null)
 
-  // While the sheet covers the page, the page behind it must not scroll, and
-  // Escape must close it — neither of which the old in-flow panel did.
+  // Everything that has to be true only while the sheet is open lives here:
+  // the page behind it must not scroll, Escape must close it and hand focus
+  // back, Tab must stay inside it, and it must not survive the viewport
+  // growing past md — where both the sheet and the button that closes it are
+  // display:none and the lock would have no way out.
   useEffect(() => {
     if (!mobileMenuOpen) return
 
     const previous = document.body.style.overflow
     document.body.style.overflow = "hidden"
 
+    const close = () => {
+      setMobileMenuOpen(false)
+      toggleRef.current?.focus()
+    }
+
+    // The sheet is hidden by a media query, not by state, so the state has to
+    // listen to the same query the class does.
+    const desktop = window.matchMedia("(min-width: 768px)")
+    const onBreakpoint = () => {
+      if (desktop.matches) setMobileMenuOpen(false)
+    }
+    desktop.addEventListener("change", onBreakpoint)
+
+    // The sheet covers the page but is a sibling of it, so nothing stops the
+    // browser tabbing on into content the user cannot see. Wrap the ring.
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMobileMenuOpen(false)
+      if (e.key === "Escape") {
+        close()
+        return
+      }
+      if (e.key !== "Tab") return
+
+      const sheet = sheetRef.current
+      const toggle = toggleRef.current
+      if (!sheet || !toggle) return
+
+      const ring = [
+        toggle,
+        ...Array.from(
+          sheet.querySelectorAll<HTMLElement>(
+            "a[href], button:not([disabled])",
+          ),
+        ),
+      ]
+      const first = ring[0]
+      const last = ring[ring.length - 1]
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
     window.addEventListener("keydown", onKeyDown)
 
     return () => {
       document.body.style.overflow = previous
+      desktop.removeEventListener("change", onBreakpoint)
       window.removeEventListener("keydown", onKeyDown)
     }
   }, [mobileMenuOpen])
@@ -221,6 +269,7 @@ export function Header() {
 
             {/* Mobile menu button */}
             <button
+              ref={toggleRef}
               type="button"
               className="-mr-2 flex h-11 w-11 items-center justify-center md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -245,7 +294,11 @@ export function Header() {
           every other figure on this site is numbered. */}
       {mobileMenuOpen && (
         <div
+          ref={sheetRef}
           id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
           className="anim-sheet bg-gridpaper fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain bg-background md:hidden"
         >
           <nav className="grain container relative pb-14 pt-7">

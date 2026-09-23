@@ -581,14 +581,14 @@ export default function Home() {
               <div className="mt-7 flex flex-wrap gap-x-8 sm:mt-10 sm:gap-y-3">
                 <Link
                   href="/why-operations-matter"
-                  className="group inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary sm:py-0"
+                  className="group inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary md:py-0"
                 >
                   Why operations matter
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/why-inventory-matters"
-                  className="group inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary sm:py-0"
+                  className="group inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary md:py-0"
                 >
                   Why inventory matters
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

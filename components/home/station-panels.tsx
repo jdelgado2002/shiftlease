@@ -65,7 +65,7 @@ function Station({
 
             <Link
               href={href}
-              className="group mt-5 inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary sm:mt-8 sm:py-0"
+              className="group mt-5 inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary md:mt-8 md:py-0"
             >
               {hrefLabel}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -423,7 +423,7 @@ function MoneyMock() {
               {/* A phone gets the two lines a banking app gives it: who and
                   how much on top, when and what it was coded to underneath.
                   Four columns only once there is room for four columns. */}
-              <div className="flex items-baseline gap-3 sm:gap-3">
+              <div className="flex items-baseline gap-3">
                 <span className="font-ledger hidden w-11 shrink-0 text-[11px] text-muted-foreground sm:block">
                   {r.date}
                 </span>

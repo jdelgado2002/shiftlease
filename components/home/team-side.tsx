@@ -169,7 +169,7 @@ export function TeamSide() {
 
             <Link
               href="/features/employee-portal"
-              className="group mt-5 inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary sm:mt-8 sm:py-0"
+              className="group mt-5 inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary md:mt-8 md:py-0"
             >
               Walk through a week in the employee portal
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

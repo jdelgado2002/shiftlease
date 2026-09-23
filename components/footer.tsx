@@ -34,8 +34,15 @@ const legal = [
  * The links used to be 17px tall with 12px of dead space between them — a
  * 17px target against a 44px guideline, and the gap was doing the work the
  * link should have been doing. On a phone the list gap becomes link padding
- * instead: same rhythm on the page, a row you can actually hit. From sm the
- * old spacing returns, where a cursor makes the distinction moot.
+ * instead: same rhythm on the page, a row you can actually hit.
+ *
+ * All of it reverts at md rather than sm, because that is where the footer
+ * grid goes four-up and stops being a phone layout — and because the heading
+ * borrows the ledger label only while the list beneath it is ruled. Above md
+ * it is the plain bold heading it has always been. (The label is spelled out
+ * in utilities rather than as `label-mark`: that class is declared after
+ * Tailwind's own utilities in the same layer, so it would outrank the md:
+ * overrides sitting beside it.)
  */
 function FooterColumn({
   title,
@@ -46,15 +53,15 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="label-mark border-b border-rule/60 pb-2 text-muted-foreground">
+      <h3 className="border-b border-rule/60 pb-2 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-muted-foreground md:border-0 md:pb-0 md:font-sans md:text-base md:font-semibold md:normal-case md:tracking-normal md:text-foreground">
         {title}
       </h3>
-      <ul className="mt-1 divide-y divide-border/40 sm:mt-4 sm:space-y-3 sm:divide-y-0">
+      <ul className="mt-1 divide-y divide-border/40 md:mt-4 md:space-y-3 md:divide-y-0">
         {items.map((item) => (
           <li key={item.name}>
             <Link
               href={item.href}
-              className="block py-3 text-sm text-muted-foreground transition-colors hover:text-foreground sm:py-0"
+              className="block py-3 text-sm text-muted-foreground transition-colors hover:text-foreground md:py-0"
             >
               {item.name}
             </Link>
@@ -105,7 +112,7 @@ export function Footer() {
             © {new Date().getFullYear()} EasyShiftHQ. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <TrialCTA className="py-3 text-sm font-medium text-primary transition-colors hover:text-primary/80 sm:py-0">
+            <TrialCTA className="py-3 text-sm font-medium text-primary transition-colors hover:text-primary/80 md:py-0">
               Sign In
             </TrialCTA>
           </div>

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const comparisonRows = [
   { dimension: "Best fit", us: "Indie operators, 1–5 units", them: "Enterprise restaurant groups, 50+ units" },
-  { dimension: "Setup time", us: "15 minutes", them: "Implementation typically takes weeks" },
+  { dimension: "Setup time", us: "Self-serve, same day", them: "Implementation typically takes weeks" },
   { dimension: "Pricing transparency", us: "Public: $99 / $199 / $299 per location/mo", them: "Quote-based; not published" },
   { dimension: "Free trial", us: "14 days, no credit card", them: "Demo-led sales process" },
   { dimension: "Daily P&L visibility", us: "Real-time, every day", them: "Available, depth varies by tier" },
@@ -37,7 +37,7 @@ const easyShiftWins = [
   {
     icon: Zap,
     title: "You're running by next week, not next quarter",
-    body: "Connect your POS in 15 minutes. No implementation team, no kickoff calls, no project plan. If you can finish a waiver of liability you can finish setup.",
+    body: "Connect your POS yourself, in one sitting. No implementation team, no kickoff calls, no project plan. If you can finish a waiver of liability you can finish setup.",
   },
   {
     icon: DollarSign,

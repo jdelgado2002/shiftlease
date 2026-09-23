@@ -279,7 +279,7 @@ export default function Home() {
                 { figure: "1", label: "app for the office and the floor" },
                 { figure: "4", label: "screens in the weekly loop" },
                 { figure: "0", label: "numbers re-keyed between them" },
-                { figure: "15 min", label: "to connect POS and bank" },
+                { figure: "6", label: "POS systems it reads from" },
               ].map((item) => (
                 <div key={item.label} className="px-5 py-9 text-center">
                   <p className="font-ledger text-3xl font-medium text-primary md:text-4xl">
@@ -420,7 +420,7 @@ export default function Home() {
                   {
                     n: "1",
                     head: "Connect POS and bank",
-                    body: "Square, Toast, Clover, Shift4, Focus, or Revel on one side; your accounts through Stripe Financial Connections on the other. Roughly 15 minutes.",
+                    body: "Square, Toast, Clover, Shift4, Focus, or Revel on one side; your accounts through Stripe Financial Connections on the other. Both are OAuth — you sign in, you are done.",
                   },
                   {
                     n: "2",

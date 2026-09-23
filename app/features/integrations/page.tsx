@@ -4,7 +4,7 @@ import { FeaturePageLayout } from "@/components/feature-page-layout"
 
 export const metadata: Metadata = {
   title: "Integrations - Connect Square, Toast, Clover & More",
-  description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up in 15 minutes.",
+  description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up yourself in one sitting — no implementation project.",
   keywords: [
     "Square POS integration",
     "Toast POS integration",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://easyshifthq.com/features/integrations",
     title: "Integrations - Connect Square, Toast, Clover & More | EasyShiftHQ",
-    description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Set up in 15 minutes.",
+    description: "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Set up yourself in one sitting.",
     siteName: "EasyShiftHQ",
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Integrations - Connect Square, Toast, Clover | EasyShiftHQ",
-    description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up in 15 minutes.",
+    description: "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up yourself in one sitting.",
     images: ["/og-image.jpg"],
   },
 }

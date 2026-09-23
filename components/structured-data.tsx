@@ -150,7 +150,7 @@ export function FAQSchema() {
         name: "How long does setup take?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Setup takes approximately 15 minutes. You connect your existing POS, inventory, and labor systems, and EasyShiftHQ automatically syncs your data.",
+          text: "Setup is self-serve and typically done in one sitting, with no implementation team or kickoff call. You connect your existing POS, inventory, and labor systems, and EasyShiftHQ automatically syncs your data.",
         },
       },
       {

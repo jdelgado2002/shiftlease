@@ -1,4 +1,5 @@
 import { getAllBlogPosts, publicSlug } from "@/lib/blog"
+import { ROUTES, SECTIONS } from "@/lib/site-routes"
 
 /**
  * /llms.txt — a plain-text index of what is on this site and what each page
@@ -11,101 +12,19 @@ import { getAllBlogPosts, publicSlug } from "@/lib/blog"
  *
  * What does get us quoted is ordinary retrieval: pages that render without
  * JavaScript, answer a real question in their first sentence, and carry
- * accurate schema. This file is generated from the same source of truth as
- * the sitemap so it can never describe a page that no longer exists.
+ * accurate schema. This file is generated from lib/site-routes, the same
+ * source the sitemap reads, so it can never describe a page that no longer
+ * exists or miss one that was just added.
  */
 
 const BASE = "https://easyshifthq.com"
 
-type Entry = { path: string; title: string; note: string }
-
-const pages: { section: string; entries: Entry[] }[] = [
-  {
-    section: "Start here",
-    entries: [
-      {
-        path: "/",
-        title: "EasyShiftHQ",
-        note: "Restaurant operations software. Schedule against a live labor budget, read POS sales into a daily P&L, and give staff their shifts, clock-in, tips and pay in the same app.",
-      },
-      {
-        path: "/pricing",
-        title: "Pricing",
-        note: "Three tiers priced per location per month: Starter $99, Growth $199, Pro $299. 14-day free trial, no credit card. Volume discounts from 3 locations.",
-      },
-      {
-        path: "/vs/restaurant365",
-        title: "EasyShiftHQ vs Restaurant365",
-        note: "Where the two differ: self-serve setup versus an implementation project, and per-location pricing versus enterprise contracts.",
-      },
-    ],
-  },
-  {
-    section: "What it does",
-    entries: [
-      {
-        path: "/features/employee-portal",
-        title: "Employee portal",
-        note: "The app staff open: schedule, open-shift board, clock-in, timecard, tips and pay. The most-used surface in the product.",
-      },
-      {
-        path: "/features/scheduling-payroll",
-        title: "Scheduling and payroll",
-        note: "Building a week against a live labor budget, shift trades with manager approval, and the time clock those hours come from.",
-      },
-      {
-        path: "/features/financial-management",
-        title: "Financial management",
-        note: "Daily P&L, bank accounts, categorized expenses and printed checks.",
-      },
-      {
-        path: "/features/inventory-management",
-        title: "Inventory management",
-        note: "Counts, purchase orders, and the variance between what should have been used and what was.",
-      },
-      {
-        path: "/features/recipe-menu",
-        title: "Recipe and menu costing",
-        note: "Plate cost per item, and what a price change does to margin.",
-      },
-      {
-        path: "/features/reviews",
-        title: "Guest reviews",
-        note: "Guest review collection and response.",
-      },
-      {
-        path: "/features/integrations",
-        title: "Integrations",
-        note: "POS systems read today: Square, Toast, Clover, Shift4, Focus POS and Revel. Bank connections are read-only.",
-      },
-    ],
-  },
-  {
-    section: "Reference",
-    entries: [
-      {
-        path: "/why-inventory-matters",
-        title: "The true cost of poor inventory management",
-        note: "What restaurants lose to shrinkage — theft, waste and error — and the arithmetic behind the range.",
-      },
-      {
-        path: "/why-operations-matter",
-        title: "Why restaurant operations matter",
-        note: "How scheduling, labor cost and daily numbers connect to margin.",
-      },
-      {
-        path: "/tools/daily-pl-cheat-sheet",
-        title: "Daily P&L cheat sheet",
-        note: "A one-page reference for reading a restaurant P&L.",
-      },
-    ],
-  },
-]
-
 export const dynamic = "force-static"
 
 export function GET() {
-  const posts = getAllBlogPosts()
+  const indexed = Object.entries(ROUTES).flatMap(([path, route]) =>
+    "index" in route ? [{ path, ...route.index }] : [],
+  )
 
   const body = [
     "# EasyShiftHQ",
@@ -116,17 +35,19 @@ export function GET() {
     "> shifts, clock-in, tips and pay.",
     "",
     "Pricing: $99 / $199 / $299 per location per month. 14-day free trial, no credit card.",
-    `POS systems read: Square, Toast, Clover, Shift4, Focus POS, Revel.`,
+    "POS systems read: Square, Toast, Clover, Shift4, Focus POS, Revel.",
     "",
-    ...pages.flatMap(({ section, entries }) => [
+    ...SECTIONS.flatMap((section) => [
       `## ${section}`,
       "",
-      ...entries.map((e) => `- [${e.title}](${BASE}${e.path}): ${e.note}`),
+      ...indexed
+        .filter((e) => e.section === section)
+        .map((e) => `- [${e.title}](${BASE}${e.path}): ${e.note}`),
       "",
     ]),
     "## Articles",
     "",
-    ...posts.map(
+    ...getAllBlogPosts().map(
       (p) =>
         `- [${p.title}](${BASE}/blog/${publicSlug(p.slug)}): ${p.description}`,
     ),
@@ -134,7 +55,7 @@ export function GET() {
     "## Canonical",
     "",
     `- Sitemap: ${BASE}/sitemap.xml`,
-    `- All pages are server-rendered; no JavaScript is required to read them.`,
+    "- All pages are server-rendered; no JavaScript is required to read them.",
     "",
   ].join("\n")
 

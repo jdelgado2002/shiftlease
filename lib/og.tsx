@@ -1,6 +1,7 @@
 import fs from "node:fs"
 import path from "node:path"
 import { ImageResponse } from "next/og"
+import { ROUTES, type CardRoute, type OgCard } from "@/lib/site-routes"
 
 /**
  * The share card.
@@ -139,85 +140,18 @@ export function renderOgCard({
 }
 
 /**
- * Card copy, one table.
- *
- * Every page gets its own headline, which is the point — but it also meant
- * fifteen opengraph-image.tsx files that were the same twelve lines with two
- * strings swapped. Keeping the copy here instead makes each route file a
- * binding, puts every headline on one screen where they can be read against
- * each other, and leaves no boilerplate to drift out of sync.
+ * The two exports a route's opengraph-image.tsx needs. The copy itself lives
+ * in lib/site-routes, next to the sitemap and /llms.txt entries for the same
+ * page, so the three cannot describe it differently.
  */
-export const OG_CARDS = {
-  "/": {
-    eyebrow: "Restaurant operations",
-    title: "From the shift you schedule to the check that clears.",
-  },
-  "/pricing": {
-    eyebrow: "Pricing",
-    title: "$99, $199, $299 per location. No contract.",
-  },
-  "/blog": {
-    eyebrow: "Field notes",
-    title: "Working notes on restaurant margin.",
-  },
-  "/features/scheduling-payroll": {
-    eyebrow: "Scheduling",
-    title: "Build the week against the labor dollar, not after it.",
-  },
-  "/features/employee-portal": {
-    eyebrow: "Employee portal",
-    title: "The app your staff already opens every shift.",
-  },
-  "/features/financial-management": {
-    eyebrow: "Financials",
-    title: "Yesterday’s P&L, before today’s lunch rush.",
-  },
-  "/features/inventory-management": {
-    eyebrow: "Inventory",
-    title: "What should have been used, and what was.",
-  },
-  "/features/recipe-menu": {
-    eyebrow: "Recipe costing",
-    title: "What every plate costs, before you price it.",
-  },
-  "/features/integrations": {
-    eyebrow: "Integrations",
-    title: "Six POS systems, read daily. Banks, read-only.",
-  },
-  "/features/reviews": {
-    eyebrow: "Guest reviews",
-    title: "Happy guests to Google. Unhappy guests to you.",
-  },
-  "/vs/restaurant365": {
-    eyebrow: "Comparison",
-    title: "EasyShiftHQ vs Restaurant365.",
-    alt: "EasyShiftHQ compared with Restaurant365",
-  },
-  "/why-inventory-matters": {
-    eyebrow: "Reference",
-    title: "What shrinkage actually costs a restaurant.",
-  },
-  "/why-operations-matter": {
-    eyebrow: "Reference",
-    title: "Why restaurant operations decide the margin.",
-  },
-  "/tools/daily-pl-cheat-sheet": {
-    eyebrow: "Cheat sheet",
-    title: "How to read a restaurant P&L in five minutes.",
-  },
-} satisfies Record<string, { eyebrow: string; title: string; alt?: string }>
-
-type OgRoute = keyof typeof OG_CARDS
-
-/** The alt text for a route's card — the headline unless it reads badly. */
-export function ogAlt(route: OgRoute) {
-  const card: { title: string; alt?: string } = OG_CARDS[route]
+export function ogAlt(route: CardRoute) {
+  const card: OgCard = ROUTES[route].card
   return `EasyShiftHQ — ${card.alt ?? card.title.replace(/\.$/, "")}`
 }
 
-/** The default export a route's opengraph-image.tsx needs. */
-export function ogImage(route: OgRoute) {
+export function ogImage(route: CardRoute) {
   return function OpengraphImage() {
-    return renderOgCard(OG_CARDS[route])
+    const card: OgCard = ROUTES[route].card
+    return renderOgCard(card)
   }
 }

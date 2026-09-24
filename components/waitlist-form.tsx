@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import posthog from "posthog-js"
 import { joinWaitlist } from "@/app/actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,6 +20,15 @@ export function WaitlistForm() {
       console.log("[v0] joinWaitlist result:", result)
 
       if (result.success) {
+        try {
+          // No PII — the email and company name stay in Resend.
+          posthog.capture("waitlist_joined", {
+            location_count: Number(formData.get("locationCount")) || null,
+          })
+        } catch {
+          // PostHog not initialized — never block the success state
+        }
+
         toast({
           title: "Success!",
           description: result.message,

@@ -12,8 +12,9 @@ EasyShiftHQ — a marketing/landing site for a restaurant management SaaS produc
 - `pnpm build` — production build
 - `pnpm lint` — run ESLint
 - `pnpm start` — serve production build
+- `pnpm test` — unit tests for pure helpers in `lib/` (Node's built-in test runner, `*.test.mjs`)
 
-Package manager is **pnpm**. No test framework is configured.
+Package manager is **pnpm**.
 
 ## Architecture
 
@@ -24,4 +25,5 @@ Package manager is **pnpm**. No test framework is configured.
 - **Path aliases**: `@/*` maps to the project root (e.g., `@/components/...`, `@/lib/...`).
 - **Styling**: Tailwind CSS v4 with CSS variables for theming. Global styles in `app/globals.css`. The `styles/globals.css` file also exists but `app/globals.css` is the one imported in the layout.
 - **SEO**: Structured data components in `components/structured-data.tsx`. Metadata defined in `app/layout.tsx`. Google Analytics (G-59L6CWW9YN) loaded via `next/script`.
+- **Analytics**: PostHog (`components/posthog-provider.tsx`) shares its project with the app (`app.easyshifthq.com`) and only initializes on the production hosts listed in `lib/analytics.ts`. Custom events: `trial_cta_clicked` (every `TrialCTA`), `waitlist_joined`, `lead_magnet_downloaded`. Never send PII (email, names) as event properties.
 - **Build config**: TypeScript and ESLint errors are ignored during builds (`next.config.mjs`).

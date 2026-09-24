@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { CheckCircle2 } from "lucide-react"
+import posthog from "posthog-js"
 import { joinWaitlist } from "@/app/actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -17,8 +18,19 @@ export function WaitlistForm() {
 
     try {
       const result = await joinWaitlist(formData)
-      if (result.success) setSubmitted(result.message)
-      else setError(result.message)
+      if (result.success) {
+        try {
+          // No PII — the email and company name stay in Resend.
+          posthog.capture("waitlist_joined", {
+            location_count: Number(formData.get("locationCount")) || null,
+          })
+        } catch {
+          // PostHog not initialized — never block the success state
+        }
+        setSubmitted(result.message)
+      } else {
+        setError(result.message)
+      }
     } catch {
       setError("Something went wrong. Please try again later.")
     } finally {

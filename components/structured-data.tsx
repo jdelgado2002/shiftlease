@@ -21,16 +21,6 @@ const ORG = {
   url: "https://easyshifthq.com",
 } as const
 
-/** The six POS systems we actually read from, in one place. */
-export const POS_SYSTEMS = [
-  "Square",
-  "Toast",
-  "Clover",
-  "Shift4",
-  "Focus POS",
-  "Revel",
-] as const
-
 /**
  * Pricing, mirrored from app/pricing/page.tsx. Stated as an AggregateOffer
  * because there are three tiers — a single Offer forces us to pick one price

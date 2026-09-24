@@ -1,25 +1,10 @@
-import createMDX from "@next/mdx"
-import remarkGfm from "remark-gfm"
-import rehypeSlug from "rehype-slug"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
-  },
-})
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  pageExtensions: ["ts", "tsx", "js", "jsx"],
   // The OG card renderer reads these at build time. They live outside public/
   // and are never imported, so tracing cannot infer them on its own.
   outputFileTracingIncludes: {
     "**/opengraph-image": ["./assets/fonts/**"],
-  },
-  typescript: {
-    ignoreBuildErrors: true,
   },
   images: {
     unoptimized: true,
@@ -29,4 +14,4 @@ const nextConfig = {
   },
 }
 
-export default withMDX(nextConfig)
+export default nextConfig

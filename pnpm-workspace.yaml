@@ -1,0 +1,15 @@
+# pnpm 10+ gates dependency lifecycle scripts behind an explicit allowlist and
+# refuses to run any script until every flagged package has a real boolean here.
+# All four are transitive, and none of their install scripts do anything this
+# site needs:
+#   sharp          next's image optimizer is off (images.unoptimized), and the
+#                  native binary ships prebuilt in @img/sharp-<platform>, which
+#                  has no scripts of its own
+#   core-js        postinstall only prints a donation banner
+#   protobufjs     postinstall only warns about a version-scheme mismatch
+#   unrs-resolver  eslint-only, and its binding ships in @unrs/resolver-binding-*
+allowBuilds:
+  core-js: false
+  protobufjs: false
+  sharp: false
+  unrs-resolver: false

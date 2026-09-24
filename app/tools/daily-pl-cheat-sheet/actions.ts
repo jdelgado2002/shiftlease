@@ -15,8 +15,6 @@ const schema = z.object({
   mkt_landing_page: z.string().max(500).optional().or(z.literal("")),
 })
 
-export type LeadMagnetInput = z.infer<typeof schema>
-
 export type LeadMagnetResult =
   | { ok: true }
   | { ok: false; error: string }

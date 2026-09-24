@@ -241,47 +241,6 @@ export function ROICaseStudies() {
   )
 }
 
-export function InventoryImpactHero() {
-  return (
-    <section className="w-full py-20 md:py-28 bg-foreground text-background">
-      <div className="container">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <p className="text-sm font-medium text-primary tracking-wide uppercase">The Hidden Cost of Poor Inventory</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Every Day Without Inventory Controls
-            <br />
-            <span className="text-background/70">Is Money You'll Never Get Back</span>
-          </h2>
-          <p className="text-xl text-background/70 leading-relaxed max-w-2xl mx-auto">
-            Restaurant operators lose 2-10% of revenue to shrinkage — from theft, waste, spoilage, and errors. 
-            For a $1M restaurant, that's $20,000 to $100,000 vanishing annually.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button
-              size="lg"
-              className="rounded-full bg-background text-foreground hover:bg-background/90 h-14 px-8 text-base"
-              asChild
-            >
-              <Link href="/features/inventory-management">
-                See How We Stop It
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full h-14 px-8 text-base border-background/20 text-background hover:bg-background/10"
-              asChild
-            >
-              <Link href="/why-inventory-matters">Learn the Full Story</Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 export function InventoryBenchmarkTable() {
   const metrics = [
     { metric: "Inventory shrinkage (total loss)", figure: "2-10% of revenue lost to waste, theft. 3% shrink = ~$30K loss per $1M sales" },
@@ -302,26 +261,6 @@ export function InventoryBenchmarkTable() {
         <div key={index} className="grid grid-cols-2 border-b border-border last:border-b-0">
           <div className="p-4 md:p-6 font-medium text-sm">{item.metric}</div>
           <div className="p-4 md:p-6 text-sm text-muted-foreground">{item.figure}</div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-export function InventoryQuickFacts() {
-  const facts = [
-    { number: "$30K", label: "Lost annually at 3% shrinkage on $1M revenue" },
-    { number: "75%", label: "Of shrinkage comes from employee theft" },
-    { number: "5-7 hrs", label: "Manager time wasted weekly on manual counting" },
-    { number: "5%", label: "Average gap between ideal and actual food cost" },
-  ]
-
-  return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {facts.map((fact, index) => (
-        <div key={index} className="bg-card border border-border rounded-xl p-6 text-center">
-          <p className="text-3xl md:text-4xl font-bold text-primary">{fact.number}</p>
-          <p className="text-sm text-muted-foreground mt-2">{fact.label}</p>
         </div>
       ))}
     </div>

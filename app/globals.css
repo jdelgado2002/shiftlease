@@ -112,10 +112,14 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-instrument-serif), ui-serif, Georgia, "Times New Roman", serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-sans:
+    var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-instrument-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono:
+    var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   /* Ledger semantics — the signal colors a P&L actually needs */
   --color-ink: var(--ink);
@@ -186,16 +190,26 @@
 }
 
 @layer utilities {
+  /* The page gutter lives here and nowhere else.
+     It used to be a flat 2rem, which a 375px phone could not afford: 64px of
+     margin left 311px of column, and body copy set in it ran about 32
+     characters to the line — roughly half a comfortable measure. Pages wrote
+     `container px-4 md:px-6` next to it hoping for 1rem, but both rules are
+     utilities and this one is declared later, so the px-4 never applied. The
+     gutter is now one variable, the phone value is the one a phone can pay,
+     and the dead px-4 classes are gone from the call sites. */
   .container {
+    --gutter: 1.25rem;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
   }
 
   @media (min-width: 640px) {
     .container {
+      --gutter: 2rem;
       max-width: 640px;
     }
   }
@@ -234,24 +248,24 @@
 @layer utilities {
   /* Display serif: editorial voice for headlines. */
   .font-display {
-    font-family: var(--font-instrument-serif), ui-serif, Georgia,
-      "Times New Roman", serif;
+    font-family:
+      var(--font-instrument-serif), ui-serif, Georgia, "Times New Roman", serif;
     font-weight: 400;
     letter-spacing: -0.015em;
   }
 
   /* Every figure on the page is monospaced and tabular, like a statement. */
   .font-ledger {
-    font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo,
-      monospace;
+    font-family:
+      var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum" 1;
   }
 
   /* Small-caps section marks: "01 / SCHEDULE" */
   .label-mark {
-    font-family: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo,
-      monospace;
+    font-family:
+      var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -324,14 +338,26 @@
   .edge-perforated {
     /* Layer one punches the holes down the left edge; layer two keeps the rest
        of the stub opaque. Multiple mask layers composite additively by default. */
-    --perf-edge: radial-gradient(circle at 6px 50%, transparent 0 5px, #000 5.5px);
+    --perf-edge: radial-gradient(
+      circle at 6px 50%,
+      transparent 0 5px,
+      #000 5.5px
+    );
     --perf-body: linear-gradient(#000, #000);
     -webkit-mask-image: var(--perf-edge), var(--perf-body);
     mask-image: var(--perf-edge), var(--perf-body);
-    -webkit-mask-size: 12px 12px, calc(100% - 12px) 100%;
-    mask-size: 12px 12px, calc(100% - 12px) 100%;
-    -webkit-mask-position: left top, 12px top;
-    mask-position: left top, 12px top;
+    -webkit-mask-size:
+      12px 12px,
+      calc(100% - 12px) 100%;
+    mask-size:
+      12px 12px,
+      calc(100% - 12px) 100%;
+    -webkit-mask-position:
+      left top,
+      12px top;
+    mask-position:
+      left top,
+      12px top;
     -webkit-mask-repeat: repeat-y, no-repeat;
     mask-repeat: repeat-y, no-repeat;
   }
@@ -347,6 +373,19 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* The mobile nav sheet unrolls downward like a page being laid on the desk,
+   rather than sliding in from an edge the way an app drawer would. */
+@keyframes sheet-drop {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 12% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -417,6 +456,10 @@
     animation: ledger-wipe 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
+  .anim-sheet {
+    animation: sheet-drop 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
   .anim-bar {
     transform-origin: left;
     animation: bar-fill 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -444,6 +487,7 @@
 @media (prefers-reduced-motion: reduce) {
   .anim-rise,
   .anim-wipe,
+  .anim-sheet,
   .anim-bar,
   .anim-dash,
   .anim-dot,

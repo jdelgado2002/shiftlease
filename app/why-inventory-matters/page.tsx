@@ -78,7 +78,7 @@ export default function WhyInventoryMattersPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-28 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-4 py-1.5 text-sm font-medium text-destructive mb-6">
                 <AlertTriangle className="h-4 w-4" />
@@ -127,7 +127,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* Section 1: The Scale of the Problem */}
         <section id="the-cost" className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <NarrativeSection number="01" title="The Scale of the Problem">
               <p>
                 In the restaurant industry, <strong className="text-foreground">inventory shrinkage</strong> refers
@@ -156,7 +156,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* Section 2: Where the Money Goes */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <NarrativeSection number="02" title="Where the Money Actually Goes">
               <p>
                 Shrinkage is not a single problem — it is a web of interconnected losses, each one hard to see
@@ -187,7 +187,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* Section 3: Why Manual Methods Fail */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <NarrativeSection number="03" title="Why Spreadsheets and Clipboards Fail">
               <p>
                 Most restaurants still rely on manual inventory processes — clipboard counts, Excel
@@ -222,7 +222,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* Section 4: The ROI of Real-Time Inventory */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <NarrativeSection number="04" title="The ROI of Getting It Right">
               <p>
                 The business case for automated inventory management is not theoretical — it is proven
@@ -259,7 +259,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* Section 5: Key Benchmarks */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <NarrativeSection number="05" title="Industry Benchmarks You Should Know">
               <p>
                 Every restaurant operator should know these numbers. They are the difference between
@@ -285,7 +285,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* Section 6: What Real-Time Inventory Actually Means */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <NarrativeSection number="06" title="What Real-Time Inventory Actually Means">
               <p>
                 "Real-time" is not marketing jargon — it is a fundamentally different approach to
@@ -345,7 +345,7 @@ export default function WhyInventoryMattersPage() {
 
         {/* The Bottom Line CTA */}
         <section className="w-full py-20 md:py-28 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 rounded-full bg-background/10 px-4 py-1.5 text-sm font-medium text-background/70 mb-6">
                 <Lightbulb className="h-4 w-4" />

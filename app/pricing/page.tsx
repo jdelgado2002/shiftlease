@@ -64,7 +64,7 @@ export default function PricingPage() {
       <main className="flex-1">
         {/* Hero / Pricing Section */}
         <section className="w-full py-24 md:py-32 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
                 Simple Pricing
@@ -265,7 +265,7 @@ export default function PricingPage() {
 
         {/* FAQ Section */}
         <section className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
                 <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
@@ -308,7 +308,7 @@ export default function PricingPage() {
 
         {/* CTA Section */}
         <section className="w-full py-24 md:py-32 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center space-y-8">
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
                 Try it free for 14 days.

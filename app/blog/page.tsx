@@ -25,7 +25,7 @@ export default function BlogIndex() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1 py-24 md:py-32">
-        <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+        <div className="container max-w-4xl mx-auto">
           <div className="mb-16 text-center">
             <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
               Insights
@@ -34,8 +34,8 @@ export default function BlogIndex() {
               For operators, by an operator
             </h1>
             <p className="text-xl text-muted-foreground">
-              How to read your numbers, run a tighter shop, and stop finding
-              out two weeks late.
+              How to read your numbers, run a tighter shop, and stop finding out
+              two weeks late.
             </p>
           </div>
 

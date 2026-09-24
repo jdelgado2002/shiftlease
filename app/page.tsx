@@ -130,7 +130,7 @@ export default function Home() {
           <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-          <div className="container relative px-4 py-20 md:px-6 md:py-28 lg:py-36">
+          <div className="container relative py-20 md:py-28 lg:py-36">
             <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-12 lg:gap-12">
               {/* Copy */}
               <div className="lg:col-span-7">
@@ -343,7 +343,7 @@ export default function Home() {
 
         {/* ── Ledger strip ─────────────────────────────────── */}
         <section className="w-full border-b border-border bg-card">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="grid grid-cols-2 divide-x divide-border md:grid-cols-4">
               {[
                 { figure: "1", label: "app for the office and the floor" },
@@ -366,7 +366,7 @@ export default function Home() {
 
         {/* ── The gap ──────────────────────────────────────── */}
         <section className="w-full py-24 md:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-3xl">
                 <p className="label-mark text-primary">The gap</p>
@@ -434,7 +434,7 @@ export default function Home() {
         {/* ── Ink band ─────────────────────────────────────── */}
         <section className="grain relative w-full overflow-hidden bg-ink py-24 text-ink-foreground md:py-32">
           <div className="pointer-events-none absolute inset-0 bg-ruled opacity-[0.14]" />
-          <div className="container relative px-4 md:px-6">
+          <div className="container relative">
             <div className="mx-auto max-w-4xl text-center">
               <p className="label-mark text-primary">Why it compounds</p>
               <h2 className="font-display mt-5 text-4xl leading-[1.07] md:text-6xl">
@@ -479,7 +479,7 @@ export default function Home() {
           id="how-it-works"
           className="w-full border-b border-border py-24 md:py-32"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
                 <p className="label-mark text-primary">How it works</p>
@@ -539,7 +539,7 @@ export default function Home() {
           id="features"
           className="w-full border-b border-border bg-muted/40 py-24 md:py-32"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
                 <p className="label-mark text-primary">Also in the box</p>
@@ -578,17 +578,17 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+              <div className="mt-7 flex flex-wrap gap-x-8 sm:mt-10 sm:gap-y-3">
                 <Link
                   href="/why-operations-matter"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                  className="group inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary md:py-0"
                 >
                   Why operations matter
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/why-inventory-matters"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                  className="group inline-flex items-center gap-2 py-3 text-sm font-semibold text-primary md:py-0"
                 >
                   Why inventory matters
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -603,7 +603,7 @@ export default function Home() {
           id="pricing"
           className="w-full border-b border-border py-24 md:py-32"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-6xl">
               <div className="grid gap-10 md:grid-cols-12 md:items-end">
                 <div className="md:col-span-7">
@@ -651,7 +651,7 @@ export default function Home() {
 
         {/* ── Lead magnet ──────────────────────────────────── */}
         <section className="w-full border-b border-border bg-card">
-          <div className="container px-4 py-14 md:px-6">
+          <div className="container py-14">
             <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
               <div className="shrink-0">
                 <p className="label-mark text-primary">Free for operators</p>
@@ -681,7 +681,7 @@ export default function Home() {
 
         {/* ── Founder ──────────────────────────────────────── */}
         <section className="w-full border-b border-border py-24 md:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-3xl">
               <p className="label-mark text-primary">From the founder</p>
               <blockquote className="font-display mt-6 text-3xl leading-[1.18] md:text-4xl">
@@ -707,7 +707,7 @@ export default function Home() {
           className="grain relative w-full overflow-hidden bg-ink py-24 text-ink-foreground md:py-32"
         >
           <div className="pointer-events-none absolute inset-0 bg-ruled opacity-[0.14]" />
-          <div className="container relative px-4 md:px-6">
+          <div className="container relative">
             <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
               <div>
                 <h2 className="font-display text-4xl leading-[1.06] md:text-6xl">

@@ -173,7 +173,7 @@ export default function EmployeePortalPage() {
             }}
           />
 
-          <div className="container relative px-4 md:px-6">
+          <div className="container relative">
             <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-12">
               <div className="lg:col-span-6">
                 <div className="anim-rise inline-flex items-center gap-2.5 border-b-2 border-primary pb-2">
@@ -246,7 +246,7 @@ export default function EmployeePortalPage() {
 
         {/* ───────────────────── what's actually in it ───────────────────── */}
         <section className="w-full border-b border-border py-20 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5">
                 <p className="label-mark text-muted-foreground/70">
@@ -304,7 +304,7 @@ export default function EmployeePortalPage() {
           five beats in order, each staff action paired with what it does
           to the operator's side. That pairing is the actual argument. */}
         <section className="w-full border-b border-border py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
                 <p className="label-mark text-muted-foreground/70">
@@ -392,7 +392,7 @@ export default function EmployeePortalPage() {
 
         {/* ───────────────── guardrails: what staff can't do ───────────────── */}
         <section className="bg-ruled w-full border-b border-border py-20 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5">
                 <p className="label-mark text-muted-foreground/70">
@@ -439,7 +439,7 @@ export default function EmployeePortalPage() {
 
         {/* ───────────────────────── CTA ───────────────────────── */}
         <section className="grain relative w-full bg-ink py-20 text-ink-foreground md:py-24">
-          <div className="container relative px-4 md:px-6">
+          <div className="container relative">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-4xl leading-[1.08] md:text-5xl">
                 Your staff will open this

@@ -126,7 +126,7 @@ export default function WhyOperationsMatterPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 md:py-28 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-4 py-1.5 text-sm font-medium text-destructive mb-6">
                 <AlertTriangle className="h-4 w-4" />
@@ -173,7 +173,7 @@ export default function WhyOperationsMatterPage() {
 
         {/* Key Stats Banner */}
         <section className="w-full py-12 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <p className="text-3xl md:text-4xl font-bold mb-1">~33%</p>
@@ -197,8 +197,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 1: The Financial Sensitivity */}
         <section id="the-cost" className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="01" title="Why a 1% Swing Matters More Than You Think">
+          <div className="container">
+            <NarrativeSection
+              number="01"
+              title="Why a 1% Swing Matters More Than You Think"
+            >
               <p>
                 Industry benchmarking from the National Restaurant Association puts restaurant labor at roughly{" "}
                 <strong className="text-foreground">one-third of sales</strong>. In 2024, survey medians were
@@ -248,8 +251,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 2: The Four Labor Leaks */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="02" title="The Four Labor Leaks Draining Your Restaurants">
+          <div className="container">
+            <NarrativeSection
+              number="02"
+              title="The Four Labor Leaks Draining Your Restaurants"
+            >
               <p>
                 Operations tooling — Scheduling, Time Clock, Tip Pooling, Payroll — is better framed as{" "}
                 <strong className="text-foreground">loss prevention, risk containment, and throughput protection</strong>,
@@ -289,8 +295,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 3: Scheduling Deep Dive */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="03" title="Scheduling: Where Revenue Meets Labor Cost">
+          <div className="container">
+            <NarrativeSection
+              number="03"
+              title="Scheduling: Where Revenue Meets Labor Cost"
+            >
               <p>
                 The cost of weak scheduling hits chains in four ways:{" "}
                 <strong className="text-foreground">direct labor variance, revenue loss, regulatory penalties, and turnover</strong>.
@@ -383,8 +392,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 4: Time Clock Deep Dive */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="04" title="Time Clock: Where Payroll Leakage Begins">
+          <div className="container">
+            <NarrativeSection
+              number="04"
+              title="Time Clock: Where Payroll Leakage Begins"
+            >
               <p>
                 In restaurants, inaccuracies at the time clock compound: they become payroll errors, overtime
                 miscalculations, tip misallocations, and compliance exposure. For chains, they also become{" "}
@@ -468,8 +480,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 5: Tip Pooling Deep Dive */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="05" title="Tip Pooling: Compensation, Compliance, and Culture">
+          <div className="container">
+            <NarrativeSection
+              number="05"
+              title="Tip Pooling: Compensation, Compliance, and Culture"
+            >
               <p>
                 Tips are simultaneously compensation, compliance, and culture. When tip pooling is informal,
                 undocumented, or inconsistently applied across stores, chains face two kinds of cost:{" "}
@@ -531,8 +546,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 6: Payroll Deep Dive */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="06" title="Payroll: Where Every Error Compounds">
+          <div className="container">
+            <NarrativeSection
+              number="06"
+              title="Payroll: Where Every Error Compounds"
+            >
               <p>
                 Payroll failures are rarely "just payroll." In restaurants, errors typically cascade into
                 staff churn, emergency off-cycle payments, and compliance risk, because pay is frequent and
@@ -595,8 +613,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 7: The Connected System Advantage */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="07" title="Why Connected Systems Beat Point Solutions">
+          <div className="container">
+            <NarrativeSection
+              number="07"
+              title="Why Connected Systems Beat Point Solutions"
+            >
               <p>
                 The real value is not any single module — it is the{" "}
                 <strong className="text-foreground">closed loop between all four</strong>. When scheduling
@@ -613,13 +634,37 @@ export default function WhyOperationsMatterPage() {
 
             <div className="mt-16 max-w-5xl mx-auto">
               {/* Comparison Table */}
-              <div className="bg-card border border-border rounded-2xl overflow-hidden">
-                <div className="grid grid-cols-3">
-                  <div className="p-5 bg-muted/50 font-semibold text-sm border-b border-border">&nbsp;</div>
-                  <div className="p-5 bg-muted/50 font-semibold text-sm text-center border-b border-l border-border">
+              {/* Three columns of prose need about 600px. A phone offers
+                  110px a column, which wrapped these cells to four words a
+                  line and clipped the header outright. Below sm each row
+                  becomes a small card — the handoff, then the two ways it
+                  can go — and the column headings move inline. */}
+              {/* The roles are what make this a table to a screen reader: the
+                  layout is a grid rather than a <table> because a real table
+                  can only meet a 375px viewport by scrolling sideways, which
+                  is the thing the stacked rows above exist to avoid. */}
+              <div
+                role="table"
+                aria-label="Every handoff between scheduling, the time clock, tips, and payroll, disconnected tools versus a connected system"
+                className="bg-card border border-border rounded-2xl overflow-hidden"
+              >
+                <div role="row" className="hidden sm:grid sm:grid-cols-3">
+                  <div
+                    role="columnheader"
+                    className="p-5 bg-muted/50 font-semibold text-sm border-b border-border"
+                  >
+                    &nbsp;
+                  </div>
+                  <div
+                    role="columnheader"
+                    className="p-5 bg-muted/50 font-semibold text-sm text-center border-b border-l border-border"
+                  >
                     Disconnected Tools
                   </div>
-                  <div className="p-5 bg-primary/5 font-semibold text-sm text-center border-b border-l border-border text-primary">
+                  <div
+                    role="columnheader"
+                    className="p-5 bg-primary/5 font-semibold text-sm text-center border-b border-l border-border text-primary"
+                  >
                     EasyShiftHQ Connected System
                   </div>
                 </div>
@@ -650,15 +695,40 @@ export default function WhyOperationsMatterPage() {
                     connected: "Single system with change history, notes, and timestamps",
                   },
                 ].map((row, i) => (
-                  <div key={i} className="grid grid-cols-3">
-                    <div className="p-4 text-sm font-medium border-b border-border">{row.label}</div>
-                    <div className="p-4 text-sm text-muted-foreground border-b border-l border-border flex items-start gap-2">
-                      <XCircle className="h-4 w-4 text-destructive mt-0.5 flex-shrink-0" />
-                      {row.disconnected}
+                  <div
+                    key={i}
+                    role="row"
+                    className="border-b border-border sm:grid sm:grid-cols-3"
+                  >
+                    <div
+                      role="rowheader"
+                      className="bg-muted/40 p-4 text-sm font-medium sm:bg-transparent"
+                    >
+                      {row.label}
                     </div>
-                    <div className="p-4 text-sm text-muted-foreground border-b border-l border-border flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      {row.connected}
+                    <div
+                      role="cell"
+                      className="border-t border-border p-4 text-sm text-muted-foreground sm:border-l sm:border-t-0"
+                    >
+                      <p className="label-mark mb-2 text-muted-foreground/70 sm:hidden">
+                        Disconnected tools
+                      </p>
+                      <p className="flex items-start gap-2">
+                        <XCircle className="h-4 w-4 text-destructive mt-0.5 flex-shrink-0" />
+                        {row.disconnected}
+                      </p>
+                    </div>
+                    <div
+                      role="cell"
+                      className="border-t border-border p-4 text-sm text-muted-foreground sm:border-l sm:border-t-0"
+                    >
+                      <p className="label-mark mb-2 text-primary/70 sm:hidden">
+                        EasyShiftHQ
+                      </p>
+                      <p className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        {row.connected}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -669,8 +739,11 @@ export default function WhyOperationsMatterPage() {
 
         {/* Section 8: Numbers-Forward Framing */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <NarrativeSection number="08" title="The Numbers That Should Keep Operators Up at Night">
+          <div className="container">
+            <NarrativeSection
+              number="08"
+              title="The Numbers That Should Keep Operators Up at Night"
+            >
               <p>
                 If you want one page to make the case for operations systems, these are the benchmarks
                 that matter. Every one maps to a specific, preventable failure mode.
@@ -678,11 +751,33 @@ export default function WhyOperationsMatterPage() {
             </NarrativeSection>
 
             <div className="mt-16 max-w-5xl mx-auto">
-              <div className="bg-card border border-border rounded-2xl overflow-hidden">
-                <div className="grid grid-cols-3 bg-muted/50 border-b border-border">
-                  <div className="p-5 font-semibold text-sm">Benchmark</div>
-                  <div className="p-5 font-semibold text-sm border-l border-border">Source</div>
-                  <div className="p-5 font-semibold text-sm border-l border-border">What It Means</div>
+              <div
+                role="table"
+                aria-label="Operations benchmarks, their source, and what each one means"
+                className="bg-card border border-border rounded-2xl overflow-hidden"
+              >
+                <div
+                  role="row"
+                  className="hidden bg-muted/50 border-b border-border sm:grid sm:grid-cols-3"
+                >
+                  <div
+                    role="columnheader"
+                    className="p-5 font-semibold text-sm"
+                  >
+                    Benchmark
+                  </div>
+                  <div
+                    role="columnheader"
+                    className="p-5 font-semibold text-sm border-l border-border"
+                  >
+                    Source
+                  </div>
+                  <div
+                    role="columnheader"
+                    className="p-5 font-semibold text-sm border-l border-border"
+                  >
+                    What It Means
+                  </div>
                 </div>
                 {[
                   {
@@ -721,10 +816,34 @@ export default function WhyOperationsMatterPage() {
                     meaning: "Integration between timekeeping, tips, and payroll is the key lever",
                   },
                 ].map((row, i) => (
-                  <div key={i} className="grid grid-cols-3 border-b border-border last:border-b-0">
-                    <div className="p-4 text-sm font-medium">{row.benchmark}</div>
-                    <div className="p-4 text-sm text-muted-foreground border-l border-border">{row.source}</div>
-                    <div className="p-4 text-sm text-muted-foreground border-l border-border">{row.meaning}</div>
+                  <div
+                    key={i}
+                    role="row"
+                    className="flex flex-col border-b border-border last:border-b-0 sm:grid sm:grid-cols-3"
+                  >
+                    <div
+                      role="cell"
+                      className="px-4 pb-1 pt-4 text-sm font-medium sm:p-4 sm:pb-4"
+                    >
+                      {row.benchmark}
+                    </div>
+                    {/* Source and meaning are in the header's column order so
+                        that role="cell" lines each one up under the right
+                        role="columnheader". On a phone the finding is read
+                        first and the citation follows it as a footnote, which
+                        is a reordering of the flex column, not of the DOM. */}
+                    <div
+                      role="cell"
+                      className="font-ledger order-3 px-4 pb-4 text-[11px] text-muted-foreground/80 sm:order-none sm:border-l sm:border-border sm:p-4 sm:text-sm"
+                    >
+                      {row.source}
+                    </div>
+                    <div
+                      role="cell"
+                      className="order-2 px-4 pb-2 text-sm text-muted-foreground sm:order-none sm:border-l sm:border-border sm:p-4"
+                    >
+                      {row.meaning}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -734,7 +853,7 @@ export default function WhyOperationsMatterPage() {
 
         {/* The Bottom Line CTA */}
         <section className="w-full py-20 md:py-28 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 rounded-full bg-background/10 px-4 py-1.5 text-sm font-medium text-background/70 mb-6">
                 <Lightbulb className="h-4 w-4" />

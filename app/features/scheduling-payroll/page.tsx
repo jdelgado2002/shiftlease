@@ -254,7 +254,7 @@ export default function SchedulingPayrollPage() {
         {/* Hero */}
         <section className="relative w-full overflow-hidden border-b border-border">
           <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
-          <div className="container relative px-4 py-20 md:px-6 md:py-28">
+          <div className="container relative py-20 md:py-28">
             <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-7">
                 <div className="anim-rise inline-flex items-center gap-2.5 border-b-2 border-primary pb-2">
@@ -349,7 +349,7 @@ export default function SchedulingPayrollPage() {
 
         {/* Four Pillars Overview */}
         <section className="w-full py-16 md:py-24 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
                 The Four Pillars
@@ -386,7 +386,7 @@ export default function SchedulingPayrollPage() {
 
         {/* ── Scheduling Deep Dive ── */}
         <section className="w-full py-16 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -434,7 +434,7 @@ export default function SchedulingPayrollPage() {
 
         {/* ── Time Clock Deep Dive ── */}
         <section className="w-full py-16 md:py-24 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -599,7 +599,7 @@ export default function SchedulingPayrollPage() {
 
         {/* ── Tip Pooling Deep Dive ── */}
         <section className="w-full py-16 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -762,7 +762,7 @@ export default function SchedulingPayrollPage() {
 
         {/* ── Payroll Deep Dive ── */}
         <section className="w-full py-16 md:py-24 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -903,7 +903,7 @@ export default function SchedulingPayrollPage() {
 
         {/* Connected Workflow Banner */}
         <section className="w-full py-16 md:py-24 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-6 text-balance">
                 Four screens. One set of numbers.

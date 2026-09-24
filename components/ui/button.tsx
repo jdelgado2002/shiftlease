@@ -20,13 +20,27 @@ const buttonVariants = cva(
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
       },
+      // Each size carries a touch floor below md and drops it at md, where
+      // this site stops assuming a finger — the same line the nav uses to
+      // swap the sheet for the bar, so a 700px viewport is not left with a
+      // hamburger and cursor-sized controls.
+      //
+      // The floor is graduated (40/44/48) rather than a flat 44 so `sm` stays
+      // visibly smaller than `default` when someone reaches for a compact
+      // control; 40px already clears the 24px that WCAG 2.5.8 actually
+      // requires at AA, and 44 is the AAA figure the default size meets.
+      //
+      // It is a floor rather than a height so the many call sites that set
+      // h-12 or h-14 keep the size they asked for — min-h- and h- are
+      // different utilities, so tailwind-merge leaves both in place and the
+      // larger one wins.
       size: {
-        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        icon: 'size-9',
-        'icon-sm': 'size-8',
-        'icon-lg': 'size-10',
+        default: 'h-9 min-h-11 px-4 py-2 has-[>svg]:px-3 md:min-h-0',
+        sm: 'h-8 min-h-10 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5 md:min-h-0',
+        lg: 'h-10 min-h-12 rounded-md px-6 has-[>svg]:px-4 md:min-h-0',
+        icon: 'size-9 min-h-11 min-w-11 md:min-h-0 md:min-w-0',
+        'icon-sm': 'size-8 min-h-10 min-w-10 md:min-h-0 md:min-w-0',
+        'icon-lg': 'size-10 min-h-12 min-w-12 md:min-h-0 md:min-w-0',
       },
     },
     defaultVariants: {

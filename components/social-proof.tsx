@@ -27,7 +27,7 @@ export function SocialProofRow({ variant = "compact" }: SocialProofRowProps) {
           href={p.url}
           target="_blank"
           rel="noopener"
-          className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-2 py-3 transition-colors hover:text-foreground md:py-0"
         >
           <span className="font-medium">{p.logoLabel}</span>
           <svg

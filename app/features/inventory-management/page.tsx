@@ -179,7 +179,7 @@ export default function InventoryManagementPage() {
         {/* Hero Section */}
         <section className="relative w-full overflow-hidden border-b border-border">
           <div className="pointer-events-none absolute inset-0 bg-gridpaper opacity-70" />
-          <div className="container relative px-4 py-20 md:px-6 md:py-28">
+          <div className="container relative py-20 md:py-28">
             <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-7">
                 <div className="anim-rise inline-flex items-center gap-2.5 border-b-2 border-primary pb-2">
@@ -276,7 +276,7 @@ export default function InventoryManagementPage() {
 
         {/* The Problem Narrative */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto space-y-6">
               <p className="text-sm font-medium text-destructive tracking-wide uppercase">
                 The Problem
@@ -297,7 +297,8 @@ export default function InventoryManagementPage() {
                   On $2.5 million in sales, that 5% gap represents{" "}
                   <strong className="text-foreground">
                     $125,000 in vanishing profit
-                  </strong>. And because manual systems only catch problems weeks later,
+                  </strong>
+                  . And because manual systems only catch problems weeks later,
                   the window to investigate and act has long closed.
                 </p>
                 <p>
@@ -320,7 +321,7 @@ export default function InventoryManagementPage() {
 
         {/* Features Grid */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase mb-4">
                 The Solution
@@ -366,7 +367,7 @@ export default function InventoryManagementPage() {
 
         {/* Manual vs Automated */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto space-y-6 mb-16">
               <p className="text-sm font-medium text-primary tracking-wide uppercase">
                 The Comparison
@@ -390,7 +391,7 @@ export default function InventoryManagementPage() {
 
         {/* Time Savings Narrative */}
         <section className="w-full py-20 md:py-28 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
@@ -451,7 +452,7 @@ export default function InventoryManagementPage() {
 
         {/* Benefits Grid */}
         <section className="w-full py-20 md:py-28">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-4xl mx-auto text-center mb-12">
               <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-4">
                 What it does to the bottom line
@@ -488,7 +489,7 @@ export default function InventoryManagementPage() {
 
         {/* CTA Section */}
         <section className="w-full py-20 md:py-28 bg-foreground text-background">
-          <div className="container px-4 md:px-6">
+          <div className="container">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="font-display text-3xl md:text-4xl leading-[1.08] mb-4 text-balance">
                 Stop the silent bleed.

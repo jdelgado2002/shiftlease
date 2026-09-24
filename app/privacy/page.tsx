@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
                 <strong>Effective Date:</strong> October 15, 2025
               </p>
               <p className="mt-4 text-lg">
-                EasyShiftHQ ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains
+                EasyShiftHQ (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains
                 how we collect, use, share, and protect your personal data when you use our SaaS platform at
                 easyshifthq.com, in accordance with the General Data Protection Regulation (GDPR).
               </p>
@@ -130,7 +130,7 @@ export default function PrivacyPolicy() {
                   <strong>Right to rectification</strong> – Correct inaccurate or incomplete data
                 </li>
                 <li>
-                  <strong>Right to erasure</strong> – Request deletion of your data ("right to be forgotten")
+                  <strong>Right to erasure</strong> – Request deletion of your data (&quot;right to be forgotten&quot;)
                 </li>
                 <li>
                   <strong>Right to restrict processing</strong> – Limit how we use your data

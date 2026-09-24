@@ -47,8 +47,8 @@ export default function TermsOfService() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold">1. Acceptance of Terms</h2>
               <p>
-                By creating an account or accessing EasyShiftHQ, you ("User", "you") agree to be bound by this End User
-                License Agreement ("Agreement", "EULA") between you and EasyShiftHQ ("we", "our", "us").
+                By creating an account or accessing EasyShiftHQ, you (&quot;User&quot;, &quot;you&quot;) agree to be bound by this End User
+                License Agreement (&quot;Agreement&quot;, &quot;EULA&quot;) between you and EasyShiftHQ (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;).
               </p>
               <p>If you do not agree to these terms, do not access or use our services.</p>
             </section>
@@ -162,7 +162,7 @@ export default function TermsOfService() {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold">11. Disclaimer of Warranties</h2>
               <p>
-                The platform is provided "as is" and "as available" without warranties of any kind, express or implied.
+                The platform is provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, express or implied.
                 We do not guarantee:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">

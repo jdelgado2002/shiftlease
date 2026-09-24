@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
@@ -134,18 +135,18 @@ export default async function BlogPost({ params }: PageProps) {
               hand?
             </p>
             <div className="flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/tools/daily-pl-cheat-sheet"
                 className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-5 text-sm font-medium text-background hover:bg-foreground/90"
               >
                 Get the Daily P&amp;L Cheat Sheet
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/blog"
                 className="inline-flex h-11 items-center justify-center rounded-full border border-border px-5 text-sm font-medium hover:border-primary/40"
               >
                 More articles
-              </a>
+              </Link>
             </div>
           </div>
         </article>

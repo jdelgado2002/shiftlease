@@ -16,7 +16,7 @@ import {
 } from "@/components/inventory-impact"
 
 const description =
-  "Restaurants lose 2-10% of revenue to shrinkage from theft, waste, and errors. Learn how real-time inventory management saves $30,000+ annually per location."
+  "Restaurants lose 2-10% of revenue to shrinkage from theft, waste, and errors. At $1M in sales, 3% shrinkage is $30,000 a year. Here's where it hides."
 
 export const metadata: Metadata = {
   title: "Why Inventory Management Matters",

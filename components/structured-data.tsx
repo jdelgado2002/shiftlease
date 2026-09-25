@@ -130,7 +130,7 @@ export function FeaturePageSchema({
       url: "https://easyshifthq.com",
     },
     offers: PRICING_OFFER,
-    provider: ORG,
+    publisher: ORG,
   }
 
   return (

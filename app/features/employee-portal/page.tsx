@@ -157,7 +157,7 @@ export default function EmployeePortalPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://easyshifthq.com" },
-          { name: "Features", url: "https://easyshifthq.com/features" },
+          { name: "Features", url: "https://easyshifthq.com/#features" },
           {
             name: "Employee Portal",
             url: "https://easyshifthq.com/features/employee-portal",

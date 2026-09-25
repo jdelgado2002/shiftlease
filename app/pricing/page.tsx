@@ -6,12 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SocialProofRow } from "@/components/social-proof"
-import { BreadcrumbSchema, FAQPageSchema } from "@/components/structured-data"
+import {
+  BreadcrumbSchema,
+  FAQPageSchema,
+  OrganizationSchema,
+} from "@/components/structured-data"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Starter $99, Growth $199, Pro $299 per location/month. No contracts, no setup fees. 14-day free trial, no credit card required."
 
 export const metadata: Metadata = {
-  title: "Pricing",
-  description:
-    "Restaurant ops priced for indie operators. Starter $99, Growth $199, Pro $299. Free 14-day trial, no credit card.",
+  title: "Restaurant Ops Pricing: $99–$299/Location",
+  description,
   alternates: {
     canonical: "https://easyshifthq.com/pricing",
   },
@@ -19,6 +26,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...shareMetadata(
+    "/pricing",
+    "Restaurant Ops Pricing: $99–$299/Location | EasyShiftHQ",
+    description,
+  ),
 }
 
 const pricingFaqs = [
@@ -53,6 +65,7 @@ export default function PricingPage() {
     <div className="flex min-h-screen flex-col">
       {/* The questions below are rendered on this page, so they can be marked up. */}
       <FAQPageSchema items={pricingFaqs} />
+      <OrganizationSchema />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://easyshifthq.com" },
@@ -73,7 +86,7 @@ export default function PricingPage() {
                 Simple. Transparent. Powerful.
               </h1>
               <p className="text-xl text-muted-foreground">
-                Choose the plan that fits your restaurant.
+                Choose the plan that fits your restaurant.{" "}
                 <br />
                 No contracts. No setup fees. No surprise invoices.
               </p>
@@ -314,7 +327,7 @@ export default function PricingPage() {
                 Try it free for 14 days.
               </h2>
               <p className="text-xl text-background/70 leading-relaxed">
-                No credit card. No contracts. Cancel anytime.
+                No credit card. No contracts. Cancel anytime.{" "}
                 <br />
                 See your real profits — every single day.
               </p>

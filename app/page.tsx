@@ -23,6 +23,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { OperatingLoop } from "@/components/home/operating-loop"
 import { StationPanels } from "@/components/home/station-panels"
+import { OrganizationSchema } from "@/components/structured-data"
 
 import type { Metadata } from "next"
 
@@ -122,6 +123,7 @@ function TapeRule() {
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
+      <OrganizationSchema />
       <Header />
 
       <main className="flex-1">
@@ -142,9 +144,9 @@ export default function Home() {
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-[4.5rem]"
                   style={{ animationDelay: "80ms" }}
                 >
-                  From the shift
+                  From the shift{" "}
                   <br />
-                  you schedule
+                  you schedule{" "}
                   <br />
                   <span className="italic text-primary">
                     to the check that clears.
@@ -190,7 +192,7 @@ export default function Home() {
                   className="anim-rise font-ledger mt-6 text-[12px] text-muted-foreground"
                   style={{ animationDelay: "320ms" }}
                 >
-                  No credit card · 14 days free · 15-minute setup
+                  No credit card · 14 days free · Self-serve setup
                 </p>
               </div>
 
@@ -371,7 +373,7 @@ export default function Home() {
               <div className="max-w-3xl">
                 <p className="label-mark text-primary">The gap</p>
                 <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
-                  Your money decisions and your
+                  Your money decisions and your{" "}
                   <br />
                   money data live{" "}
                   <span className="italic text-muted-foreground">
@@ -438,7 +440,7 @@ export default function Home() {
             <div className="mx-auto max-w-4xl text-center">
               <p className="label-mark text-primary">Why it compounds</p>
               <h2 className="font-display mt-5 text-4xl leading-[1.07] md:text-6xl">
-                One target. Four screens.
+                One target. Four screens.{" "}
                 <br />
                 <span className="italic text-ink-foreground/60">
                   Nothing typed twice.
@@ -544,7 +546,7 @@ export default function Home() {
               <div className="max-w-2xl">
                 <p className="label-mark text-primary">Also in the box</p>
                 <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-5xl">
-                  The loop is the habit.
+                  The loop is the habit.{" "}
                   <br />
                   <span className="italic text-muted-foreground">
                     The rest is still yours.
@@ -711,7 +713,7 @@ export default function Home() {
             <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
               <div>
                 <h2 className="font-display text-4xl leading-[1.06] md:text-6xl">
-                  Close the loop.
+                  Close the loop.{" "}
                   <br />
                   <span className="italic text-ink-foreground/60">
                     Starting with next week.

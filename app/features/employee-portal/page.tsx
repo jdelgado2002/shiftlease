@@ -16,11 +16,14 @@ import {
   TimecardScreen,
   TipsScreen,
 } from "@/components/portal/screens"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "The app your staff actually opens: open-shift marketplace, shift trades, verified clock-in, tip splits, and pay-period earnings on their phone."
 
 export const metadata: Metadata = {
-  title: "Employee Portal - Shifts, Time Clock, Tips & Pay for Staff",
-  description:
-    "The app your restaurant staff actually opens. Open-shift marketplace, shift trades with manager approval, verified clock-in, tip splits they can check, and pay-period earnings — on their own phone.",
+  title: "Employee Portal: Shifts, Clock-In & Tips",
+  description,
   keywords: [
     "restaurant employee app",
     "open shift marketplace",
@@ -30,6 +33,11 @@ export const metadata: Metadata = {
     "employee self service restaurant",
   ],
   alternates: { canonical: "https://easyshifthq.com/features/employee-portal" },
+  ...shareMetadata(
+    "/features/employee-portal",
+    "Employee Portal: Shifts, Clock-In & Tips | EasyShiftHQ",
+    description,
+  ),
 }
 
 /** The five beats of a week, staff-side, each paired with its operator consequence. */
@@ -149,7 +157,7 @@ export default function EmployeePortalPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://easyshifthq.com" },
-          { name: "Features", url: "https://easyshifthq.com/features" },
+          { name: "Features", url: "https://easyshifthq.com/#features" },
           {
             name: "Employee Portal",
             url: "https://easyshifthq.com/features/employee-portal",
@@ -190,11 +198,11 @@ export default function EmployeePortalPage() {
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
                   style={{ animationDelay: "90ms" }}
                 >
-                  Someone picks up
+                  Someone picks up{" "}
                   <br />
                   the shift{" "}
                   <span className="italic text-primary">
-                    while you&rsquo;re
+                    while you&rsquo;re{" "}
                     <br />
                     still on the line.
                   </span>
@@ -254,7 +262,7 @@ export default function EmployeePortalPage() {
                   they can open
                 </p>
                 <h2 className="font-display mt-4 text-4xl leading-[1.06] md:text-5xl">
-                  Four tabs.
+                  Four tabs.{" "}
                   <br />
                   <span className="italic text-primary">No training day.</span>
                 </h2>
@@ -312,7 +320,7 @@ export default function EmployeePortalPage() {
                   of it
                 </p>
                 <h2 className="font-display mt-4 text-4xl leading-[1.06] md:text-5xl">
-                  What they do on the phone
+                  What they do on the phone{" "}
                   <br />
                   <span className="italic text-primary">
                     is what lands on your desk.
@@ -400,7 +408,7 @@ export default function EmployeePortalPage() {
                   purpose
                 </p>
                 <h2 className="font-display mt-4 text-4xl leading-[1.06] md:text-5xl">
-                  Self-service
+                  Self-service{" "}
                   <br />
                   <span className="italic text-primary">
                     is not self-approval.
@@ -442,7 +450,7 @@ export default function EmployeePortalPage() {
           <div className="container relative">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="font-display text-4xl leading-[1.08] md:text-5xl">
-                Your staff will open this
+                Your staff will open this{" "}
                 <br />
                 <span className="italic text-primary">
                   more than you open anything.

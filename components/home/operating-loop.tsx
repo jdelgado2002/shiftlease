@@ -72,7 +72,7 @@ export function OperatingLoop() {
         <div className="mx-auto mb-16 max-w-3xl md:mb-20">
           <p className="label-mark text-primary">The operating loop</p>
           <h2 className="font-display mt-4 text-4xl leading-[1.05] md:text-6xl">
-            Four screens. One loop.
+            Four screens. One loop.{" "}
             <br />
             <span className="text-muted-foreground italic">Every single week.</span>
           </h2>

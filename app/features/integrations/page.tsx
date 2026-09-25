@@ -1,11 +1,14 @@
 import { Metadata } from "next"
 import { Zap } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "One-click POS integration with Square, Toast, Clover, Shift4, Focus POS and Revel, plus secure bank connections. Self-serve setup."
 
 export const metadata: Metadata = {
-  title: "Integrations - Connect Square, Toast, Clover & More",
-  description:
-    "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Secure bank connections via Stripe. Multi-location support with roll-up reporting. Set up yourself in one sitting — no implementation project.",
+  title: "POS & Bank Integrations: Square, Toast, Clover",
+  description,
   keywords: [
     "Square POS integration",
     "Toast POS integration",
@@ -19,20 +22,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://easyshifthq.com/features/integrations",
   },
-  openGraph: {
-    type: "website",
-    url: "https://easyshifthq.com/features/integrations",
-    title: "Integrations - Connect Square, Toast, Clover & More | EasyShiftHQ",
-    description:
-      "One-click POS integrations with Square, Toast, Clover, Shift4, Focus POS, and Revel. Set up yourself in one sitting.",
-    siteName: "EasyShiftHQ",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Integrations - Connect Square, Toast, Clover | EasyShiftHQ",
-    description:
-      "One-click POS integrations with Square, Toast, Clover, and Shift4. Set up yourself in one sitting.",
-  },
+  ...shareMetadata(
+    "/features/integrations",
+    "POS & Bank Integrations: Square, Toast, Clover | EasyShiftHQ",
+    description,
+  ),
 }
 
 const features = [
@@ -150,7 +144,7 @@ const features = [
     features: [
       "CSV export for spreadsheets",
       "PDF reports for stakeholders",
-      "Payroll export (ADP, Gusto, Paychex)",
+      "Payroll export (Gusto CSV, plus a standard CSV for any provider)",
       "Coming soon: QuickBooks, 7shifts integration",
     ],
   },
@@ -175,7 +169,7 @@ const benefits = [
   "Role-based access",
   "Export anywhere",
   "AI assistant",
-  "15-minute setup",
+  "Self-serve setup",
 ]
 
 export default function IntegrationsPage() {

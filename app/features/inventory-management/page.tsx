@@ -29,11 +29,14 @@ import {
   ManualVsAutomatedComparison,
   inventoryStats,
 } from "@/components/inventory-impact"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Cut inventory loss with real-time stock tracking, AI receipt scanning, waste management, and automatic POS deductions on every sale."
 
 export const metadata: Metadata = {
-  title: "Inventory Management - Real-Time Stock Tracking for Restaurants",
-  description:
-    "Reduce inventory loss by 18% with real-time stock tracking, AI-powered receipt scanning (OCR), waste management, and automatic POS deductions. Restaurants lose 2-10% of revenue to shrinkage — stop the bleeding.",
+  title: "Real-Time Restaurant Inventory Tracking",
+  description,
   keywords: [
     "restaurant inventory management",
     "real-time stock tracking",
@@ -49,20 +52,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://easyshifthq.com/features/inventory-management",
   },
-  openGraph: {
-    type: "website",
-    url: "https://easyshifthq.com/features/inventory-management",
-    title: "Inventory Management - Stop Losing 2-10% of Revenue | EasyShiftHQ",
-    description:
-      "Real-time inventory tracking that catches theft, waste, and errors instantly. Save $30,000+ annually per location.",
-    siteName: "EasyShiftHQ",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Inventory Management - Stop Losing 2-10% of Revenue | EasyShiftHQ",
-    description:
-      "Real-time inventory tracking that catches theft, waste, and errors instantly.",
-  },
+  ...shareMetadata(
+    "/features/inventory-management",
+    "Real-Time Restaurant Inventory Tracking | EasyShiftHQ",
+    description,
+  ),
 }
 
 const features = [
@@ -195,7 +189,7 @@ export default function InventoryManagementPage() {
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
                   style={{ animationDelay: "90ms" }}
                 >
-                  The shrinkage is already
+                  The shrinkage is already{" "}
                   <br />
                   <span className="italic text-primary">
                     on this month&apos;s P&amp;L.

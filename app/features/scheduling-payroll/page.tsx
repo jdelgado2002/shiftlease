@@ -28,11 +28,14 @@ import {
   FeaturePageSchema,
   BreadcrumbSchema,
 } from "@/components/structured-data"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Drag-and-drop scheduling with AI generation, shift trades, verified time clock with kiosk mode, tip pooling, and payroll with overtime built in."
 
 export const metadata: Metadata = {
-  title: "Scheduling & Payroll - Schedule, Time Clock, Tips & Payroll",
-  description:
-    "Complete restaurant workforce management: drag-and-drop scheduling with AI-assisted generation, shift trades and an open-shift marketplace, conflict and labor-law warnings, verified time clock with kiosk mode, configurable tip pooling, and payroll with overtime and tip integration.",
+  title: "Restaurant Scheduling & Payroll Software",
+  description,
   keywords: [
     "restaurant employee scheduling",
     "AI schedule generation",
@@ -53,20 +56,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://easyshifthq.com/features/scheduling-payroll",
   },
-  openGraph: {
-    type: "website",
-    url: "https://easyshifthq.com/features/scheduling-payroll",
-    title: "Operations - Scheduling, Time Clock, Tips & Payroll | EasyShiftHQ",
-    description:
-      "Restaurant scheduling with AI-assisted generation, shift trades, and conflict warnings — plus verified time clock, configurable tip pooling, and integrated payroll.",
-    siteName: "EasyShiftHQ",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Operations - Scheduling, Time Clock, Tips & Payroll | EasyShiftHQ",
-    description:
-      "Complete restaurant workforce management with scheduling, time clock, tip pooling, and payroll.",
-  },
+  ...shareMetadata(
+    "/features/scheduling-payroll",
+    "Restaurant Scheduling & Payroll Software | EasyShiftHQ",
+    description,
+  ),
 }
 
 const schedulingFeatures = [
@@ -270,7 +264,7 @@ export default function SchedulingPayrollPage() {
                   className="font-display anim-rise mt-6 text-[2.75rem] leading-[1.03] sm:text-6xl lg:text-[4.25rem]"
                   style={{ animationDelay: "90ms" }}
                 >
-                  Schedule. Clock. Tip. Pay.
+                  Schedule. Clock. Tip. Pay.{" "}
                   <br />
                   <span className="italic text-primary">
                     Nothing re-typed in between.

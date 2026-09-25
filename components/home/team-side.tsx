@@ -128,7 +128,7 @@ export function TeamSide() {
             </p>
 
             <h2 className="font-display mt-4 text-4xl leading-[1.06] md:text-5xl">
-              You write the schedule.
+              You write the schedule.{" "}
               <br />
               <span className="italic text-primary">They live in it.</span>
             </h2>

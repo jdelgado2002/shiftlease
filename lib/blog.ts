@@ -4,13 +4,16 @@ import matter from "gray-matter"
 
 export interface BlogPostMeta {
   title: string
+  /** Shorter <title> for search results. The H1 keeps `title`. */
+  seoTitle?: string
   description: string
   slug: string
   publishedAt: string
+  /** Set when a post is materially revised. Feeds dateModified. */
+  updatedAt?: string
   author: string
   authorTitle?: string
   tags?: string[]
-  ogImage?: string
 }
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog")
@@ -52,6 +55,7 @@ export function getBlogPostBySlug(slug: string): {
     ...data,
     slug: data.slug || filename.replace(/\.mdx$/, "").replace(DATE_PREFIX_RE, ""),
     publishedAt: normalizePublishedAt(data.publishedAt),
+    updatedAt: data.updatedAt ? normalizePublishedAt(data.updatedAt) : undefined,
   } as BlogPostMeta
   return { meta, content, filename }
 }

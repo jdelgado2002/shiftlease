@@ -1,11 +1,14 @@
 import { Metadata } from "next"
 import { ChefHat } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Know what each dish costs with real-time recipe costing, a Stars/Plowhorses/Puzzles/Dogs menu matrix, and automatic inventory deductions."
 
 export const metadata: Metadata = {
-  title: "Recipe & Menu Management - Recipe Costing & Menu Engineering",
-  description:
-    "Know exactly what each dish costs with real-time recipe costing, menu engineering matrix (Stars, Plowhorses, Puzzles, Dogs), profitability analysis, and automatic inventory deductions when items sell.",
+  title: "Recipe Costing & Menu Engineering",
+  description,
   keywords: [
     "recipe costing software",
     "menu engineering",
@@ -19,21 +22,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://easyshifthq.com/features/recipe-menu",
   },
-  openGraph: {
-    type: "website",
-    url: "https://easyshifthq.com/features/recipe-menu",
-    title:
-      "Recipe & Menu Management - Recipe Costing & Menu Engineering | EasyShiftHQ",
-    description:
-      "Know exactly what each dish costs with real-time recipe costing and menu engineering tools.",
-    siteName: "EasyShiftHQ",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Recipe & Menu Management - Recipe Costing | EasyShiftHQ",
-    description:
-      "Know exactly what each dish costs with real-time recipe costing and menu engineering.",
-  },
+  ...shareMetadata(
+    "/features/recipe-menu",
+    "Recipe Costing & Menu Engineering | EasyShiftHQ",
+    description,
+  ),
 }
 
 const features = [

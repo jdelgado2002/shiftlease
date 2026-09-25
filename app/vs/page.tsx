@@ -4,11 +4,14 @@ import { ArrowRight } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BreadcrumbSchema } from "@/components/structured-data"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Honest comparisons of EasyShiftHQ against other restaurant management platforms. Built for operators choosing between options."
 
 export const metadata: Metadata = {
-  title: "Comparisons",
-  description:
-    "Honest comparisons of EasyShiftHQ against other restaurant management platforms. Built for operators choosing between options.",
+  title: "Restaurant Software Comparisons",
+  description,
   alternates: {
     canonical: "https://easyshifthq.com/vs",
   },
@@ -16,6 +19,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...shareMetadata("/vs", "Restaurant Software Comparisons | EasyShiftHQ", description),
 }
 
 const comparisons = [

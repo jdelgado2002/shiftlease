@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { getAllBlogSlugs, getBlogPostBySlug, publicSlug } from "@/lib/blog"
+import { BreadcrumbSchema, ORG } from "@/components/structured-data"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
@@ -12,6 +13,11 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 type PageProps = Readonly<{
   params: Promise<{ slug: string }>
 }>
+
+/** Shared by generateMetadata and the page so both point at the same URL. */
+function canonicalUrl(slug: string): string {
+  return `https://easyshifthq.com/blog/${publicSlug(slug)}`
+}
 
 export function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({
@@ -26,30 +32,32 @@ export async function generateMetadata({
   const post = getBlogPostBySlug(slug)
   if (!post) return {}
   const { meta } = post
-  const canonical = `https://easyshifthq.com/blog/${publicSlug(meta.slug)}`
+  const canonical = canonicalUrl(meta.slug)
 
   return {
-    title: meta.title,
+    title: meta.seoTitle ?? meta.title,
     description: meta.description,
     authors: meta.author ? [{ name: meta.author }] : undefined,
     keywords: meta.tags,
     alternates: { canonical },
+    // No images here. The co-located opengraph-image.tsx already renders a
+    // card for every post; frontmatter ogImage pointed at /og/*.jpg files
+    // that were never created.
     openGraph: {
       type: "article",
+      siteName: "EasyShiftHQ",
+      locale: "en_US",
       title: meta.title,
       description: meta.description,
       url: canonical,
       publishedTime: meta.publishedAt,
+      modifiedTime: meta.updatedAt ?? meta.publishedAt,
       authors: meta.author ? [meta.author] : undefined,
-      images: meta.ogImage
-        ? [{ url: meta.ogImage, width: 1200, height: 630, alt: meta.title }]
-        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: meta.ogImage ? [meta.ogImage] : undefined,
     },
   }
 }
@@ -59,24 +67,19 @@ export default async function BlogPost({ params }: PageProps) {
   const post = getBlogPostBySlug(slug)
   if (!post) notFound()
   const { meta, content } = post
+  const url = canonicalUrl(meta.slug)
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: meta.title,
     description: meta.description,
     datePublished: meta.publishedAt,
+    dateModified: meta.updatedAt ?? meta.publishedAt,
     author: meta.author ? { "@type": "Person", name: meta.author } : undefined,
-    publisher: {
-      "@type": "Organization",
-      name: "EasyShiftHQ",
-      url: "https://easyshifthq.com",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://easyshifthq.com/blog/${publicSlug(meta.slug)}`,
-    },
-    image: meta.ogImage ? `https://easyshifthq.com${meta.ogImage}` : undefined,
+    publisher: ORG,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: `${url}/opengraph-image`,
   }
 
   return (
@@ -89,6 +92,13 @@ export default async function BlogPost({ params }: PageProps) {
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c"),
             }}
+          />
+          <BreadcrumbSchema
+            items={[
+              { name: "Home", url: "https://easyshifthq.com" },
+              { name: "Blog", url: "https://easyshifthq.com/blog" },
+              { name: meta.title, url },
+            ]}
           />
           <header className="mb-12">
             {meta.publishedAt && (

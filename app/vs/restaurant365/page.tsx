@@ -15,11 +15,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BreadcrumbSchema } from "@/components/structured-data"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Restaurant365 is built for enterprise restaurant groups. EasyShiftHQ is built for indie operators running 1–5 units. Here's where each one wins."
 
 export const metadata: Metadata = {
-  title: "EasyShiftHQ vs Restaurant365 | Honest Comparison",
-  description:
-    "Restaurant365 is built for enterprise restaurant groups. EasyShiftHQ is built for indie operators running 1–5 units. Here's where each one wins.",
+  title: { absolute: "EasyShiftHQ vs Restaurant365: Honest Comparison" },
+  description,
   alternates: {
     canonical: "https://easyshifthq.com/vs/restaurant365",
   },
@@ -27,6 +30,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...shareMetadata(
+    "/vs/restaurant365",
+    "EasyShiftHQ vs Restaurant365: Honest Comparison",
+    description,
+  ),
 }
 
 const comparisonRows = [
@@ -77,7 +85,7 @@ const comparisonRows = [
   },
   {
     dimension: "POS integrations",
-    us: "Square, Toast, Clover, Shift4",
+    us: "Square, Toast, Clover, Shift4, Focus POS, Revel",
     them: "Broad POS support including legacy systems",
   },
 ]
@@ -350,7 +358,7 @@ export default function VsRestaurant365Page() {
                 Try EasyShiftHQ free for 14 days.
               </h2>
               <p className="text-xl text-background/70 leading-relaxed">
-                No credit card. No demo required. No quote.
+                No credit card. No demo required. No quote.{" "}
                 <br />
                 See your real profits — every single day.
               </p>

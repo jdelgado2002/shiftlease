@@ -16,9 +16,9 @@ import { TrialCTA } from "@/components/trial-cta"
 import { EmailCaptureForm } from "@/app/tools/daily-pl-cheat-sheet/email-capture-form"
 
 export const metadata: Metadata = {
-  title: "Daily P&L Cheat Sheet — Free Excel + PDF for Restaurant Operators",
+  title: "Free Daily P&L Cheat Sheet",
   description:
-    "A printable one-pager and matching Excel template that reads your day's profit in 5 minutes. Built for restaurant operators who don't want to wait on their accountant.",
+    "A free printable one-pager plus Excel template that turns last night's POS, labor, and invoices into a 5-minute daily profit read.",
   alternates: {
     canonical: "https://easyshifthq.com/tools/daily-pl-cheat-sheet",
   },
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
       "Print the one-pager. Fill the spreadsheet. Read your real profit in 5 minutes a day.",
     url: "https://easyshifthq.com/tools/daily-pl-cheat-sheet",
     type: "article",
+    siteName: "EasyShiftHQ",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -76,10 +78,6 @@ export default function DailyPLCheatSheetPage() {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://easyshifthq.com" },
-          {
-            name: "Tools",
-            url: "https://easyshifthq.com/tools/daily-pl-cheat-sheet",
-          },
           {
             name: "Daily P&L cheat sheet",
             url: "https://easyshifthq.com/tools/daily-pl-cheat-sheet",

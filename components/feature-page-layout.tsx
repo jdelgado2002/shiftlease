@@ -67,8 +67,8 @@ export function FeaturePageLayout({
   indexLede,
   benefitsTitle,
 }: FeaturePageLayoutProps) {
-  // Flatten all feature bullet points for schema
-  const allFeatures = features.flatMap((f) => f.features)
+  // Flatten all feature bullet points for schema, each listed once
+  const allFeatures = Array.from(new Set(features.flatMap((f) => f.features)))
   const capabilityCount = allFeatures.length
 
   return (

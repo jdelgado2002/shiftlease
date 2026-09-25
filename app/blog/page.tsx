@@ -15,6 +15,14 @@ export const metadata: Metadata = {
     description:
       "How to read your numbers, run a tighter shop, and stop finding out two weeks late.",
     url: "https://easyshifthq.com/blog",
+    siteName: "EasyShiftHQ",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Restaurant operations insights | EasyShiftHQ",
+    description:
+      "How to read your numbers, run a tighter shop, and stop finding out two weeks late.",
   },
 }
 

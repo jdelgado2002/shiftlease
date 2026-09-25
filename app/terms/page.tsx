@@ -2,10 +2,14 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "End User License Agreement (EULA) for EasyShiftHQ - Terms and conditions for using our restaurant profit tracking platform."
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "End User License Agreement (EULA) for EasyShiftHQ - Terms and conditions for using our restaurant profit tracking platform.",
+  description,
   alternates: {
     canonical: "https://easyshifthq.com/terms",
   },
@@ -13,6 +17,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...shareMetadata("/terms", "Terms of Service | EasyShiftHQ", description),
 }
 
 export default function TermsOfService() {

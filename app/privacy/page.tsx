@@ -2,10 +2,14 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Privacy Policy for EasyShiftHQ - Learn how we collect, use, and protect your personal data in accordance with GDPR."
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for EasyShiftHQ - Learn how we collect, use, and protect your personal data in accordance with GDPR.",
+  description,
   alternates: {
     canonical: "https://easyshifthq.com/privacy",
   },
@@ -13,6 +17,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...shareMetadata("/privacy", "Privacy Policy | EasyShiftHQ", description),
 }
 
 export default function PrivacyPolicy() {
@@ -213,7 +218,6 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Standard Contractual Clauses (SCCs)</li>
-                <li>Security certifications and audits</li>
                 <li>Contracts ensuring GDPR compliance</li>
               </ul>
             </section>
@@ -222,11 +226,11 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold">9. Data Security Measures</h2>
               <p>We take your data security seriously and have implemented:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>End-to-end encryption</li>
+                <li>Encryption in transit (TLS) and at rest</li>
                 <li>Row-level security</li>
                 <li>Role-based access control (RBAC)</li>
                 <li>Access management protocols</li>
-                <li>Security certifications and audit logs</li>
+                <li>Security and access audit logs</li>
               </ul>
               <p className="mt-4">
                 These measures help protect your data from unauthorized access, alteration, or disclosure.

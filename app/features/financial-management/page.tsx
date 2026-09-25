@@ -1,11 +1,14 @@
 import { Metadata } from "next"
 import { Wallet } from "lucide-react"
 import { FeaturePageLayout } from "@/components/feature-page-layout"
+import { shareMetadata } from "@/lib/share-metadata"
+
+const description =
+  "Know your restaurant profit daily: automated bank connections, AI transaction categorization, and tax-ready financial statements."
 
 export const metadata: Metadata = {
-  title: "Financial Management - Real-Time P&L Dashboard for Restaurants",
-  description:
-    "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, AI-powered transaction categorization, and tax-ready financial statements. Stop waiting weeks for reports.",
+  title: "Real-Time Restaurant P&L Dashboard",
+  description,
   keywords: [
     "restaurant financial management",
     "real-time P&L dashboard",
@@ -19,20 +22,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://easyshifthq.com/features/financial-management",
   },
-  openGraph: {
-    type: "website",
-    url: "https://easyshifthq.com/features/financial-management",
-    title: "Financial Management - Real-Time P&L Dashboard | EasyShiftHQ",
-    description:
-      "Know your restaurant profits daily with real-time P&L tracking, automated bank connections, and tax-ready financial statements.",
-    siteName: "EasyShiftHQ",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Financial Management - Real-Time P&L Dashboard | EasyShiftHQ",
-    description:
-      "Know your restaurant profits daily with real-time P&L tracking and automated bookkeeping.",
-  },
+  ...shareMetadata(
+    "/features/financial-management",
+    "Real-Time Restaurant P&L Dashboard | EasyShiftHQ",
+    description,
+  ),
 }
 
 const features = [

@@ -26,10 +26,12 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BreadcrumbSchema } from "@/components/structured-data"
 
+const description =
+  "Labor is ~1/3 of sales but profit is only 3–4%. Scheduling, time clock, tip pooling and payroll errors quietly drain restaurant margin."
+
 export const metadata: Metadata = {
-  title: "Why Operations Matter - The Cost of Missing Restaurant Operations Systems | EasyShiftHQ",
-  description:
-    "Labor is ~1/3 of sales, but profit is only 3-4%. Scheduling failures, time theft, tip disputes, and payroll errors silently drain restaurants. Learn why operations systems are a profit lever.",
+  title: "Why Restaurant Operations Systems Matter",
+  description,
   keywords: [
     "restaurant operations cost",
     "restaurant labor management",
@@ -46,10 +48,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: "https://easyshifthq.com/why-operations-matter",
-    title: "The Cost of Missing Restaurant Operations Systems",
-    description:
-      "Labor is ~1/3 of sales, profit is only 3-4%. Learn why scheduling, time clock, tip pooling, and payroll systems are loss prevention, not admin convenience.",
+    title: "Why Restaurant Operations Systems Matter | EasyShiftHQ",
+    description,
     siteName: "EasyShiftHQ",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Why Restaurant Operations Systems Matter | EasyShiftHQ",
+    description,
   },
 }
 
@@ -133,7 +140,7 @@ export default function WhyOperationsMatterPage() {
                 <span>The Margin You Cannot Afford to Lose</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-balance">
-                Labor Is a Third of Sales.
+                Labor Is a Third of Sales.{" "}
                 <br />
                 <span className="text-destructive">Profit Is Only 3-4%.</span>
               </h1>

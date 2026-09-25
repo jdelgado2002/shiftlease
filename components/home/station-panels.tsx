@@ -548,7 +548,7 @@ export function StationPanels() {
         eyebrow="Labor"
         title={
           <>
-            Then find out what
+            Then find out what{" "}
             <br />
             those hours <span className="italic text-primary">earned.</span>
           </>
@@ -583,7 +583,7 @@ export function StationPanels() {
         eyebrow="Budget"
         title={
           <>
-            Know if the month clears
+            Know if the month clears{" "}
             <br />
             <span className="italic text-primary">while you can still fix it.</span>
           </>
@@ -616,7 +616,7 @@ export function StationPanels() {
         eyebrow="Money"
         title={
           <>
-            Every dollar named
+            Every dollar named{" "}
             <br />
             <span className="italic text-primary">on the way out the door.</span>
           </>

@@ -7,7 +7,7 @@ import {
   IBM_Plex_Mono,
 } from "next/font/google"
 import Script from "next/script"
-import { OrganizationSchema, WebsiteSchema } from "@/components/structured-data"
+import { WebsiteSchema } from "@/components/structured-data"
 import { PostHogProvider } from "@/components/posthog-provider"
 
 // Type system — "The Operator's Ledger":
@@ -37,12 +37,11 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://easyshifthq.com"),
   title: {
-    default:
-      "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
+    default: "EasyShiftHQ: Restaurant Scheduling Tied to Your P&L",
     template: "%s | EasyShiftHQ",
   },
   description:
-    "Restaurant scheduling that shows the labor dollar while you build the week, then closes the loop: labor % of sales, live budget and run rate, and bank accounts with categorized expenses and printed checks. Your whole staff gets their shifts, clock-in, and tips in the same app.",
+    "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out. 14-day free trial, no credit card.",
   keywords: [
     "restaurant scheduling software",
     "labor cost management",
@@ -72,15 +71,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://easyshifthq.com",
     siteName: "EasyShiftHQ",
-    title: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
+    title: "EasyShiftHQ: Restaurant Scheduling Tied to Your P&L",
     description:
-      "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out — with your whole staff in the same app.",
+      "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out. 14-day free trial, no credit card.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EasyShiftHQ - From the Shift You Schedule to the Check That Clears",
+    title: "EasyShiftHQ: Restaurant Scheduling Tied to Your P&L",
     description:
-      "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out — with your whole staff in the same app.",
+      "Schedule against a live labor budget, see what those hours earned, and keep every dollar categorized on the way out. 14-day free trial, no credit card.",
   },
   robots: {
     index: true,
@@ -122,7 +121,6 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <PostHogProvider>
-          <OrganizationSchema />
           <WebsiteSchema />
           {children}
         </PostHogProvider>

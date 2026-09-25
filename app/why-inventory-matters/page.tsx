@@ -15,10 +15,12 @@ import {
   InventoryBenchmarkTable,
 } from "@/components/inventory-impact"
 
+const description =
+  "Restaurants lose 2-10% of revenue to shrinkage from theft, waste, and errors. Learn how real-time inventory management saves $30,000+ annually per location."
+
 export const metadata: Metadata = {
-  title: "Why Inventory Management Matters - The True Cost of Inventory Loss | EasyShiftHQ",
-  description:
-    "Restaurants lose 2-10% of revenue to shrinkage from theft, waste, and errors. Learn how real-time inventory management saves $30,000+ annually per location.",
+  title: "Why Inventory Management Matters",
+  description,
   keywords: [
     "restaurant inventory loss",
     "food cost management",
@@ -35,10 +37,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: "https://easyshifthq.com/why-inventory-matters",
-    title: "The True Cost of Poor Inventory Management in Restaurants",
-    description:
-      "Restaurants lose 2-10% of revenue to shrinkage. Learn how real-time inventory management prevents theft, reduces waste, and saves thousands.",
+    title: "Why Inventory Management Matters | EasyShiftHQ",
+    description,
     siteName: "EasyShiftHQ",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Why Inventory Management Matters | EasyShiftHQ",
+    description,
   },
 }
 
@@ -85,7 +92,7 @@ export default function WhyInventoryMattersPage() {
                 <span>The Silent Profit Killer</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-balance">
-                Your Restaurant Is Losing
+                Your Restaurant Is Losing{" "}
                 <br />
                 <span className="text-destructive">Thousands Every Month</span>
               </h1>

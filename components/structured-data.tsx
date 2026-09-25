@@ -15,10 +15,16 @@
  *    result on the domain, not just the stars.
  */
 
-const ORG = {
+// One Organization node with a stable @id, so every page's markup points at
+// the same entity. sameAs is how a machine tells us apart from EasyShifts and
+// EasyShift. Add each new profile (G2, LinkedIn, Crunchbase) as it goes live.
+export const ORG = {
   "@type": "Organization",
+  "@id": "https://easyshifthq.com/#organization",
   name: "EasyShiftHQ",
   url: "https://easyshifthq.com",
+  logo: "https://easyshifthq.com/icon-512.png",
+  sameAs: ["https://www.capterra.com/p/10040282/EasyShiftHQ/"],
 } as const
 
 /**
@@ -33,7 +39,14 @@ const PRICING_OFFER = {
   lowPrice: "99",
   highPrice: "299",
   offerCount: 3,
-  unitText: "per location per month",
+  // unitText isn't an AggregateOffer property. The unit lives on a price spec.
+  priceSpecification: {
+    "@type": "UnitPriceSpecification",
+    priceCurrency: "USD",
+    minPrice: "99",
+    maxPrice: "299",
+    unitText: "per location per month",
+  },
 } as const
 
 export function OrganizationSchema() {
@@ -58,13 +71,7 @@ export function OrganizationSchema() {
       "Recipe and menu costing",
       "Bank accounts, categorized expenses and printed checks",
     ],
-    publisher: {
-      ...ORG,
-      logo: {
-        "@type": "ImageObject",
-        url: "https://easyshifthq.com/icon-512.png",
-      },
-    },
+    publisher: ORG,
   }
 
   return (

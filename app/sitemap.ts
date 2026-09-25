@@ -16,12 +16,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   )
 
-  const blogEntries: MetadataRoute.Sitemap = getAllBlogPosts().map((post) => ({
-    url: `${BASE}/blog/${publicSlug(post.slug)}`,
-    lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }))
+  const blogEntries: MetadataRoute.Sitemap = getAllBlogPosts().map((post) => {
+    const modified = post.updatedAt ?? post.publishedAt
+    return {
+      url: `${BASE}/blog/${publicSlug(post.slug)}`,
+      lastModified: modified ? new Date(modified) : now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }
+  })
 
   return [...staticEntries, ...blogEntries]
 }

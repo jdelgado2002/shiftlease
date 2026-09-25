@@ -23,7 +23,7 @@ Package manager is **pnpm**.
 - **Feature pages**: `app/features/*/page.tsx` — each feature detail page uses the shared `components/feature-page-layout.tsx` layout component.
 - **UI components**: `components/ui/` contains shadcn/ui components (new-york style, RSC-compatible). Add new ones via `npx shadcn@latest add <component>`.
 - **Path aliases**: `@/*` maps to the project root (e.g., `@/components/...`, `@/lib/...`).
-- **Styling**: Tailwind CSS v4 with CSS variables for theming. Global styles in `app/globals.css`. The `styles/globals.css` file also exists but `app/globals.css` is the one imported in the layout.
+- **Styling**: Tailwind CSS v4 with CSS variables for theming. All global styles live in `app/globals.css`, which the root layout imports. Design tokens (including the `under`/`over` ledger colors) are declared in its `@theme` block, so they are available as Tailwind utilities.
 - **SEO**: Structured data components in `components/structured-data.tsx`. Metadata defined in `app/layout.tsx`. Google Analytics (G-59L6CWW9YN) loaded via `next/script`.
 - **Analytics**: PostHog (`components/posthog-provider.tsx`) shares its project with the app (`app.easyshifthq.com`) and only initializes on the production hosts listed in `lib/analytics.ts`. Custom events: `trial_cta_clicked` (every `TrialCTA`), `waitlist_joined`, `lead_magnet_downloaded`. Never send PII (email, names) as event properties.
-- **Build config**: TypeScript and ESLint errors are ignored during builds (`next.config.mjs`).
+- **Build config** (`next.config.mjs`): TypeScript errors **fail** the build — there is no `ignoreBuildErrors` escape hatch, so keep `npx tsc --noEmit` clean. ESLint is still skipped during builds (`eslint.ignoreDuringBuilds`) because the repo has no ESLint config yet; `pnpm lint` does not currently lint anything.

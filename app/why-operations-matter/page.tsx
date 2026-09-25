@@ -313,12 +313,12 @@ export default function WhyOperationsMatterPage() {
               <p>
                 But scheduling does not only affect cost. A peer-reviewed research program highlighted by INFORMS
                 analyzed ~1.5 million transactions from 25 restaurants and found that{" "}
-                <strong className="text-foreground">"real-time scheduling" — changing hours during a shift with
+                <strong className="text-foreground">&quot;real-time scheduling&quot; — changing hours during a shift with
                 no advance notice — was associated with an average 4.4% drop in check size</strong> for affected
                 servers, with meaningful profit impacts in low-margin restaurants.
               </p>
               <p>
-                Chaos scheduling can look like "flexibility," but it translates into lower upsell effort,
+                Chaos scheduling can look like &quot;flexibility,&quot; but it translates into lower upsell effort,
                 lower guest spend, and weaker unit economics.
               </p>
               <p>
@@ -413,13 +413,13 @@ export default function WhyOperationsMatterPage() {
               <p>
                 The U.S. Department of Labor requires FLSA-covered employers to keep accurate wage-and-hour
                 records, with payroll records retained at least three years and time cards retained two years.
-                When time records are incomplete, <strong className="text-foreground">"reconstructed" payroll
+                When time records are incomplete, <strong className="text-foreground">&quot;reconstructed&quot; payroll
                 is hard to defend</strong>.
               </p>
               <p>
                 Overtime is a frequent failure mode when timekeeping is fragmented. If punches are missing,
                 breaks are not tracked, or open shifts are not resolved, payroll engines either mispay employees
-                or managers "round and guess" — both create back-pay exposure.
+                or managers &quot;round and guess&quot; — both create back-pay exposure.
               </p>
             </NarrativeSection>
 
@@ -552,7 +552,7 @@ export default function WhyOperationsMatterPage() {
               title="Payroll: Where Every Error Compounds"
             >
               <p>
-                Payroll failures are rarely "just payroll." In restaurants, errors typically cascade into
+                Payroll failures are rarely &quot;just payroll.&quot; In restaurants, errors typically cascade into
                 staff churn, emergency off-cycle payments, and compliance risk, because pay is frequent and
                 wage components — overtime, tips, break deductions — are variable.
               </p>
@@ -570,7 +570,7 @@ export default function WhyOperationsMatterPage() {
                 avoidable penalties alongside internal rework.
               </p>
               <p>
-                There is also a "time tax." 7shifts reported that{" "}
+                There is also a &quot;time tax.&quot; 7shifts reported that{" "}
                 <strong className="text-foreground">67% of operators spend more than 100 hours per year
                 processing payroll manually</strong>. Integration between timekeeping, tips, and payroll
                 is the key lever.
@@ -622,7 +622,7 @@ export default function WhyOperationsMatterPage() {
                 The real value is not any single module — it is the{" "}
                 <strong className="text-foreground">closed loop between all four</strong>. When scheduling
                 feeds the time clock, the time clock feeds tip pooling, and tip pooling feeds payroll, you
-                eliminate the re-keying, reconciliation, and "payroll chaos weeks" that cause errors, churn,
+                eliminate the re-keying, reconciliation, and &quot;payroll chaos weeks&quot; that cause errors, churn,
                 and compliance exposure.
               </p>
               <p>

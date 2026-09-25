@@ -229,7 +229,7 @@ export default function WhyInventoryMattersPage() {
                 and documented across thousands of restaurant operations.
               </p>
               <p>
-                A 24-location Taco John's franchisee reported a{" "}
+                A 24-location Taco John&apos;s franchisee reported a{" "}
                 <strong className="text-foreground">2.5% food cost reduction in year one</strong> after
                 implementing integrated inventory management, with an expected additional 1.5% savings
                 in year two. At their revenue scale, that translated to{" "}
@@ -288,7 +288,7 @@ export default function WhyInventoryMattersPage() {
           <div className="container">
             <NarrativeSection number="06" title="What Real-Time Inventory Actually Means">
               <p>
-                "Real-time" is not marketing jargon — it is a fundamentally different approach to
+                &quot;Real-time&quot; is not marketing jargon — it is a fundamentally different approach to
                 knowing what is in your restaurant. Here is what changes when you move from periodic
                 counts to continuous visibility:
               </p>

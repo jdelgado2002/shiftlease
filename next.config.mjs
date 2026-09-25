@@ -19,7 +19,7 @@ const nextConfig = {
     ].map((host) => ({
       source: "/:path*",
       // `has` values are regexes, so escape the dots for an exact host match.
-      has: [{ type: "host", value: host.replaceAll(".", "\\.") }],
+      has: [{ type: "host", value: host.replaceAll(".", String.raw`\.`) }],
       // Cloudflare adds cf-ray to every request it forwards, and a direct hit
       // on a netlify.app hostname never passes through Cloudflare. If Cloudflare
       // ever rewrote Host to one of these names, real visitors would skip this

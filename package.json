@@ -16,7 +16,7 @@
     "clsx": "2.1.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "0.545.0",
-    "next": "15.5.26",
+    "next": "15.5.27",
     "next-mdx-remote": "^6.0.0",
     "posthog-js": "^1.434.12",
     "react": "^19",
